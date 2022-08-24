@@ -1,0 +1,255 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+        <title>Hexo</title>
+        <meta name="author" content="John Doe">
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <link rel="icon" href="">
+        <script src="https://cdn.staticfile.org/instant.page/5.1.0/instantpage.min.js" type="module"></script>
+        <script src="https://cdn.staticfile.org/font-awesome/6.1.1/js/all.min.js"></script>
+        
+        <link rel="stylesheet" href="/css/fonts.min.css">
+        <link rel="stylesheet" href="/css/particlex.css">
+        
+        <script src="https://cdn.staticfile.org/vue/3.2.33/vue.global.prod.min.js"></script>
+    <meta name="generator" content="Hexo 6.2.0"></head>
+    <body>
+        <div id="loading" style="height:100vh;width:100vw;position:fixed;display:flex;z-index:200;justify-content:space-between;background:#fff;transition:opacity 0.3s ease-out"><div style="position:fixed;height:100vh;width:100vw;display:flex;justify-content:center;align-items:center"><div id="loadcontent" style="width:50vmin;height:50vmin;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px #a3ddfb;text-align:center"><div><h2>LOADING...</h2><p style="word-break:keep-all">加载过慢请开启缓存(浏览器默认开启)</p><div><img alt="loading" src="/loading.gif"></div></div></div></div></div>
+        <div id="layout">
+            <i data-fa-symbol="calendar-solid" class="fa-solid fa-calendar fa-fw"></i>
+            <i data-fa-symbol="bookmark-solid" class="fa-solid fa-bookmark fa-fw"></i>
+            <i data-fa-symbol="tags-solid" class="fa-solid fa-tags fa-fw"></i>
+            <transition name="into">
+                <div v-show="show_page" style="display: -not-none">
+                    <div id="menu_show">
+                         
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Hexo</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;about</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;tags</span>
+        </a>
+        
+    </div>
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div class="curtain" @click="menu_show = !menu_show" v-show="menu_show"></div>
+        <div :class="'title'" @click="menu_show = !menu_show">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;Hexo</span>
+        </div>
+        <transition name="slide">
+        <div class="items" v-show="menu_show">
+            
+            <a href="">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-house fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">home</div>
+                </div>
+            </a>
+            
+            <a href="about">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-id-card fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">about</div>
+                </div>
+            </a>
+            
+            <a href="archives">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-box-archive fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">archives</div>
+                </div>
+            </a>
+            
+            <a href="categories">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-bookmark fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">categories</div>
+                </div>
+            </a>
+            
+            <a href="tags">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-tags fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        </transition>
+    </div>
+</nav>
+                    </div>
+                    <div id="main">
+                        
+<div class="article">
+    <div>
+        <h1> </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2022/8/24
+        </span>
+        
+        
+    </div>
+    <div class="content" v-pre>
+        <h2 id="SERVER"><a href="#SERVER" class="headerlink" title="$_SERVER"></a>$_SERVER</h2><pre><code>$_SERVER[&quot;QUERY_STRING&quot;]
+获取查询语句，实例中可知，获取的是?后面的值
+
+$_SERVER[&quot;REQUEST_URI&quot;]
+获取http://www.xxx.com或是http://localhost/后面的值，包括/
+
+$_SERVER[&quot;SCRIPT_NAME&quot;]
+获取当前脚本的路径，如：/index.php或/aaa/index.php
+
+$_SERVER[&quot;PHP_SELF&quot;]
+当前正在执行脚本的文件名
+
+与$_GET不同，$_SERVER不会转义url编码
+</code></pre>
+<h2 id="preg-match"><a href="#preg-match" class="headerlink" title="preg_match()"></a>preg_match()</h2><pre><code>preg_match可以用来查找字符串。
+1，它不能处理数组，否则返回false
+2，如果使用正则表达式，由于其回溯次数是有限的，可以突破限制返回false。https://www.leavesongs.com/PENETRATION/use-pcre-backtrack-limit-to-bypass-restrict.html
+3.如果使用正则表达式，.不会匹配换行符，可以用换行符截断绕过
+4.如果使用正则表达式，在非多行模式下（无/s），%0a等空白字符会被忽略
+</code></pre>
+<h2 id="REQUEST"><a href="#REQUEST" class="headerlink" title="$_REQUEST"></a>$_REQUEST</h2><pre><code>$_REQUEST是用户传入的GET,POST参数值。
+由于POST的优先级比GET高，所以当POST和GET存在相同的参数时，以POST为准
+</code></pre>
+<h2 id="sha1"><a href="#sha1" class="headerlink" title="sha1()"></a>sha1()</h2><p>加密函数，不支持加密数组，否则返回null</p>
+<h2 id="file-get-contents"><a href="#file-get-contents" class="headerlink" title="file_get_contents()"></a>file_get_contents()</h2><p>读取文件，存在反序列化漏洞，支持伪协议</p>
+<p>如可以使用data伪协议指定返回的内容：data:&#x2F;&#x2F;text&#x2F;plain,debu_debu_aque</p>
+<p>指定内容为debu_debu_aque</p>
+<h2 id="create-function"><a href="#create-function" class="headerlink" title="create_function()"></a>create_function()</h2><p>创建匿名函数。其问题在于太相信用户输入。</p>
+<p>如$code(‘’, $arg)</p>
+<p>其中$code,$arg均为用户输入</p>
+<p>对于$aaa &#x3D; create_function(‘$a, $b’, ‘return $a+$b;’);</p>
+<p>它相当于</p>
+<pre><code>function aaa($a, $b)&#123;
+    return $a+$b;
+&#125;
+</code></pre>
+<p>所以，如果$code&#x3D;create_function,$arg&#x3D;;}fction();<em>&#x2F;&#x2F;</em></p>
+<p>带入后</p>
+<pre><code>function 匿名()&#123;
+    return ;
+&#125;  
+fction();//&#125;
+</code></pre>
+<p>这样fction（）被执行</p>
+<h2 id="substr-count"><a href="#substr-count" class="headerlink" title="substr_count"></a>substr_count</h2><p>检查子串在字符串出现次数，区分大小写</p>
+<h2 id="GET-x2F-POST"><a href="#GET-x2F-POST" class="headerlink" title="GET&#x2F;POST"></a>GET&#x2F;POST</h2><p><strong>我们知道PHP将查询字符串（在URL或正文中）转换为内部$_GET或的关联数组$_POST。例如：&#x2F;?foo&#x3D;bar变成Array([foo] &#x3D;&gt; “bar”)。值得注意的是，查询字符串在解析的过程中会将某些字符删除或用下划线代替。例如，&#x2F;?%20news[id%00&#x3D;42会转换为Array([news_id] &#x3D;&gt; 42)。如果一个IDS&#x2F;IPS或WAF中有一条规则是当news_id参数的值是一个非数字的值则拦截，那么我们就可以用以下语句绕过：</strong></p>
+<pre><code>/news.php?%20news[id%00=42&quot;+AND+1=0--
+</code></pre>
+<p>上述PHP语句的参数%20news[id%00的值将存储到$_GET[“news_id”]中。</p>
+<p>HP需要将所有参数转换为有效的变量名，因此在解析查询字符串时，它会做两件事：</p>
+<blockquote>
+<p>​    1.删除空白符</p>
+<p>​    2.将某些字符转换为下划线（包括空格）</p>
+</blockquote>
+<p><img src="/%E7%AE%80%E5%8D%95%E7%9A%84php%E7%89%B9%E6%80%A7%E4%B8%8E%E7%BB%95%E8%BF%87.assets/1567560448_5d6f13004035f.png" alt="img"></p>
+<h2 id="题目："><a href="#题目：" class="headerlink" title="题目："></a>题目：</h2><p>[BJDCTF2020]EzPHP</p>
+<h2 id="其它笔记"><a href="#其它笔记" class="headerlink" title="其它笔记"></a>其它笔记</h2><h3 id="extract"><a href="#extract" class="headerlink" title="extract()"></a>extract()</h3><p>用于批量给参数赋值。</p>
+<p>如：</p>
+<pre><code>$x=&#39;&#39;
+$y=&#39;&#39;
+$a[x]=1
+$a[y]=2
+extract($a)
+
+结果：x=1，y=2
+</code></pre>
+<h3 id="require"><a href="#require" class="headerlink" title="require()"></a>require()</h3><p>读取文件。与include功能相似。</p>
+<p>对 include() 语句来说，在执行文件时每次都要进行读取和评估；而对于 require() 来说，文件只处理一次（实际上，文件内容替换 require() 语句）。</p>
+<ul>
+<li><strong>incluce</strong> 在用到时加载</li>
+<li><strong>require</strong> 在一开始就加载</li>
+<li><strong>_once</strong> 后缀表示已加载的不加载</li>
+</ul>
+<h3 id="var-dump"><a href="#var-dump" class="headerlink" title="var_dump()"></a>var_dump()</h3><p>打印变量信息</p>
+<h3 id="get-defined-vars"><a href="#get-defined-vars" class="headerlink" title="get_defined_vars()"></a>get_defined_vars()</h3><p>返回由所有已定义变量所组成的数组。</p>
+<p>可以配合var_dump()获取文件中关键词（读不了全部代码）</p>
+<h3 id="addslashes"><a href="#addslashes" class="headerlink" title="addslashes()"></a>addslashes()</h3><p>该函数可以将传入的字符串在预定义字符之前添加反斜杠。</p>
+<p>预定义字符是：</p>
+<ul>
+<li>单引号（’）</li>
+<li>双引号（”）</li>
+<li>反斜杠（\）</li>
+</ul>
+<p><strong>注释：</strong>默认地，PHP 对所有的 GET、POST 和 COOKIE 数据自动运行 addslashes()。</p>
+
+    </div>
+    
+</div>
+                         
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 20xx - 2022 Hexo
+            <span class="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            @John Doe
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/argvchs/hexo-theme-particlex">ParticleX Theme</a></div>
+        
+    </div>
+</footer>
+                    </div>
+                </div>
+            </transition>
+            <div id="img_show">
+                <img id="img_content" alt="img_show">
+            </div>
+        </div>
+        <script src="https://cdn.staticfile.org/highlight.js/11.5.1/highlight.min.js"></script>
+        <script src="/js/particlex.js"></script>
+        <script src="/js/showimg.js"></script>
+        
+
+    </body>
+</html>
