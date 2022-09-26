@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
-        <title>第二届长城杯部分Writeup | Fjgrsd</title>
+        <title>Tags: 靶机 | Fjgrsd</title>
         <meta name="author" content="fjgrsd">
         <meta name="description" content="learn for happy">
         <meta name="keywords" content="">
@@ -119,92 +119,92 @@
 </nav>
                     </div>
                     <div id="main">
-                        
-<div class="article">
-    <div>
-        <h1>第二届长城杯部分Writeup </h1>
-    </div>
-    <div class="info">
-        <span class="date">
-            <span class="icon">
-                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
-            </span>
-            2022/8/27
-        </span>
+                         
+<div class="categories-tags">
+    
+    <div class="all-s">
         
-        <span class="category">
-            <a href="/categories/赛事记录/">
+        
+        <span>
+            <a href="/tags/靶机/" style="background: linear-gradient(120deg, #9abbf7 0%, #ffbbf4 100%)">
                 <span class="icon">
-                    <svg class="fa-icon"><use xlink:href="#bookmark-solid"></use></svg>
+                    <svg class="fa-icon"><use xlink:href="#tags-solid"></use></svg>
                 </span>
-                赛事记录
+                靶机
             </a>
         </span>
         
         
-        <span class="tags">
-            <span class="icon">
-                <svg class="fa-icon"><use xlink:href="#tags-solid"></use></svg>
-            </span>
-            
-            <span class="tag">
-                
-                <a href="/tags/ctf/" style="color: #03a9f4">
-                    ctf
-                </a>
-            </span>
-            
-            <span class="tag">
-                
-                <a href="/tags/长城杯/" style="color: #03a9f4">
-                    长城杯
-                </a>
-            </span>
-            
+        <span>
+            <a href="/tags/ctf/" style="background: #00bcd4">
+                <span class="icon">
+                    <svg class="fa-icon"><use xlink:href="#tags-solid"></use></svg>
+                </span>
+                ctf
+            </a>
+        </span>
+        
+        
+        <span>
+            <a href="/tags/ByteCTF/" style="background: #00bcd4">
+                <span class="icon">
+                    <svg class="fa-icon"><use xlink:href="#tags-solid"></use></svg>
+                </span>
+                ByteCTF
+            </a>
+        </span>
+        
+        
+        <span>
+            <a href="/tags/长城杯/" style="background: #03a9f4">
+                <span class="icon">
+                    <svg class="fa-icon"><use xlink:href="#tags-solid"></use></svg>
+                </span>
+                长城杯
+            </a>
         </span>
         
     </div>
-    <div class="content" v-pre>
-        <h2 id="djangogogo"><a href="#djangogogo" class="headerlink" title="djangogogo"></a>djangogogo</h2><p><img src="/2022/08/27/%E7%AC%AC%E4%BA%8C%E5%B1%8A%E9%95%BF%E5%9F%8E%E6%9D%AF%E9%83%A8%E5%88%86writeup/image-20220823122321615.png" alt="image-20220823122321615"></p>
-<p>name参数随便输，看到报错界面</p>
-<span id="more"></span>
-
-<p><img src="/2022/08/27/%E7%AC%AC%E4%BA%8C%E5%B1%8A%E9%95%BF%E5%9F%8E%E6%9D%AF%E9%83%A8%E5%88%86writeup/image-20220823174655879.png" alt="image-20220823174655879"></p>
-<p>得知Django Version:	4.0.5</p>
-<p>4.0.5，django，extract查找资料后感觉很可能是CVE-2022-34265sql注入</p>
-<p>但是只有一个get参数name供我们操作，是year或mauth可以筛选相应数据，推测我们的参数一定参与到数据库操作，先去学习一下这个cve</p>
-<p>输入year))</p>
-<p><img src="/2022/08/27/%E7%AC%AC%E4%BA%8C%E5%B1%8A%E9%95%BF%E5%9F%8E%E6%9D%AF%E9%83%A8%E5%88%86writeup/image-20220823174843365.png" alt="image-20220823174843365"></p>
-<pre><code>$name) FROM `Bill`.`purchase_date`))
-</code></pre>
-<p>推测sql渔语句应该是类似：</p>
-<p>select * from <code>Bill</code> where where extract($name from <code>Bill</code>.<code>sell_date</code>)-1&#x3D;(extract($name from <code>Bill</code>.<code>purchase_date</code>))这样的，尝试闭合：</p>
-<p>?name&#x3D;YEAR FROM purchase_date)) and updatexml(1,concat(1,(select version()),1),1)–</p>
-<p>成功</p>
-<p><img src="/2022/08/27/%E7%AC%AC%E4%BA%8C%E5%B1%8A%E9%95%BF%E5%9F%8E%E6%9D%AF%E9%83%A8%E5%88%86writeup/image-20220823125411074.png" alt="image-20220823125411074"></p>
-<p>读取flag：</p>
-<p>?name&#x3D;YEAR FROM purchase_date)) and updatexml(1,concat(1,(select flag from FLAG),1),1)–</p>
-<p>?name&#x3D;YEAR FROM purchase_date)) and updatexml(1,concat(1,(right((select flag from FLAG),32)),1),1)–</p>
-<p><img src="/2022/08/27/%E7%AC%AC%E4%BA%8C%E5%B1%8A%E9%95%BF%E5%9F%8E%E6%9D%AF%E9%83%A8%E5%88%86writeup/image-20220823174944321.png" alt="image-20220823174944321"></p>
-<p><img src="/2022/08/27/%E7%AC%AC%E4%BA%8C%E5%B1%8A%E9%95%BF%E5%9F%8E%E6%9D%AF%E9%83%A8%E5%88%86writeup/image-20220823131606765.png" alt="image-20220823131606765"></p>
-<p>由于长度限制，使用right函数读取后半部分flag，最后拼接得到flag</p>
-<h2 id="办公室爱情"><a href="#办公室爱情" class="headerlink" title="办公室爱情"></a>办公室爱情</h2><p>word文件有隐藏文字，wps显示隐藏文字处理得到</p>
-<p><img src="/2022/08/27/%E7%AC%AC%E4%BA%8C%E5%B1%8A%E9%95%BF%E5%9F%8E%E6%9D%AF%E9%83%A8%E5%88%86writeup/image-20220823155436374.png" alt="image-20220823155436374"></p>
-<p>password12:i2_supReMe</p>
-<p>修改全局字体颜色得到</p>
-<p><img src="/2022/08/27/%E7%AC%AC%E4%BA%8C%E5%B1%8A%E9%95%BF%E5%9F%8E%E6%9D%AF%E9%83%A8%E5%88%86writeup/image-20220823160944830.png" alt="image-20220823160944830"></p>
-<p>password1:True_lOve_</p>
-<p>用wbstego4open解密pdf，提取密码是上面的组合</p>
-<p><img src="/2022/08/27/%E7%AC%AC%E4%BA%8C%E5%B1%8A%E9%95%BF%E5%9F%8E%E6%9D%AF%E9%83%A8%E5%88%86writeup/image-20220823164046701.png" alt="image-20220823164046701"></p>
-<p>得到密文this_is_pAssw0rd@!，用来解压文件得到ppt</p>
-<p><img src="/2022/08/27/%E7%AC%AC%E4%BA%8C%E5%B1%8A%E9%95%BF%E5%9F%8E%E6%9D%AF%E9%83%A8%E5%88%86writeup/image-20220823164303133.png" alt="image-20220823164303133"></p>
-<p>nmd</p>
-<p>解压后发现就是八个图片，怀疑是 <strong>jother</strong>编码! + ( ) [ ] { } </p>
-<p>tmd结果队友说是七进制，白的是间隔</p>
-<p>解压出来ppt，发现共有8中颜色，赤橙黄绿青蓝紫白，猜测白色作为间隔，以赤橙黄绿青蓝紫对应0-6的顺序，构成7进制编码，最后转换为ascii得到flag：&#96;flag{10ve_exCe1_!!!}</p>
-
+    <div id="archives">
+        
+        <div class="timeline">
+            <div class="timeline-tail"></div>
+            <div class="timeline-content">
+                <div class="item-time">2022/9/25</div>
+                <a href="/2022/09/25/ATT-CK红队评估-一/">
+                    <h3>ATT&amp;CK红队评估(一)</h3>
+                </a>
+                <div class="info">
+                    
+                    <span class="category">
+                        <a href="/categories/内网渗透/">
+                            <span class="icon">
+                                <svg class="fa-icon"><use xlink:href="#bookmark-solid"></use></svg>
+                            </span>
+                            内网渗透
+                        </a>
+                    </span>
+                    
+                    
+                    <span class="tags">
+                        <span class="icon">
+                            <svg class="fa-icon"><use xlink:href="#tags-solid"></use></svg>
+                        </span>
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/靶机/" style="color: #ff7d73">
+                                靶机
+                            </a>
+                        </span>
+                        
+                    </span>
+                    
+                </div>
+            </div>
+        </div>
+        
     </div>
-    
 </div>
                          
 <footer id="footer">

